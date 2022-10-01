@@ -1,0 +1,21 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "serial_port": "[%key:common::config_flow::data::serial_port%]",
+          "manual_path": "[%key:common::config_flow::data::manual_path%]",
+          "time_open": "[%key:common::config_flow::data::time_open%]",
+          "time_close": "[%key:common::config_flow::data::time_close%]"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "unknown": "[%key:common::config_flow::error::unknown%]"
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
+    }
+  }
+}
