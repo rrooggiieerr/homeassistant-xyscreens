@@ -44,7 +44,6 @@ async def async_setup_entry(
     async_add_entities(
         [
             XYScreensCover(
-                "Projector Screen",
                 config[CONF_SERIAL_PORT],
                 config[CONF_TIME_OPEN],
                 config[CONF_TIME_CLOSE],
@@ -55,6 +54,7 @@ async def async_setup_entry(
 
 class XYScreensCover(CoverEntity, RestoreEntity):
     _attr_has_entity_name = True
+    _attr_name = None
     _attr_device_class = DEVICE_CLASS_SHADE
     _attr_icon = "mdi:projector-screen-variant"
     _attr_assumed_state = True
@@ -71,17 +71,15 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     _timestamp = 0
     _unsubscribe_updater = None
 
-    _serial_port = None
-
-    def __init__(self, name, serial_port, time_open, time_close) -> None:
+    def __init__(self, serial_port, time_open, time_close) -> None:
         """Initialize the cover."""
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, serial_port)},
-            default_name="XY Screens",
-            default_manufacturer="XY Screens",
+            name="Projector Screen",
+            manufacturer="XY Screens",
         )
         self._attr_unique_id = serial_port
-        self._attr_name = name
+
         self._serial_port = serial_port
         self._time_open = time_open
         self._time_close = time_close
