@@ -72,8 +72,8 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 info = await self.validate_input_setup_serial(user_input, errors)
             except CannotConnect:
                 errors["base"] = "cannot_connect"
-            except Exception:  # pylint: disable=broad-except
-                _LOGGER.exception("Unexpected exception")
+            except Exception as ex:  # pylint: disable=broad-except
+                _LOGGER.exception("Unexpected exception: %s", ex)
                 errors["base"] = "unknown"
             else:
                 return self.async_create_entry(title=info["title"], data=info)
