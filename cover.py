@@ -1,14 +1,13 @@
 from __future__ import annotations
 
-from datetime import timedelta
 import logging
 import os
 import time
+from datetime import timedelta
 from typing import Any
 
 import serial
 import voluptuous as vol
-
 from homeassistant.components.cover import (
     ATTR_CURRENT_POSITION,
     DEVICE_CLASS_SHADE,

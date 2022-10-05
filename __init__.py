@@ -3,7 +3,6 @@ import logging
 import os
 
 import serial
-
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
@@ -22,9 +21,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     # Test if the device exists.
     serial_port = entry.data[CONF_SERIAL_PORT]
     if not os.path.exists(serial_port):
-        raise ConfigEntryNotReady(
-            f"Device {serial_port} does not exists"
-        )
+        raise ConfigEntryNotReady(f"Device {serial_port} does not exists")
 
     # Test if we can connect to the device.
     try:

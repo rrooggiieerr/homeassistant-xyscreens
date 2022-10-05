@@ -5,15 +5,14 @@ import logging
 import os
 from typing import Any
 
+import homeassistant.helpers.config_validation as cv
 import serial
 import serial.tools.list_ports
 import voluptuous as vol
-
 from homeassistant import config_entries
 from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.exceptions import HomeAssistantError
-import homeassistant.helpers.config_validation as cv
 
 from .const import (
     CONF_MANUAL_PATH,
@@ -109,9 +108,7 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
         # Test if the device exists
         if not os.path.exists(serial_port):
-            raise vol.error.PathInvalid(
-                f"Device {serial_port} does not exists"
-            )
+            raise vol.error.PathInvalid(f"Device {serial_port} does not exists")
 
         await self.async_set_unique_id(serial_port)
         self._abort_if_unique_id_configured()
@@ -137,7 +134,9 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
             _LOGGER.info("Device %s available", serial_port)
         except serial.SerialException as ex:
-            raise CannotConnect(f"Unable to connect to the device {serial_port}: {ex}", ex)
+            raise CannotConnect(
+                f"Unable to connect to the device {serial_port}: {ex}", ex
+            )
 
         # Return info that you want to store in the config entry.
         return {
