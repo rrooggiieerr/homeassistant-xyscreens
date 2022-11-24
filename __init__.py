@@ -43,10 +43,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         connection.close()
 
         _LOGGER.info("Device %s is available", serial_port)
-    except serial.SerialException as ex:
+    except serial.SerialException as e:
         raise ConfigEntryNotReady(
-            f"Unable to connect to device {serial_port}: {ex}"
-        ) from ex
+            f"Unable to connect to device {serial_port}: {e}"
+        ) from e
 
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = entry.data
 
