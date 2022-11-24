@@ -5,16 +5,10 @@ I use a cheap USB RS485 controler from eBay to talk to the projector screen.
 
 XY Screens is an OEM manufacturer of projector screen and projector lifts.
 
-This are the protocol details:\
-2400 baud 8N1\
-up command  : 0xFF 0xAA 0xEE 0xEE 0xDD\
-down command: 0xFF 0xAA 0xEE 0xEE 0xEE\
-stop command: 0xFF 0xAA 0xEE 0xEE 0xCC
-
 Known to work:\
 iVisions Electro M Series
 
-Not tested but uses te same protocol according to the documentation:\
+Not tested but uses the same protocol according to the documentation:\
 iVisions Electro L/XL/Pro/HD Series\
 iVisions PL Series projector lift\
 Elite Screens\
