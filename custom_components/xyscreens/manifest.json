@@ -16,12 +16,5 @@
   "codeowners": [
     "@rrooggiieerr"
   ],
-  "iot_class": "assumed_state",
-  "supported_brands": {
-    "xyscreens": "XY Screens",
-    "ivisions": "iVisions",
-    "elitescreens": "Elite Screens",
-    "kimex": "KIMEX",
-    "deluxx": "DELUXX"
-  }
+  "iot_class": "assumed_state"
 }
