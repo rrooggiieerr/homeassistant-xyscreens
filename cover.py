@@ -1,13 +1,9 @@
 from __future__ import annotations
 
 import logging
-import os
-import time
 from datetime import timedelta
-from typing import Any
 
-import serial
-import voluptuous as vol
+# import serial
 from homeassistant.components.cover import (
     ATTR_CURRENT_POSITION,
     DEVICE_CLASS_SHADE,
@@ -16,14 +12,14 @@ from homeassistant.components.cover import (
     SUPPORT_STOP,
     CoverEntity,
 )
-from homeassistant.const import CONF_COMMAND_CLOSE, CONF_COMMAND_OPEN, CONF_COMMAND_STOP
 from homeassistant.core import callback
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.event import async_track_time_interval
 from homeassistant.helpers.restore_state import RestoreEntity
 
+from xyscreens import XYScreens
+
 from .const import (
-    COMMAND_DICT,
     CONF_SERIAL_PORT,
     CONF_TIME_CLOSE,
     CONF_TIME_OPEN,
@@ -65,13 +61,10 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     _attr_is_closing = False
     _attr_is_opening = False
 
-    _direction = CONF_COMMAND_STOP
-    _percentage = 100.0  # 0 is closed, 100 is fully open
-    _timestamp = 0
     _unsubscribe_updater = None
 
     def __init__(self, serial_port, time_open, time_close) -> None:
-        """Initialize the cover."""
+        """Initialize the screen."""
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, serial_port)},
             name="Projector Screen",
@@ -79,9 +72,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
         )
         self._attr_unique_id = serial_port
 
-        self._serial_port = serial_port
-        self._time_open = time_open
-        self._time_close = time_close
+        self._screen = XYScreens(serial_port, time_open, time_close)
 
     async def async_added_to_hass(self) -> None:
         last_state = await self.async_get_last_state()
@@ -89,52 +80,53 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             last_state is not None
             and last_state.attributes.get(ATTR_CURRENT_POSITION) is not None
         ):
-            _LOGGER.debug(
-                "Old cover position: %s",
-                last_state.attributes.get(ATTR_CURRENT_POSITION),
-            )
-            self._attr_current_cover_position = last_state.attributes.get(
-                ATTR_CURRENT_POSITION
-            )
-            self._percentage = self._attr_current_cover_position
-            if self._percentage == 0:
+            position = last_state.attributes.get(ATTR_CURRENT_POSITION)
+            _LOGGER.debug("Old screen position: %s", position)
+            self._screen.set_position(100 - position)
+            self._attr_current_cover_position = position
+            if position == 0:
                 self._attr_is_closed = True
+
+            # Icon of the entity.
+            if position > 50:
+                self._attr_icon = "mdi:projector-screen-variant-off-outline"
 
     async def async_update(self) -> None:
-        if self._direction == CONF_COMMAND_OPEN:
-            self._percentage = (
-                (time.time() - self._timestamp) / self._time_open
-            ) * 100.0
+        position = 100 - self._screen.position()
+        _LOGGER.debug("Screen position: %5.1f %%", position)
+        state = self._screen.state()
+
+        if state == XYScreens.STATE_UP:
             self._attr_is_closing = False
             self._attr_is_closed = False
-            if self._percentage >= 100.0:
-                self._direction = CONF_COMMAND_STOP
-                self._percentage = 100.0
-                self._attr_is_opening = False
-            else:
-                self._attr_is_opening = True
-        elif self._direction == CONF_COMMAND_CLOSE:
-            self._percentage = 100.0 - (
-                ((time.time() - self._timestamp) / self._time_close) * 100.0
-            )
             self._attr_is_opening = False
-            if self._percentage <= 0.0:
-                self._direction = CONF_COMMAND_STOP
-                self._percentage = 0.0
-                self._attr_is_closing = False
-                self._attr_is_closed = True
-            else:
-                self._attr_is_closing = True
-                self._attr_is_closed = False
+            self.stop_updater()
+        elif state == XYScreens.STATE_UPWARD:
+            self._attr_is_closing = False
+            self._attr_is_closed = False
+            self._attr_is_opening = True
+        elif state == XYScreens.STATE_STOPPED:
+            self._attr_is_closing = False
+            self._attr_is_closed = False
+            self._attr_is_opening = False
+            self.stop_updater()
+        elif state == XYScreens.STATE_DOWNWARD:
+            self._attr_is_closing = True
+            self._attr_is_closed = False
+            self._attr_is_opening = False
+        elif state == XYScreens.STATE_DOWN:
+            self._attr_is_closing = False
+            self._attr_is_closed = True
+            self._attr_is_opening = False
+            self.stop_updater()
 
         # Icon of the entity.
-        if self._percentage <= 50.0:
+        if position <= 50.0:
             self._attr_icon = "mdi:projector-screen-variant-outline"
         else:
             self._attr_icon = "mdi:projector-screen-variant-off-outline"
 
-        self._attr_current_cover_position = int(self._percentage)
-        self.async_write_ha_state()
+        self._attr_current_cover_position = int(position)
 
     def start_updater(self):
         """Start the updater to update Home Assistant while cover is moving."""
@@ -157,72 +149,17 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             self._unsubscribe_updater()
             self._unsubscribe_updater = None
 
-    def _send_command(self, command: str) -> bool:
-        """Execute the actual commands."""
-        # Test if the device exists
-        if not os.path.exists(self._serial_port):
-            _LOGGER.error(
-                "Unable to connect to the device %s: not exists", self._serial_port
-            )
-            self._attr_available = False
-            return False
-
-        try:
-            # Create the connection instance.
-            connection = serial.Serial(
-                port=self._serial_port,
-                baudrate=2400,
-                bytesize=serial.EIGHTBITS,
-                parity=serial.PARITY_NONE,
-                stopbits=serial.STOPBITS_ONE,
-                timeout=1,
-            )
-        except serial.SerialException as exec:
-            _LOGGER.exception(
-                "Unable to connect to the device %s: %s", self._serial_port, exec
-            )
-            return False
-        _LOGGER.debug("Device %s connected", self._serial_port)
-
-        try:
-            # Open the connection.
-            if not connection.is_open:
-                connection.open()
-
-            # Send the command.
-            connection.write(COMMAND_DICT[command])
-            connection.flush()
-            _LOGGER.info("Command successfully send")
-
-            # Close the connection.
-            connection.close()
-
-            return True
-        except serial.SerialException as exec:
-            _LOGGER.exception(
-                "Error while writing device %s: %s", self._serial_port, exec
-            )
-
-        return False
-
     async def async_open_cover(self, **kwargs: Any) -> None:
         """Open the cover."""
-        if self._send_command(CONF_COMMAND_OPEN):
-            self._direction = CONF_COMMAND_OPEN
-            self._timestamp = time.time() - (self._percentage * (self._time_open / 100))
+        if self._screen.up():
             self.start_updater()
 
     async def async_close_cover(self, **kwargs: Any) -> None:
         """Close the cover."""
-        if self._send_command(CONF_COMMAND_CLOSE):
-            self._direction = CONF_COMMAND_CLOSE
-            self._timestamp = time.time() - (
-                (100.0 - self._percentage) * (self._time_close / 100)
-            )
+        if self._screen.down():
             self.start_updater()
 
     async def async_stop_cover(self, **kwargs: Any) -> None:
         """Stop the cover."""
-        if self._send_command(CONF_COMMAND_STOP):
-            self._direction = CONF_COMMAND_STOP
+        if self._screen.stop():
             self.stop_updater()
