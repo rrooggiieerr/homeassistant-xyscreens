@@ -7,7 +7,7 @@
   "issue_tracker": "https://github.com/rrooggiieerr/homeassistant-xyscreens/issues",
   "requirements": [
     "pyserial==3.5",
-    "xyscreens==0.0.3"
+    "xyscreens==0.0.5"
   ],
   "ssdp": [],
   "zeroconf": [],
