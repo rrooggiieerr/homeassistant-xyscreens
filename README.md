@@ -36,7 +36,8 @@ curtains work. For a projector screen this is counter intuitive.
 ### HACS
 - Go to your **HACS** view in Home Assistant and then to **Integrations**
 - Open the **Custom repositories** menu
-- Add this repository URL to the **Custom repositories** and select **Integration** as the **Category**
+- Add this repository URL to the **Custom repositories** and select
+**Integration** as the **Category**
 - Click **Add**
 - Restart Home Assistant
 
@@ -50,3 +51,6 @@ curtains work. For a projector screen this is counter intuitive.
 - Select **+ Add Integration** and type in **XY Screens**
 - Select the serial port or enter the path manually
 - Select **Submit**
+
+A new XY Screens integration and device will now be added to your Integrations
+view.
