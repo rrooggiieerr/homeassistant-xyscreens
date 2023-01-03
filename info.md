@@ -1,3 +1,7 @@
+[![](https://img.shields.io/github/v/release/rrooggiieerr/homeassistant-xyscreens.svg?include_prereleases&style=for-the-badge)
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration)
+[![](https://img.shields.io/badge/MAINTAINER-%40rrooggiieerr-41BDF5?style=for-the-badge)](https://github.com/rrooggiieerr)
+
 # Home Assistant XY Screens integration
 Home Assistant integration to control XY Screens projector screens and
 projector lifts over the RS-485 interface.
@@ -28,23 +32,6 @@ integration so I can improve the overview of supported devices.
 This integration follows the Cover Entity where open means retracting the
 screen and close opens the screen, like how rolling blinds, garage doors and
 curtains work. For a projector screen this is counter intuitive.
-
-## Installation
-
-### HACS
-- Go to your **HACS** view in Home Assistant and then to **Integrations**
-- Open the **Custom repositories** menu
-- Add this repository URL to the **Custom repositories** and select
-**Integration** as the **Category**
-- Click **Add**
-- Restart Home Assistant
-
-[![Install XY Screens from HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=rrooggiieerr&repository=homeassistant-xyscreens&category=integration)
-
-### Manually
-- Copy the `custom_components/xyscreens` directory of this repository into the
-`config/custom_components/` directory of your Home Assistant installation
-- Restart Home Assistant
 
 ##  Adding a new XY Screens projector screen or projector lift
 - After restarting go to **Settings** then **Devices & Services**
