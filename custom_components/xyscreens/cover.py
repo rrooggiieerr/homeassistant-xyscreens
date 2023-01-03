@@ -6,25 +6,19 @@ from datetime import timedelta
 # import serial
 from homeassistant.components.cover import (
     ATTR_CURRENT_POSITION,
-    DEVICE_CLASS_SHADE,
     SUPPORT_CLOSE,
     SUPPORT_OPEN,
     SUPPORT_STOP,
+    CoverDeviceClass,
     CoverEntity,
 )
 from homeassistant.core import callback
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.event import async_track_time_interval
 from homeassistant.helpers.restore_state import RestoreEntity
-
 from xyscreens import XYScreens
 
-from .const import (
-    CONF_SERIAL_PORT,
-    CONF_TIME_CLOSE,
-    CONF_TIME_OPEN,
-    DOMAIN,
-)
+from .const import CONF_SERIAL_PORT, CONF_TIME_CLOSE, CONF_TIME_OPEN, DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -50,7 +44,7 @@ async def async_setup_entry(
 class XYScreensCover(CoverEntity, RestoreEntity):
     _attr_has_entity_name = True
     _attr_name = None
-    _attr_device_class = DEVICE_CLASS_SHADE
+    _attr_device_class = CoverDeviceClass.SHADE
     _attr_icon = "mdi:projector-screen-variant"
     _attr_assumed_state = True
     _attr_supported_features = SUPPORT_OPEN | SUPPORT_CLOSE | SUPPORT_STOP
