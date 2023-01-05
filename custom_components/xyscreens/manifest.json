@@ -16,5 +16,6 @@
   "codeowners": [
     "@rrooggiieerr"
   ],
-  "iot_class": "assumed_state"
+  "iot_class": "assumed_state",
+  "integration_type": "device"
 }
