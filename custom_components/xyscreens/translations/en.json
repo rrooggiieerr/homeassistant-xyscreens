@@ -9,10 +9,30 @@
         },
         "step": {
             "setup_serial": {
-                "title": "Device",
                 "data": {
                     "serial_port": "Serial port",
-                    "manual_path": "Or enter manually",
+                    "manual_path": "Manually entry",
+                    "time_open": "Open time",
+                    "time_close": "Close time"
+                },
+                "data_description": {
+                    "serial_port": "The serial port your XY Screens projector screen/lift is connected to.",
+                    "manual_path": "Device path",
+                    "time_open": "Time needed to open the screen/lift",
+                    "time_close": "Time needed to close the screen/lift"
+                }
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "title": "Timings",
+                "data": {
+                    "time_open": "Open time",
+                    "time_close": "Close time"
+                },
+                "data_description": {
                     "time_open": "Time needed to open the screen/lift",
                     "time_close": "Time needed to close the screen/lift"
                 }

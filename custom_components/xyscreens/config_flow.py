@@ -10,6 +10,7 @@ import serial
 import serial.tools.list_ports
 import voluptuous as vol
 from homeassistant import config_entries
+from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.exceptions import HomeAssistantError
 
@@ -27,7 +28,7 @@ _LOGGER = logging.getLogger(__name__)
 class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Handle a config flow for XY Screens."""
 
-    VERSION = 1
+    VERSION = 2
 
     STEP_SETUP_SERIAL_SCHEMA = None
 
@@ -42,6 +43,19 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     ) -> FlowResult:
         """Handle the setup serial step."""
         errors: dict[str, str] = {}
+
+        if user_input is not None:
+            try:
+                title, data, options = await self.validate_input_setup_serial(
+                    user_input, errors
+                )
+            except CannotConnect:
+                errors["base"] = "cannot_connect"
+            except Exception as ex:  # pylint: disable=broad-except
+                _LOGGER.exception("Unexpected exception: %s", ex)
+                errors["base"] = "unknown"
+            else:
+                return self.async_create_entry(title=title, data=data, options=options)
 
         ports = await self.hass.async_add_executor_job(serial.tools.list_ports.comports)
         list_of_ports = {}
@@ -65,17 +79,6 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             }
         )
 
-        if user_input is not None:
-            try:
-                info = await self.validate_input_setup_serial(user_input, errors)
-            except CannotConnect:
-                errors["base"] = "cannot_connect"
-            except Exception as ex:  # pylint: disable=broad-except
-                _LOGGER.exception("Unexpected exception: %s", ex)
-                errors["base"] = "unknown"
-            else:
-                return self.async_create_entry(title=info["title"], data=info)
-
         return self.async_show_form(
             step_id="setup_serial",
             data_schema=self.STEP_SETUP_SERIAL_SCHEMA,
@@ -84,7 +87,7 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     async def validate_input_setup_serial(
         self, data: dict[str, Any], errors: dict[str, str]
-    ) -> dict[str, Any]:
+    ) -> (str, dict[str, Any], dict[str, Any]):
         """Validate the user input allows us to connect.
 
         Data has the keys from STEP_SETUP_SERIAL_SCHEMA with values provided by the user.
@@ -137,13 +140,55 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 f"Unable to connect to the device {serial_port}: {ex}", ex
             ) from ex
 
-        # Return info that you want to store in the config entry.
-        return {
-            "title": f"XY Screens {serial_port}",
-            CONF_SERIAL_PORT: serial_port,
-            CONF_TIME_OPEN: data[CONF_TIME_OPEN],
-            CONF_TIME_CLOSE: data[CONF_TIME_CLOSE],
-        }
+        # Return title, data and options
+        return (
+            serial_port,
+            {CONF_SERIAL_PORT: serial_port},
+            {
+                CONF_TIME_OPEN: data[CONF_TIME_OPEN],
+                CONF_TIME_CLOSE: data[CONF_TIME_CLOSE],
+            },
+        )
+
+    @staticmethod
+    @callback
+    def async_get_options_flow(
+        config_entry: config_entries.ConfigEntry,
+    ) -> config_entries.OptionsFlow:
+        """Create the options flow."""
+        return XYScreensOptionsFlowHandler(config_entry)
+
+
+class XYScreensOptionsFlowHandler(config_entries.OptionsFlow):
+    def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
+        """Initialize options flow."""
+        _LOGGER.debug(config_entry.data)
+        self.config_entry = config_entry
+
+    async def async_step_init(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
+        """Manage the options."""
+        errors: dict[str, str] = {}
+
+        schema = vol.Schema(
+            {
+                vol.Required(
+                    CONF_TIME_OPEN,
+                    default=self.config_entry.options.get(CONF_TIME_OPEN, 0),
+                ): cv.positive_int,
+                vol.Required(
+                    CONF_TIME_CLOSE,
+                    default=self.config_entry.options.get(CONF_TIME_CLOSE, 0),
+                ): cv.positive_int,
+            }
+        )
+
+        if user_input is not None:
+            schema(user_input)
+            return self.async_create_entry(title="", data=user_input)
+
+        return self.async_show_form(step_id="init", data_schema=schema, errors=errors)
 
 
 def get_serial_by_id(dev_path: str) -> str:

@@ -12,8 +12,10 @@ from homeassistant.components.cover import (
     CoverDeviceClass,
     CoverEntity,
 )
-from homeassistant.core import callback
+from homeassistant.config_entries import ConfigEntry
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity import DeviceInfo
+from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.event import async_track_time_interval
 from homeassistant.helpers.restore_state import RestoreEntity
 from xyscreens import XYScreens
@@ -29,13 +31,12 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up the XY Screens cover."""
-    config = hass.data[DOMAIN][config_entry.entry_id]
     async_add_entities(
         [
             XYScreensCover(
-                config[CONF_SERIAL_PORT],
-                config[CONF_TIME_OPEN],
-                config[CONF_TIME_CLOSE],
+                config_entry.data.get(CONF_SERIAL_PORT),
+                config_entry.options.get(CONF_TIME_OPEN, None),
+                config_entry.options.get(CONF_TIME_CLOSE, None),
             )
         ]
     )

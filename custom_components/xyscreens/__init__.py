@@ -8,7 +8,7 @@ from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
 
-from .const import CONF_SERIAL_PORT, DOMAIN
+from .const import CONF_SERIAL_PORT, CONF_TIME_CLOSE, CONF_TIME_OPEN, DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -17,6 +17,7 @@ PLATFORMS: list[Platform] = [Platform.COVER]
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up XY Screens from a config entry."""
+    entry.async_on_unload(entry.add_update_listener(update_listener))
 
     # Test if the device exists.
     serial_port = entry.data[CONF_SERIAL_PORT]
@@ -64,3 +65,29 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         hass.data[DOMAIN].pop(entry.entry_id)
 
     return unload_ok
+
+
+async def update_listener(hass: HomeAssistant, entry: ConfigEntry) -> None:
+    """Handle options update."""
+    await hass.config_entries.async_reload(entry.entry_id)
+
+
+async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
+    """Migrate old entry."""
+    if config_entry.version == 1:
+        _LOGGER.debug("Migrating config entry from 1 to 2")
+        new_title = config_entry.data.get(CONF_SERIAL_PORT)
+
+        new_data = {CONF_SERIAL_PORT: config_entry.data.get(CONF_SERIAL_PORT)}
+
+        new_options = {
+            CONF_TIME_OPEN: config_entry.data.get(CONF_TIME_OPEN),
+            CONF_TIME_CLOSE: config_entry.data.get(CONF_TIME_CLOSE),
+        }
+
+        config_entry.version = 2
+        hass.config_entries.async_update_entry(
+            config_entry, title=new_title, data=new_data, options=new_options
+        )
+
+    return True

@@ -9,7 +9,6 @@
         },
         "step": {
             "setup_serial": {
-                "title": "Apparaat",
                 "data": {
                     "serial_port": "Seri\u00eble poort",
                     "manual_path": "Of voer handmatig in",
