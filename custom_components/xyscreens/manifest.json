@@ -1,21 +1,20 @@
 {
   "domain": "xyscreens",
   "name": "XY Screens",
-  "version": "0.0.6",
+  "codeowners": [
+    "@rrooggiieerr"
+  ],
   "config_flow": true,
   "documentation": "https://github.com/rrooggiieerr/homeassistant-xyscreens",
+  "integration_type": "device",
+  "iot_class": "assumed_state",
   "issue_tracker": "https://github.com/rrooggiieerr/homeassistant-xyscreens/issues",
+  "loggers": [
+  	"xyscreens"
+  ],
   "requirements": [
     "pyserial==3.5",
     "xyscreens==0.0.5"
   ],
-  "ssdp": [],
-  "zeroconf": [],
-  "homekit": {},
-  "dependencies": [],
-  "codeowners": [
-    "@rrooggiieerr"
-  ],
-  "iot_class": "assumed_state",
-  "integration_type": "device"
+  "version": "0.0.6"
 }
