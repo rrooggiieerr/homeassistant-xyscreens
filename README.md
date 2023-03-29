@@ -33,10 +33,8 @@ curtains work. For a projector screen this is counter intuitive.
 
 ### HACS
 - Go to your **HACS** view in Home Assistant and then to **Integrations**
-- Open the **Custom repositories** menu
-- Add this repository URL to the **Custom repositories** and select
-**Integration** as the **Category**
-- Click **Add**
+- Select **+ Explore & download repositories** and search for *XY Screens projector screens and projector lifts*
+- Select **Download**
 - Restart Home Assistant
 
 [![Install XY Screens from HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=rrooggiieerr&repository=homeassistant-xyscreens&category=integration)
@@ -48,7 +46,7 @@ curtains work. For a projector screen this is counter intuitive.
 
 ##  Adding a new XY Screens projector screen or projector lift
 - After restarting go to **Settings** then **Devices & Services**
-- Select **+ Add Integration** and type in **XY Screens**
+- Select **+ Add integration** and type in **XY Screens**
 - Select the serial port or enter the path manually
 - Select **Submit**
 
