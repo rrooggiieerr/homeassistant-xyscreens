@@ -11,6 +11,7 @@ from homeassistant.components.cover import (
     SUPPORT_STOP,
     CoverDeviceClass,
     CoverEntity,
+    CoverEntityDescription,
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
@@ -45,10 +46,6 @@ async def async_setup_entry(
 
 
 class XYScreensCover(CoverEntity, RestoreEntity):
-    _attr_has_entity_name = True
-    _attr_name = None
-    _attr_device_class = CoverDeviceClass.SHADE
-    _attr_icon = SCREEN_OPENED_ICON
     _attr_assumed_state = True
     _attr_supported_features = SUPPORT_OPEN | SUPPORT_CLOSE | SUPPORT_STOP
     _attr_should_poll = False
@@ -59,6 +56,14 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     _attr_is_opening = False
 
     _unsubscribe_updater = None
+
+    entity_description = CoverEntityDescription(
+        key = "projector_screen",
+        device_class = CoverDeviceClass.SHADE,
+        icon = SCREEN_OPENED_ICON,
+        has_entity_name = True,
+        name = None,
+    )
 
     def __init__(self, serial_port, time_open, time_close) -> None:
         """Initialize the screen."""
