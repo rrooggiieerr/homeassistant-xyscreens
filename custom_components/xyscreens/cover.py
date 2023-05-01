@@ -24,6 +24,8 @@ from .const import CONF_SERIAL_PORT, CONF_TIME_CLOSE, CONF_TIME_OPEN, DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
+SCREEN_OPENED_ICON = "mdi:projector-screen-variant-outline"
+SCREEN_CLOSED_ICON = "mdi:projector-screen-variant-off-outline"
 
 async def async_setup_entry(
     hass: HomeAssistant,
@@ -46,7 +48,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     _attr_has_entity_name = True
     _attr_name = None
     _attr_device_class = CoverDeviceClass.SHADE
-    _attr_icon = "mdi:projector-screen-variant"
+    _attr_icon = SCREEN_OPENED_ICON
     _attr_assumed_state = True
     _attr_supported_features = SUPPORT_OPEN | SUPPORT_CLOSE | SUPPORT_STOP
     _attr_should_poll = False
@@ -76,7 +78,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             and last_state.attributes.get(ATTR_CURRENT_POSITION) is not None
         ):
             position = last_state.attributes.get(ATTR_CURRENT_POSITION)
-            _LOGGER.debug("Old screen position: %s", position)
+            _LOGGER.debug("Last screen position: %5.1f %%", position)
             self._screen.set_position(100 - position)
             self._attr_current_cover_position = position
             if position == 0:
@@ -84,7 +86,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
 
             # Icon of the entity.
             if position > 50:
-                self._attr_icon = "mdi:projector-screen-variant-off-outline"
+                self._attr_icon = SCREEN_CLOSED_ICON
 
     async def async_update(self) -> None:
         position = 100 - self._screen.position()
@@ -117,16 +119,16 @@ class XYScreensCover(CoverEntity, RestoreEntity):
 
         # Icon of the entity.
         if position <= 50.0:
-            self._attr_icon = "mdi:projector-screen-variant-outline"
+            self._attr_icon = SCREEN_OPENED_ICON
         else:
-            self._attr_icon = "mdi:projector-screen-variant-off-outline"
+            self._attr_icon = SCREEN_CLOSED_ICON
 
         self._attr_current_cover_position = int(position)
 
     def start_updater(self):
         """Start the updater to update Home Assistant while cover is moving."""
         if self._unsubscribe_updater is None:
-            _LOGGER.debug("start update listener")
+            _LOGGER.debug("Start update listener")
             self._unsubscribe_updater = async_track_time_interval(
                 self.hass, self.updater_hook, timedelta(seconds=0.1)
             )
@@ -134,13 +136,13 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     @callback
     def updater_hook(self, now):
         """Call for the updater."""
-        _LOGGER.debug("updater hook")
+        _LOGGER.debug("Updater hook")
         self.async_schedule_update_ha_state(True)
 
     def stop_updater(self):
         """Stop the updater."""
         if self._unsubscribe_updater is not None:
-            _LOGGER.debug("stop update listener")
+            _LOGGER.debug("Stop update listener")
             self._unsubscribe_updater()
             self._unsubscribe_updater = None
 
