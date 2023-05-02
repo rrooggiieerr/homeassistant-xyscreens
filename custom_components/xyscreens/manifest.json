@@ -14,7 +14,7 @@
   ],
   "requirements": [
     "pyserial==3.5",
-    "xyscreens==0.0.5"
+    "xyscreens==0.0.6"
   ],
-  "version": "0.0.6"
+  "version": "0.0.7"
 }
