@@ -28,6 +28,7 @@ _LOGGER = logging.getLogger(__name__)
 SCREEN_OPENED_ICON = "mdi:projector-screen-variant-outline"
 SCREEN_CLOSED_ICON = "mdi:projector-screen-variant-off-outline"
 
+
 async def async_setup_entry(
     hass: HomeAssistant,
     config_entry: ConfigEntry,
@@ -58,11 +59,11 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     _unsubscribe_updater = None
 
     entity_description = CoverEntityDescription(
-        key = "projector_screen",
-        device_class = CoverDeviceClass.SHADE,
-        icon = SCREEN_OPENED_ICON,
-        has_entity_name = True,
-        name = None,
+        key="projector_screen",
+        device_class=CoverDeviceClass.SHADE,
+        icon=SCREEN_OPENED_ICON,
+        has_entity_name=True,
+        name=None,
     )
 
     def __init__(self, serial_port, time_open, time_close) -> None:
