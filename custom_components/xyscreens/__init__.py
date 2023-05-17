@@ -15,6 +15,29 @@ _LOGGER = logging.getLogger(__name__)
 PLATFORMS: list[Platform] = [Platform.COVER]
 
 
+async def test_serial_port(hass: HomeAssistant, serial_port):
+    """Test the working of a serial port."""
+
+    # Create the connection instance.
+    connection = serial.Serial(
+        port=serial_port,
+        baudrate=2400,
+        bytesize=serial.EIGHTBITS,
+        parity=serial.PARITY_NONE,
+        stopbits=serial.STOPBITS_ONE,
+        timeout=1,
+    )
+
+    # Open the connection.
+    if not connection.is_open:
+        await hass.async_add_executor_job(connection.open)
+
+    # Close the connection.
+    await hass.async_add_executor_job(connection.close)
+
+    _LOGGER.info("Device %s is available", serial_port)
+
+
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up XY Screens from a config entry."""
     entry.async_on_unload(entry.add_update_listener(update_listener))
@@ -26,24 +49,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     # Test if we can connect to the device.
     try:
-        # Create the connection instance.
-        connection = serial.Serial(
-            port=serial_port,
-            baudrate=2400,
-            bytesize=serial.EIGHTBITS,
-            parity=serial.PARITY_NONE,
-            stopbits=serial.STOPBITS_ONE,
-            timeout=1,
-        )
-
-        # Open the connection.
-        if not connection.is_open:
-            connection.open()
-
-        # Close the connection.
-        connection.close()
-
-        _LOGGER.info("Device %s is available", serial_port)
+        await test_serial_port(hass, serial_port)
     except serial.SerialException as ex:
         raise ConfigEntryNotReady(
             f"Unable to connect to device {serial_port}: {ex}"

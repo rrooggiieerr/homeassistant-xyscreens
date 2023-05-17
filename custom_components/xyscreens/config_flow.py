@@ -14,6 +14,7 @@ from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.exceptions import HomeAssistantError
 
+from . import test_serial_port
 from .const import (
     CONF_MANUAL_PATH,
     CONF_SERIAL_PORT,
@@ -26,7 +27,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    """Handle a config flow for XY Screens."""
+    """Handle the config flow for XY Screens."""
 
     VERSION = 2
 
@@ -85,6 +86,7 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             errors=errors,
         )
 
+    # pylint: disable=W0613
     async def validate_input_setup_serial(
         self, data: dict[str, Any], errors: dict[str, str]
     ) -> (str, dict[str, Any], dict[str, Any]):
@@ -117,24 +119,7 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
         # Test if we can connect to the device.
         try:
-            # Create the connection instance.
-            connection = serial.Serial(
-                port=serial_port,
-                baudrate=2400,
-                bytesize=serial.EIGHTBITS,
-                parity=serial.PARITY_NONE,
-                stopbits=serial.STOPBITS_ONE,
-                timeout=1,
-            )
-
-            # Open the connection.
-            if not connection.is_open:
-                connection.open()
-
-            # Close the connection.
-            connection.close()
-
-            _LOGGER.info("Device %s available", serial_port)
+            await test_serial_port(self.hass, serial_port)
         except serial.SerialException as ex:
             raise CannotConnect(
                 f"Unable to connect to the device {serial_port}: {ex}", ex
@@ -160,6 +145,8 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
 
 class XYScreensOptionsFlowHandler(config_entries.OptionsFlow):
+    """Handle the config flow for XY Screens."""
+
     def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
         """Initialize options flow."""
         _LOGGER.debug(config_entry.data)

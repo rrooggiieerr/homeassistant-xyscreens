@@ -1,7 +1,9 @@
+"""The XY Screens cover entity."""
 from __future__ import annotations
 
 import logging
 from datetime import timedelta
+from typing import Any
 
 # import serial
 from homeassistant.components.cover import (
@@ -29,6 +31,7 @@ SCREEN_OPENED_ICON = "mdi:projector-screen-variant-outline"
 SCREEN_CLOSED_ICON = "mdi:projector-screen-variant-off-outline"
 
 
+# pylint: disable=W0613
 async def async_setup_entry(
     hass: HomeAssistant,
     config_entry: ConfigEntry,
@@ -47,6 +50,8 @@ async def async_setup_entry(
 
 
 class XYScreensCover(CoverEntity, RestoreEntity):
+    """The XY Screens cover."""
+
     _attr_assumed_state = True
     _attr_supported_features = SUPPORT_OPEN | SUPPORT_CLOSE | SUPPORT_STOP
     _attr_should_poll = False
@@ -95,6 +100,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
                 self._attr_icon = SCREEN_CLOSED_ICON
 
     async def async_update(self) -> None:
+        """Calculate and update cover position."""
         position = 100 - self._screen.position()
         _LOGGER.debug("Screen position: %5.1f %%", position)
         state = self._screen.state()
@@ -140,6 +146,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             )
 
     @callback
+    # pylint: disable=W0613
     def updater_hook(self, now):
         """Call for the updater."""
         _LOGGER.debug("Updater hook")
@@ -154,15 +161,15 @@ class XYScreensCover(CoverEntity, RestoreEntity):
 
     async def async_open_cover(self, **kwargs: Any) -> None:
         """Open the cover."""
-        if self._screen.up():
+        if await self.hass.async_add_executor_job(self._screen.up):
             self.start_updater()
 
     async def async_close_cover(self, **kwargs: Any) -> None:
         """Close the cover."""
-        if self._screen.down():
+        if await self.hass.async_add_executor_job(self._screen.down):
             self.start_updater()
 
     async def async_stop_cover(self, **kwargs: Any) -> None:
         """Stop the cover."""
-        if self._screen.stop():
+        if await self.hass.async_add_executor_job(self._screen.stop):
             self.stop_updater()
