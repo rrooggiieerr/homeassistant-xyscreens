@@ -122,7 +122,7 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             await test_serial_port(self.hass, serial_port)
         except serial.SerialException as ex:
             raise CannotConnect(
-                f"Unable to connect to the device {serial_port}: {ex}", ex
+                f"Unable to connect to the device {serial_port}: {ex}"
             ) from ex
 
         # Return title, data and options
