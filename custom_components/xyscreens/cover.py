@@ -8,12 +8,10 @@ from typing import Any
 # import serial
 from homeassistant.components.cover import (
     ATTR_CURRENT_POSITION,
-    SUPPORT_CLOSE,
-    SUPPORT_OPEN,
-    SUPPORT_STOP,
     CoverDeviceClass,
     CoverEntity,
     CoverEntityDescription,
+    CoverEntityFeature,
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
@@ -53,7 +51,9 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     """The XY Screens cover."""
 
     _attr_assumed_state = True
-    _attr_supported_features = SUPPORT_OPEN | SUPPORT_CLOSE | SUPPORT_STOP
+    _attr_supported_features = (
+        CoverEntityFeature.OPEN | CoverEntityFeature.CLOSE | CoverEntityFeature.STOP
+    )
     _attr_should_poll = False
 
     _attr_current_cover_position = 100
