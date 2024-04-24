@@ -1,4 +1,5 @@
 """The XY Screens cover entity."""
+
 from __future__ import annotations
 
 import logging

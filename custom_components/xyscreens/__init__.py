@@ -1,4 +1,5 @@
 """The XY Screens integration."""
+
 import logging
 import os
 

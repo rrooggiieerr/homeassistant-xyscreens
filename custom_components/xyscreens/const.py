@@ -1,4 +1,5 @@
 """Constants for the XY Screens integration."""
+
 DOMAIN = "xyscreens"
 
 CONF_SERIAL_PORT = "serial_port"

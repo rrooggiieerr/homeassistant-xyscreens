@@ -1,4 +1,5 @@
 """Config flow for XY Screens integration."""
+
 from __future__ import annotations
 
 import logging
@@ -61,10 +62,9 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         ports = await self.hass.async_add_executor_job(serial.tools.list_ports.comports)
         list_of_ports = {}
         for port in ports:
-            list_of_ports[
-                port.device
-            ] = f"{port}, s/n: {port.serial_number or 'n/a'}" + (
-                f" - {port.manufacturer}" if port.manufacturer else ""
+            list_of_ports[port.device] = (
+                f"{port}, s/n: {port.serial_number or 'n/a'}"
+                + (f" - {port.manufacturer}" if port.manufacturer else "")
             )
 
         self.STEP_SETUP_SERIAL_SCHEMA = vol.Schema(
