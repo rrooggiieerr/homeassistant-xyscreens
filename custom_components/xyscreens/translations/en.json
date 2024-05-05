@@ -11,7 +11,7 @@
             "setup_serial": {
                 "data": {
                     "serial_port": "Serial port",
-                    "manual_path": "Manually entry",
+                    "manual_path": "Manual entry",
                     "time_open": "Open time",
                     "time_close": "Close time"
                 },
@@ -38,5 +38,20 @@
                 }
             }
         }
+    },
+ 	"device": {
+		"xyscreens": {
+			"name": "XY Screens"
+		}
+	},
+    "entity": {
+    	"cover": {
+    		"projector_screen": {
+    			"name": "Projector Screen"
+    		},
+    		"projector_lift": {
+    			"name": "Projector Lift"
+    		}
+    	}
     }
 }

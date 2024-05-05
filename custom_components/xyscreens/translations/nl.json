@@ -10,12 +10,48 @@
         "step": {
             "setup_serial": {
                 "data": {
-                    "serial_port": "Seri\u00eble poort",
-                    "manual_path": "Of voer handmatig in",
+                    "serial_port": "Seriële poort",
+                    "manual_path": "Handmatige invoer",
+                    "time_open": "Open tijd",
+                    "time_close": "Sluit tijd"
+                },
+                "data_description": {
+                    "serial_port": "De seriële poort waarop uw XY Screens projectiescherm/lift is aangesloten.",
+                    "manual_path": "Apparaat pad",
                     "time_open": "Benodigde tijd om het scherm te openen",
                     "time_close": "Benodigde tijd om het scherm te sluiten"
                 }
             }
         }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "title": "Tijden",
+                "data": {
+                    "time_open": "Open tijd",
+                    "time_close": "Sluit tijd"
+                },
+                "data_description": {
+                    "time_open": "Benodigde tijd om het scherm te openen",
+                    "time_close": "Benodigde tijd om het scherm te sluiten"
+                }
+            }
+        }
+    },
+ 	"device": {
+		"xyscreens": {
+			"name": "XY Screens"
+		}
+	},
+    "entity": {
+    	"cover": {
+    		"projector_screen": {
+    			"name": "Projectiescherm"
+    		},
+    		"projector_lift": {
+    			"name": "Projector Lift"
+    		}
+    	}
     }
 }

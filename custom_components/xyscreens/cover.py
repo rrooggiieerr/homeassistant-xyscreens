@@ -69,14 +69,14 @@ class XYScreensCover(CoverEntity, RestoreEntity):
         device_class=CoverDeviceClass.SHADE,
         icon=SCREEN_OPENED_ICON,
         has_entity_name=True,
-        name=None,
+        translation_key="projector_screen",
     )
 
     def __init__(self, serial_port, time_open, time_close) -> None:
         """Initialize the screen."""
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, serial_port)},
-            name="Projector Screen",
+            translation_key = "xyscreens",
             manufacturer="XY Screens",
         )
         self._attr_unique_id = serial_port
