@@ -111,11 +111,11 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     )
                 ),
                 vol.Required(
-                    CONF_TIME_OPEN, default=user_input.get(CONF_TIME_OPEN, 0)
-                ): cv.positive_int,
+                    CONF_TIME_OPEN, default=user_input.get(CONF_TIME_OPEN, 1)
+                ): vol.All(vol.Coerce(int), vol.Range(min=1)),
                 vol.Required(
-                    CONF_TIME_CLOSE, default=user_input.get(CONF_TIME_CLOSE, 0)
-                ): cv.positive_int,
+                    CONF_TIME_CLOSE, default=user_input.get(CONF_TIME_CLOSE, 1)
+                ): vol.All(vol.Coerce(int), vol.Range(min=1)),
                 vol.Required(
                     CONF_INVERTED, default=user_input.get(CONF_INVERTED, False)
                 ): bool,
