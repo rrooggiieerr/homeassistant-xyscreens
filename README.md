@@ -13,16 +13,16 @@
 
 # Introduction
 
-Home Assistant integration to control XY Screens projector screens and
-projector lifts over the RS-485 interface.
+Home Assistant integration to control XY Screens projector screens and lifts over the RS-485 interface.
 
-XY Screens is an OEM manufacturer of projector screens and projector lifts.
+XY Screens is an OEM manufacturer of projector screens and lifts, their devices are sold around the world under various brand names.
 
 ## Features
 
 - Installation/Configuration through Config Flow UI
-- Set the up and down time of your projector screen/lift.
-- Position the screen/lift on any position along the way.
+- Set the up and down time of your projector screen/lift
+- Position the screen/lift on any position along the way
+- Invert the default Cover Entity behaviour
 
 ## Hardware
 
@@ -33,40 +33,52 @@ connector is connected to D+ and position 6 to the D-.
 
 See the documentation of your specific device on how to wire yours correctly.
 
+## Supported protocol
+
+If your devices follows the following protocol it's supported by this Home Assistant integration:
+
+2400 baud 8N1\
+Up command  : 0xFFAAEEEEDD\
+Down command: 0xFFAAEEEEEE\
+Stop command: 0xFFAAEEEECC
+
 ## Known to work
 
-- iVisions Electro M Series projector screens
+The following device is known to work:
 
-Not tested but uses the same protocol according to the documentation:
-- iVisions Electro L/XL/Pro/HD Series
-- iVisions PL Series projector lift
-- Elite Screens
-- KIMEX
-- DELUXX
+* iVisions Electro M Series
 
-Please let me know if your projector screen or projector lift works with this
-integration so I can improve the overview of supported devices.
+The following device are not tested but use the same protocol according to the documentation:
+
+* iVisions Electro L/XL/Pro/HD Series
+* iVisions PL Series projector lift
+* Elite Screens
+* KIMEX
+* DELUXX
+
+Please let me know if your projector screen or lift works with this Home Assistant integration so I can improve the overview of supported devices.
 
 ## Caution
 
 This integration follows the Cover Entity where open means retracting the screen and close opens
 the screen, like how rolling blinds, garage doors and curtains work. For a projector screen this is
-counter intuitive.
+counter intuitive. You can chose to invert this behaviour when adding your device. If you use voice commands this is recommended.
 
 ## Installation
 
 ### HACS
 
-The recomended way to install this Home Assistant integration is using by [HACS][hacs]. Click the following button to open the integration directly on the HACS integration page.
+The recomended way to install this Home Assistant integration is using by [HACS][hacs].
+Click the following button to open the integration directly on the HACS integration page.
 
-[![Quick installation link](https://my.home-assistant.io/badges/hacs_repository.svg)][my-hacs]
+[![Install XY Screens from HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=rrooggiieerr&repository=homeassistant-xyscreens&category=integration)
+
+Or follow these instructions:
 
 - Go to your **HACS** view in Home Assistant and then to **Integrations**
 - Select **+ Explore & download repositories** and search for *XY Screens projector screens and projector lifts*
 - Select **Download**
 - Restart Home Assistant
-
-[![Install XY Screens from HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=rrooggiieerr&repository=homeassistant-xyscreens&category=integration)
 
 ### Manually
 
@@ -88,8 +100,13 @@ view.
 
 ## Contributing
 
+If you would like to use this Home Assistant integration in youw own language you can provide me with a translation file as found in the `custom_components/xyscreens/translations` directory. Create a pull request (preferred) or issue with the file attached.
+
+More on translating custom integrations can be found [here](https://developers.home-assistant.io/docs/internationalization/custom_integration/).
+
 ## Support
-Do you enjoy using this Home Assistant integration? Then consider supporting my work using one of the following platforms:\
+Do you enjoy using this Home Assistant integration? Then consider supporting my work using one of the following platforms:
+
 [![Github Sponsors][github-shield]][github]
 [![PayPal][paypal-shield]][paypal]
 [![BuyMeCoffee][buymecoffee-shield]][buymecoffee]
