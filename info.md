@@ -9,7 +9,7 @@ projector lifts over the RS-485 interface.
 XY Screens is an OEM manufacturer of projector screens and projector lifts.
 
 ## Hardware
-I use a cheap USB RS-485 controler from eBay to talk to the projector screen
+I use a cheap USB RS-485 controller from eBay to talk to the projector screen
 where position 5 of the RJ25 connector is connected to D+ and position 6 to
 the D-.
 
