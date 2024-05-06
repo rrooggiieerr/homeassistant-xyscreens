@@ -1,57 +1,74 @@
 {
-    "config": {
-        "abort": {
-            "already_configured": "Apparaat is al geconfigureerd"
-        },
-        "error": {
-            "cannot_connect": "Kan geen verbinding maken",
-            "unknown": "Onverwachte fout"
-        },
-        "step": {
-            "setup_serial": {
-                "data": {
-                    "serial_port": "Seriële poort",
-                    "manual_path": "Handmatige invoer",
-                    "time_open": "Open tijd",
-                    "time_close": "Sluit tijd"
-                },
-                "data_description": {
-                    "serial_port": "De seriële poort waarop uw XY Screens projectiescherm/lift is aangesloten.",
-                    "manual_path": "Apparaat pad",
-                    "time_open": "Benodigde tijd om het scherm te openen",
-                    "time_close": "Benodigde tijd om het scherm te sluiten"
-                }
-            }
-        }
+  "config": {
+    "abort": {
+      "already_configured": "Apparaat is al geconfigureerd"
     },
-    "options": {
-        "step": {
-            "init": {
-                "title": "Tijden",
-                "data": {
-                    "time_open": "Open tijd",
-                    "time_close": "Sluit tijd"
-                },
-                "data_description": {
-                    "time_open": "Benodigde tijd om het scherm te openen",
-                    "time_close": "Benodigde tijd om het scherm te sluiten"
-                }
-            }
-        }
+    "error": {
+      "cannot_connect": "Kan geen verbinding maken",
+      "unknown": "Onverwachte fout"
     },
- 	"device": {
-		"xyscreens": {
-			"name": "XY Screens"
-		}
-	},
-    "entity": {
-    	"cover": {
-    		"projector_screen": {
-    			"name": "Projectiescherm"
-    		},
-    		"projector_lift": {
-    			"name": "Projector Lift"
-    		}
-    	}
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Seriële poort",
+          "device_type": "Apparaatsoort",
+          "time_open": "Open tijd",
+          "time_close": "Sluit tijd",
+          "inverted": "Gedrag omkeren"
+        },
+        "data_description": {
+          "serial_port": "De seriële poort waarop uw apparaat is aangesloten.",
+          "time_open": "Benodigde tijd om het apparaat te openen",
+          "time_close": "Benodigde tijd om het apparaat te sluiten",
+          "inverted": "Deze integratie volgt de Bedekking Entiteit, waarbij open betekent dat het scherm wordt ingetrokken en gesloten het scherm wordt geopend, zoals (rol)gordijnen en garagedeuren werken. Voor een projectiescherm is dit contra-intuïtief. Je kunt het gedrag omkeren."
+        }
+      }
     }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Projectiescherm",
+        "projector_lift": "Projectorlift"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Projectiescherm tijden",
+        "data": {
+          "time_open": "Open tijd",
+          "time_close": "Sluit tijd",
+          "inverted": "Gedrag omkeren"
+        },
+        "data_description": {
+          "time_open": "Benodigde tijd om het projectiescherm te openen.",
+          "time_close": "Benodigde tijd om het projectiescherm te sluiten.",
+          "inverted": "Deze integratie volgt de Bedekking Entiteit, waarbij open betekent dat het scherm wordt ingetrokken en gesloten het scherm wordt geopend, zoals (rol)gordijnen en garagedeuren werken. Voor een projectiescherm is dit contra-intuïtief. Je kunt het gedrag omkeren."
+        }
+      },
+      "projector_lift": {
+        "title": "Projectorlift tijden",
+        "data": {
+          "time_open": "Open tijd",
+          "time_close": "Sluit tijd",
+          "inverted": "Gedrag omkeren"
+        },
+        "data_description": {
+          "time_open": "Benodigde tijd om de projectorlift te openen.",
+          "time_close": "Benodigde tijd om de projectorlift te sluiten.",
+          "inverted": "Deze integratie volgt de Bedekking Entiteit, waarbij open betekent dat het scherm wordt ingetrokken en gesloten het scherm wordt geopend, zoals (rol)gordijnen en garagedeuren werken. Voor een projectiescherm is dit contra-intuïtief. Je kunt het gedrag omkeren."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Projectiescherm"
+    },
+    "projector_lift": {
+      "name": "Projectorlift"
+    }
+  }
 }

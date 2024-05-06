@@ -1,57 +1,74 @@
 {
-    "config": {
-        "abort": {
-            "already_configured": "Device is already configured"
-        },
-        "error": {
-            "cannot_connect": "Failed to connect",
-            "unknown": "Unexpected error"
-        },
-        "step": {
-            "setup_serial": {
-                "data": {
-                    "serial_port": "Serial port",
-                    "manual_path": "Manual entry",
-                    "time_open": "Open time",
-                    "time_close": "Close time"
-                },
-                "data_description": {
-                    "serial_port": "The serial port your XY Screens projector screen/lift is connected to.",
-                    "manual_path": "Device path",
-                    "time_open": "Time needed to open the screen/lift",
-                    "time_close": "Time needed to close the screen/lift"
-                }
-            }
-        }
+  "config": {
+    "abort": {
+      "already_configured": "Device is already configured"
     },
-    "options": {
-        "step": {
-            "init": {
-                "title": "Timings",
-                "data": {
-                    "time_open": "Open time",
-                    "time_close": "Close time"
-                },
-                "data_description": {
-                    "time_open": "Time needed to open the screen/lift",
-                    "time_close": "Time needed to close the screen/lift"
-                }
-            }
-        }
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "unknown": "Unexpected error"
     },
- 	"device": {
-		"xyscreens": {
-			"name": "XY Screens"
-		}
-	},
-    "entity": {
-    	"cover": {
-    		"projector_screen": {
-    			"name": "Projector Screen"
-    		},
-    		"projector_lift": {
-    			"name": "Projector Lift"
-    		}
-    	}
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Serial port",
+          "device_type": "Device type",
+          "time_open": "Open time",
+          "time_close": "Close time",
+          "inverted": "Invert behaviour"
+        },
+        "data_description": {
+          "serial_port": "The serial port your device is connected to.",
+          "time_open": "Time needed to open the device",
+          "time_close": "Time needed to close the device",
+          "inverted": "This integration follows the Cover Entity, where open means the screen is retracted and closed the screen is extracted, the same way curtains and garage doors work. For a projection screen this is counterintuitive. You can reverse the behavior."
+        }
+      }
     }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Projector screen",
+        "projector_lift": "Projector lift"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Projector screen",
+        "data": {
+          "time_open": "Open time",
+          "time_close": "Close time",
+          "inverted": "Invert behaviour"
+        },
+        "data_description": {
+          "time_open": "Time needed to open the projector screen",
+          "time_close": "Time needed to close the projector screen",
+          "inverted": "This integration follows the Cover Entity, where open means the screen is retracted and closed the screen is extracted, the same way curtains and garage doors work. For a projection screen this is counterintuitive. You can reverse the behavior."
+        }
+      },
+      "projector_lift": {
+        "title": "Projector lift",
+        "data": {
+          "time_open": "Open time",
+          "time_close": "Close time",
+          "inverted": "Invert behaviour"
+        },
+        "data_description": {
+          "time_open": "Time needed to open the projector lift",
+          "time_close": "Time needed to close the projector lift",
+          "inverted": "This integration follows the Cover Entity, where open means the screen is retracted and closed the screen is extracted, the same way curtains and garage doors work. For a projection screen this is counterintuitive. You can reverse the behavior."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Projector Screen"
+    },
+    "projector_lift": {
+      "name": "Projector Lift"
+    }
+  }
 }

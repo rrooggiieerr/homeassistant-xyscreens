@@ -1,0 +1,18 @@
+{
+  "entity": {
+    "cover": {
+      "projector_screen": {
+      	"state": {
+      	  "open": "mdi:projector-screen-variant-outline",
+      	  "closed": "mdi:projector-screen-variant-off-outline"
+      	}
+      },
+      "projector_lift": {
+      	"state": {
+      	  "open": "mdi:projector",
+      	  "closed": "mdi:projector-off"
+      	}
+      }
+    }
+  }
+}
