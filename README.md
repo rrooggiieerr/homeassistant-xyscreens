@@ -1,4 +1,18 @@
-# Home Assistant XY Screens integration
+# Home Assistant integration for XY Screens projector screens and lifts
+
+![Python][python-shield]
+[![GitHub Release][releases-shield]][releases]
+[![Licence][license-badge]][license]
+[![Home Assistant][homeassistant-shield]][homeassistant]
+[![HACS][hacs-shield]][hacs]\
+[![Github Sponsors][github-shield]][github]
+[![PayPal][paypal-shield]][paypal]
+[![BuyMeCoffee][buymecoffee-shield]][buymecoffee]
+[![Patreon][patreon-shield]][patreon]
+
+
+# Introduction
+
 Home Assistant integration to control XY Screens projector screens and
 projector lifts over the RS-485 interface.
 
@@ -8,6 +22,8 @@ XY Screens is an OEM manufacturer of projector screens and projector lifts.
 I use a cheap USB RS-485 controler from eBay to talk to the projector screen
 where position 5 of the RJ25 connector is connected to D+ and position 6 to
 the D-.
+
+![image](usb-rs485.png)
 
 See the documentation of your specific device on how to wire yours correctly.
 
@@ -53,6 +69,31 @@ curtains work. For a projector screen this is counter intuitive.
 A new XY Screens integration and device will now be added to your Integrations
 view.
 
-Do you enjoy using this Home Assistant integration? Then consider supporting
-my work:\
-[<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >](https://www.buymeacoffee.com/rrooggiieerr)  
+## Contributing
+
+## Support
+Do you enjoy using this Home Assistant integration? Then consider supporting my work using one of the following platforms:\
+[![Github Sponsors][github-shield]][github]
+[![PayPal][paypal-shield]][paypal]
+[![BuyMeCoffee][buymecoffee-shield]][buymecoffee]
+[![Patreon][patreon-shield]][patreon]
+
+---
+
+[python-shield]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
+[releases]: https://github.com/rrooggiieerr/homeassistant-xyscreens/releases
+[releases-shield]: https://img.shields.io/github/v/release/rrooggiieerr/homeassistant-xyscreens?style=for-the-badge
+[license]: ./LICENSE
+[license-badge]: https://img.shields.io/github/license/rrooggiieerr/homeassistant-xyscreens?style=for-the-badge
+[homeassistant]: https://www.home-assistant.io/
+[homeassistant-shield]: https://img.shields.io/badge/home%20assistant-%2341BDF5.svg?style=for-the-badge&logo=home-assistant&logoColor=white
+[hacs]: https://hacs.xyz/
+[hacs-shield]: https://img.shields.io/badge/HACS-Default-41BDF5.svg?style=for-the-badge
+[paypal]: https://paypal.me/seekingtheedge
+[paypal-shield]: https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white
+[buymecoffee]: https://www.buymeacoffee.com/rrooggiieerr
+[buymecoffee-shield]: https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black
+[github]: https://github.com/sponsors/rrooggiieerr
+[github-shield]: https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA
+[patreon]: https://www.patreon.com/seekingtheedge/creators
+[patreon-shield]: https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white
