@@ -17,7 +17,7 @@ _LOGGER = logging.getLogger(__name__)
 PLATFORMS: list[Platform] = [Platform.COVER]
 
 
-async def test_serial_port(hass: HomeAssistant, serial_port):
+async def test_serial_port(serial_port):
     """Test the working of a serial port."""
 
     # Create the connection instance.
@@ -47,7 +47,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     # Test if we can connect to the device.
     try:
-        await test_serial_port(hass, serial_port)
+        await test_serial_port(serial_port)
     except serial.SerialException as ex:
         raise ConfigEntryNotReady(
             f"Unable to connect to device {serial_port}: {ex}"
