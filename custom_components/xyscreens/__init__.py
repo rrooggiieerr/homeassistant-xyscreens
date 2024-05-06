@@ -4,6 +4,7 @@ import logging
 import os
 
 import serial
+import serial_asyncio
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
@@ -20,8 +21,8 @@ async def test_serial_port(hass: HomeAssistant, serial_port):
     """Test the working of a serial port."""
 
     # Create the connection instance.
-    connection = serial.Serial(
-        port=serial_port,
+    _, writer = await serial_asyncio.open_serial_connection(
+        url=serial_port,
         baudrate=2400,
         bytesize=serial.EIGHTBITS,
         parity=serial.PARITY_NONE,
@@ -29,12 +30,8 @@ async def test_serial_port(hass: HomeAssistant, serial_port):
         timeout=1,
     )
 
-    # Open the connection.
-    if not connection.is_open:
-        await hass.async_add_executor_job(connection.open)
-
     # Close the connection.
-    await hass.async_add_executor_job(connection.close)
+    writer.close()
 
     _LOGGER.info("Device %s is available", serial_port)
 
