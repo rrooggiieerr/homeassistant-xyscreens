@@ -4,18 +4,19 @@
 [![GitHub Release][releases-shield]][releases]
 [![Licence][license-badge]][license]
 [![Home Assistant][homeassistant-shield]][homeassistant]
-[![HACS][hacs-shield]][hacs]\
+[![HACS][hacs-shield]][hacs]  
 [![Github Sponsors][github-shield]][github]
 [![PayPal][paypal-shield]][paypal]
 [![BuyMeCoffee][buymecoffee-shield]][buymecoffee]
 [![Patreon][patreon-shield]][patreon]
 
-
 # Introduction
 
-Home Assistant integration to control XY Screens projector screens and lifts over the RS-485 interface.
+Home Assistant integration to control XY Screens projector screens and lifts over the RS-485
+interface.
 
-XY Screens is an OEM manufacturer of projector screens and lifts, their devices are sold around the world under various brand names.
+XY Screens is an OEM manufacturer of projector screens and lifts, their devices are sold around the
+world under various brand names.
 
 ## Features
 
@@ -29,7 +30,7 @@ XY Screens is an OEM manufacturer of projector screens and lifts, their devices 
 I use a cheap USB RS-485 controller to talk to the projector screen where position 5 of the RJ25
 connector is connected to D+ and position 6 to the D-.
 
-![image](usb-rs485.png)
+![image](https://raw.githubusercontent.com/rrooggiieerr/homeassistant-xyscreens/main/usb-rs485.png)
 
 See the documentation of your specific device on how to wire yours correctly.
 
@@ -37,12 +38,12 @@ See the documentation of your specific device on how to wire yours correctly.
 
 If your devices follows the following protocol it's supported by this Home Assistant integration:
 
-2400 baud 8N1\
-Up command  : 0xFFAAEEEEDD\
-Down command: 0xFFAAEEEEEE\
+2400 baud 8N1  
+Up command  : 0xFFAAEEEEDD  
+Down command: 0xFFAAEEEEEE  
 Stop command: 0xFFAAEEEECC
 
-## Known to work
+## Supported projector screens and lifts
 
 The following device is known to work:
 
@@ -56,13 +57,15 @@ The following device are not tested but use the same protocol according to the d
 * KIMEX
 * DELUXX
 
-Please let me know if your projector screen or lift works with this Home Assistant integration so I can improve the overview of supported devices.
+Please let me know if your projector screen or lift works with this Home Assistant integration so I
+can improve the overview of supported devices.
 
 ## Caution
 
 This integration follows the Cover Entity where open means retracting the screen and close opens
 the screen, like how rolling blinds, garage doors and curtains work. For a projector screen this is
-counter intuitive. You can chose to invert this behaviour when adding your device. If you use voice commands this is recommended.
+counter intuitive. You can chose to invert this behaviour when adding your device. If you use voice
+commands this is recommended.
 
 ## Installation
 
@@ -76,7 +79,8 @@ Click the following button to open the integration directly on the HACS integrat
 Or follow these instructions:
 
 - Go to your **HACS** view in Home Assistant and then to **Integrations**
-- Select **+ Explore & download repositories** and search for *XY Screens projector screens and projector lifts*
+- Select **+ Explore & download repositories** and search for *XY Screens projector screens and
+lifts*
 - Select **Download**
 - Restart Home Assistant
 
@@ -104,7 +108,8 @@ If you would like to use this Home Assistant integration in youw own language yo
 
 More on translating custom integrations can be found [here](https://developers.home-assistant.io/docs/internationalization/custom_integration/).
 
-## Support
+## Support my work
+
 Do you enjoy using this Home Assistant integration? Then consider supporting my work using one of the following platforms:
 
 [![Github Sponsors][github-shield]][github]
