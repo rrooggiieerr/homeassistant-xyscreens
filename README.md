@@ -10,7 +10,7 @@
 [![BuyMeCoffee][buymecoffee-shield]][buymecoffee]
 [![Patreon][patreon-shield]][patreon]
 
-# Introduction
+## Introduction
 
 Home Assistant integration to control XY Screens projector screens and lifts over the RS-485
 interface.
@@ -58,7 +58,7 @@ The following projector screens and lifts are not tested but use the same protoc
 * DELUXX
 
 Please let me know if your projector screen or lift works with this Home Assistant integration so I
-can improve the overview of supported devices.
+can improve the overview of supported projector screens and lifts.
 
 ## Caution
 
