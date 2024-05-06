@@ -45,11 +45,11 @@ Stop command: 0xFFAAEEEECC
 
 ## Supported projector screens and lifts
 
-The following device is known to work:
+The following projector screens is known to work:
 
 * iVisions Electro M Series
 
-The following device are not tested but use the same protocol according to the documentation:
+The following projector screens and lifts are not tested but use the same protocol according to the documentation:
 
 * iVisions Electro L/XL/Pro/HD Series
 * iVisions PL Series projector lift
@@ -99,18 +99,21 @@ lifts*
 - Set the up and down times of your device.
 - Select **Submit**
 
-A new XY Screens integration and device will now be added to your Integrations
-view.
+A new XY Screens integration and device will now be added to your Integrations view.
 
 ## Contributing
 
-If you would like to use this Home Assistant integration in youw own language you can provide me with a translation file as found in the `custom_components/xyscreens/translations` directory. Create a pull request (preferred) or issue with the file attached.
+If you would like to use this Home Assistant integration in youw own language you can provide me
+with a translation file as found in the `custom_components/xyscreens/translations` directory.
+Create a pull request (preferred) or issue with the file attached.
 
-More on translating custom integrations can be found [here](https://developers.home-assistant.io/docs/internationalization/custom_integration/).
+More on translating custom integrations can be found
+[here](https://developers.home-assistant.io/docs/internationalization/custom_integration/).
 
 ## Support my work
 
-Do you enjoy using this Home Assistant integration? Then consider supporting my work using one of the following platforms:
+Do you enjoy using this Home Assistant integration? Then consider supporting my work using one of
+the following platforms:
 
 [![Github Sponsors][github-shield]][github]
 [![PayPal][paypal-shield]][paypal]
