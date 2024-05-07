@@ -2,7 +2,8 @@
 
 ![Python][python-shield]
 [![GitHub Release][releases-shield]][releases]
-[![Licence][license-badge]][license]
+[![Licence][license-shield]][license]
+[![Maintainer][maintainer-shield]][maintainer]
 [![Home Assistant][homeassistant-shield]][homeassistant]
 [![HACS][hacs-shield]][hacs]  
 [![Github Sponsors][github-shield]][github]
@@ -39,9 +40,9 @@ See the documentation of your specific device on how to wire yours correctly.
 If your devices follows the following protocol it's supported by this Home Assistant integration:
 
 2400 baud 8N1  
-Up command  : 0xFFAAEEEEDD  
-Down command: 0xFFAAEEEEEE  
-Stop command: 0xFFAAEEEECC
+Up command  : 0xFF 0xAA 0xEE 0xEE 0xDD  
+Down command: 0xFF 0xAA 0xEE 0xEE 0xEE  
+Stop command: 0xFF 0xAA 0xEE 0xEE 0xCC
 
 ## Supported projector screens and lifts
 
@@ -71,7 +72,7 @@ commands this is recommended.
 
 ### HACS
 
-The recomended way to install this Home Assistant integration is using by [HACS][hacs].
+The recommended way to install this Home Assistant integration is using by [HACS][hacs].
 Click the following button to open the integration directly on the HACS integration page.
 
 [![Install XY Screens from HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=rrooggiieerr&repository=homeassistant-xyscreens&category=integration)
@@ -90,7 +91,7 @@ lifts*
 `config/custom_components/` directory of your Home Assistant installation
 - Restart Home Assistant
 
-##  Adding a new XY Screens projector screen or projector lift
+## Adding a new XY Screens projector screen or projector lift
 
 - After restarting go to **Settings** then **Devices & Services**
 - Select **+ Add integration** and type in **XY Screens**
@@ -113,12 +114,18 @@ More on translating custom integrations can be found
 ## Support my work
 
 Do you enjoy using this Home Assistant integration? Then consider supporting my work using one of
-the following platforms:
+the following platforms, your donation is greatly appreciated and keeps me motivated:
 
 [![Github Sponsors][github-shield]][github]
 [![PayPal][paypal-shield]][paypal]
 [![BuyMeCoffee][buymecoffee-shield]][buymecoffee]
 [![Patreon][patreon-shield]][patreon]
+
+## Hire me
+
+If you would like to have a Home Assistant integration developed for your product or are in need
+for a freelance Python developer for your project please contact me, you can find my email address
+on [my GitHub profile](https://github.com/rrooggiieerr).
 
 ---
 
@@ -126,7 +133,9 @@ the following platforms:
 [releases]: https://github.com/rrooggiieerr/homeassistant-xyscreens/releases
 [releases-shield]: https://img.shields.io/github/v/release/rrooggiieerr/homeassistant-xyscreens?style=for-the-badge
 [license]: ./LICENSE
-[license-badge]: https://img.shields.io/github/license/rrooggiieerr/homeassistant-xyscreens?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/rrooggiieerr/homeassistant-xyscreens?style=for-the-badge
+[maintainer]: https://github.com/rrooggiieerr
+[maintainer-shield]: https://img.shields.io/badge/MAINTAINER-%40rrooggiieerr-41BDF5?style=for-the-badge
 [homeassistant]: https://www.home-assistant.io/
 [homeassistant-shield]: https://img.shields.io/badge/home%20assistant-%2341BDF5.svg?style=for-the-badge&logo=home-assistant&logoColor=white
 [hacs]: https://hacs.xyz/
