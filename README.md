@@ -50,7 +50,8 @@ The following projector screens is known to work:
 
 * iVisions Electro M Series
 
-The following projector screens and lifts are not tested but use the same protocol according to the documentation:
+The following projector screens and lifts are not tested but use the same protocol according to the
+documentation:
 
 * iVisions Electro L/XL/Pro/HD Series
 * iVisions PL Series projector lift
@@ -126,8 +127,6 @@ the following platforms, your donation is greatly appreciated and keeps me motiv
 If you would like to have a Home Assistant integration developed for your product or are in need
 for a freelance Python developer for your project please contact me, you can find my email address
 on [my GitHub profile](https://github.com/rrooggiieerr).
-
----
 
 [python-shield]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [releases]: https://github.com/rrooggiieerr/homeassistant-xyscreens/releases
