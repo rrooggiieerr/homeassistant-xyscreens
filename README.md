@@ -21,10 +21,10 @@ world under various brand names.
 
 ## Features
 
-- Installation/Configuration through Config Flow UI
-- Set the up and down time of your projector screen/lift
-- Position the screen/lift on any position along the way
-- Invert the default Cover Entity behaviour
+* Installation/Configuration through Config Flow UI
+* Set the up and down time of your projector screen/lift
+* Position the screen/lift on any position along the way
+* Invert the default Cover Entity behaviour
 
 ## Hardware
 
