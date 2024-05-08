@@ -3,13 +3,12 @@
 from __future__ import annotations
 
 import logging
-from datetime import timedelta
 from typing import Any
 
 # import serial
 from homeassistant.components.cover import (
     ATTR_CURRENT_POSITION,
-    CoverDeviceClass,
+    ATTR_POSITION,
     CoverEntity,
     CoverEntityDescription,
     CoverEntityFeature,
@@ -18,7 +17,6 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.helpers.event import async_track_time_interval
 from homeassistant.helpers.restore_state import RestoreEntity
 from xyscreens import XYScreens, XYScreensState
 
@@ -60,7 +58,10 @@ class XYScreensCover(CoverEntity, RestoreEntity):
 
     _attr_assumed_state = True
     _attr_supported_features = (
-        CoverEntityFeature.OPEN | CoverEntityFeature.CLOSE | CoverEntityFeature.STOP
+        CoverEntityFeature.OPEN
+        | CoverEntityFeature.CLOSE
+        | CoverEntityFeature.STOP
+        | CoverEntityFeature.SET_POSITION
     )
     _attr_should_poll = False
 
@@ -80,8 +81,12 @@ class XYScreensCover(CoverEntity, RestoreEntity):
         inverted: bool,
     ) -> None:
         """Initialize the screen."""
-        if device_type == CONF_DEVICE_TYPE_PROJECTOR_LIFT:
+        if device_type == CONF_DEVICE_TYPE_PROJECTOR_LIFT and inverted:
+            translation_key = "projector_lift_inverted"
+        elif device_type == CONF_DEVICE_TYPE_PROJECTOR_LIFT:
             translation_key = "projector_lift"
+        elif inverted:
+            translation_key = "projector_screen_inverted"
         else:
             translation_key = "projector_screen"
 
@@ -100,9 +105,12 @@ class XYScreensCover(CoverEntity, RestoreEntity):
         )
 
         self._screen = XYScreens(serial_port, time_open, time_close)
+        self._screen.add_callback(self._callback)
+
         self._inverted = inverted
 
     async def async_added_to_hass(self) -> None:
+        """Called when sensor is added to Home Assistant."""
         last_state = await self.async_get_last_state()
         if (
             last_state is not None
@@ -110,13 +118,17 @@ class XYScreensCover(CoverEntity, RestoreEntity):
         ):
             position = last_state.attributes.get(ATTR_CURRENT_POSITION)
             _LOGGER.debug("Last screen position: %5.1f %%", position)
-            self._screen.set_position(100 - position)
+            if not self._inverted:
+                self._screen.restore_position(100 - position)
+            else:
+                self._screen.restore_position(position)
             self._attr_current_cover_position = position
             if position == 0:
                 self._attr_is_closed = True
 
-    async def async_update(self) -> None:
-        """Calculate and update cover position."""
+    @callback
+    def _callback(self, state: XYScreensState, position: float):
+        """Callback to be called by XYScreens library whenever a state changes."""
         if not self._inverted:
             position = 100 - self._screen.position()
         else:
@@ -125,70 +137,54 @@ class XYScreensCover(CoverEntity, RestoreEntity):
         state = self._screen.state()
 
         if state == XYScreensState.UP:
-            self._attr_is_closing = False is not self._inverted
-            self._attr_is_closed = False is not self._inverted
-            self._attr_is_opening = False is not self._inverted
-            self.stop_updater()
+            self._attr_is_closing = False
+            self._attr_is_closed = self._inverted
+            self._attr_is_opening = False
         elif state == XYScreensState.UPWARD:
-            self._attr_is_closing = False is not self._inverted
-            self._attr_is_closed = False is not self._inverted
-            self._attr_is_opening = True is not self._inverted
+            self._attr_is_closing = self._inverted
+            self._attr_is_closed = False
+            self._attr_is_opening = not self._inverted
         elif state == XYScreensState.STOPPED:
-            self._attr_is_closing = False is not self._inverted
-            self._attr_is_closed = False is not self._inverted
-            self._attr_is_opening = False is not self._inverted
-            self.stop_updater()
+            self._attr_is_closing = False
+            self._attr_is_closed = False
+            self._attr_is_opening = False
         elif state == XYScreensState.DOWNWARD:
-            self._attr_is_closing = True is not self._inverted
-            self._attr_is_closed = False is not self._inverted
-            self._attr_is_opening = False is not self._inverted
+            self._attr_is_closing = not self._inverted
+            self._attr_is_closed = False
+            self._attr_is_opening = self._inverted
         elif state == XYScreensState.DOWN:
-            self._attr_is_closing = False is not self._inverted
-            self._attr_is_closed = True is not self._inverted
-            self._attr_is_opening = False is not self._inverted
-            self.stop_updater()
+            self._attr_is_closing = False
+            self._attr_is_closed = not self._inverted
+            self._attr_is_opening = False
+
+        _LOGGER.debug(
+            "screen state: %s entity state: %s closing: %s closed: %s opening: %s",
+            state,
+            self.state,
+            self.is_closing,
+            self.is_closed,
+            self.is_opening,
+        )
 
         self._attr_current_cover_position = round(position)
 
-    def start_updater(self):
-        """Start the updater to update Home Assistant while cover is moving."""
-        if self._unsubscribe_updater is None:
-            _LOGGER.debug("Start update listener")
-            self._unsubscribe_updater = async_track_time_interval(
-                self.hass, self.updater_hook, timedelta(seconds=0.1)
-            )
-
-    @callback
-    # pylint: disable=W0613
-    def updater_hook(self, now):
-        """Call for the updater."""
-        _LOGGER.debug("Updater hook")
-        self.async_schedule_update_ha_state(True)
-
-    def stop_updater(self):
-        """Stop the updater."""
-        if self._unsubscribe_updater is not None:
-            _LOGGER.debug("Stop update listener")
-            self._unsubscribe_updater()
-            self._unsubscribe_updater = None
+        self.async_write_ha_state()
 
     async def _async_open_cover(self, **kwargs: Any) -> None:
-        """Open the cover."""
-        if await self._screen.async_up():
-            self.start_updater()
+        await self._screen.async_up()
 
     async def _async_close_cover(self, **kwargs: Any) -> None:
-        """Close the cover."""
-        if await self._screen.async_down():
-            self.start_updater()
+        await self._screen.async_down()
 
     async def async_open_cover(self, **kwargs: Any) -> None:
+        """Open the cover."""
         if not self._inverted:
             await self._async_open_cover()
         else:
             await self._async_close_cover()
 
     async def async_close_cover(self, **kwargs: Any) -> None:
+        """Close the cover."""
         if not self._inverted:
             await self._async_close_cover()
         else:
@@ -196,5 +192,15 @@ class XYScreensCover(CoverEntity, RestoreEntity):
 
     async def async_stop_cover(self, **kwargs: Any) -> None:
         """Stop the cover."""
-        if await self._screen.async_stop():
-            self.stop_updater()
+        await self._screen.async_stop()
+
+    async def async_set_cover_position(self, **kwargs: Any) -> None:
+        """Move the cover to a specific position."""
+        position = kwargs[ATTR_POSITION]
+        if self.current_cover_position == position:
+            return
+
+        if not self._inverted:
+            await self._screen.async_set_position(100 - position)
+        else:
+            await self._screen.async_set_position(position)
