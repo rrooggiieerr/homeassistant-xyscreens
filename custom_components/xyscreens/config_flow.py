@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import logging
 import os
-from typing import Any
+from typing import Any, Tuple
 
 import homeassistant.helpers.config_validation as cv
 import serial.tools.list_ports
@@ -131,7 +131,7 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     # pylint: disable=W0613
     async def validate_input_setup_serial(
         self, data: dict[str, Any], errors: dict[str, str]
-    ) -> (str, dict[str, Any], dict[str, Any]):
+    ) -> Tuple[str, dict[str, Any], dict[str, Any]]:
         """Validate the user input allows us to connect.
 
         Data has the keys from _step_setup_serial_schema with values provided by the user.
