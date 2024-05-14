@@ -21,10 +21,19 @@ world under various brand names.
 
 ## Features
 
-* Installation/Configuration through Config Flow UI
-* Set the up and down time of your projector screen/lift
-* Position the screen/lift on any position along the way
-* Invert the default Cover Entity behaviour
+- Installation/Configuration through Config Flow UI
+- Set the up and down duration of your projector screen/lift
+- Position control, move the screen/lift to any position along the way
+- Invert the default Cover Entity behaviour
+
+### About position control
+
+The XY Screens projector screens and lifts do not provide any positional feedback. The state of the
+screen is thus always an assumed one. The screen position is calculated based on the time the cover
+has moved and the configured up and down durations. This results in a potentioal error margin.
+Every time the screen reaches it maximum up or down position the position and thus any potential
+error is reset accordingly. If the screen is controlled outside of Home Assistant, for instance
+with the remote control, the screen position and state will no longer represent the actual state.
 
 ## Hardware
 
@@ -48,26 +57,31 @@ Stop command: 0xFF 0xAA 0xEE 0xEE 0xCC
 
 The following projector screens is known to work:
 
-* iVisions Electro M Series
+- iVisions Electro M Series
 
 The following projector screens and lifts are not tested but use the same protocol according to the
 documentation:
 
-* iVisions Electro L/XL/Pro/HD Series
-* iVisions PL Series projector lift
-* Elite Screens
-* KIMEX
-* DELUXX
+- iVisions Electro L/XL/Pro/HD Series
+- iVisions PL Series projector lift
+- Elite Screens
+- KIMEX
+- DELUXX
 
 Please let me know if your projector screen or lift works with this Home Assistant integration so I
 can improve the overview of supported projector screens and lifts.
 
 ## Caution
 
-This integration follows the Cover Entity where open means retracting the screen and close opens
-the screen, like how rolling blinds, garage doors and curtains work. For a projector screen this is
-counter intuitive. You can chose to invert this behaviour when adding your device. If you use voice
-commands this is recommended.
+This integration follows the Cover Entity where open means raising the screen and close lowering
+the screen, like how roller blinds, garage doors and curtains work. For a projector screen this is
+counter intuitive. You can chose to invert this behaviour when adding your screen or lift to Home
+Assistant. The dahsboard will then show the screen controls inverted, arrow up will lower the
+screen while arrow down will raise the screen. However the voice commands Open and Close will then
+work as expected.
+
+Thanks to the power of Home Assistant translations the entity state in a non-inverted screen will
+show correctly, however the voice commands and actions are inverted.
 
 ## Installation
 
