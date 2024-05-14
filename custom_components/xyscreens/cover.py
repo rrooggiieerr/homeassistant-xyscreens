@@ -81,12 +81,8 @@ class XYScreensCover(CoverEntity, RestoreEntity):
         inverted: bool,
     ) -> None:
         """Initialize the screen."""
-        if device_type == CONF_DEVICE_TYPE_PROJECTOR_LIFT and inverted:
-            translation_key = "projector_lift_inverted"
-        elif device_type == CONF_DEVICE_TYPE_PROJECTOR_LIFT:
+        if device_type == CONF_DEVICE_TYPE_PROJECTOR_LIFT:
             translation_key = "projector_lift"
-        elif inverted:
-            translation_key = "projector_screen_inverted"
         else:
             translation_key = "projector_screen"
 
@@ -96,6 +92,9 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             manufacturer="XY Screens",
         )
         self._attr_unique_id = serial_port
+
+        if inverted:
+            translation_key += "_inverted"
 
         self.entity_description = CoverEntityDescription(
             key="projector_screen",
@@ -133,9 +132,9 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             position = 100 - self._screen.position()
         else:
             position = self._screen.position()
-        _LOGGER.debug("Screen position: %5.1f %%", position)
-        state = self._screen.state()
+        self._attr_current_cover_position = round(position)
 
+        state = self._screen.state()
         if state == XYScreensState.UP:
             self._attr_is_closing = False
             self._attr_is_closed = self._inverted
@@ -156,17 +155,6 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             self._attr_is_closing = False
             self._attr_is_closed = not self._inverted
             self._attr_is_opening = False
-
-        _LOGGER.debug(
-            "screen state: %s entity state: %s closing: %s closed: %s opening: %s",
-            state,
-            self.state,
-            self.is_closing,
-            self.is_closed,
-            self.is_opening,
-        )
-
-        self._attr_current_cover_position = round(position)
 
         self.async_write_ha_state()
 
