@@ -70,5 +70,25 @@
     "projector_lift": {
       "name": "Projector Lift"
     }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Closed",
+          "opening": "Closing",
+          "closing": "Opening",
+          "closed": "Open"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Closed",
+          "opening": "Closing",
+          "closing": "Opening",
+          "closed": "Open"
+        }
+      }
+    }
   }
 }
