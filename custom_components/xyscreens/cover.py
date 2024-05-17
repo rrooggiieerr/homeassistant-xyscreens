@@ -43,6 +43,7 @@ async def async_setup_entry(
     async_add_entities(
         [
             XYScreensCover(
+                config_entry.entry_id,
                 config_entry.data.get(CONF_SERIAL_PORT),
                 config_entry.data.get(CONF_DEVICE_TYPE),
                 config_entry.options.get(CONF_TIME_OPEN),
@@ -74,6 +75,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
 
     def __init__(
         self,
+        config_entry_id: str,
         serial_port: str,
         device_type: str,
         time_open: int,
@@ -87,11 +89,11 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             translation_key = "projector_screen"
 
         self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, serial_port)},
+            identifiers={(DOMAIN, config_entry_id)},
             translation_key=translation_key,
             manufacturer="XY Screens",
         )
-        self._attr_unique_id = serial_port
+        self._attr_unique_id = config_entry_id
 
         if inverted:
             translation_key += "_inverted"
