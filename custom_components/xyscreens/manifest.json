@@ -15,7 +15,7 @@
   "requirements": [
     "pyserial==3.5",
     "pyserial_asyncio>=0.6",
-    "xyscreens==0.1.1"
+    "xyscreens==1.0.0rc3"
   ],
   "version": "0.1.0"
 }

@@ -21,6 +21,7 @@ from homeassistant.helpers.restore_state import RestoreEntity
 from xyscreens import XYScreens, XYScreensState
 
 from .const import (
+    CONF_ADDRESS,
     CONF_DEVICE_TYPE,
     CONF_DEVICE_TYPE_PROJECTOR_LIFT,
     CONF_INVERTED,
@@ -45,6 +46,7 @@ async def async_setup_entry(
             XYScreensCover(
                 config_entry.entry_id,
                 config_entry.data.get(CONF_SERIAL_PORT),
+                bytes.fromhex(config_entry.data.get(CONF_ADDRESS, "AAEEEE")),
                 config_entry.data.get(CONF_DEVICE_TYPE),
                 config_entry.options.get(CONF_TIME_OPEN),
                 config_entry.options.get(CONF_TIME_CLOSE),
@@ -77,6 +79,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
         self,
         config_entry_id: str,
         serial_port: str,
+        address: bytes,
         device_type: str,
         time_open: int,
         time_close: int,
@@ -105,7 +108,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             name=None,  # Inherit the device name
         )
 
-        self._screen = XYScreens(serial_port, time_open, time_close)
+        self._screen = XYScreens(serial_port, address, time_open, time_close)
         self._screen.add_callback(self._callback)
 
         self._inverted = inverted

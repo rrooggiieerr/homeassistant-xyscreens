@@ -21,6 +21,7 @@ from homeassistant.helpers.selector import (
 
 from . import test_serial_port
 from .const import (
+    CONF_ADDRESS,
     CONF_DEVICE_TYPE,
     CONF_DEVICE_TYPE_PROJECTOR_LIFT,
     CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
@@ -91,6 +92,19 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     )
                 ),
                 vol.Required(
+                    CONF_ADDRESS, default=user_input.get(CONF_ADDRESS)
+                ): SelectSelector(
+                    SelectSelectorConfig(
+                        options=[
+                            SelectOptionDict(
+                                value="AAEEEE", label="AAEEEE (XY Screens)"
+                            ),
+                            SelectOptionDict(value="EEEEEE", label="EEEEEE (See Max)"),
+                        ],
+                        custom_value=True,
+                    )
+                ),
+                vol.Required(
                     CONF_DEVICE_TYPE,
                     default=user_input.get(
                         CONF_DEVICE_TYPE, CONF_DEVICE_TYPE_PROJECTOR_SCREEN
@@ -152,6 +166,8 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if not os.path.exists(serial_port):
             raise vol.error.PathInvalid(f"Device {serial_port} does not exists")
 
+        address = data.get(CONF_ADDRESS)
+
         await self.async_set_unique_id(serial_port)
         self._abort_if_unique_id_configured()
 
@@ -168,6 +184,7 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             serial_port,
             {
                 CONF_SERIAL_PORT: serial_port,
+                CONF_ADDRESS: address,
                 CONF_DEVICE_TYPE: data[CONF_DEVICE_TYPE],
             },
             {

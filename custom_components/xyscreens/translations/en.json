@@ -11,6 +11,7 @@
       "setup_serial": {
         "data": {
           "serial_port": "Serial port",
+          "address": "Address",
           "device_type": "Device type",
           "time_open": "Open time",
           "time_close": "Close time",
@@ -18,8 +19,9 @@
         },
         "data_description": {
           "serial_port": "The serial port your device is connected to.",
-          "time_open": "Time needed to open the device",
-          "time_close": "Time needed to close the device",
+          "address": "The hexadecimal address of the device.",
+          "time_open": "Time needed to open the device.",
+          "time_close": "Time needed to close the device.",
           "inverted": "This integration follows the Cover Entity, where open means the screen is retracted and closed the screen is extracted, the same way curtains and garage doors work. For a projection screen this is counterintuitive. You can reverse the behavior."
         }
       }
