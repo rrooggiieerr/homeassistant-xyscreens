@@ -13,8 +13,7 @@
   	"xyscreens"
   ],
   "requirements": [
-    "pyserial==3.5",
-    "pyserial_asyncio>=0.6",
+    "pyserial-asyncio-fast==0.12",
     "xyscreens==1.0.0rc3"
   ],
   "version": "0.1.0"

@@ -4,7 +4,7 @@ import logging
 import os
 
 import serial
-import serial_asyncio
+import serial_asyncio_fast as serial_asyncio
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
