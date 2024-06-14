@@ -16,5 +16,5 @@
     "pyserial-asyncio-fast==0.12",
     "xyscreens==1.0.0rc3"
   ],
-  "version": "1.0.0-rc.1"
+  "version": "1.0.0"
 }
