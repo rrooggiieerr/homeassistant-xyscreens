@@ -10,7 +10,17 @@ from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
 
-from .const import CONF_SERIAL_PORT, CONF_TIME_CLOSE, CONF_TIME_OPEN, DOMAIN
+from custom_components.xyscreens.const import CONF_INVERTED
+
+from .const import (
+    CONF_ADDRESS,
+    CONF_DEVICE_TYPE,
+    CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
+    CONF_SERIAL_PORT,
+    CONF_TIME_CLOSE,
+    CONF_TIME_OPEN,
+    DOMAIN,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -89,9 +99,32 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
             CONF_TIME_CLOSE: config_entry.data.get(CONF_TIME_CLOSE),
         }
 
-        config_entry.version = 2
         hass.config_entries.async_update_entry(
-            config_entry, title=new_title, data=new_data, options=new_options
+            config_entry, title=new_title, data=new_data, options=new_options, version=2
+        )
+
+    if config_entry.version == 2:
+        _LOGGER.debug("Migrating config entry from 2 to 3")
+        new_unique_id = f"{config_entry.data.get(CONF_SERIAL_PORT)}-aaeeee"
+        new_title = f"{config_entry.data.get(CONF_SERIAL_PORT)} AAEEEE"
+        new_data = {
+            CONF_SERIAL_PORT: config_entry.data.get(CONF_SERIAL_PORT),
+            CONF_ADDRESS: "aaeeee",
+            CONF_DEVICE_TYPE: CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
+        }
+        new_options = {
+            CONF_TIME_OPEN: config_entry.options.get(CONF_TIME_OPEN),
+            CONF_TIME_CLOSE: config_entry.options.get(CONF_TIME_CLOSE),
+            CONF_INVERTED: config_entry.options.get(CONF_INVERTED, False),
+        }
+
+        hass.config_entries.async_update_entry(
+            config_entry,
+            unique_id=new_unique_id,
+            title=new_title,
+            data=new_data,
+            options=new_options,
+            version=3,
         )
 
     return True
