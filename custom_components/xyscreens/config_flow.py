@@ -167,8 +167,11 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             raise vol.error.PathInvalid(f"Device {serial_port} does not exists")
 
         address = data.get(CONF_ADDRESS)
+        address = bytes.fromhex(address)
+        address = address.hex()
 
-        await self.async_set_unique_id(serial_port)
+        # Make sure the serial port and address is not already used by an other integration.
+        await self.async_set_unique_id(f"{serial_port}-{address}")
         self._abort_if_unique_id_configured()
 
         # Test if we can connect to the device.
@@ -181,7 +184,7 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
         # Return title, data and options
         return (
-            serial_port,
+            f"{serial_port} {address.upper()}",
             {
                 CONF_SERIAL_PORT: serial_port,
                 CONF_ADDRESS: address,
