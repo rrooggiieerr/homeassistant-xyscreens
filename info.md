@@ -30,7 +30,7 @@ world under various brand names.
 
 The XY Screens projector screens and lifts do not provide any positional feedback. The state of the
 screen is thus always an assumed one. The screen position is calculated based on the time the cover
-has moved and the configured up and down durations. This results in a potentioal error margin.
+has moved and the configured up and down durations. This results in a potential error margin.
 Every time the screen reaches it maximum up or down position the position and thus any potential
 error is reset accordingly. If the screen is controlled outside of Home Assistant, for instance
 with the remote control, the screen position and state will no longer represent the actual state.
