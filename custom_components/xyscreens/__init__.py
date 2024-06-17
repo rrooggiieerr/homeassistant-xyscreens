@@ -43,7 +43,7 @@ async def test_serial_port(serial_port):
     # Close the connection.
     writer.close()
 
-    _LOGGER.info("Device %s is available", serial_port)
+    _LOGGER.debug("Device %s is available", serial_port)
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
