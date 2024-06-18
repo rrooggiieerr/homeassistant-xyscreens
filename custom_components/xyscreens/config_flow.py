@@ -133,7 +133,6 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             }
         )
 
-        _LOGGER.debug("XXXXX")
         data_schema = self.add_suggested_values_to_schema(
             self._step_setup_serial_schema, user_input
         )
@@ -186,7 +185,6 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
         if errors.get(CONF_SERIAL_PORT) is None:
             # Test if we can connect to the device.
-            _LOGGER.debug("Test if we can connect to the device.")
             try:
                 await test_serial_port(serial_port)
             except serial.SerialException:
