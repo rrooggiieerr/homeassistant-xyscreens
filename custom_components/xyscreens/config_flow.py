@@ -133,9 +133,14 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             }
         )
 
+        _LOGGER.debug("XXXXX")
+        data_schema = self.add_suggested_values_to_schema(
+            self._step_setup_serial_schema, user_input
+        )
+
         return self.async_show_form(
             step_id="setup_serial",
-            data_schema=self._step_setup_serial_schema,
+            data_schema=data_schema,
             errors=errors,
         )
 
