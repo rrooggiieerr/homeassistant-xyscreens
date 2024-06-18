@@ -5,6 +5,8 @@
     },
     "error": {
       "cannot_connect": "Failed to connect",
+      "nonexisting_serial_port": "Serial poort does not exist",
+      "invalid_address": "Invalid address",
       "unknown": "Unexpected error"
     },
     "step": {

@@ -5,6 +5,8 @@
     },
     "error": {
       "cannot_connect": "Kan geen verbinding maken",
+      "nonexisting_serial_port": "Seriële poort bestaat niet",
+      "invalid_address": "Ongeldig adres",
       "unknown": "Onverwachte fout"
     },
     "step": {

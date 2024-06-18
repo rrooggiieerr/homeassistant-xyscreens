@@ -55,16 +55,11 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         errors: dict[str, str] = {}
 
         if user_input is not None:
-            try:
-                title, data, options = await self.validate_input_setup_serial(
-                    user_input, errors
-                )
-            except CannotConnect:
-                errors["base"] = "cannot_connect"
-            except Exception as ex:  # pylint: disable=broad-except
-                _LOGGER.exception("Unexpected exception: %s", ex)
-                errors["base"] = "unknown"
-            else:
+            title, data, options = await self.validate_input_setup_serial(
+                user_input, errors
+            )
+
+            if not errors:
                 return self.async_create_entry(title=title, data=data, options=options)
 
         if user_input is None:
@@ -146,7 +141,8 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     async def validate_input_setup_serial(
         self, data: dict[str, Any], errors: dict[str, str]
     ) -> Tuple[str, dict[str, Any], dict[str, Any]]:
-        """Validate the user input allows us to connect.
+        """
+        Validate the user input and create data.
 
         Data has the keys from _step_setup_serial_schema with values provided by the user.
         """
@@ -164,23 +160,30 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
         # Test if the device exists
         if not os.path.exists(serial_port):
-            raise vol.error.PathInvalid(f"Device {serial_port} does not exists")
+            errors[CONF_SERIAL_PORT] = "nonexisting_serial_port"
+            # raise vol.error.PathInvalid(f"Device {serial_port} does not exists")
 
         address = data.get(CONF_ADDRESS)
-        address = bytes.fromhex(address)
-        address = address.hex()
+        try:
+            address = bytes.fromhex(address)
+            address = address.hex()
+
+            if len(address) != 6:
+                errors[CONF_ADDRESS] = "invalid_address"
+        except ValueError:
+            errors[CONF_ADDRESS] = "invalid_address"
 
         # Make sure the serial port and address is not already used by an other integration.
         await self.async_set_unique_id(f"{serial_port}-{address}")
         self._abort_if_unique_id_configured()
 
-        # Test if we can connect to the device.
-        try:
-            await test_serial_port(serial_port)
-        except serial.SerialException as ex:
-            raise CannotConnect(
-                f"Unable to connect to the device {serial_port}: {ex}"
-            ) from ex
+        if errors.get(CONF_SERIAL_PORT) is None:
+            # Test if we can connect to the device.
+            _LOGGER.debug("Test if we can connect to the device.")
+            try:
+                await test_serial_port(serial_port)
+            except serial.SerialException:
+                errors["base"] = "cannot_connect"
 
         # Return title, data and options
         return (
@@ -285,7 +288,3 @@ def get_serial_by_id(dev_path: str) -> str:
         if os.path.realpath(path) == dev_path:
             return path
     return dev_path
-
-
-class CannotConnect(HomeAssistantError):
-    """Error to indicate we cannot connect."""
