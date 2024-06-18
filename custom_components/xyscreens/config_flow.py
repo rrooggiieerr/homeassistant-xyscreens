@@ -84,6 +84,7 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                             for k, v in list_of_ports.items()
                         ],
                         custom_value=True,
+                        sort=True,
                     )
                 ),
                 vol.Required(
@@ -97,6 +98,7 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                             SelectOptionDict(value="EEEEEE", label="EEEEEE (See Max)"),
                         ],
                         custom_value=True,
+                        sort=True,
                     )
                 ),
                 vol.Required(
