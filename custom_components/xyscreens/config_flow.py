@@ -75,9 +75,7 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
         self._step_setup_serial_schema = vol.Schema(
             {
-                vol.Required(
-                    CONF_SERIAL_PORT, default=user_input.get(CONF_SERIAL_PORT)
-                ): SelectSelector(
+                vol.Required(CONF_SERIAL_PORT, default=""): SelectSelector(
                     SelectSelectorConfig(
                         options=[
                             SelectOptionDict(value=k, label=v)
@@ -87,9 +85,7 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                         sort=True,
                     )
                 ),
-                vol.Required(
-                    CONF_ADDRESS, default=user_input.get(CONF_ADDRESS)
-                ): SelectSelector(
+                vol.Required(CONF_ADDRESS, default=""): SelectSelector(
                     SelectSelectorConfig(
                         options=[
                             SelectOptionDict(
@@ -102,10 +98,7 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     )
                 ),
                 vol.Required(
-                    CONF_DEVICE_TYPE,
-                    default=user_input.get(
-                        CONF_DEVICE_TYPE, CONF_DEVICE_TYPE_PROJECTOR_SCREEN
-                    ),
+                    CONF_DEVICE_TYPE, default=CONF_DEVICE_TYPE_PROJECTOR_SCREEN
                 ): SelectSelector(
                     SelectSelectorConfig(
                         options=[
@@ -121,15 +114,13 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                         translation_key=CONF_DEVICE_TYPE,
                     )
                 ),
-                vol.Required(
-                    CONF_TIME_OPEN, default=user_input.get(CONF_TIME_OPEN, 1)
-                ): vol.All(vol.Coerce(int), vol.Range(min=1)),
-                vol.Required(
-                    CONF_TIME_CLOSE, default=user_input.get(CONF_TIME_CLOSE, 1)
-                ): vol.All(vol.Coerce(int), vol.Range(min=1)),
-                vol.Required(
-                    CONF_INVERTED, default=user_input.get(CONF_INVERTED, False)
-                ): bool,
+                vol.Required(CONF_TIME_OPEN, default=1): vol.All(
+                    vol.Coerce(int), vol.Range(min=1)
+                ),
+                vol.Required(CONF_TIME_CLOSE, default=1): vol.All(
+                    vol.Coerce(int), vol.Range(min=1)
+                ),
+                vol.Required(CONF_INVERTED, default=False): bool,
             }
         )
 
@@ -167,7 +158,6 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         # Test if the device exists
         if not os.path.exists(serial_port):
             errors[CONF_SERIAL_PORT] = "nonexisting_serial_port"
-            # raise vol.error.PathInvalid(f"Device {serial_port} does not exists")
 
         address = data.get(CONF_ADDRESS)
         try:
