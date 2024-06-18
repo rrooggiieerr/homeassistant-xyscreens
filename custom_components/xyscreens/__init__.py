@@ -10,12 +10,11 @@ from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
 
-from custom_components.xyscreens.const import CONF_INVERTED
-
 from .const import (
     CONF_ADDRESS,
     CONF_DEVICE_TYPE,
     CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
+    CONF_INVERTED,
     CONF_SERIAL_PORT,
     CONF_TIME_CLOSE,
     CONF_TIME_OPEN,
