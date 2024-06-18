@@ -62,9 +62,6 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             if not errors:
                 return self.async_create_entry(title=title, data=data, options=options)
 
-        if user_input is None:
-            user_input = {}
-
         ports = await self.hass.async_add_executor_job(serial.tools.list_ports.comports)
         list_of_ports = {}
         for port in ports:
@@ -124,9 +121,12 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             }
         )
 
-        data_schema = self.add_suggested_values_to_schema(
-            self._step_setup_serial_schema, user_input
-        )
+        if user_input is not None:
+            data_schema = self.add_suggested_values_to_schema(
+                self._step_setup_serial_schema, user_input
+            )
+        else:
+            data_schema = self._step_setup_serial_schema
 
         return self.async_show_form(
             step_id="setup_serial",
