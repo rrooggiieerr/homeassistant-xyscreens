@@ -114,10 +114,14 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     )
                 ),
                 vol.Required(CONF_TIME_OPEN, default=1): NumberSelector(
-                    NumberSelectorConfig(min=1, mode=NumberSelectorMode.BOX)
+                    NumberSelectorConfig(
+                        min=1, mode=NumberSelectorMode.BOX, unit_of_measurement="s"
+                    )
                 ),
                 vol.Required(CONF_TIME_CLOSE, default=1): NumberSelector(
-                    NumberSelectorConfig(min=1, mode=NumberSelectorMode.BOX)
+                    NumberSelectorConfig(
+                        min=1, mode=NumberSelectorMode.BOX, unit_of_measurement="s"
+                    )
                 ),
                 vol.Required(CONF_INVERTED, default=False): BooleanSelector(),
             }
@@ -214,11 +218,19 @@ class XYScreensOptionsFlowHandler(config_entries.OptionsFlow):
             vol.Required(
                 CONF_TIME_OPEN,
                 default=1,
-            ): NumberSelector(NumberSelectorConfig(min=1, mode=NumberSelectorMode.BOX)),
+            ): NumberSelector(
+                NumberSelectorConfig(
+                    min=1, mode=NumberSelectorMode.BOX, unit_of_measurement="s"
+                )
+            ),
             vol.Required(
                 CONF_TIME_CLOSE,
                 default=1,
-            ): NumberSelector(NumberSelectorConfig(min=1, mode=NumberSelectorMode.BOX)),
+            ): NumberSelector(
+                NumberSelectorConfig(
+                    min=1, mode=NumberSelectorMode.BOX, unit_of_measurement="s"
+                )
+            ),
             vol.Required(
                 CONF_INVERTED,
                 default=False,
