@@ -205,7 +205,7 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
 
 class XYScreensOptionsFlowHandler(config_entries.OptionsFlow):
-    """Handle the config flow for XY Screens."""
+    """Handle the options flow for XY Screens."""
 
     _options_schema: vol.Schema
 
