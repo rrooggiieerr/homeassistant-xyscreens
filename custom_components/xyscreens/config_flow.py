@@ -261,13 +261,13 @@ class XYScreensOptionsFlowHandler(config_entries.OptionsFlow):
         self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Manage the options."""
-        await self.async_step_init(user_input)
+        return await self.async_step_init(user_input)
 
     async def async_step_projector_lift(
         self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Manage the options."""
-        await self.async_step_init(user_input)
+        return await self.async_step_init(user_input)
 
 
 def get_serial_by_id(dev_path: str) -> str:
