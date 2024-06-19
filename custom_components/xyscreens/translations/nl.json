@@ -40,7 +40,7 @@
   "options": {
     "step": {
       "projector_screen": {
-        "title": "Projectiescherm tijden",
+        "title": "Projectiescherm instellingen",
         "data": {
           "time_open": "Open tijd",
           "time_close": "Sluit tijd",
@@ -53,7 +53,7 @@
         }
       },
       "projector_lift": {
-        "title": "Projectorlift tijden",
+        "title": "Projectorlift instellingen",
         "data": {
           "time_open": "Open tijd",
           "time_close": "Sluit tijd",

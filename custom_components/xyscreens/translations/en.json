@@ -40,7 +40,7 @@
   "options": {
     "step": {
       "projector_screen": {
-        "title": "Projector screen",
+        "title": "Projector screen options",
         "data": {
           "time_open": "Open time",
           "time_close": "Close time",
@@ -53,7 +53,7 @@
         }
       },
       "projector_lift": {
-        "title": "Projector lift",
+        "title": "Projector lift options",
         "data": {
           "time_open": "Open time",
           "time_close": "Close time",

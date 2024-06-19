@@ -6,14 +6,16 @@ import logging
 import os
 from typing import Any, Tuple
 
-import homeassistant.helpers.config_validation as cv
 import serial.tools.list_ports
 import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowResult
-from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.selector import (
+    BooleanSelector,
+    NumberSelector,
+    NumberSelectorConfig,
+    NumberSelectorMode,
     SelectOptionDict,
     SelectSelector,
     SelectSelectorConfig,
@@ -111,13 +113,13 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                         translation_key=CONF_DEVICE_TYPE,
                     )
                 ),
-                vol.Required(CONF_TIME_OPEN, default=1): vol.All(
-                    vol.Coerce(int), vol.Range(min=1)
+                vol.Required(CONF_TIME_OPEN, default=1): NumberSelector(
+                    NumberSelectorConfig(min=1, mode=NumberSelectorMode.BOX)
                 ),
-                vol.Required(CONF_TIME_CLOSE, default=1): vol.All(
-                    vol.Coerce(int), vol.Range(min=1)
+                vol.Required(CONF_TIME_CLOSE, default=1): NumberSelector(
+                    NumberSelectorConfig(min=1, mode=NumberSelectorMode.BOX)
                 ),
-                vol.Required(CONF_INVERTED, default=False): bool,
+                vol.Required(CONF_INVERTED, default=False): BooleanSelector(),
             }
         )
 
@@ -207,6 +209,22 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 class XYScreensOptionsFlowHandler(config_entries.OptionsFlow):
     """Handle the options flow for XY Screens."""
 
+    _OPTIONS_SCHEMA = vol.Schema(
+        {
+            vol.Required(
+                CONF_TIME_OPEN,
+                default=1,
+            ): NumberSelector(NumberSelectorConfig(min=1, mode=NumberSelectorMode.BOX)),
+            vol.Required(
+                CONF_TIME_CLOSE,
+                default=1,
+            ): NumberSelector(NumberSelectorConfig(min=1, mode=NumberSelectorMode.BOX)),
+            vol.Required(
+                CONF_INVERTED,
+                default=False,
+            ): BooleanSelector(),
+        }
+    )
     _options_schema: vol.Schema
 
     def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
@@ -217,60 +235,39 @@ class XYScreensOptionsFlowHandler(config_entries.OptionsFlow):
         self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Manage the options."""
-        self._options_schema = vol.Schema(
-            {
-                vol.Required(
-                    CONF_TIME_OPEN,
-                    default=self.config_entry.options.get(CONF_TIME_OPEN, 0),
-                ): cv.positive_int,
-                vol.Required(
-                    CONF_TIME_CLOSE,
-                    default=self.config_entry.options.get(CONF_TIME_CLOSE, 0),
-                ): cv.positive_int,
-                vol.Required(
-                    CONF_INVERTED,
-                    default=self.config_entry.options.get(CONF_INVERTED, False),
-                ): bool,
-            }
-        )
+        errors: dict[str, str] = {}
+
+        if user_input is not None:
+            self._options_schema(user_input)
+            return self.async_create_entry(title="", data=user_input)
+
+        if user_input is not None:
+            self._options_schema = self.add_suggested_values_to_schema(
+                self._OPTIONS_SCHEMA, user_input
+            )
+        else:
+            self._options_schema = self.add_suggested_values_to_schema(
+                self._OPTIONS_SCHEMA, self.config_entry.options
+            )
 
         device_type = self.config_entry.data.get(CONF_DEVICE_TYPE)
-        if device_type == CONF_DEVICE_TYPE_PROJECTOR_LIFT:
-            return await self.async_step_projector_lift(user_input)
-
-        return await self.async_step_projector_screen(user_input)
+        return self.async_show_form(
+            step_id=device_type,
+            data_schema=self._options_schema,
+            errors=errors,
+        )
 
     async def async_step_projector_screen(
         self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Manage the options."""
-        errors: dict[str, str] = {}
-
-        if user_input is not None:
-            self._options_schema(user_input)
-            return self.async_create_entry(title="", data=user_input)
-
-        return self.async_show_form(
-            step_id=CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
-            data_schema=self._options_schema,
-            errors=errors,
-        )
+        await self.async_step_init(user_input)
 
     async def async_step_projector_lift(
         self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Manage the options."""
-        errors: dict[str, str] = {}
-
-        if user_input is not None:
-            self._options_schema(user_input)
-            return self.async_create_entry(title="", data=user_input)
-
-        return self.async_show_form(
-            step_id=CONF_DEVICE_TYPE_PROJECTOR_LIFT,
-            data_schema=self._options_schema,
-            errors=errors,
-        )
+        await self.async_step_init(user_input)
 
 
 def get_serial_by_id(dev_path: str) -> str:
