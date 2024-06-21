@@ -129,6 +129,8 @@ lifts*
 
 ## Adding a new XY Screens projector screen or projector lift
 
+![image](https://raw.githubusercontent.com/rrooggiieerr/homeassistant-xyscreens/main/screenshot_add_device.png)
+
 - After restarting go to **Settings** then **Devices & Services**
 - Select **+ Add integration** and type in **XY Screens**
 - Select the serial port or enter the path manually

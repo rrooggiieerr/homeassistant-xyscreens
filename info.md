@@ -13,27 +13,32 @@
 
 ## Introduction
 
-Home Assistant integration to control XY Screens projector screens and lifts over the RS-485
-interface.
+Home Assistant integration to control XY Screens and See Max projector screens and lifts over the
+serial and RS-485 interface.
 
-XY Screens is an OEM manufacturer of projector screens and lifts, their devices are sold around the
-world under various brand names.
+This Home Assistant integration was first implemented for XY Screens. After I was informed that the
+See Max devices use a very similar protocol support for these devices has been added.
+
+[XY Screens](https://www.xyscreen.com/) and See Max are OEM manufacturers of projector screens and
+lifts, their devices are sold around the world under various brand names.
 
 ## Features
 
 - Installation/Configuration through Config Flow UI
 - Set the up and down duration of your projector screen/lift
 - Position control, move the screen/lift to any position along the way
+- Use multiple devices on the same RS-485 interface
 - Invert the default Cover Entity behaviour
 
 ### About position control
 
-The XY Screens projector screens and lifts do not provide any positional feedback. The state of the
-screen is thus always an assumed one. The screen position is calculated based on the time the cover
-has moved and the configured up and down durations. This results in a potential error margin.
-Every time the screen reaches it maximum up or down position the position and thus any potential
-error is reset accordingly. If the screen is controlled outside of Home Assistant, for instance
-with the remote control, the screen position and state will no longer represent the actual state.
+The XY Screens and See Max projector screens and lifts do not provide any positional feedback. The
+state of the screen is thus always an assumed one. The screen position is calculated based on the
+time the cover has moved and the configured up and down durations. This results in a potential
+error margin. Every time the screen reaches it maximum up or down position the position and thus
+any potential error is reset accordingly. If the screen is controlled outside of Home Assistant,
+for instance with the remote control, the screen position and state will no longer represent the
+actual state.
 
 ## Hardware
 
@@ -49,9 +54,14 @@ See the documentation of your specific device on how to wire yours correctly.
 If your devices follows the following protocol it's supported by this Home Assistant integration:
 
 2400 baud 8N1  
-Up command  : 0xFF 0xAA 0xEE 0xEE 0xDD  
-Down command: 0xFF 0xAA 0xEE 0xEE 0xEE  
-Stop command: 0xFF 0xAA 0xEE 0xEE 0xCC
+Up command  : `0xFF 0xXX 0xXX 0xXX 0xDD`  
+Down command: `0xFF 0xXX 0xXX 0xXX 0xEE`  
+Stop command: `0xFF 0xXX 0xXX 0xXX 0xCC`
+
+Where `0xXX 0xXX 0xXX` is the three byte address of the device.
+
+For XY Screens devices the default address is `0xAA 0xEE 0xEE`, while for See Max devices the default
+address is `0xEE 0xEE 0xEE`.
 
 ## Supported projector screens and lifts
 
@@ -67,6 +77,17 @@ documentation:
 - Elite Screens
 - KIMEX
 - DELUXX
+- Telon
+
+See Max:
+- ScreenPro
+- Monoprice
+- Grandview
+- Dragonfly
+- WS Screens
+- Cirrus Screens
+- Lumien
+- Celexon
 
 Please let me know if your projector screen or lift works with this Home Assistant integration so I
 can improve the overview of supported projector screens and lifts.
@@ -85,9 +106,12 @@ show correctly, however the voice commands and actions are inverted.
 
 ## Adding a new XY Screens projector screen or projector lift
 
+![image](https://raw.githubusercontent.com/rrooggiieerr/homeassistant-xyscreens/main/screenshot_add_device.png)
+
 - After restarting go to **Settings** then **Devices & Services**
 - Select **+ Add integration** and type in **XY Screens**
 - Select the serial port or enter the path manually
+- Select the address of your device or enter the address manually
 - Select the type of device, projector screen or projector lift
 - Set the up and down times of your device.
 - Select **Submit**
