@@ -16,7 +16,7 @@
 Home Assistant integration to control XY Screens and See Max projector screens and lifts over the
 serial and RS-485 interface.
 
-This Home Assitant integration was first implemented for XY Screens. After I was informed that the
+This Home Assistant integration was first implemented for XY Screens. After I was informed that the
 See Max devices use a very similar protocol support for these devices has been added.
 
 [XY Screens](https://www.xyscreen.com/) and See Max are OEM manufacturers of projector screens and
