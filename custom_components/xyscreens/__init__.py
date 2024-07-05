@@ -159,15 +159,12 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
 def async_migrate_entity_entry(
     entry: entity_registry.RegistryEntry,
 ) -> dict[str, Any] | None:
-    pass
     """
     Migrates old unique ID to the new unique ID.
     """
     if entry.unique_id != entry.config_entry_id:
         _LOGGER.debug("Migrating entity unique id")
-        return {
-            "new_unique_id": entry.config_entry_id
-        }
+        return {"new_unique_id": entry.config_entry_id}
 
     # No migration needed
     return None
