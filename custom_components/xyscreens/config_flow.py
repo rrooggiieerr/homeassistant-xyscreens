@@ -9,6 +9,7 @@ from typing import Any, Tuple
 import serial.tools.list_ports
 import voluptuous as vol
 from homeassistant import config_entries
+from homeassistant.const import UnitOfTime
 from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.helpers.selector import (
@@ -116,12 +117,16 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 ),
                 vol.Required(CONF_TIME_OPEN, default=1): NumberSelector(
                     NumberSelectorConfig(
-                        min=1, mode=NumberSelectorMode.BOX, unit_of_measurement="s"
+                        min=1,
+                        mode=NumberSelectorMode.BOX,
+                        unit_of_measurement=UnitOfTime.SECONDS,
                     )
                 ),
                 vol.Required(CONF_TIME_CLOSE, default=1): NumberSelector(
                     NumberSelectorConfig(
-                        min=1, mode=NumberSelectorMode.BOX, unit_of_measurement="s"
+                        min=1,
+                        mode=NumberSelectorMode.BOX,
+                        unit_of_measurement=UnitOfTime.SECONDS,
                     )
                 ),
                 vol.Required(CONF_INVERTED, default=False): BooleanSelector(),
@@ -222,7 +227,9 @@ class XYScreensOptionsFlowHandler(config_entries.OptionsFlow):
                 default=1,
             ): NumberSelector(
                 NumberSelectorConfig(
-                    min=1, mode=NumberSelectorMode.BOX, unit_of_measurement="s"
+                    min=1,
+                    mode=NumberSelectorMode.BOX,
+                    unit_of_measurement=UnitOfTime.SECONDS,
                 )
             ),
             vol.Required(
@@ -230,7 +237,9 @@ class XYScreensOptionsFlowHandler(config_entries.OptionsFlow):
                 default=1,
             ): NumberSelector(
                 NumberSelectorConfig(
-                    min=1, mode=NumberSelectorMode.BOX, unit_of_measurement="s"
+                    min=1,
+                    mode=NumberSelectorMode.BOX,
+                    unit_of_measurement=UnitOfTime.SECONDS,
                 )
             ),
             vol.Required(
