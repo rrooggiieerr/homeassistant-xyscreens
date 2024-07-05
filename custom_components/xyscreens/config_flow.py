@@ -40,7 +40,8 @@ _LOGGER = logging.getLogger(__name__)
 class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Handle the config flow for XY Screens."""
 
-    VERSION = 3
+    VERSION = 2
+    MINOR_VERSION = 2
 
     _step_setup_serial_schema: vol.Schema
 

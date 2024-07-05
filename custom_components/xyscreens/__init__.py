@@ -89,6 +89,10 @@ async def update_listener(hass: HomeAssistant, entry: ConfigEntry) -> None:
 
 async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
     """Migrate old entry."""
+    if config_entry.version > 3:
+        # This means the user has downgraded from a future version
+        return False
+
     if config_entry.version == 1:
         _LOGGER.debug("Migrating config entry from 1 to 2")
         new_title = config_entry.data.get(CONF_SERIAL_PORT)
@@ -105,19 +109,20 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
         )
 
     if config_entry.version == 2:
-        _LOGGER.debug("Migrating config entry from 2 to 3")
-        new_unique_id = f"{config_entry.data.get(CONF_SERIAL_PORT)}-aaeeee"
-        new_title = f"{config_entry.data.get(CONF_SERIAL_PORT)} AAEEEE"
-        new_data = {
-            CONF_SERIAL_PORT: config_entry.data.get(CONF_SERIAL_PORT),
-            CONF_ADDRESS: "aaeeee",
-            CONF_DEVICE_TYPE: CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
-        }
-        new_options = {
-            CONF_TIME_OPEN: config_entry.options.get(CONF_TIME_OPEN),
-            CONF_TIME_CLOSE: config_entry.options.get(CONF_TIME_CLOSE),
-            CONF_INVERTED: config_entry.options.get(CONF_INVERTED, False),
-        }
+        if config_entry.minor_version < 2:
+            _LOGGER.debug("Migrating config entry from 2.1 to 2.2")
+            new_unique_id = f"{config_entry.data.get(CONF_SERIAL_PORT)}-aaeeee"
+            new_title = f"{config_entry.data.get(CONF_SERIAL_PORT)} AAEEEE"
+            new_data = {
+                CONF_SERIAL_PORT: config_entry.data.get(CONF_SERIAL_PORT),
+                CONF_ADDRESS: "aaeeee",
+                CONF_DEVICE_TYPE: CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
+            }
+            new_options = {
+                CONF_TIME_OPEN: config_entry.options.get(CONF_TIME_OPEN),
+                CONF_TIME_CLOSE: config_entry.options.get(CONF_TIME_CLOSE),
+                CONF_INVERTED: config_entry.options.get(CONF_INVERTED, False),
+            }
 
         hass.config_entries.async_update_entry(
             config_entry,
@@ -125,7 +130,21 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
             title=new_title,
             data=new_data,
             options=new_options,
-            version=3,
+            minor_version=2,
+            version=2,
         )
+
+    if config_entry.version == 3:
+        hass.config_entries.async_update_entry(
+            config_entry,
+            minor_version=2,
+            version=2,
+        )
+
+    _LOGGER.debug(
+        "Migration to configuration version %s.%s successful",
+        config_entry.version,
+        config_entry.minor_version,
+    )
 
     return True
