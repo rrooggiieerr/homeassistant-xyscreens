@@ -2,13 +2,15 @@
 
 import logging
 import os
+from typing import Any
 
 import serial
 import serial_asyncio_fast as serial_asyncio
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
-from homeassistant.core import HomeAssistant
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryNotReady
+from homeassistant.helpers import entity_registry
 
 from .const import (
     CONF_ADDRESS,
@@ -48,6 +50,9 @@ async def test_serial_port(serial_port):
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up XY Screens from a config entry."""
+    await entity_registry.async_migrate_entries(
+        hass, entry.entry_id, async_migrate_entity_entry
+    )
 
     # Test if the device exists.
     serial_port = entry.data[CONF_SERIAL_PORT]
@@ -148,3 +153,21 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
     )
 
     return True
+
+
+@callback
+def async_migrate_entity_entry(
+    entry: entity_registry.RegistryEntry,
+) -> dict[str, Any] | None:
+    pass
+    """
+    Migrates old unique ID to the new unique ID.
+    """
+    if entry.unique_id != entry.config_entry_id:
+        _LOGGER.debug("Migrating entity unique id")
+        return {
+            "new_unique_id": entry.config_entry_id
+        }
+
+    # No migration needed
+    return None
