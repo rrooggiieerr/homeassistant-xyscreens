@@ -166,6 +166,7 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             errors[CONF_SERIAL_PORT] = "nonexisting_serial_port"
 
         address = data.get(CONF_ADDRESS)
+        # Validate the address.
         try:
             address = bytes.fromhex(address)
             address = address.hex()
@@ -175,7 +176,7 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         except ValueError:
             errors[CONF_ADDRESS] = "invalid_address"
 
-        # Make sure the serial port and address is not already used by an other integration.
+        # Make sure the serial port and address is not already used.
         await self.async_set_unique_id(f"{serial_port}-{address}")
         self._abort_if_unique_id_configured()
 
