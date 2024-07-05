@@ -41,6 +41,7 @@ async def test_serial_port(serial_port):
 
     # Close the connection.
     writer.close()
+    await writer.wait_closed()
 
     _LOGGER.debug("Device %s is available", serial_port)
 
