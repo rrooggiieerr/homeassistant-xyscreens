@@ -140,7 +140,6 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             position = self._screen.position()
         self._attr_current_cover_position = round(position)
 
-        state = self._screen.state()
         if state == XYScreensState.UP:
             self._attr_is_closing = False
             self._attr_is_closed = self._inverted
