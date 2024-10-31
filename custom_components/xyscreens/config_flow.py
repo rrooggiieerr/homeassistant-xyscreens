@@ -248,7 +248,6 @@ class XYScreensOptionsFlowHandler(config_entries.OptionsFlow):
             ): BooleanSelector(),
         }
     )
-    _options_schema: vol.Schema
 
     def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
         """Initialize options flow."""
@@ -261,22 +260,22 @@ class XYScreensOptionsFlowHandler(config_entries.OptionsFlow):
         errors: dict[str, str] = {}
 
         if user_input is not None:
-            self._options_schema(user_input)
+            self._OPTIONS_SCHEMA(user_input)
             return self.async_create_entry(title="", data=user_input)
 
         if user_input is not None:
-            self._options_schema = self.add_suggested_values_to_schema(
+            data_schema = self.add_suggested_values_to_schema(
                 self._OPTIONS_SCHEMA, user_input
             )
         else:
-            self._options_schema = self.add_suggested_values_to_schema(
+            data_schema = self.add_suggested_values_to_schema(
                 self._OPTIONS_SCHEMA, self.config_entry.options
             )
 
         device_type = self.config_entry.data.get(CONF_DEVICE_TYPE)
         return self.async_show_form(
             step_id=device_type,
-            data_schema=self._options_schema,
+            data_schema=data_schema,
             errors=errors,
         )
 
