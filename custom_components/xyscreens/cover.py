@@ -109,7 +109,6 @@ class XYScreensCover(CoverEntity, RestoreEntity):
         )
 
         self._screen = XYScreens(serial_port, address, time_open, time_close)
-        self._screen.add_callback(self._callback)
 
         self._inverted = inverted
 
@@ -129,6 +128,8 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             self._attr_current_cover_position = position
             if position == 0:
                 self._attr_is_closed = True
+
+        self._screen.add_callback(self._callback)
 
     @callback
     def _callback(self, state: XYScreensState, position: float):
