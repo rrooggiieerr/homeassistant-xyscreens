@@ -8,7 +8,7 @@ from typing import Any, Tuple
 
 import serial.tools.list_ports
 import voluptuous as vol
-from homeassistant import config_entries
+from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
 from homeassistant.const import UnitOfTime
 from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowResult
@@ -38,7 +38,7 @@ from .const import (
 _LOGGER = logging.getLogger(__name__)
 
 
-class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
+class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
     """Handle the config flow for XY Screens."""
 
     VERSION = 2
@@ -211,13 +211,13 @@ class XYScreensConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     @staticmethod
     @callback
     def async_get_options_flow(
-        config_entry: config_entries.ConfigEntry,
-    ) -> config_entries.OptionsFlow:
+        config_entry: ConfigEntry,
+    ) -> OptionsFlow:
         """Create the options flow."""
-        return XYScreensOptionsFlowHandler(config_entry)
+        return XYScreensOptionsFlowHandler()
 
 
-class XYScreensOptionsFlowHandler(config_entries.OptionsFlow):
+class XYScreensOptionsFlowHandler(OptionsFlow):
     """Handle the options flow for XY Screens."""
 
     _OPTIONS_SCHEMA = vol.Schema(
@@ -248,10 +248,6 @@ class XYScreensOptionsFlowHandler(config_entries.OptionsFlow):
             ): BooleanSelector(),
         }
     )
-
-    def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
-        """Initialize options flow."""
-        self.config_entry = config_entry
 
     async def async_step_init(
         self, user_input: dict[str, Any] | None = None
