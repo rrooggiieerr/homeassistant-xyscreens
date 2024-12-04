@@ -5,7 +5,6 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-# import serial
 from homeassistant.components.cover import (
     ATTR_CURRENT_POSITION,
     ATTR_POSITION,
@@ -67,13 +66,6 @@ class XYScreensCover(CoverEntity, RestoreEntity):
         | CoverEntityFeature.SET_POSITION
     )
     _attr_should_poll = False
-
-    _attr_current_cover_position = 100
-    _attr_is_closed = False
-    _attr_is_closing = False
-    _attr_is_opening = False
-
-    _unsubscribe_updater = None
 
     def __init__(
         self,
