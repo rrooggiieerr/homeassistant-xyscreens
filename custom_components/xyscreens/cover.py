@@ -67,6 +67,8 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     )
     _attr_should_poll = False
 
+    _attr_is_closed = False
+
     def __init__(
         self,
         config_entry_id: str,
