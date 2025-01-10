@@ -65,7 +65,7 @@ address is `0xEE 0xEE 0xEE`.
 
 ## Supported projector screens and lifts
 
-The following projector screens is known to work:
+The following projector screen is known to work:
 
 - iVisions Electro M Series
 
