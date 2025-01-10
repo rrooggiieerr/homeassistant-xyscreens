@@ -141,11 +141,11 @@ lifts*
 
 A new XY Screens integration and device will now be added to your Integrations view.
 
-## Contributing
+## Contribute your language
 
-If you would like to use this Home Assistant integration in your own language you can provide me
-with a translation file as found in the `custom_components/xyscreens/translations` directory.
-Create a pull request (preferred) or issue with the file attached.
+If you would like to use this Home Assistant integration in your own language you can provide a
+translation file as found in the `custom_components/xyscreens/translations` directory. Create a
+pull request (preferred) or issue with the file attached.
 
 More on translating custom integrations can be found
 [here](https://developers.home-assistant.io/docs/internationalization/custom_integration/).
