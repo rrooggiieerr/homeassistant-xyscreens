@@ -153,7 +153,7 @@ More on translating custom integrations can be found
 ## Star this repository
 
 Help other Home Assistant users find this integration by starring this repository. Click **⭐ Star**
-on the top right of the GitHib page.
+on the top right of the GitHub page.
 
 ## Support my work
 
