@@ -67,7 +67,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             f"Unable to connect to device {serial_port}: {ex}"
         ) from ex
 
-    hass.data.setdefault(DOMAIN, {})[entry.entry_id] = entry.data
+    entry.runtime_data = entry.data
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
@@ -81,10 +81,7 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     # It should not be necessary to close the serial port because we close
     # it after every use in cover.py, i.e. no need to do entry["client"].close()
 
-    if unload_ok := await hass.config_entries.async_unload_platforms(entry, PLATFORMS):
-        hass.data[DOMAIN].pop(entry.entry_id)
-
-    return unload_ok
+    return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
 
 
 async def update_listener(hass: HomeAssistant, entry: ConfigEntry) -> None:
