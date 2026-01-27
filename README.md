@@ -102,7 +102,7 @@ can improve the overview of supported projector screens and lifts.
 This integration follows the Cover Entity where open means raising the screen and close lowering
 the screen, like how roller blinds, garage doors and curtains work. For a projector screen this is
 counter intuitive. You can chose to invert this behaviour when adding your screen or lift to Home
-Assistant. The dahsboard will then show the screen controls inverted, arrow up will lower the
+Assistant. The dashboard will then show the screen controls inverted, arrow up will lower the
 screen while arrow down will raise the screen. However the voice commands Open and Close will then
 work as expected.
 
