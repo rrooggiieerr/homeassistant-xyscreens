@@ -20,13 +20,13 @@ This Home Assistant integration was first implemented for XY Screens. After I wa
 See Max devices use a very similar protocol support for these devices has been added.
 
 [XY Screens](https://www.xyscreen.com/) and See Max are OEM manufacturers of projector screens and
-lifts, their devices are sold around the world under various brand names.
+lifts. Their devices are sold around the world under various brand names.
 
 ## Features
 
 - Installation/Configuration through Config Flow UI
 - Set the up and down duration of your projector screen/lift
-- Position control, move the screen/lift to any position along the way
+- Position control: move the screen/lift to any position along the way
 - Use multiple devices on the same RS-485 interface
 - Invert the default Cover Entity behaviour
 
@@ -35,23 +35,27 @@ lifts, their devices are sold around the world under various brand names.
 The XY Screens and See Max projector screens and lifts do not provide any positional feedback. The
 state of the screen is thus always an assumed one. The screen position is calculated based on the
 time the cover has moved and the configured up and down durations. This results in a potential
-error margin. Every time the screen reaches it maximum up or down position the position and thus
-any potential error is reset accordingly. If the screen is controlled outside of Home Assistant,
-for instance with the remote control, the screen position and state will no longer represent the
-actual state.
+error margin. Every time the screen reaches its maximum up or down position the position any
+potential error is reset. If the screen is controlled outside the library, for instance with the
+remote control, the screen position and state will no longer represent the actual state.
 
 ## Hardware
 
-I use a cheap USB RS-485 controller to talk to the projector screen where position 5 of the RJ25
-connector is connected to D+ and position 6 to the D-.
+Use a USB to RS-485 converter where position 5 of the RJ25 connector is connected to D+ and position
+6 to D-.
+
+![image](https://raw.githubusercontent.com/rrooggiieerr/homeassistant-xyscreens/main/wiring.png)
+
+I use this cheap USB RS-485 controller which you can find on
+[Aliexpress](https://s.click.aliexpress.com/e/_c3kqcPN1) (affiliate link)
 
 ![image](https://raw.githubusercontent.com/rrooggiieerr/homeassistant-xyscreens/main/usb-rs485.png)
 
-See the documentation of your specific device on how to wire yours correctly.
+See the documentation of your specific projector screen or lift on how to wire yours correctly.
 
 ## Supported protocol
 
-If your devices follows the following protocol it's supported by this Home Assistant integration:
+If your device follows the following protocol it is supported by this Home Assistant integration:
 
 2400 baud 8N1  
 Up command  : `0xFF 0xXX 0xXX 0xXX 0xDD`  
@@ -60,8 +64,8 @@ Stop command: `0xFF 0xXX 0xXX 0xXX 0xCC`
 
 Where `0xXX 0xXX 0xXX` is the three byte address of the device.
 
-For XY Screens devices the default address is `0xAA 0xEE 0xEE`, while for See Max devices the default
-address is `0xEE 0xEE 0xEE`.
+For XY Screens devices the default address is `0xAA 0xEE 0xEE`, while for See Max devices the
+default address is `0xEE 0xEE 0xEE`.
 
 ## Supported projector screens and lifts
 
@@ -72,6 +76,7 @@ The following projector screen is known to work:
 The following projector screens and lifts are not tested but use the same protocol according to the
 documentation:
 
+_XY Screens_:
 - iVisions Electro L/XL/Pro/HD Series
 - iVisions PL Series projector lift
 - Elite Screens
@@ -79,7 +84,7 @@ documentation:
 - DELUXX
 - Telon
 
-See Max:
+_See Max_:
 - ScreenPro
 - Monoprice
 - Grandview
@@ -149,7 +154,7 @@ You can contribute to this integration, or show your appreciation, in the follow
 
 If you would like to use this Home Assistant integration in your own language you can provide a
 translation file as found in the `custom_components/xyscreens/translations` directory. Create a
-pull request (preferred) or issue with the file attached.
+pull request (preferred) or issue with the file for your language attached.
 
 More on translating custom integrations can be found
 [here](https://developers.home-assistant.io/docs/internationalization/custom_integration/).
