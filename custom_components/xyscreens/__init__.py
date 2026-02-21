@@ -11,7 +11,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryNotReady
-from homeassistant.helpers import entity_registry
+from homeassistant.helpers import entity_registry as er
 
 from .const import (
     CONF_ADDRESS,
@@ -21,7 +21,6 @@ from .const import (
     CONF_SERIAL_PORT,
     CONF_TIME_CLOSE,
     CONF_TIME_OPEN,
-    DOMAIN,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -51,7 +50,7 @@ async def test_serial_port(serial_port):
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up XY Screens from a config entry."""
-    await entity_registry.async_migrate_entries(
+    await er.async_migrate_entries(
         hass, entry.entry_id, async_migrate_entity_entry
     )
 
@@ -153,7 +152,7 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
 
 @callback
 def async_migrate_entity_entry(
-    entry: entity_registry.RegistryEntry,
+    entry: er.RegistryEntry,
 ) -> dict[str, Any] | None:
     """Migrates old unique ID to the new unique ID."""
     if entry.unique_id != entry.config_entry_id:
