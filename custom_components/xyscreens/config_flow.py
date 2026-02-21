@@ -5,7 +5,7 @@ from __future__ import annotations
 import logging
 import os
 from pathlib import Path
-from typing import Any, Tuple
+from typing import Any
 
 import serial.tools.list_ports
 import voluptuous as vol
@@ -151,7 +151,7 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
     # pylint: disable=W0613
     async def validate_input_setup_serial(
         self, data: dict[str, Any], errors: dict[str, str]
-    ) -> Tuple[str, dict[str, Any], dict[str, Any]]:
+    ) -> tuple[str, dict[str, Any], dict[str, Any]]:
         """Validate the user input and create data.
 
         Data has the keys from _step_setup_serial_schema with values provided by the user.
