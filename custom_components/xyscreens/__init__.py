@@ -1,7 +1,7 @@
 """The XY Screens integration."""
 
 import logging
-import os
+from pathlib import Path
 from typing import Any
 
 import serial
@@ -56,7 +56,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     # Test if the device exists.
     serial_port = entry.data[CONF_SERIAL_PORT]
-    if not os.path.exists(serial_port):
+    if not Path(serial_port).exists():
         raise ConfigEntryNotReady(f"Device {serial_port} does not exists")
 
     # Test if we can connect to the device.
