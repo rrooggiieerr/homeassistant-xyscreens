@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import logging
 import os
+from pathlib import Path
 from typing import Any, Tuple
 
 import serial.tools.list_ports
@@ -168,7 +169,7 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
         )
 
         # Test if the device exists
-        if not os.path.exists(serial_port):
+        if not Path(serial_port).exists():
             errors[CONF_SERIAL_PORT] = "nonexisting_serial_port"
 
         address = data.get(CONF_ADDRESS)
@@ -291,7 +292,7 @@ class XYScreensOptionsFlowHandler(OptionsFlow):
 def get_serial_by_id(dev_path: str) -> str:
     """Return a /dev/serial/by-id match for given device if available."""
     by_id = "/dev/serial/by-id"
-    if not os.path.isdir(by_id):
+    if not Path(by_id).is_dir():
         return dev_path
 
     for path in (entry.path for entry in os.scandir(by_id) if entry.is_symlink()):
