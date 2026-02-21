@@ -6,6 +6,7 @@ from typing import Any
 
 import serial
 import serial_asyncio_fast as serial_asyncio
+
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant, callback
@@ -154,9 +155,7 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
 def async_migrate_entity_entry(
     entry: entity_registry.RegistryEntry,
 ) -> dict[str, Any] | None:
-    """
-    Migrates old unique ID to the new unique ID.
-    """
+    """Migrates old unique ID to the new unique ID."""
     if entry.unique_id != entry.config_entry_id:
         _LOGGER.debug("Migrating entity unique id")
         return {"new_unique_id": entry.config_entry_id}

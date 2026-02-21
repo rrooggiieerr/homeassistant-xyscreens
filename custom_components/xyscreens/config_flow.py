@@ -9,6 +9,7 @@ from typing import Any, Tuple
 
 import serial.tools.list_ports
 import voluptuous as vol
+
 from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
 from homeassistant.const import UnitOfTime
 from homeassistant.core import callback
@@ -151,8 +152,7 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
     async def validate_input_setup_serial(
         self, data: dict[str, Any], errors: dict[str, str]
     ) -> Tuple[str, dict[str, Any], dict[str, Any]]:
-        """
-        Validate the user input and create data.
+        """Validate the user input and create data.
 
         Data has the keys from _step_setup_serial_schema with values provided by the user.
         """
