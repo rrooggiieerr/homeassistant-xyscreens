@@ -9,7 +9,6 @@ from typing import Any
 
 import serial.tools.list_ports
 import voluptuous as vol
-
 from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
 from homeassistant.const import UnitOfTime
 from homeassistant.core import callback

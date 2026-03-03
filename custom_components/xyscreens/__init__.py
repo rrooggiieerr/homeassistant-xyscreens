@@ -6,7 +6,6 @@ from typing import Any
 
 import serial
 import serial_asyncio_fast as serial_asyncio
-
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant, callback
@@ -50,9 +49,7 @@ async def test_serial_port(serial_port):
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up XY Screens from a config entry."""
-    await er.async_migrate_entries(
-        hass, entry.entry_id, async_migrate_entity_entry
-    )
+    await er.async_migrate_entries(hass, entry.entry_id, async_migrate_entity_entry)
 
     # Test if the device exists.
     serial_port = entry.data[CONF_SERIAL_PORT]
