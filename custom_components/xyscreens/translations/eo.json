@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "La aparato jam estas agordita"
+    },
+    "error": {
+      "cannot_connect": "Malsukcesis konekti",
+      "nonexisting_serial_port": "Seria malriĉo ne ekzistas",
+      "invalid_address": "Nevalida adreso",
+      "unknown": "Neatendita eraro"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Seria haveno",
+          "address": "Adreso",
+          "device_type": "Aparato tipo",
+          "time_open": "Malferma tempo",
+          "time_close": "Proksima tempo",
+          "inverted": "Inverti konduton"
+        },
+        "data_description": {
+          "serial_port": "La seria haveno al kiu via aparato estas konektita.",
+          "address": "La deksesuma adreso de la aparato.",
+          "time_open": "Bezonata tempo por malfermi la aparaton.",
+          "time_close": "Bezonata tempo por fermi la aparaton.",
+          "inverted": "Ĉi tiu integriĝo sekvas la Kovran Enton, kie malfermita signifas, ke la ekrano estas retirita kaj fermita, ke la ekrano estas eltirita, same kiel kurtenoj kaj garaĝaj pordoj funkcias. Por projekcia ekrano tio estas kontraŭintuicia. Vi povas inversigi la konduton."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Projekciilo ekrano",
+        "projector_lift": "Projekciilo lifto"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Opcioj de ekrano de projekciilo",
+        "data": {
+          "time_open": "Malferma tempo",
+          "time_close": "Proksima tempo",
+          "inverted": "Inverti konduton"
+        },
+        "data_description": {
+          "time_open": "Bezonata tempo por malfermi la projekciilon.",
+          "time_close": "Bezonata tempo por fermi la projekciilon.",
+          "inverted": "Ĉi tiu integriĝo sekvas la Kovran Enton, kie malfermita signifas, ke la ekrano estas retirita kaj fermita, ke la ekrano estas eltirita, same kiel kurtenoj kaj garaĝaj pordoj funkcias. Por projekcia ekrano tio estas kontraŭintuicia. Vi povas inversigi la konduton."
+        }
+      },
+      "projector_lift": {
+        "title": "Opcioj de lifto de projekciilo",
+        "data": {
+          "time_open": "Malferma tempo",
+          "time_close": "Proksima tempo",
+          "inverted": "Inverti konduton"
+        },
+        "data_description": {
+          "time_open": "Bezonata tempo por malfermi la projekciillifton.",
+          "time_close": "Bezonata tempo por fermi la projekciillifton.",
+          "inverted": "Ĉi tiu integriĝo sekvas la Kovran Enton, kie malfermita signifas, ke la ekrano estas retirita kaj fermita, ke la ekrano estas eltirita, same kiel kurtenoj kaj garaĝaj pordoj funkcias. Por projekcia ekrano tio estas kontraŭintuicia. Vi povas inversigi la konduton."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Projekciilo Ekrano"
+    },
+    "projector_lift": {
+      "name": "Projekciilo Levo"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Fermita",
+          "opening": "Fermo",
+          "closing": "Malfermo",
+          "closed": "Malfermu"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Fermita",
+          "opening": "Fermo",
+          "closing": "Malfermo",
+          "closed": "Malfermu"
+        }
+      }
+    }
+  }
+}

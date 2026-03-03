@@ -24,7 +24,7 @@
           "address": "O enderezo hexadecimal do dispositivo.",
           "time_open": "Tempo necesario para abrir o dispositivo.",
           "time_close": "Tempo necesario para pechar o dispositivo.",
-          "inverted": "Esta integración segue a Entidade de Cuberta, onde aberto significa que a pantalla está retraída e pechada a pantalla é extraída, do mesmo xeito que funcionan as cortinas e as portas do garaxe. Para unha pantalla de proxección isto é contraintuitivo. Podes reverter o comportamento."
+          "inverted": "Esta integración segue a Entidade de Cuberta, onde aberto significa que a pantalla está retraída e pechada a pantalla é extraída, do mesmo xeito que funcionan as cortinas e as portas do garaxe. Para unha pantalla de proxección isto é contraintuitivo. Podes revertir o comportamento."
         }
       }
     }

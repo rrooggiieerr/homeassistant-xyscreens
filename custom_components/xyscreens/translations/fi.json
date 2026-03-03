@@ -62,7 +62,7 @@
         "data_description": {
           "time_open": "Projektorinostimen avaamiseen tarvittava aika.",
           "time_close": "Projektorinostimen sulkemiseen tarvittava aika.",
-          "inverted": "Tämä integrointi seuraa Cover Entityä, jossa avoin tarkoittaa, että seula vedetään sisään ja suljetaan, sermi vedetään ulos, samalla tavalla kuin verhot ja autotallin ovet toimivat. Projektiokankaalle tämä on ristiriitaista. Voit kääntää käyttäytymisen."
+          "inverted": "Tämä integrointi seuraa Cover Entityä, jossa avoin tarkoittaa, että näyttö vedetään sisään ja suljetaan, seula vedetään ulos, samalla tavalla kuin verhot ja autotallin ovet toimivat. Projektiokankaalle tämä on ristiriitaista. Voit kääntää käyttäytymisen."
         }
       }
     }

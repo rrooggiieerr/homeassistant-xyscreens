@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Pajisja është konfiguruar tashmë"
+    },
+    "error": {
+      "cannot_connect": "Lidhja dështoi",
+      "nonexisting_serial_port": "Seriali varfër nuk ekziston",
+      "invalid_address": "Adresa e pavlefshme",
+      "unknown": "Gabim i papritur"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Porta serike",
+          "address": "Adresa",
+          "device_type": "Lloji i pajisjes",
+          "time_open": "Koha e hapur",
+          "time_close": "Koha e mbylljes",
+          "inverted": "Sjellja e përmbysur"
+        },
+        "data_description": {
+          "serial_port": "Porta serike me të cilën është lidhur pajisja juaj.",
+          "address": "Adresa heksadecimal e pajisjes.",
+          "time_open": "Koha e nevojshme për të hapur pajisjen.",
+          "time_close": "Koha e nevojshme për të mbyllur pajisjen.",
+          "inverted": "Ky integrim ndjek Entitetin Mbulues, ku hapja do të thotë që ekrani tërhiqet dhe mbyllet, ekrani nxirret, në të njëjtën mënyrë që funksionojnë perdet dhe dyert e garazhit. Për një ekran projeksioni kjo është kundërintuitive. Ju mund ta ndryshoni sjelljen."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Ekrani i projektorit",
+        "projector_lift": "Ngritja e projektorit"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Opsionet e ekranit të projektorit",
+        "data": {
+          "time_open": "Koha e hapur",
+          "time_close": "Koha e mbylljes",
+          "inverted": "Sjellja e përmbysur"
+        },
+        "data_description": {
+          "time_open": "Koha e nevojshme për të hapur ekranin e projektorit.",
+          "time_close": "Koha e nevojshme për të mbyllur ekranin e projektorit.",
+          "inverted": "Ky integrim ndjek Entitetin Mbulues, ku hapja do të thotë që ekrani tërhiqet dhe mbyllet, ekrani nxirret, në të njëjtën mënyrë që funksionojnë perdet dhe dyert e garazhit. Për një ekran projeksioni kjo është kundërintuitive. Ju mund ta ndryshoni sjelljen."
+        }
+      },
+      "projector_lift": {
+        "title": "Opsionet e ngritjes së projektorit",
+        "data": {
+          "time_open": "Koha e hapur",
+          "time_close": "Koha e mbylljes",
+          "inverted": "Sjellja e përmbysur"
+        },
+        "data_description": {
+          "time_open": "Koha e nevojshme për të hapur ngritësin e projektorit.",
+          "time_close": "Koha e nevojshme për të mbyllur ngritësin e projektorit.",
+          "inverted": "Ky integrim ndjek Entitetin Mbulues, ku hapja do të thotë që ekrani tërhiqet dhe mbyllet, ekrani nxirret, në të njëjtën mënyrë që funksionojnë perdet dhe dyert e garazhit. Për një ekran projeksioni kjo është kundërintuitive. Ju mund ta ndryshoni sjelljen."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Ekrani i projektorit"
+    },
+    "projector_lift": {
+      "name": "Ngritja e projektorit"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Mbyllur",
+          "opening": "Mbyllja",
+          "closing": "Hapja",
+          "closed": "Hapur"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Mbyllur",
+          "opening": "Mbyllja",
+          "closing": "Hapja",
+          "closed": "Hapur"
+        }
+      }
+    }
+  }
+}

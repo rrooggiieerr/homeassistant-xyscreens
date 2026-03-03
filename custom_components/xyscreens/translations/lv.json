@@ -17,7 +17,7 @@
           "device_type": "Ierīces veids",
           "time_open": "Atvēršanas laiks",
           "time_close": "Aizvērt laiks",
-          "inverted": "Apgrieztā uzvedība"
+          "inverted": "Invertēt uzvedību"
         },
         "data_description": {
           "serial_port": "Seriālais ports, kuram ir pievienota jūsu ierīce.",

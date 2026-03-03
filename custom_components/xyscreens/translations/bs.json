@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Uređaj je već konfigurisan"
+    },
+    "error": {
+      "cannot_connect": "Povezivanje nije uspjelo",
+      "nonexisting_serial_port": "Serijski port ne postoji",
+      "invalid_address": "Nevažeća adresa",
+      "unknown": "Neočekivana greška"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Serijski port",
+          "address": "Adresa",
+          "device_type": "Vrsta uređaja",
+          "time_open": "Otvoreno vrijeme",
+          "time_close": "Vrijeme zatvaranja",
+          "inverted": "Invertno ponašanje"
+        },
+        "data_description": {
+          "serial_port": "Serijski port na koji je vaš uređaj povezan.",
+          "address": "Heksadecimalna adresa uređaja.",
+          "time_open": "Vrijeme potrebno za otvaranje uređaja.",
+          "time_close": "Vrijeme potrebno za zatvaranje uređaja.",
+          "inverted": "Ova integracija slijedi Cover Entite, gdje otvoren znači da se ekran uvlači, a zatvoren da se ekran izvlači, na isti način na koji rade zavjese i garažna vrata. Za projekcijsko platno ovo je kontraintuitivno. Možete preokrenuti ponašanje."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Ekran projektora",
+        "projector_lift": "Projektor lift"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Opcije ekrana projektora",
+        "data": {
+          "time_open": "Otvoreno vrijeme",
+          "time_close": "Vrijeme zatvaranja",
+          "inverted": "Invertno ponašanje"
+        },
+        "data_description": {
+          "time_open": "Vrijeme potrebno za otvaranje platna projektora.",
+          "time_close": "Vrijeme potrebno za zatvaranje platna projektora.",
+          "inverted": "Ova integracija slijedi Cover Entite, gdje otvoren znači da se ekran uvlači, a zatvoren da se ekran izvlači, na isti način na koji rade zavjese i garažna vrata. Za projekcijsko platno ovo je kontraintuitivno. Možete preokrenuti ponašanje."
+        }
+      },
+      "projector_lift": {
+        "title": "Opcije podizanja projektora",
+        "data": {
+          "time_open": "Otvoreno vrijeme",
+          "time_close": "Vrijeme zatvaranja",
+          "inverted": "Invertno ponašanje"
+        },
+        "data_description": {
+          "time_open": "Vrijeme potrebno za otvaranje podizača projektora.",
+          "time_close": "Vrijeme potrebno za zatvaranje podizača projektora.",
+          "inverted": "Ova integracija slijedi Cover Entite, gdje otvoren znači da se ekran uvlači, a zatvoren da se ekran izvlači, na isti način na koji rade zavjese i garažna vrata. Za projekcijsko platno ovo je kontraintuitivno. Možete preokrenuti ponašanje."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Ekran projektora"
+    },
+    "projector_lift": {
+      "name": "Projektor Lift"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Zatvoreno",
+          "opening": "Zatvaranje",
+          "closing": "Otvaranje",
+          "closed": "Otvori"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Zatvoreno",
+          "opening": "Zatvaranje",
+          "closing": "Otvaranje",
+          "closed": "Otvori"
+        }
+      }
+    }
+  }
+}
