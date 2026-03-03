@@ -180,7 +180,7 @@ Please consider supporting my work through one of the following platforms, your 
 ### Home Assistant support
 
 [Let me answer your Home Assistant questions](https://buymeacoffee.com/rrooggiieerr/e/447353). During
-a 1 hour Q&A session I help you solve your Home Assistant related issues with.
+a 1 hour Q&A session I help you solve your Home Assistant related issues.
 
 What can be done in one hour:
 - Home Assistant walktrough, I explain you where is what in the Home Assistant UI
