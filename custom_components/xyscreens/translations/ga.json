@@ -24,7 +24,7 @@
           "address": "Seoladh heicsidheachúil na feiste.",
           "time_open": "Am is gá chun an gléas a oscailt.",
           "time_close": "Am is gá chun an gléas a dhúnadh.",
-          "inverted": "Leanann an comhtháthú seo an Aonán Clúdaigh, nuair a chiallaíonn oscailte go ndéantar an scáileán a tharraingt siar agus a dhúnadh asbhaintear an scáileán, ar an mbealach céanna a oibríonn na cuirtíní agus na doirse garáiste. Maidir le scáileán teilgean tá sé seo frith-intuigthe. Is féidir leat an t-iompar a aisiompú."
+          "inverted": "Leanann an comhtháthú seo an Aonán Clúdaigh, nuair a chiallaíonn oscailte go ndéantar an scáileán a tharraingt siar agus a dhúnadh asbhaintear an scáileán, ar an mbealach céanna a oibríonn na cuirtíní agus na doirse garáiste. Maidir le scáileán teilgin tá sé seo frith-intuigthe. Is féidir leat an t-iompar a aisiompú."
         }
       }
     }
@@ -47,8 +47,8 @@
           "inverted": "Iompar inbhéartaithe"
         },
         "data_description": {
-          "time_open": "Am is gá chun an scáileán teilgeoir a oscailt",
-          "time_close": "Am is gá chun an scáileán teilgeoir a dhúnadh",
+          "time_open": "Am is gá chun an scáileán teilgeoir a oscailt.",
+          "time_close": "Am is gá chun an scáileán teilgeoir a dhúnadh.",
           "inverted": "Leanann an comhtháthú seo an Aonán Clúdaigh, nuair a chiallaíonn oscailte go ndéantar an scáileán a tharraingt siar agus a dhúnadh asbhaintear an scáileán, ar an mbealach céanna a oibríonn na cuirtíní agus na doirse garáiste. Maidir le scáileán teilgin tá sé seo frith-intuigthe. Is féidir leat an t-iompar a aisiompú."
         }
       },
@@ -60,9 +60,9 @@
           "inverted": "Iompar inbhéartaithe"
         },
         "data_description": {
-          "time_open": "Am is gá chun an t-ardaitheoir teilgeoir a oscailt",
-          "time_close": "Am is gá chun an t-ardaitheoir teilgeoir a dhúnadh",
-          "inverted": "Leanann an comhtháthú seo an Aonán Clúdaigh, nuair a chiallaíonn oscailte go ndéantar an scáileán a tharraingt siar agus a dhúnadh asbhaintear an scáileán, ar an mbealach céanna a oibríonn na cuirtíní agus na doirse garáiste. Maidir le scáileán teilgean tá sé seo frith-intuigthe. Is féidir leat an t-iompar a aisiompú."
+          "time_open": "Am is gá chun an t-ardaitheoir teilgeoir a oscailt.",
+          "time_close": "Am is gá chun an t-ardaitheoir teilgeoir a dhúnadh.",
+          "inverted": "Leanann an comhtháthú seo an Aonán Clúdaigh, nuair a chiallaíonn oscailte go ndéantar an scáileán a tharraingt siar agus a dhúnadh asbhaintear an scáileán, ar an mbealach céanna a oibríonn na cuirtíní agus na doirse garáiste. Maidir le scáileán teilgin tá sé seo frith-intuigthe. Is féidir leat an t-iompar a aisiompú."
         }
       }
     }

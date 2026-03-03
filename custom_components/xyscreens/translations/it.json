@@ -47,8 +47,8 @@
           "inverted": "Invertire il comportamento"
         },
         "data_description": {
-          "time_open": "Tempo necessario per aprire lo schermo del proiettore",
-          "time_close": "Tempo necessario per chiudere lo schermo del proiettore",
+          "time_open": "Tempo necessario per aprire lo schermo del proiettore.",
+          "time_close": "Tempo necessario per chiudere lo schermo del proiettore.",
           "inverted": "Questa integrazione segue la Cover Entity, dove aperto significa che lo schermo viene retratto e chiuso lo schermo viene estratto, allo stesso modo in cui funzionano le tende e le porte del garage. Per uno schermo di proiezione questo è controintuitivo. Puoi invertire il comportamento."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Invertire il comportamento"
         },
         "data_description": {
-          "time_open": "Tempo necessario per aprire il sollevatore del proiettore",
-          "time_close": "Tempo necessario per chiudere il sollevatore del proiettore",
+          "time_open": "Tempo necessario per aprire il sollevatore del proiettore.",
+          "time_close": "Tempo necessario per chiudere il sollevatore del proiettore.",
           "inverted": "Questa integrazione segue la Cover Entity, dove aperto significa che lo schermo viene retratto e chiuso lo schermo viene estratto, allo stesso modo in cui funzionano le tende e le porte del garage. Per uno schermo di proiezione questo è controintuitivo. Puoi invertire il comportamento."
         }
       }

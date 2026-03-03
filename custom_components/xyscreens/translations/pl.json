@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Urządzenie jest już skonfigurowane"
+    },
+    "error": {
+      "cannot_connect": "Nie udało się połączyć",
+      "nonexisting_serial_port": "Port szeregowy nie istnieje",
+      "invalid_address": "Nieprawidłowy adres",
+      "unknown": "Nieoczekiwany błąd"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Port szeregowy",
+          "address": "Adres",
+          "device_type": "Typ urządzenia",
+          "time_open": "Czas otwarty",
+          "time_close": "Czas zamknięcia",
+          "inverted": "Odwróć zachowanie"
+        },
+        "data_description": {
+          "serial_port": "Port szeregowy, do którego podłączone jest urządzenie.",
+          "address": "Szesnastkowy adres urządzenia.",
+          "time_open": "Czas potrzebny na otwarcie urządzenia.",
+          "time_close": "Czas potrzebny na zamknięcie urządzenia.",
+          "inverted": "Integracja ta następuje po Jednostce Okładki, gdzie otwarcie oznacza wsunięcie zasłony, a zamknięcie zasłonę wyciągnięcie, w ten sam sposób, w jaki działają zasłony i bramy garażowe. W przypadku ekranu projekcyjnego jest to sprzeczne z intuicją. Możesz odwrócić to zachowanie."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Ekran projektora",
+        "projector_lift": "Winda do projektora"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Opcje ekranu projektora",
+        "data": {
+          "time_open": "Czas otwarty",
+          "time_close": "Czas zamknięcia",
+          "inverted": "Odwróć zachowanie"
+        },
+        "data_description": {
+          "time_open": "Czas potrzebny do otwarcia ekranu projektora.",
+          "time_close": "Czas potrzebny do zamknięcia ekranu projektora.",
+          "inverted": "Integracja ta następuje po Jednostce Okładki, gdzie otwarcie oznacza wsunięcie zasłony, a zamknięcie zasłonę wyciągnięcie, w ten sam sposób, w jaki działają zasłony i bramy garażowe. W przypadku ekranu projekcyjnego jest to sprzeczne z intuicją. Możesz odwrócić to zachowanie."
+        }
+      },
+      "projector_lift": {
+        "title": "Opcje podnoszenia projektora",
+        "data": {
+          "time_open": "Czas otwarty",
+          "time_close": "Czas zamknięcia",
+          "inverted": "Odwróć zachowanie"
+        },
+        "data_description": {
+          "time_open": "Czas potrzebny na otwarcie windy do projektora.",
+          "time_close": "Czas potrzebny na zamknięcie windy do projektora.",
+          "inverted": "Integracja ta następuje po Jednostce Okładki, gdzie otwarcie oznacza wsunięcie zasłony, a zamknięcie zasłonę wyciągnięcie, w ten sam sposób, w jaki działają zasłony i bramy garażowe. W przypadku ekranu projekcyjnego jest to sprzeczne z intuicją. Możesz odwrócić to zachowanie."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Ekran projektora"
+    },
+    "projector_lift": {
+      "name": "Winda do projektora"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Zamknięte",
+          "opening": "Zamknięcie",
+          "closing": "Otwór",
+          "closed": "Otwarte"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Zamknięte",
+          "opening": "Zamknięcie",
+          "closing": "Otwór",
+          "closed": "Otwarte"
+        }
+      }
+    }
+  }
+}

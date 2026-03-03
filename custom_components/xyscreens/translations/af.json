@@ -47,8 +47,8 @@
           "inverted": "Keer gedrag om"
         },
         "data_description": {
-          "time_open": "Tyd benodig om die projektorskerm oop te maak",
-          "time_close": "Tyd benodig om die projektorskerm toe te maak",
+          "time_open": "Tyd benodig om die projektorskerm oop te maak.",
+          "time_close": "Tyd benodig om die projektorskerm toe te maak.",
           "inverted": "Hierdie integrasie volg op die Cover Entity, waar oop beteken dat die skerm ingetrek en toe is die skerm uitgetrek word, op dieselfde manier as wat gordyne en motorhuisdeure werk. Vir 'n projeksieskerm is dit teen-intuïtief. Jy kan die gedrag omkeer."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Keer gedrag om"
         },
         "data_description": {
-          "time_open": "Tyd wat nodig is om die projektor hysbak oop te maak",
-          "time_close": "Tyd benodig om die projektor-hysbak toe te maak",
+          "time_open": "Tyd wat nodig is om die projektor hysbak oop te maak.",
+          "time_close": "Tyd wat nodig is om die projektor-hysbak toe te maak.",
           "inverted": "Hierdie integrasie volg op die Cover Entity, waar oop beteken dat die skerm ingetrek en toe is die skerm uitgetrek word, op dieselfde manier as wat gordyne en motorhuisdeure werk. Vir 'n projeksieskerm is dit teen-intuïtief. Jy kan die gedrag omkeer."
         }
       }

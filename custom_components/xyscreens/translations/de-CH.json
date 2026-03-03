@@ -47,8 +47,8 @@
           "inverted": "Verhalten umkehren"
         },
         "data_description": {
-          "time_open": "Zeit, die zum Öffnen der Projektorleinwand benötigt wird",
-          "time_close": "Zeit, die zum Schließen der Projektorleinwand benötigt wird",
+          "time_open": "Zeit, die zum Öffnen der Projektorleinwand benötigt wird.",
+          "time_close": "Zeit, die zum Schließen der Projektorleinwand benötigt wird.",
           "inverted": "Diese Integration folgt der Cover-Entität, wobei „offen“ bedeutet, dass der Bildschirm eingefahren ist, und „geschlossen“, dass der Bildschirm herausgezogen ist, genauso wie Vorhänge und Garagentore funktionieren. Für eine Projektionswand ist dies nicht intuitiv. Sie können das Verhalten umkehren."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Verhalten umkehren"
         },
         "data_description": {
-          "time_open": "Zeitbedarf zum Öffnen des Projektorlifts",
-          "time_close": "Zeit, die zum Schließen des Projektorlifts benötigt wird",
+          "time_open": "Zeitbedarf zum Öffnen des Projektorlifts.",
+          "time_close": "Zeit, die zum Schließen des Projektorlifts benötigt wird.",
           "inverted": "Diese Integration folgt der Cover-Entität, wobei „offen“ bedeutet, dass der Bildschirm eingefahren ist, und „geschlossen“, dass der Bildschirm herausgezogen ist, genauso wie Vorhänge und Garagentore funktionieren. Für eine Projektionswand ist dies nicht intuitiv. Sie können das Verhalten umkehren."
         }
       }

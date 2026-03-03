@@ -47,8 +47,8 @@
           "inverted": "Inverter adfærd"
         },
         "data_description": {
-          "time_open": "Det tager tid at åbne projektorskærmen",
-          "time_close": "Det tager tid at lukke projektorskærmen",
+          "time_open": "Det tager tid at åbne projektorskærmen.",
+          "time_close": "Det tager tid at lukke projektorskærmen.",
           "inverted": "Denne integration følger Cover Entity, hvor åben betyder, at skærmen er trukket tilbage og lukket, skærmen trækkes ud, på samme måde som gardiner og garageporte fungerer. For et projektionslærred er dette kontraintuitivt. Du kan vende adfærden."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Inverter adfærd"
         },
         "data_description": {
-          "time_open": "Det tager tid at åbne projektorliften",
-          "time_close": "Det tager tid at lukke projektorliften",
+          "time_open": "Det tager tid at åbne projektorliften.",
+          "time_close": "Det tager tid at lukke projektorliften.",
           "inverted": "Denne integration følger Cover Entity, hvor åben betyder, at skærmen er trukket tilbage og lukket, skærmen trækkes ud, på samme måde som gardiner og garageporte fungerer. For et projektionslærred er dette kontraintuitivt. Du kan vende adfærden."
         }
       }

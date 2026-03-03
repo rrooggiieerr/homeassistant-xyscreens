@@ -24,7 +24,7 @@
           "address": "Cihazın onaltılık adresi.",
           "time_open": "Cihazı açmak için gereken süre.",
           "time_close": "Cihazı kapatmak için gereken süre.",
-          "inverted": "Bu entegrasyon, perdelerin ve garaj kapılarının çalıştığı gibi, açık ekranın geri çekildiği ve kapalı ekranın çıkarıldığı Cover Entity'yi takip ediyor. Bir projeksiyon ekranı için bu durum mantığa aykırıdır. Davranışı tersine çevirebilirsiniz."
+          "inverted": "Bu entegrasyon, perdelerin ve garaj kapılarının çalıştığı gibi, açık ekranın geri çekildiği ve kapalı ekranın çıkarıldığı Kapak Varlığı'nı takip eder. Bir projeksiyon ekranı için bu durum mantığa aykırıdır. Davranışı tersine çevirebilirsiniz."
         }
       }
     }
@@ -47,9 +47,9 @@
           "inverted": "Davranışı tersine çevir"
         },
         "data_description": {
-          "time_open": "Projektör ekranını açmak için gereken süre",
-          "time_close": "Projektör ekranını kapatmak için gereken süre",
-          "inverted": "Bu entegrasyon, perdelerin ve garaj kapılarının çalıştığı gibi, açık ekranın geri çekildiği ve kapalı ekranın çıkarıldığı Cover Entity'yi takip ediyor. Bir projeksiyon ekranı için bu durum mantığa aykırıdır. Davranışı tersine çevirebilirsiniz."
+          "time_open": "Projektör ekranını açmak için gereken süre.",
+          "time_close": "Projektör ekranını kapatmak için gereken süre.",
+          "inverted": "Bu entegrasyon, perdelerin ve garaj kapılarının çalıştığı gibi, açık ekranın geri çekildiği ve kapalı ekranın çıkarıldığı Kapak Varlığı'nı takip eder. Bir projeksiyon ekranı için bu durum mantığa aykırıdır. Davranışı tersine çevirebilirsiniz."
         }
       },
       "projector_lift": {
@@ -60,8 +60,8 @@
           "inverted": "Davranışı tersine çevir"
         },
         "data_description": {
-          "time_open": "Projektör asansörünü açmak için gereken süre",
-          "time_close": "Projektör asansörünü kapatmak için gereken süre",
+          "time_open": "Projektör asansörünü açmak için gereken süre.",
+          "time_close": "Projektör asansörünü kapatmak için gereken süre.",
           "inverted": "Bu entegrasyon, perdelerin ve garaj kapılarının çalıştığı gibi, açık ekranın geri çekildiği ve kapalı ekranın çıkarıldığı Kapak Varlığı'nı takip eder. Bir projeksiyon ekranı için bu durum mantığa aykırıdır. Davranışı tersine çevirebilirsiniz."
         }
       }

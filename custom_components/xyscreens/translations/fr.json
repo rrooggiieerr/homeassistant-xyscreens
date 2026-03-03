@@ -47,8 +47,8 @@
           "inverted": "Inverser le comportement"
         },
         "data_description": {
-          "time_open": "Temps nécessaire pour ouvrir l'écran du projecteur",
-          "time_close": "Temps nécessaire pour fermer l'écran du projecteur",
+          "time_open": "Temps nécessaire pour ouvrir l'écran du projecteur.",
+          "time_close": "Temps nécessaire pour fermer l'écran du projecteur.",
           "inverted": "Cette intégration suit l'entité de couverture, où ouvert signifie que l'écran est rétracté et fermé, l'écran est extrait, de la même manière que fonctionnent les rideaux et les portes de garage. Pour un écran de projection, cela est contre-intuitif. Vous pouvez inverser le comportement."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Inverser le comportement"
         },
         "data_description": {
-          "time_open": "Temps nécessaire pour ouvrir l'élévateur du projecteur",
-          "time_close": "Temps nécessaire pour fermer l'élévateur du projecteur",
+          "time_open": "Temps nécessaire pour ouvrir l'élévateur du projecteur.",
+          "time_close": "Temps nécessaire pour fermer l'élévateur du projecteur.",
           "inverted": "Cette intégration suit l'entité de couverture, où ouvert signifie que l'écran est rétracté et fermé, l'écran est extrait, de la même manière que fonctionnent les rideaux et les portes de garage. Pour un écran de projection, cela est contre-intuitif. Vous pouvez inverser le comportement."
         }
       }

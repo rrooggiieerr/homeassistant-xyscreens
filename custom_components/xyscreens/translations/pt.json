@@ -47,8 +47,8 @@
           "inverted": "Inverter comportamento"
         },
         "data_description": {
-          "time_open": "Tempo necessário para abrir a tela do projetor",
-          "time_close": "Tempo necessário para fechar a tela do projetor",
+          "time_open": "Tempo necessário para abrir a tela do projetor.",
+          "time_close": "Tempo necessário para fechar a tela do projetor.",
           "inverted": "Esta integração segue a Entidade Cobertura, onde aberta significa que a tela é retraída e fechada a tela é extraída, da mesma forma que funcionam cortinas e portas de garagem. Para uma tela de projeção, isso é contra-intuitivo. Você pode reverter o comportamento."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Inverter comportamento"
         },
         "data_description": {
-          "time_open": "Tempo necessário para abrir o elevador do projetor",
-          "time_close": "Tempo necessário para fechar o elevador do projetor",
+          "time_open": "Tempo necessário para abrir o elevador do projetor.",
+          "time_close": "Tempo necessário para fechar o elevador do projetor.",
           "inverted": "Esta integração segue a Entidade Cobertura, onde aberta significa que a tela é retraída e fechada a tela é extraída, da mesma forma que funcionam cortinas e portas de garagem. Para uma tela de projeção, isso é contra-intuitivo. Você pode reverter o comportamento."
         }
       }

@@ -47,8 +47,8 @@
           "inverted": "Invertno ponašanje"
         },
         "data_description": {
-          "time_open": "Vrijeme potrebno za otvaranje platna projektora",
-          "time_close": "Vrijeme potrebno za zatvaranje platna projektora",
+          "time_open": "Vrijeme potrebno za otvaranje platna projektora.",
+          "time_close": "Vrijeme potrebno za zatvaranje platna projektora.",
           "inverted": "Ova integracija slijedi Cover Entity, gdje otvoreno znači da je zaslon uvučen, a zatvoren zaslon je izvučen, na isti način na koji rade zavjese i garažna vrata. Za projekcijsko platno to je kontraintuitivno. Možete promijeniti ponašanje."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Invertno ponašanje"
         },
         "data_description": {
-          "time_open": "Vrijeme potrebno za otvaranje podizača projektora",
-          "time_close": "Vrijeme potrebno za zatvaranje podizača projektora",
+          "time_open": "Vrijeme potrebno za otvaranje podizača projektora.",
+          "time_close": "Vrijeme potrebno za zatvaranje podizača projektora.",
           "inverted": "Ova integracija slijedi Cover Entity, gdje otvoreno znači da je zaslon uvučen, a zatvoren zaslon je izvučen, na isti način na koji rade zavjese i garažna vrata. Za projekcijsko platno to je kontraintuitivno. Možete promijeniti ponašanje."
         }
       }

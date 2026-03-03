@@ -47,8 +47,8 @@
           "inverted": "Invertir el comportament"
         },
         "data_description": {
-          "time_open": "Temps necessari per obrir la pantalla del projector",
-          "time_close": "Temps necessari per tancar la pantalla del projector",
+          "time_open": "Temps necessari per obrir la pantalla del projector.",
+          "time_close": "Temps necessari per tancar la pantalla del projector.",
           "inverted": "Aquesta integració segueix l'Entitat de coberta, on obert significa que la pantalla es retreu i tancada s'extreu la pantalla, de la mateixa manera que funcionen les cortines i les portes de garatge. Per a una pantalla de projecció això és contrari a la intuïtiu. Podeu revertir el comportament."
         }
       },
@@ -60,9 +60,9 @@
           "inverted": "Invertir el comportament"
         },
         "data_description": {
-          "time_open": "Temps necessari per obrir l'elevador del projector",
-          "time_close": "Temps necessari per tancar l'elevador del projector",
-          "inverted": "Aquesta integració segueix l'Entitat de coberta, on obert significa que la pantalla es retreu i tancada s'extreu la pantalla, de la mateixa manera que funcionen les cortines i les portes de garatge. Per a una pantalla de projecció això és contrari a la intuïtiu. Podeu revertir el comportament."
+          "time_open": "Temps necessari per obrir l'elevador del projector.",
+          "time_close": "Temps necessari per tancar l'elevador del projector.",
+          "inverted": "Aquesta integració segueix l'Entitat de coberta, on obert significa que la pantalla es retreu i tancada s'extreu la pantalla, de la mateixa manera que funcionen les cortines i les portes de garatge. Per a una pantalla de projecció això és contraintuïtiu. Podeu revertir el comportament."
         }
       }
     }

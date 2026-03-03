@@ -47,8 +47,8 @@
           "inverted": "Invertera beteende"
         },
         "data_description": {
-          "time_open": "Tid som behövs för att öppna projektorduken",
-          "time_close": "Tid som behövs för att stänga projektorduken",
+          "time_open": "Tid som behövs för att öppna projektorduken.",
+          "time_close": "Tid som behövs för att stänga projektorduken.",
           "inverted": "Denna integration följer Cover Entity, där öppen betyder att skärmen dras in och stängs skärmen dras ut, på samma sätt som gardiner och garageportar fungerar. För en projektionsduk är detta kontraintuitivt. Du kan vända beteendet."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Invertera beteende"
         },
         "data_description": {
-          "time_open": "Tid som behövs för att öppna projektorhissen",
-          "time_close": "Tid som behövs för att stänga projektorlyften",
+          "time_open": "Tid som behövs för att öppna projektorhissen.",
+          "time_close": "Tid som behövs för att stänga projektorhissen.",
           "inverted": "Denna integration följer Cover Entity, där öppen betyder att skärmen dras in och stängs skärmen dras ut, på samma sätt som gardiner och garageportar fungerar. För en projektionsduk är detta kontraintuitivt. Du kan vända beteendet."
         }
       }

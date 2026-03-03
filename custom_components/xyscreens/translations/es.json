@@ -60,8 +60,8 @@
           "inverted": "Comportamiento invertido"
         },
         "data_description": {
-          "time_open": "Tiempo necesario para abrir el elevador del proyector",
-          "time_close": "Tiempo necesario para cerrar el elevador del proyector",
+          "time_open": "Tiempo necesario para abrir el elevador del proyector.",
+          "time_close": "Tiempo necesario para cerrar el elevador de proyectores.",
           "inverted": "Esta integración sigue la Entidad de Cobertura, donde abierta significa que la mampara se retrae y cerrada se extrae, de la misma manera que funcionan las cortinas y puertas de garaje. Para una pantalla de proyección esto es contradictorio. Puedes revertir el comportamiento."
         }
       }

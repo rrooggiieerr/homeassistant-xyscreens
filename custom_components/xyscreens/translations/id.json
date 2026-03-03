@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Perangkat sudah dikonfigurasi"
+    },
+    "error": {
+      "cannot_connect": "Gagal terhubung",
+      "nonexisting_serial_port": "Serial miskin tidak ada",
+      "invalid_address": "Alamat tidak valid",
+      "unknown": "Kesalahan yang tidak terduga"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Pelabuhan seri",
+          "address": "Alamat",
+          "device_type": "Jenis perangkat",
+          "time_open": "Waktu terbuka",
+          "time_close": "Tutup waktu",
+          "inverted": "Balikkan perilaku"
+        },
+        "data_description": {
+          "serial_port": "Port serial yang terhubung dengan perangkat Anda.",
+          "address": "Alamat heksadesimal perangkat.",
+          "time_open": "Waktu yang dibutuhkan untuk membuka perangkat.",
+          "time_close": "Waktu yang dibutuhkan untuk menutup perangkat.",
+          "inverted": "Integrasi ini mengikuti Entitas Penutup, di mana terbuka berarti layar ditarik dan ditutup layar diekstraksi, sama seperti cara kerja tirai dan pintu garasi. Untuk layar proyeksi, hal ini berlawanan dengan intuisi. Anda dapat membalikkan perilaku tersebut."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Layar proyektor",
+        "projector_lift": "Angkat proyektor"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Opsi layar proyektor",
+        "data": {
+          "time_open": "Waktu terbuka",
+          "time_close": "Tutup waktu",
+          "inverted": "Balikkan perilaku"
+        },
+        "data_description": {
+          "time_open": "Waktu yang diperlukan untuk membuka layar proyektor.",
+          "time_close": "Waktu yang diperlukan untuk menutup layar proyektor.",
+          "inverted": "Integrasi ini mengikuti Entitas Penutup, di mana terbuka berarti layar ditarik dan ditutup layar diekstraksi, sama seperti cara kerja tirai dan pintu garasi. Untuk layar proyeksi, hal ini berlawanan dengan intuisi. Anda dapat membalikkan perilaku tersebut."
+        }
+      },
+      "projector_lift": {
+        "title": "Opsi pengangkatan proyektor",
+        "data": {
+          "time_open": "Waktu terbuka",
+          "time_close": "Tutup waktu",
+          "inverted": "Balikkan perilaku"
+        },
+        "data_description": {
+          "time_open": "Waktu yang diperlukan untuk membuka lift proyektor.",
+          "time_close": "Waktu yang diperlukan untuk menutup lift proyektor.",
+          "inverted": "Integrasi ini mengikuti Entitas Penutup, di mana terbuka berarti layar ditarik dan ditutup layar diekstraksi, sama seperti cara kerja tirai dan pintu garasi. Untuk layar proyeksi, hal ini berlawanan dengan intuisi. Anda dapat membalikkan perilaku tersebut."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Layar Proyektor"
+    },
+    "projector_lift": {
+      "name": "Angkat Proyektor"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Tertutup",
+          "opening": "Penutupan",
+          "closing": "Pembukaan",
+          "closed": "Membuka"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Tertutup",
+          "opening": "Penutupan",
+          "closing": "Pembukaan",
+          "closed": "Membuka"
+        }
+      }
+    }
+  }
+}

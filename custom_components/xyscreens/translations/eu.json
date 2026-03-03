@@ -47,9 +47,9 @@
           "inverted": "Alderantzikatu jokabidea"
         },
         "data_description": {
-          "time_open": "Proiektagailuaren pantaila irekitzeko behar den denbora",
-          "time_close": "Proiektagailuaren pantaila ixteko behar den denbora",
-          "inverted": "Integrazio honek Estalki Entitateari jarraitzen dio, non irekita pantaila atzeratu eta itxita pantaila ateratzen da, gortinek eta garaje-ateek funtzionatzen duten modu berean. Proiekzio-pantaila baten kasuan, hori ez da intuitiboa. Portaera irauli dezakezu."
+          "time_open": "Proiektagailuaren pantaila irekitzeko behar den denbora.",
+          "time_close": "Proiektagailuaren pantaila ixteko behar den denbora.",
+          "inverted": "Integrazio honek Estalki Entitateari jarraitzen dio, non irekita pantaila atzeratu eta itxita pantaila ateratzen dela esan nahi du, gortinek eta garaje-ateek funtzionatzen duten moduan. Proiekzio-pantaila baten kasuan, hori ez da intuitiboa. Portaera irauli dezakezu."
         }
       },
       "projector_lift": {
@@ -60,8 +60,8 @@
           "inverted": "Alderantzikatu jokabidea"
         },
         "data_description": {
-          "time_open": "Proiektorearen igogailua irekitzeko behar den denbora",
-          "time_close": "Proiektorearen igogailua ixteko behar den denbora",
+          "time_open": "Proiektorearen igogailua irekitzeko behar den denbora.",
+          "time_close": "Proiektorearen igogailua ixteko behar den denbora.",
           "inverted": "Integrazio honek Estalki Entitateari jarraitzen dio, non irekita pantaila atzeratu eta itxita pantaila ateratzen da, gortinek eta garaje-ateek funtzionatzen duten modu berean. Proiekzio-pantaila baten kasuan, hori ez da intuitiboa. Portaera irauli dezakezu."
         }
       }

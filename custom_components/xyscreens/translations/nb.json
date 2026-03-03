@@ -24,7 +24,7 @@
           "address": "Den heksadesimale adressen til enheten.",
           "time_open": "Tid som trengs for å åpne enheten.",
           "time_close": "Tid som trengs for å lukke enheten.",
-          "inverted": "Denne integrasjonen følger Cover Entity, der åpen betyr at skjermen trekkes inn og lukkes skjermen trekkes ut, på samme måte som gardiner og garasjeporter fungerer. For et projeksjonslerret er dette kontraintuitivt. Du kan snu oppførselen."
+          "inverted": "Denne integrasjonen følger Cover Entity, der åpen betyr at skjermen er trukket inn og lukket skjermen trekkes ut, på samme måte som gardiner og garasjeporter fungerer. For et projeksjonslerret er dette kontraintuitivt. Du kan snu oppførselen."
         }
       }
     }
@@ -47,9 +47,9 @@
           "inverted": "Inverter atferd"
         },
         "data_description": {
-          "time_open": "Tid som trengs for å åpne projektorskjermen",
-          "time_close": "Tid som trengs for å lukke projektorskjermen",
-          "inverted": "Denne integrasjonen følger Cover Entity, der åpen betyr at skjermen er trukket inn og lukket skjermen trekkes ut, på samme måte som gardiner og garasjeporter fungerer. For et projeksjonslerret er dette kontraintuitivt. Du kan snu oppførselen."
+          "time_open": "Tid som trengs for å åpne projektorskjermen.",
+          "time_close": "Tid som trengs for å lukke projektorskjermen.",
+          "inverted": "Denne integrasjonen følger Cover Entity, der åpen betyr at skjermen trekkes inn og lukkes skjermen trekkes ut, på samme måte som gardiner og garasjeporter fungerer. For et projeksjonslerret er dette kontraintuitivt. Du kan snu oppførselen."
         }
       },
       "projector_lift": {
@@ -60,8 +60,8 @@
           "inverted": "Inverter atferd"
         },
         "data_description": {
-          "time_open": "Tid som trengs for å åpne projektorheisen",
-          "time_close": "Tid som trengs for å lukke projektorheisen",
+          "time_open": "Tid som trengs for å åpne projektorheisen.",
+          "time_close": "Tid som trengs for å lukke projektorheisen.",
           "inverted": "Denne integrasjonen følger Cover Entity, der åpen betyr at skjermen er trukket inn og lukket skjermen trekkes ut, på samme måte som gardiner og garasjeporter fungerer. For et projeksjonslerret er dette kontraintuitivt. Du kan snu oppførselen."
         }
       }

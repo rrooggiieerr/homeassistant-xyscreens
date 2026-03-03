@@ -47,8 +47,8 @@
           "inverted": "Geuza tabia"
         },
         "data_description": {
-          "time_open": "Muda unaohitajika ili kufungua skrini ya projekta",
-          "time_close": "Muda unaohitajika ili kufunga skrini ya projekta",
+          "time_open": "Muda unaohitajika ili kufungua skrini ya projekta.",
+          "time_close": "Muda unaohitajika ili kufunga skrini ya projekta.",
           "inverted": "Ujumuishaji huu unafuata Huluki ya Jalada, ambapo wazi humaanisha kuwa skrini imeondolewa na kufungwa skrini inatolewa, jinsi mapazia na milango ya karakana inavyofanya kazi. Kwa skrini ya makadirio hii ni kinyume. Unaweza kubadilisha tabia."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Geuza tabia"
         },
         "data_description": {
-          "time_open": "Muda unaohitajika kufungua kiinua cha projekta",
-          "time_close": "Muda unaohitajika kufunga kiinua cha projekta",
+          "time_open": "Muda unaohitajika kufungua kiinua cha projekta.",
+          "time_close": "Muda unaohitajika kufunga kiinua cha projekta.",
           "inverted": "Ujumuishaji huu unafuata Huluki ya Jalada, ambapo wazi humaanisha kuwa skrini imeondolewa na kufungwa skrini inatolewa, jinsi mapazia na milango ya karakana inavyofanya kazi. Kwa skrini ya makadirio hii ni kinyume. Unaweza kubadilisha tabia."
         }
       }

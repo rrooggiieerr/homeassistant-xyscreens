@@ -47,8 +47,8 @@
           "inverted": "Tingkah laku songsang"
         },
         "data_description": {
-          "time_open": "Masa yang diperlukan untuk membuka skrin projektor",
-          "time_close": "Masa yang diperlukan untuk menutup skrin projektor",
+          "time_open": "Masa yang diperlukan untuk membuka skrin projektor.",
+          "time_close": "Masa yang diperlukan untuk menutup skrin projektor.",
           "inverted": "Penyepaduan ini mengikut Entiti Penutup, di mana terbuka bermakna skrin ditarik balik dan ditutup skrin diekstrak, sama seperti langsir dan pintu garaj berfungsi. Untuk skrin tayangan ini berlawanan dengan intuitif. Anda boleh membalikkan tingkah laku."
         }
       },
@@ -60,9 +60,9 @@
           "inverted": "Tingkah laku songsang"
         },
         "data_description": {
-          "time_open": "Masa yang diperlukan untuk membuka lif projektor",
-          "time_close": "Masa yang diperlukan untuk menutup lif projektor",
-          "inverted": "Penyepaduan ini mengikut Entiti Penutup, di mana terbuka bermakna skrin ditarik balik dan ditutup skrin diekstrak, sama seperti langsir dan pintu garaj berfungsi. Untuk skrin unjuran ini berlawanan dengan intuitif. Anda boleh membalikkan tingkah laku."
+          "time_open": "Masa yang diperlukan untuk membuka lif projektor.",
+          "time_close": "Masa yang diperlukan untuk menutup lif projektor.",
+          "inverted": "Penyepaduan ini mengikut Entiti Penutup, di mana terbuka bermakna skrin ditarik balik dan ditutup skrin diekstrak, sama seperti langsir dan pintu garaj berfungsi. Untuk skrin tayangan ini berlawanan dengan intuitif. Anda boleh membalikkan tingkah laku."
         }
       }
     }

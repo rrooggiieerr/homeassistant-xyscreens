@@ -24,7 +24,7 @@
           "address": "D'hexadezimal Adress vum Apparat.",
           "time_open": "Zäit néideg fir den Apparat opzemaachen.",
           "time_close": "Zäit néideg fir den Apparat zouzemaachen.",
-          "inverted": "Dës Integratioun follegt der Cover Entity, wou oppen heescht datt den Ecran zréckgezunn ass an zou ass den Ecran extrahéiert, déiselwecht wéi Gardinen a Garagendieren funktionnéieren. Fir e Projektiounsscreen ass dëst kontraintuitiv. Dir kënnt d'Verhalen ëmsetzen."
+          "inverted": "Dës Integratioun follegt der Cover Entity, wou oppen heescht datt den Ecran zréckgezunn ass an zou ass den Ecran extrahéiert, déiselwecht Aart a Weis wéi Gardinen a Garagendieren funktionnéieren. Fir e Projektiounsscreen ass dëst kontraintuitiv. Dir kënnt d'Verhalen ëmsetzen."
         }
       }
     }
@@ -47,8 +47,8 @@
           "inverted": "Verhalen ëmdréinen"
         },
         "data_description": {
-          "time_open": "Zäit néideg fir de Projektorbildschierm opzemaachen",
-          "time_close": "Zäit néideg fir de Projektorbildschierm zouzemaachen",
+          "time_open": "Zäit néideg fir de Projektorbildschierm opzemaachen.",
+          "time_close": "Zäit néideg fir de Projektorbildschierm zouzemaachen.",
           "inverted": "Dës Integratioun follegt der Cover Entity, wou oppen heescht datt den Ecran zréckgezunn ass an zou ass den Ecran extrahéiert, déiselwecht wéi Gardinen a Garagendieren funktionnéieren. Fir e Projektiounsscreen ass dëst kontraintuitiv. Dir kënnt d'Verhalen ëmsetzen."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Verhalen ëmdréinen"
         },
         "data_description": {
-          "time_open": "Zäit néideg fir de Projektor Lift opzemaachen",
-          "time_close": "Zäit néideg fir de Projektor Lift zouzemaachen",
+          "time_open": "Zäit néideg fir de Projektor Lift opzemaachen.",
+          "time_close": "Zäit néideg fir de Projektor Lift zouzemaachen.",
           "inverted": "Dës Integratioun follegt der Cover Entity, wou oppen heescht datt den Ecran zréckgezunn ass an zou ass den Ecran extrahéiert, déiselwecht wéi Gardinen a Garagendieren funktionnéieren. Fir e Projektiounsscreen ass dëst kontraintuitiv. Dir kënnt d'Verhalen ëmsetzen."
         }
       }

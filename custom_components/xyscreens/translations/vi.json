@@ -47,8 +47,8 @@
           "inverted": "Đảo ngược hành vi"
         },
         "data_description": {
-          "time_open": "Thời gian cần thiết để mở màn hình máy chiếu",
-          "time_close": "Thời gian cần thiết để đóng màn hình máy chiếu",
+          "time_open": "Thời gian cần thiết để mở màn hình máy chiếu.",
+          "time_close": "Thời gian cần thiết để đóng màn hình máy chiếu.",
           "inverted": "Sự tích hợp này tuân theo Thực thể che phủ, trong đó mở có nghĩa là màn hình được rút lại và đóng màn hình được rút ra, giống như cách hoạt động của rèm và cửa gara. Đối với màn hình chiếu, điều này là phản trực giác. Bạn có thể đảo ngược hành vi."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Đảo ngược hành vi"
         },
         "data_description": {
-          "time_open": "Thời gian cần thiết để mở thang máy máy chiếu",
-          "time_close": "Thời gian cần thiết để đóng khung nâng máy chiếu",
+          "time_open": "Thời gian cần thiết để mở khung nâng máy chiếu.",
+          "time_close": "Thời gian cần thiết để đóng khung nâng máy chiếu.",
           "inverted": "Sự tích hợp này tuân theo Thực thể che phủ, trong đó mở có nghĩa là màn hình được rút lại và đóng màn hình được rút ra, giống như cách hoạt động của rèm và cửa gara. Đối với màn hình chiếu, điều này là phản trực giác. Bạn có thể đảo ngược hành vi."
         }
       }

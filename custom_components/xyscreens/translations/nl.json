@@ -21,10 +21,10 @@
         },
         "data_description": {
           "serial_port": "De seriële poort waarop uw apparaat is aangesloten.",
-          "address": "Het hexadecimal adres van het apparaat.",
+          "address": "Het hexadecimale adres van het apparaat.",
           "time_open": "Benodigde tijd om het apparaat te openen.",
           "time_close": "Benodigde tijd om het apparaat te sluiten.",
-          "inverted": "Deze integratie volgt de Bedekking Entiteit, waarbij open betekent dat het scherm wordt ingetrokken en gesloten het scherm wordt geopend, zoals (rol)gordijnen en garagedeuren werken. Voor een projectiescherm is dit contra-intuïtief. Je kunt het gedrag omkeren."
+          "inverted": "Deze integratie volgt de Cover Entiteit, waarbij open betekent dat het scherm wordt ingetrokken en gesloten het scherm wordt geopend, op dezelfde manier als (rol)gordijnen en garagedeuren werken. Voor een projectiescherm is dit contra-intuïtief. Je kunt het gedrag omkeren."
         }
       }
     }
@@ -49,7 +49,7 @@
         "data_description": {
           "time_open": "Benodigde tijd om het projectiescherm te openen.",
           "time_close": "Benodigde tijd om het projectiescherm te sluiten.",
-          "inverted": "Deze integratie volgt de Bedekking Entiteit, waarbij open betekent dat het scherm wordt ingetrokken en gesloten het scherm wordt geopend, zoals (rol)gordijnen en garagedeuren werken. Voor een projectiescherm is dit contra-intuïtief. Je kunt het gedrag omkeren."
+          "inverted": "Deze integratie volgt de Cover Entiteit, waarbij open betekent dat het scherm wordt ingetrokken en gesloten het scherm wordt geopend, op dezelfde manier als (rol)gordijnen en garagedeuren werken. Voor een projectiescherm is dit contra-intuïtief. Je kunt het gedrag omkeren."
         }
       },
       "projector_lift": {
@@ -62,7 +62,7 @@
         "data_description": {
           "time_open": "Benodigde tijd om de projectorlift te openen.",
           "time_close": "Benodigde tijd om de projectorlift te sluiten.",
-          "inverted": "Deze integratie volgt de Bedekking Entiteit, waarbij open betekent dat het scherm wordt ingetrokken en gesloten het scherm wordt geopend, zoals (rol)gordijnen en garagedeuren werken. Voor een projectiescherm is dit contra-intuïtief. Je kunt het gedrag omkeren."
+          "inverted": "Deze integratie volgt de Cover Entiteit, waarbij open betekent dat het scherm wordt ingetrokken en gesloten het scherm wordt geopend, op dezelfde manier als (rol)gordijnen en garagedeuren werken. Voor een projectiescherm is dit contra-intuïtief. Je kunt het gedrag omkeren."
         }
       }
     }

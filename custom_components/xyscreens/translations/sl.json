@@ -47,8 +47,8 @@
           "inverted": "Obrni vedenje"
         },
         "data_description": {
-          "time_open": "Čas, potreben za odpiranje zaslona projektorja",
-          "time_close": "Čas, potreben za zapiranje zaslona projektorja",
+          "time_open": "Čas, potreben za odpiranje zaslona projektorja.",
+          "time_close": "Čas, potreben za zapiranje zaslona projektorja.",
           "inverted": "Ta integracija sledi Cover Entity, kjer odprto pomeni, da se zaslon umakne, zaprt pa zaslon izvleče, enako kot delujejo zavese in garažna vrata. Za projekcijsko platno je to kontraintuitivno. Vedenje lahko obrnete."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Obrni vedenje"
         },
         "data_description": {
-          "time_open": "Čas, potreben za odpiranje dvigala projektorja",
-          "time_close": "Čas, potreben za zapiranje dvigala projektorja",
+          "time_open": "Čas, potreben za odpiranje dvigala projektorja.",
+          "time_close": "Čas, potreben za zapiranje dvigala projektorja.",
           "inverted": "Ta integracija sledi Cover Entity, kjer odprto pomeni, da se zaslon umakne, zaprt pa zaslon izvleče, enako kot delujejo zavese in garažna vrata. Za projekcijsko platno je to kontraintuitivno. Vedenje lahko obrnete."
         }
       }

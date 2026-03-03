@@ -47,8 +47,8 @@
           "inverted": "Invertné správanie"
         },
         "data_description": {
-          "time_open": "Čas potrebný na otvorenie premietacej plochy projektora",
-          "time_close": "Čas potrebný na zatvorenie premietacej plochy projektora",
+          "time_open": "Čas potrebný na otvorenie premietacej plochy projektora.",
+          "time_close": "Čas potrebný na zatvorenie premietacej plochy projektora.",
           "inverted": "Táto integrácia nasleduje po entite krytu, kde otvorené znamená, že clona sa stiahne a clona sa zatvorí, vytiahne sa, rovnako ako fungujú závesy a garážové brány. Pre premietacie plátno je to neintuitívne. Môžete zmeniť správanie."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Invertné správanie"
         },
         "data_description": {
-          "time_open": "Čas potrebný na otvorenie výťahu projektora",
-          "time_close": "Čas potrebný na zatvorenie výťahu projektora",
+          "time_open": "Čas potrebný na otvorenie výťahu projektora.",
+          "time_close": "Čas potrebný na zatvorenie výťahu projektora.",
           "inverted": "Táto integrácia nasleduje po entite krytu, kde otvorené znamená, že clona sa stiahne a clona sa zatvorí, vytiahne sa, rovnako ako fungujú závesy a garážové brány. Pre premietacie plátno je to neintuitívne. Môžete zmeniť správanie."
         }
       }

@@ -47,8 +47,8 @@
           "inverted": "Snúa hegðun"
         },
         "data_description": {
-          "time_open": "Tími sem þarf til að opna skjávarpa skjáinn",
-          "time_close": "Tími sem þarf til að loka skjávarpaskjánum",
+          "time_open": "Tími sem þarf til að opna skjávarpa skjáinn.",
+          "time_close": "Tími sem þarf til að loka skjávarpaskjánum.",
           "inverted": "Þessi samþætting fylgir Cover Entity, þar sem opinn þýðir að skjárinn er dreginn inn og lokaður og skjárinn er dreginn út, á sama hátt og gluggatjöld og bílskúrshurðir virka. Fyrir skjávarpa er þetta gagnsætt. Þú getur snúið hegðuninni við."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Snúa hegðun"
         },
         "data_description": {
-          "time_open": "Tími sem þarf til að opna skjávarpa lyftuna",
-          "time_close": "Tími sem þarf til að loka skjávarpa lyftunni",
+          "time_open": "Tími sem þarf til að opna skjávarpa lyftuna.",
+          "time_close": "Tími sem þarf til að loka skjávarpa lyftunni.",
           "inverted": "Þessi samþætting fylgir Cover Entity, þar sem opinn þýðir að skjárinn er dreginn inn og lokaður og skjárinn er dreginn út, á sama hátt og gluggatjöld og bílskúrshurðir virka. Fyrir skjávarpa er þetta gagnsætt. Þú getur snúið hegðuninni við."
         }
       }

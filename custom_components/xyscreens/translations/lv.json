@@ -17,7 +17,7 @@
           "device_type": "Ierīces veids",
           "time_open": "Atvēršanas laiks",
           "time_close": "Aizvērt laiks",
-          "inverted": "Invertēt uzvedību"
+          "inverted": "Apgrieztā uzvedība"
         },
         "data_description": {
           "serial_port": "Seriālais ports, kuram ir pievienota jūsu ierīce.",
@@ -47,8 +47,8 @@
           "inverted": "Invertēt uzvedību"
         },
         "data_description": {
-          "time_open": "Laiks, kas nepieciešams, lai atvērtu projektora ekrānu",
-          "time_close": "Laiks, kas nepieciešams, lai aizvērtu projektora ekrānu",
+          "time_open": "Laiks, kas nepieciešams, lai atvērtu projektora ekrānu.",
+          "time_close": "Laiks, kas nepieciešams, lai aizvērtu projektora ekrānu.",
           "inverted": "Šī integrācija seko Cover Entity, kur atvērts nozīmē, ka ekrāns ir ievilkts un aizvērts, ekrāns tiek izvilkts, tāpat kā darbojas aizkari un garāžas durvis. Projekcijas ekrānam tas ir pretrunā. Jūs varat mainīt uzvedību."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Invertēt uzvedību"
         },
         "data_description": {
-          "time_open": "Laiks, kas nepieciešams, lai atvērtu projektora pacēlāju",
-          "time_close": "Laiks, kas nepieciešams, lai aizvērtu projektora pacēlāju",
+          "time_open": "Laiks, kas nepieciešams, lai atvērtu projektora pacēlāju.",
+          "time_close": "Laiks, kas nepieciešams, lai aizvērtu projektora pacēlāju.",
           "inverted": "Šī integrācija seko Cover Entity, kur atvērts nozīmē, ka ekrāns ir ievilkts un aizvērts, ekrāns tiek izvilkts, tāpat kā darbojas aizkari un garāžas durvis. Projekcijas ekrānam tas ir pretrunā. Jūs varat mainīt uzvedību."
         }
       }

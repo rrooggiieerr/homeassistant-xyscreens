@@ -47,8 +47,8 @@
           "inverted": "Invert viselkedés"
         },
         "data_description": {
-          "time_open": "A projektor képernyőjének kinyitásához szükséges idő",
-          "time_close": "A projektor képernyőjének bezárásához szükséges idő",
+          "time_open": "A kivetítő képernyőjének kinyitásához szükséges idő.",
+          "time_close": "A projektor képernyőjének bezárásához szükséges idő.",
           "inverted": "Ez az integráció a Cover Entity-t követi, ahol a nyitott azt jelenti, hogy a paraván be van húzva, és zárva van, a paraván ki van húzva, ugyanúgy, ahogy a függönyök és a garázskapuk működnek. A vetítővászon esetében ez ellentmondásos. Megfordíthatja a viselkedést."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Invert viselkedés"
         },
         "data_description": {
-          "time_open": "A projektor emelőjének kinyitásához szükséges idő",
-          "time_close": "A projektor emelőjének bezárásához szükséges idő",
+          "time_open": "A projektor emelőjének kinyitásához szükséges idő.",
+          "time_close": "A projektor emelőjének bezárásához szükséges idő.",
           "inverted": "Ez az integráció a Cover Entity-t követi, ahol a nyitott azt jelenti, hogy a paraván be van húzva, és zárva van, a paraván ki van húzva, ugyanúgy, ahogy a függönyök és a garázskapuk működnek. A vetítővászon esetében ez ellentmondásos. Megfordíthatja a viselkedést."
         }
       }

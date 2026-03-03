@@ -47,8 +47,8 @@
           "inverted": "Pöörake käitumine"
         },
         "data_description": {
-          "time_open": "Projektori ekraani avamiseks kuluv aeg",
-          "time_close": "Projektori ekraani sulgemiseks kuluv aeg",
+          "time_open": "Projektori ekraani avamiseks kuluv aeg.",
+          "time_close": "Projektori ekraani sulgemiseks kuluv aeg.",
           "inverted": "See integratsioon järgib Cover Entity'i, kus avatud tähendab, et ekraan tõmmatakse sisse ja suletud, ekraan tõmmatakse välja, samamoodi nagu kardinad ja garaažiuksed töötavad. Projektsiooniekraani puhul on see intuitiivne. Saate käitumist muuta."
         }
       },
@@ -60,9 +60,9 @@
           "inverted": "Pöörake käitumine"
         },
         "data_description": {
-          "time_open": "Projektori lifti avamiseks kuluv aeg",
-          "time_close": "Projektori lifti sulgemiseks kuluv aeg",
-          "inverted": "See integratsioon järgib Cover Entity'i, kus avatud tähendab, et ekraan tõmmatakse sisse ja suletud, ekraan tõmmatakse välja, samamoodi nagu kardinad ja garaažiuksed töötavad. Projektsiooniekraani puhul on see intuitiivne. Saate käitumist muuta."
+          "time_open": "Projektori lifti avamiseks kuluv aeg.",
+          "time_close": "Projektori lifti sulgemiseks kuluv aeg.",
+          "inverted": "See integratsioon järgib Cover Entity, kus avatud tähendab, et ekraan tõmmatakse sisse ja suletud, ekraan tõmmatakse välja, samamoodi nagu kardinad ja garaažiuksed töötavad. Projektsiooniekraani puhul on see intuitiivne. Saate käitumist muuta."
         }
       }
     }

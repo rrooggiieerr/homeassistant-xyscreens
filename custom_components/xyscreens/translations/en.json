@@ -47,8 +47,8 @@
           "inverted": "Invert behaviour"
         },
         "data_description": {
-          "time_open": "Time needed to open the projector screen",
-          "time_close": "Time needed to close the projector screen",
+          "time_open": "Time needed to open the projector screen.",
+          "time_close": "Time needed to close the projector screen.",
           "inverted": "This integration follows the Cover Entity, where open means the screen is retracted and closed the screen is extracted, the same way curtains and garage doors work. For a projection screen this is counterintuitive. You can reverse the behavior."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Invert behaviour"
         },
         "data_description": {
-          "time_open": "Time needed to open the projector lift",
-          "time_close": "Time needed to close the projector lift",
+          "time_open": "Time needed to open the projector lift.",
+          "time_close": "Time needed to close the projector lift.",
           "inverted": "This integration follows the Cover Entity, where open means the screen is retracted and closed the screen is extracted, the same way curtains and garage doors work. For a projection screen this is counterintuitive. You can reverse the behavior."
         }
       }

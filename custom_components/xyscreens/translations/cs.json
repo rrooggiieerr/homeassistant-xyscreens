@@ -47,8 +47,8 @@
           "inverted": "Invertní chování"
         },
         "data_description": {
-          "time_open": "Čas potřebný k otevření projekční plochy projektoru",
-          "time_close": "Čas potřebný k zavření projekčního plátna",
+          "time_open": "Čas potřebný k otevření projekční plochy projektoru.",
+          "time_close": "Čas potřebný k zavření projekční plochy projektoru.",
           "inverted": "Tato integrace navazuje na Cover Entity, kde otevřené znamená, že se clona stáhne a zavřená, clona se vytáhne, stejně jako fungují závěsy a garážová vrata. U projekčního plátna je to neintuitivní. Chování můžete zvrátit."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Invertní chování"
         },
         "data_description": {
-          "time_open": "Čas potřebný k otevření zvedáku projektoru",
-          "time_close": "Čas potřebný k uzavření výtahu projektoru",
+          "time_open": "Čas potřebný k otevření zvedáku projektoru.",
+          "time_close": "Čas potřebný k uzavření výtahu projektoru.",
           "inverted": "Tato integrace navazuje na Cover Entity, kde otevřené znamená, že se clona stáhne a zavřená, clona se vytáhne, stejně jako fungují závěsy a garážová vrata. U projekčního plátna je to neintuitivní. Chování můžete zvrátit."
         }
       }

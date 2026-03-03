@@ -47,8 +47,8 @@
           "inverted": "Apverstas elgesys"
         },
         "data_description": {
-          "time_open": "Laikas, reikalingas projektoriaus ekranui atidaryti",
-          "time_close": "Laikas, reikalingas projektoriaus ekranui uždaryti",
+          "time_open": "Laikas, reikalingas projektoriaus ekranui atidaryti.",
+          "time_close": "Laikas, reikalingas projektoriaus ekranui uždaryti.",
           "inverted": "Ši integracija vykdoma pagal Cover Entity, kur atidaryta reiškia, kad ekranas įtrauktas, o uždarytas ekranas ištraukiamas, taip pat veikia užuolaidos ir garažo vartai. Projekciniam ekranui tai prieštarauja intuicijai. Galite pakeisti elgesį."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Apverstas elgesys"
         },
         "data_description": {
-          "time_open": "Laikas, reikalingas projektoriaus keltuvui atidaryti",
-          "time_close": "Laikas, reikalingas projektoriaus keltuvui uždaryti",
+          "time_open": "Laikas, reikalingas projektoriaus keltuvui atidaryti.",
+          "time_close": "Laikas, reikalingas projektoriaus keltuvui uždaryti.",
           "inverted": "Ši integracija vykdoma pagal Cover Entity, kur atidaryta reiškia, kad ekranas įtrauktas, o uždarytas ekranas ištraukiamas, taip pat veikia užuolaidos ir garažo vartai. Projekciniam ekranui tai prieštarauja intuicijai. Galite pakeisti elgesį."
         }
       }

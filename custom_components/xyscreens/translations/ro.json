@@ -47,8 +47,8 @@
           "inverted": "Comportament invers"
         },
         "data_description": {
-          "time_open": "Timp necesar pentru a deschide ecranul proiectorului",
-          "time_close": "Timp necesar pentru a închide ecranul proiectorului",
+          "time_open": "Timp necesar pentru a deschide ecranul proiectorului.",
+          "time_close": "Timp necesar pentru a închide ecranul proiectorului.",
           "inverted": "Această integrare urmează Entitatea de acoperire, unde deschis înseamnă că ecranul este retras și închis, ecranul este extras, la fel cum funcționează perdelele și ușile de garaj. Pentru un ecran de proiecție, acest lucru este contraintuitiv. Puteți inversa comportamentul."
         }
       },
@@ -60,8 +60,8 @@
           "inverted": "Comportament invers"
         },
         "data_description": {
-          "time_open": "Timp necesar pentru a deschide liftul pentru proiector",
-          "time_close": "Timp necesar pentru a închide liftul pentru proiector",
+          "time_open": "Timp necesar pentru a deschide liftul pentru proiector.",
+          "time_close": "Timp necesar pentru a închide liftul pentru proiector.",
           "inverted": "Această integrare urmează Entitatea de acoperire, unde deschis înseamnă că ecranul este retras și închis, ecranul este extras, la fel cum funcționează perdelele și ușile de garaj. Pentru un ecran de proiecție, acest lucru este contraintuitiv. Puteți inversa comportamentul."
         }
       }
