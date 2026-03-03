@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Gerät ist bereits konfiguriert"
+    },
+    "error": {
+      "cannot_connect": "Verbindung konnte nicht hergestellt werden",
+      "nonexisting_serial_port": "Seriennummer existiert nicht",
+      "invalid_address": "Ungültige Adresse",
+      "unknown": "Unerwarteter Fehler"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Serieller Anschluss",
+          "address": "Adresse",
+          "device_type": "Gerätetyp",
+          "time_open": "Öffnungszeiten",
+          "time_close": "Schließzeit",
+          "inverted": "Verhalten umkehren"
+        },
+        "data_description": {
+          "serial_port": "Der serielle Port, an den Ihr Gerät angeschlossen ist.",
+          "address": "Die hexadezimale Adresse des Geräts.",
+          "time_open": "Zeitbedarf zum Öffnen des Geräts.",
+          "time_close": "Benötigte Zeit zum Schließen des Geräts.",
+          "inverted": "Diese Integration folgt der Cover-Entität, wobei „offen“ bedeutet, dass der Bildschirm eingefahren ist, und „geschlossen“, dass der Bildschirm herausgezogen ist, genauso wie Vorhänge und Garagentore funktionieren. Für eine Projektionswand ist dies nicht intuitiv. Sie können das Verhalten umkehren."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Projektorleinwand",
+        "projector_lift": "Projektorlift"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Optionen für Projektorbildschirme",
+        "data": {
+          "time_open": "Öffnungszeiten",
+          "time_close": "Schließzeit",
+          "inverted": "Verhalten umkehren"
+        },
+        "data_description": {
+          "time_open": "Zeit, die zum Öffnen der Projektorleinwand benötigt wird",
+          "time_close": "Zeit, die zum Schließen der Projektorleinwand benötigt wird",
+          "inverted": "Diese Integration folgt der Cover-Entität, wobei „offen“ bedeutet, dass der Bildschirm eingefahren ist, und „geschlossen“, dass der Bildschirm herausgezogen ist, genauso wie Vorhänge und Garagentore funktionieren. Für eine Projektionswand ist dies nicht intuitiv. Sie können das Verhalten umkehren."
+        }
+      },
+      "projector_lift": {
+        "title": "Optionen für den Projektorlift",
+        "data": {
+          "time_open": "Öffnungszeiten",
+          "time_close": "Schließzeit",
+          "inverted": "Verhalten umkehren"
+        },
+        "data_description": {
+          "time_open": "Zeitbedarf zum Öffnen des Projektorlifts",
+          "time_close": "Zeit, die zum Schließen des Projektorlifts benötigt wird",
+          "inverted": "Diese Integration folgt der Cover-Entität, wobei „offen“ bedeutet, dass der Bildschirm eingefahren ist, und „geschlossen“, dass der Bildschirm herausgezogen ist, genauso wie Vorhänge und Garagentore funktionieren. Für eine Projektionswand ist dies nicht intuitiv. Sie können das Verhalten umkehren."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Projektorbildschirm"
+    },
+    "projector_lift": {
+      "name": "Projektorlift"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Geschlossen",
+          "opening": "Schließen",
+          "closing": "Öffnung",
+          "closed": "Offen"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Geschlossen",
+          "opening": "Schließen",
+          "closing": "Öffnung",
+          "closed": "Offen"
+        }
+      }
+    }
+  }
+}

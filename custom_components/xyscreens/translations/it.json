@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Il dispositivo è già configurato"
+    },
+    "error": {
+      "cannot_connect": "Impossibile connettersi",
+      "nonexisting_serial_port": "Il povero seriale non esiste",
+      "invalid_address": "Indirizzo non valido",
+      "unknown": "Errore imprevisto"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Porta seriale",
+          "address": "Indirizzo",
+          "device_type": "Tipo di dispositivo",
+          "time_open": "Orario aperto",
+          "time_close": "Orario di chiusura",
+          "inverted": "Invertire il comportamento"
+        },
+        "data_description": {
+          "serial_port": "La porta seriale a cui è connesso il tuo dispositivo.",
+          "address": "L'indirizzo esadecimale del dispositivo.",
+          "time_open": "Tempo necessario per aprire il dispositivo.",
+          "time_close": "Tempo necessario per chiudere il dispositivo.",
+          "inverted": "Questa integrazione segue la Cover Entity, dove aperto significa che lo schermo viene retratto e chiuso lo schermo viene estratto, allo stesso modo in cui funzionano le tende e le porte del garage. Per uno schermo di proiezione questo è controintuitivo. Puoi invertire il comportamento."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Schermo del proiettore",
+        "projector_lift": "Sollevamento del proiettore"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Opzioni dello schermo del proiettore",
+        "data": {
+          "time_open": "Orario aperto",
+          "time_close": "Orario di chiusura",
+          "inverted": "Invertire il comportamento"
+        },
+        "data_description": {
+          "time_open": "Tempo necessario per aprire lo schermo del proiettore",
+          "time_close": "Tempo necessario per chiudere lo schermo del proiettore",
+          "inverted": "Questa integrazione segue la Cover Entity, dove aperto significa che lo schermo viene retratto e chiuso lo schermo viene estratto, allo stesso modo in cui funzionano le tende e le porte del garage. Per uno schermo di proiezione questo è controintuitivo. Puoi invertire il comportamento."
+        }
+      },
+      "projector_lift": {
+        "title": "Opzioni di sollevamento del proiettore",
+        "data": {
+          "time_open": "Orario aperto",
+          "time_close": "Orario di chiusura",
+          "inverted": "Invertire il comportamento"
+        },
+        "data_description": {
+          "time_open": "Tempo necessario per aprire il sollevatore del proiettore",
+          "time_close": "Tempo necessario per chiudere il sollevatore del proiettore",
+          "inverted": "Questa integrazione segue la Cover Entity, dove aperto significa che lo schermo viene retratto e chiuso lo schermo viene estratto, allo stesso modo in cui funzionano le tende e le porte del garage. Per uno schermo di proiezione questo è controintuitivo. Puoi invertire il comportamento."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Schermo del proiettore"
+    },
+    "projector_lift": {
+      "name": "Sollevamento del proiettore"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Chiuso",
+          "opening": "Chiusura",
+          "closing": "Apertura",
+          "closed": "Aprire"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Chiuso",
+          "opening": "Chiusura",
+          "closing": "Apertura",
+          "closed": "Aprire"
+        }
+      }
+    }
+  }
+}

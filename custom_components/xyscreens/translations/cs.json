@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Zařízení je již nakonfigurováno"
+    },
+    "error": {
+      "cannot_connect": "Připojení se nezdařilo",
+      "nonexisting_serial_port": "Sériová chudoba neexistuje",
+      "invalid_address": "Neplatná adresa",
+      "unknown": "Neočekávaná chyba"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Sériový port",
+          "address": "Adresa",
+          "device_type": "Typ zařízení",
+          "time_open": "Otevřená doba",
+          "time_close": "Zavřít čas",
+          "inverted": "Invertní chování"
+        },
+        "data_description": {
+          "serial_port": "Sériový port, ke kterému je vaše zařízení připojeno.",
+          "address": "Hexadecimální adresa zařízení.",
+          "time_open": "Čas potřebný k otevření zařízení.",
+          "time_close": "Čas potřebný k uzavření zařízení.",
+          "inverted": "Tato integrace navazuje na Cover Entity, kde otevřené znamená, že se clona stáhne a zavřená, clona se vytáhne, stejně jako fungují závěsy a garážová vrata. U projekčního plátna je to neintuitivní. Chování můžete zvrátit."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Obrazovka projektoru",
+        "projector_lift": "Výtah projektoru"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Možnosti obrazovky projektoru",
+        "data": {
+          "time_open": "Otevřená doba",
+          "time_close": "Zavřít čas",
+          "inverted": "Invertní chování"
+        },
+        "data_description": {
+          "time_open": "Čas potřebný k otevření projekční plochy projektoru",
+          "time_close": "Čas potřebný k zavření projekčního plátna",
+          "inverted": "Tato integrace navazuje na Cover Entity, kde otevřené znamená, že se clona stáhne a zavřená, clona se vytáhne, stejně jako fungují závěsy a garážová vrata. U projekčního plátna je to neintuitivní. Chování můžete zvrátit."
+        }
+      },
+      "projector_lift": {
+        "title": "Možnosti zdvihu projektoru",
+        "data": {
+          "time_open": "Otevřená doba",
+          "time_close": "Zavřít čas",
+          "inverted": "Invertní chování"
+        },
+        "data_description": {
+          "time_open": "Čas potřebný k otevření zvedáku projektoru",
+          "time_close": "Čas potřebný k uzavření výtahu projektoru",
+          "inverted": "Tato integrace navazuje na Cover Entity, kde otevřené znamená, že se clona stáhne a zavřená, clona se vytáhne, stejně jako fungují závěsy a garážová vrata. U projekčního plátna je to neintuitivní. Chování můžete zvrátit."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Obrazovka projektoru"
+    },
+    "projector_lift": {
+      "name": "Výtah projektoru"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "ZAVŘENO",
+          "opening": "Zavírání",
+          "closing": "Otevírací",
+          "closed": "OTEVŘENO"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "ZAVŘENO",
+          "opening": "Zavírání",
+          "closing": "Otevírací",
+          "closed": "OTEVŘENO"
+        }
+      }
+    }
+  }
+}

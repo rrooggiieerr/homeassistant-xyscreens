@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "デバイスはすでに構成されています"
+    },
+    "error": {
+      "cannot_connect": "接続に失敗しました",
+      "nonexisting_serial_port": "シリアルポートは存在しません",
+      "invalid_address": "無効なアドレス",
+      "unknown": "予期しないエラー"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "シリアルポート",
+          "address": "住所",
+          "device_type": "デバイスの種類",
+          "time_open": "開館時間",
+          "time_close": "閉店時間",
+          "inverted": "反転動作"
+        },
+        "data_description": {
+          "serial_port": "デバイスが接続されているシリアル ポート。",
+          "address": "デバイスの 16 進数のアドレス。",
+          "time_open": "デバイスを開くのに必要な時間。",
+          "time_close": "デバイスを閉じるのに必要な時間。",
+          "inverted": "この統合はカバー エンティティに従っており、カーテンやガレージ ドアと同じように、開くとスクリーンが格納され、閉じるとスクリーンが展開されます。投影スクリーンの場合、これは直感に反します。この動作を逆にすることもできます。"
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "プロジェクタースクリーン",
+        "projector_lift": "プロジェクターリフト"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "プロジェクタースクリーンのオプション",
+        "data": {
+          "time_open": "開館時間",
+          "time_close": "閉店時間",
+          "inverted": "反転動作"
+        },
+        "data_description": {
+          "time_open": "プロジェクタースクリーンを開くのにかかる時間",
+          "time_close": "プロジェクタースクリーンを閉じるまでの時間",
+          "inverted": "この統合はカバー エンティティに従っており、カーテンやガレージ ドアと同じように、開くとスクリーンが格納され、閉じるとスクリーンが展開されます。投影スクリーンの場合、これは直感に反します。この動作を逆にすることもできます。"
+        }
+      },
+      "projector_lift": {
+        "title": "プロジェクターリフトのオプション",
+        "data": {
+          "time_open": "開館時間",
+          "time_close": "閉店時間",
+          "inverted": "反転動作"
+        },
+        "data_description": {
+          "time_open": "プロジェクターリフトを開くのに必要な時間",
+          "time_close": "プロジェクターリフトを閉じるのに必要な時間",
+          "inverted": "この統合はカバー エンティティに従っており、カーテンやガレージ ドアと同じように、開くとスクリーンが格納され、閉じるとスクリーンが展開されます。投影スクリーンの場合、これは直感に反します。この動作を逆にすることもできます。"
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "プロジェクタースクリーン"
+    },
+    "projector_lift": {
+      "name": "プロジェクターリフト"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "閉店",
+          "opening": "終わりに",
+          "closing": "オープニング",
+          "closed": "開ける"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "閉店",
+          "opening": "終わりに",
+          "closing": "オープニング",
+          "closed": "開ける"
+        }
+      }
+    }
+  }
+}

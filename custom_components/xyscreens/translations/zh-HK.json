@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "设备已配置"
+    },
+    "error": {
+      "cannot_connect": "连接失败",
+      "nonexisting_serial_port": "序列号不存在",
+      "invalid_address": "地址无效",
+      "unknown": "意外错误"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "串口",
+          "address": "地址",
+          "device_type": "设备类型",
+          "time_open": "开放时间",
+          "time_close": "关闭时间",
+          "inverted": "反转行为"
+        },
+        "data_description": {
+          "serial_port": "您的设备连接到的串行端口。",
+          "address": "设备的十六进制地址。",
+          "time_open": "打开设备所需的时间。",
+          "time_close": "关闭设备所需的时间。",
+          "inverted": "这种集成遵循覆盖实体，其中打开意味着屏幕被缩回，关闭意味着屏幕被抽出，就像窗帘和车库门的工作方式一样。对于投影屏幕来说，这是违反直觉的。您可以扭转该行为。"
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "投影仪屏幕",
+        "projector_lift": "投影仪升降机"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "投影仪屏幕选项",
+        "data": {
+          "time_open": "开放时间",
+          "time_close": "关闭时间",
+          "inverted": "反转行为"
+        },
+        "data_description": {
+          "time_open": "打开投影仪屏幕所需的时间",
+          "time_close": "关闭投影仪屏幕所需的时间",
+          "inverted": "这种集成遵循覆盖实体，其中打开意味着屏幕被缩回，关闭意味着屏幕被抽出，就像窗帘和车库门的工作方式一样。对于投影屏幕来说，这是违反直觉的。您可以扭转该行为。"
+        }
+      },
+      "projector_lift": {
+        "title": "投影仪升降选项",
+        "data": {
+          "time_open": "开放时间",
+          "time_close": "关闭时间",
+          "inverted": "反转行为"
+        },
+        "data_description": {
+          "time_open": "打开投影机升降机所需时间",
+          "time_close": "关闭投影机升降机所需的时间",
+          "inverted": "这种集成遵循覆盖实体，其中打开意味着屏幕被缩回，关闭意味着屏幕被抽出，就像窗帘和车库门的工作方式一样。对于投影屏幕来说，这是违反直觉的。您可以扭转该行为。"
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "投影仪屏幕"
+    },
+    "projector_lift": {
+      "name": "投影仪升降机"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "关闭",
+          "opening": "闭幕式",
+          "closing": "开幕",
+          "closed": "打开"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "关闭",
+          "opening": "闭幕式",
+          "closing": "开幕",
+          "closed": "打开"
+        }
+      }
+    }
+  }
+}

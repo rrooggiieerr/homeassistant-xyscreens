@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Tá an gléas cumraithe cheana féin"
+    },
+    "error": {
+      "cannot_connect": "Theip ar nascadh",
+      "nonexisting_serial_port": "Níl an sraithuimhir ann",
+      "invalid_address": "Seoladh neamhbhailí",
+      "unknown": "Earráid gan choinne"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Port sraitheach",
+          "address": "Seoladh",
+          "device_type": "Cineál gléas",
+          "time_open": "Am oscailte",
+          "time_close": "Am dúnta",
+          "inverted": "Iompar inbhéartaithe"
+        },
+        "data_description": {
+          "serial_port": "An port srathach a bhfuil do ghléas nasctha leis.",
+          "address": "Seoladh heicsidheachúil na feiste.",
+          "time_open": "Am is gá chun an gléas a oscailt.",
+          "time_close": "Am is gá chun an gléas a dhúnadh.",
+          "inverted": "Leanann an comhtháthú seo an Aonán Clúdaigh, nuair a chiallaíonn oscailte go ndéantar an scáileán a tharraingt siar agus a dhúnadh asbhaintear an scáileán, ar an mbealach céanna a oibríonn na cuirtíní agus na doirse garáiste. Maidir le scáileán teilgean tá sé seo frith-intuigthe. Is féidir leat an t-iompar a aisiompú."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Scáileán teilgeoir",
+        "projector_lift": "Ardaitheoir teilgeoir"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Roghanna scáileáin teilgeoir",
+        "data": {
+          "time_open": "Am oscailte",
+          "time_close": "Am dúnta",
+          "inverted": "Iompar inbhéartaithe"
+        },
+        "data_description": {
+          "time_open": "Am is gá chun an scáileán teilgeoir a oscailt",
+          "time_close": "Am is gá chun an scáileán teilgeoir a dhúnadh",
+          "inverted": "Leanann an comhtháthú seo an Aonán Clúdaigh, nuair a chiallaíonn oscailte go ndéantar an scáileán a tharraingt siar agus a dhúnadh asbhaintear an scáileán, ar an mbealach céanna a oibríonn na cuirtíní agus na doirse garáiste. Maidir le scáileán teilgin tá sé seo frith-intuigthe. Is féidir leat an t-iompar a aisiompú."
+        }
+      },
+      "projector_lift": {
+        "title": "Roghanna ardaitheoir teilgeoir",
+        "data": {
+          "time_open": "Am oscailte",
+          "time_close": "Am dúnta",
+          "inverted": "Iompar inbhéartaithe"
+        },
+        "data_description": {
+          "time_open": "Am is gá chun an t-ardaitheoir teilgeoir a oscailt",
+          "time_close": "Am is gá chun an t-ardaitheoir teilgeoir a dhúnadh",
+          "inverted": "Leanann an comhtháthú seo an Aonán Clúdaigh, nuair a chiallaíonn oscailte go ndéantar an scáileán a tharraingt siar agus a dhúnadh asbhaintear an scáileán, ar an mbealach céanna a oibríonn na cuirtíní agus na doirse garáiste. Maidir le scáileán teilgean tá sé seo frith-intuigthe. Is féidir leat an t-iompar a aisiompú."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Scáileán Teilgeoir"
+    },
+    "projector_lift": {
+      "name": "Ardaitheoir teilgeoir"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Dúnta",
+          "opening": "Deiridh",
+          "closing": "Ag oscailt",
+          "closed": "Oscail"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Dúnta",
+          "opening": "Deiridh",
+          "closing": "Ag oscailt",
+          "closed": "Oscail"
+        }
+      }
+    }
+  }
+}

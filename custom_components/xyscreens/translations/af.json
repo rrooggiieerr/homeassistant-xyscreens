@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Toestel is reeds opgestel"
+    },
+    "error": {
+      "cannot_connect": "Kon nie koppel nie",
+      "nonexisting_serial_port": "Serial poort bestaan ​​nie",
+      "invalid_address": "Ongeldige adres",
+      "unknown": "Onverwagte fout"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Seriepoort",
+          "address": "Adres",
+          "device_type": "Soort toestel",
+          "time_open": "Oop tyd",
+          "time_close": "Sluit tyd",
+          "inverted": "Keer gedrag om"
+        },
+        "data_description": {
+          "serial_port": "Die reekspoort waaraan jou toestel gekoppel is.",
+          "address": "Die heksadesimale adres van die toestel.",
+          "time_open": "Tyd benodig om die toestel oop te maak.",
+          "time_close": "Tyd benodig om die toestel toe te maak.",
+          "inverted": "Hierdie integrasie volg op die Cover Entity, waar oop beteken dat die skerm ingetrek en toe is die skerm uitgetrek word, op dieselfde manier as wat gordyne en motorhuisdeure werk. Vir 'n projeksieskerm is dit teen-intuïtief. Jy kan die gedrag omkeer."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Projektor skerm",
+        "projector_lift": "Projektor hysbak"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Projektor skerm opsies",
+        "data": {
+          "time_open": "Oop tyd",
+          "time_close": "Sluit tyd",
+          "inverted": "Keer gedrag om"
+        },
+        "data_description": {
+          "time_open": "Tyd benodig om die projektorskerm oop te maak",
+          "time_close": "Tyd benodig om die projektorskerm toe te maak",
+          "inverted": "Hierdie integrasie volg op die Cover Entity, waar oop beteken dat die skerm ingetrek en toe is die skerm uitgetrek word, op dieselfde manier as wat gordyne en motorhuisdeure werk. Vir 'n projeksieskerm is dit teen-intuïtief. Jy kan die gedrag omkeer."
+        }
+      },
+      "projector_lift": {
+        "title": "Projektor hysbak opsies",
+        "data": {
+          "time_open": "Oop tyd",
+          "time_close": "Sluit tyd",
+          "inverted": "Keer gedrag om"
+        },
+        "data_description": {
+          "time_open": "Tyd wat nodig is om die projektor hysbak oop te maak",
+          "time_close": "Tyd benodig om die projektor-hysbak toe te maak",
+          "inverted": "Hierdie integrasie volg op die Cover Entity, waar oop beteken dat die skerm ingetrek en toe is die skerm uitgetrek word, op dieselfde manier as wat gordyne en motorhuisdeure werk. Vir 'n projeksieskerm is dit teen-intuïtief. Jy kan die gedrag omkeer."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Projektor skerm"
+    },
+    "projector_lift": {
+      "name": "Projektor-hysbak"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Gesluit",
+          "opening": "Sluiting",
+          "closing": "Opening",
+          "closed": "Maak oop"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Gesluit",
+          "opening": "Sluiting",
+          "closing": "Opening",
+          "closed": "Maak oop"
+        }
+      }
+    }
+  }
+}

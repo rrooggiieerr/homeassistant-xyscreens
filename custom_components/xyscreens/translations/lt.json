@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Įrenginys jau sukonfigūruotas"
+    },
+    "error": {
+      "cannot_connect": "Nepavyko prisijungti",
+      "nonexisting_serial_port": "Serial badt neegzistuoja",
+      "invalid_address": "Neteisingas adresas",
+      "unknown": "Netikėta klaida"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Serijinis prievadas",
+          "address": "Adresas",
+          "device_type": "Įrenginio tipas",
+          "time_open": "Atviras laikas",
+          "time_close": "Uždarymo laikas",
+          "inverted": "Apverstas elgesys"
+        },
+        "data_description": {
+          "serial_port": "Nuoseklus prievadas, prie kurio prijungtas jūsų įrenginys.",
+          "address": "Šešioliktainis įrenginio adresas.",
+          "time_open": "Laikas, reikalingas įrenginiui atidaryti.",
+          "time_close": "Laikas, reikalingas įrenginiui uždaryti.",
+          "inverted": "Ši integracija vykdoma pagal Cover Entity, kur atidaryta reiškia, kad ekranas įtrauktas, o uždarytas ekranas ištraukiamas, taip pat veikia užuolaidos ir garažo vartai. Projekciniam ekranui tai prieštarauja intuicijai. Galite pakeisti elgesį."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Projektoriaus ekranas",
+        "projector_lift": "Projektoriaus keltuvas"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Projektoriaus ekrano parinktys",
+        "data": {
+          "time_open": "Atviras laikas",
+          "time_close": "Uždarymo laikas",
+          "inverted": "Apverstas elgesys"
+        },
+        "data_description": {
+          "time_open": "Laikas, reikalingas projektoriaus ekranui atidaryti",
+          "time_close": "Laikas, reikalingas projektoriaus ekranui uždaryti",
+          "inverted": "Ši integracija vykdoma pagal Cover Entity, kur atidaryta reiškia, kad ekranas įtrauktas, o uždarytas ekranas ištraukiamas, taip pat veikia užuolaidos ir garažo vartai. Projekciniam ekranui tai prieštarauja intuicijai. Galite pakeisti elgesį."
+        }
+      },
+      "projector_lift": {
+        "title": "Projektoriaus pakėlimo parinktys",
+        "data": {
+          "time_open": "Atviras laikas",
+          "time_close": "Uždarymo laikas",
+          "inverted": "Apverstas elgesys"
+        },
+        "data_description": {
+          "time_open": "Laikas, reikalingas projektoriaus keltuvui atidaryti",
+          "time_close": "Laikas, reikalingas projektoriaus keltuvui uždaryti",
+          "inverted": "Ši integracija vykdoma pagal Cover Entity, kur atidaryta reiškia, kad ekranas įtrauktas, o uždarytas ekranas ištraukiamas, taip pat veikia užuolaidos ir garažo vartai. Projekciniam ekranui tai prieštarauja intuicijai. Galite pakeisti elgesį."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Projektoriaus ekranas"
+    },
+    "projector_lift": {
+      "name": "Projektoriaus keltuvas"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Uždaryta",
+          "opening": "Uždarymas",
+          "closing": "Atidarymas",
+          "closed": "Atidaryti"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Uždaryta",
+          "opening": "Uždarymas",
+          "closing": "Atidarymas",
+          "closed": "Atidaryti"
+        }
+      }
+    }
+  }
+}

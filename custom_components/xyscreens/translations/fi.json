@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Laite on jo määritetty"
+    },
+    "error": {
+      "cannot_connect": "Yhteyden muodostaminen epäonnistui",
+      "nonexisting_serial_port": "Serial poortia ei ole olemassa",
+      "invalid_address": "Virheellinen osoite",
+      "unknown": "Odottamaton virhe"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Sarjaportti",
+          "address": "Osoite",
+          "device_type": "Laitteen tyyppi",
+          "time_open": "Aukioloaika",
+          "time_close": "Sulje aika",
+          "inverted": "Käänteinen käyttäytyminen"
+        },
+        "data_description": {
+          "serial_port": "Sarjaportti, johon laitteesi on kytketty.",
+          "address": "Laitteen heksadesimaaliosoite.",
+          "time_open": "Laitteen avaamiseen tarvittava aika.",
+          "time_close": "Laitteen sulkemiseen tarvittava aika.",
+          "inverted": "Tämä integrointi seuraa Cover Entityä, jossa avoin tarkoittaa, että näyttö vedetään sisään ja suljetaan, seula vedetään ulos, samalla tavalla kuin verhot ja autotallin ovet toimivat. Projektiokankaalle tämä on ristiriitaista. Voit kääntää käyttäytymisen."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Projektorin näyttö",
+        "projector_lift": "Projektorin nosto"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Projektorin näytön vaihtoehdot",
+        "data": {
+          "time_open": "Aukioloaika",
+          "time_close": "Sulje aika",
+          "inverted": "Käänteinen käyttäytyminen"
+        },
+        "data_description": {
+          "time_open": "Projektorin valkokankaan avaamiseen tarvittava aika",
+          "time_close": "Projektorin valkokankaan sulkemiseen tarvittava aika",
+          "inverted": "Tämä integrointi seuraa Cover Entityä, jossa avoin tarkoittaa, että näyttö vedetään sisään ja suljetaan, seula vedetään ulos, samalla tavalla kuin verhot ja autotallin ovet toimivat. Projektiokankaalle tämä on ristiriitaista. Voit kääntää käyttäytymisen."
+        }
+      },
+      "projector_lift": {
+        "title": "Projektorin nostovaihtoehdot",
+        "data": {
+          "time_open": "Aukioloaika",
+          "time_close": "Sulje aika",
+          "inverted": "Käänteinen käyttäytyminen"
+        },
+        "data_description": {
+          "time_open": "Projektorinostimen avaamiseen tarvittava aika",
+          "time_close": "Projektorinostimen sulkemiseen tarvittava aika",
+          "inverted": "Tämä integrointi seuraa Cover Entityä, jossa avoin tarkoittaa, että näyttö vedetään sisään ja suljetaan, seula vedetään ulos, samalla tavalla kuin verhot ja autotallin ovet toimivat. Projektiokankaalle tämä on ristiriitaista. Voit kääntää käyttäytymisen."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Projektorin näyttö"
+    },
+    "projector_lift": {
+      "name": "Projektorin hissi"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Suljettu",
+          "opening": "Sulkeminen",
+          "closing": "Avaaminen",
+          "closed": "Avata"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Suljettu",
+          "opening": "Sulkeminen",
+          "closing": "Avaaminen",
+          "closed": "Avata"
+        }
+      }
+    }
+  }
+}

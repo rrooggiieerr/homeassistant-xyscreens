@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Zariadenie je už nakonfigurované"
+    },
+    "error": {
+      "cannot_connect": "Nepodarilo sa pripojiť",
+      "nonexisting_serial_port": "Sériová chudoba neexistuje",
+      "invalid_address": "Neplatná adresa",
+      "unknown": "Neočakávaná chyba"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Sériový port",
+          "address": "Adresa",
+          "device_type": "Typ zariadenia",
+          "time_open": "Otvorený čas",
+          "time_close": "Uzavretý čas",
+          "inverted": "Invertné správanie"
+        },
+        "data_description": {
+          "serial_port": "Sériový port, ku ktorému je pripojené vaše zariadenie.",
+          "address": "Hexadecimálna adresa zariadenia.",
+          "time_open": "Čas potrebný na otvorenie zariadenia.",
+          "time_close": "Čas potrebný na zatvorenie zariadenia.",
+          "inverted": "Táto integrácia nasleduje po entite krytu, kde otvorené znamená, že clona sa stiahne a clona sa zatvorí, vytiahne sa, rovnako ako fungujú závesy a garážové brány. Pre premietacie plátno je to neintuitívne. Môžete zmeniť správanie."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Obrazovka projektora",
+        "projector_lift": "Výťah projektora"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Možnosti obrazovky projektora",
+        "data": {
+          "time_open": "Otvorený čas",
+          "time_close": "Uzavretý čas",
+          "inverted": "Invertné správanie"
+        },
+        "data_description": {
+          "time_open": "Čas potrebný na otvorenie premietacej plochy projektora",
+          "time_close": "Čas potrebný na zatvorenie premietacej plochy projektora",
+          "inverted": "Táto integrácia nasleduje po entite krytu, kde otvorené znamená, že clona sa stiahne a clona sa zatvorí, vytiahne sa, rovnako ako fungujú závesy a garážové brány. Pre premietacie plátno je to neintuitívne. Môžete zmeniť správanie."
+        }
+      },
+      "projector_lift": {
+        "title": "Možnosti zdvihu projektora",
+        "data": {
+          "time_open": "Otvorený čas",
+          "time_close": "Uzavretý čas",
+          "inverted": "Invertné správanie"
+        },
+        "data_description": {
+          "time_open": "Čas potrebný na otvorenie výťahu projektora",
+          "time_close": "Čas potrebný na zatvorenie výťahu projektora",
+          "inverted": "Táto integrácia nasleduje po entite krytu, kde otvorené znamená, že clona sa stiahne a clona sa zatvorí, vytiahne sa, rovnako ako fungujú závesy a garážové brány. Pre premietacie plátno je to neintuitívne. Môžete zmeniť správanie."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Obrazovka projektora"
+    },
+    "projector_lift": {
+      "name": "Výťah projektora"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "ZATVORENÉ",
+          "opening": "Zatváranie",
+          "closing": "Otvorenie",
+          "closed": "OTVORENÉ"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "ZATVORENÉ",
+          "opening": "Zatváranie",
+          "closing": "Otvorenie",
+          "closed": "OTVORENÉ"
+        }
+      }
+    }
+  }
+}

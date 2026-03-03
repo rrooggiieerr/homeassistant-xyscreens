@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "O dispositivo xa está configurado"
+    },
+    "error": {
+      "cannot_connect": "Produciuse un erro ao conectar",
+      "nonexisting_serial_port": "Pobre serie non existe",
+      "invalid_address": "Enderezo non válido",
+      "unknown": "Erro inesperado"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Porto serie",
+          "address": "Enderezo",
+          "device_type": "Tipo de dispositivo",
+          "time_open": "Horario aberto",
+          "time_close": "Tempo de peche",
+          "inverted": "Inverter comportamento"
+        },
+        "data_description": {
+          "serial_port": "O porto serie ao que está conectado o dispositivo.",
+          "address": "O enderezo hexadecimal do dispositivo.",
+          "time_open": "Tempo necesario para abrir o dispositivo.",
+          "time_close": "Tempo necesario para pechar o dispositivo.",
+          "inverted": "Esta integración segue a Entidade de Cuberta, onde aberto significa que a pantalla está retraída e pechada a pantalla é extraída, do mesmo xeito que funcionan as cortinas e as portas do garaxe. Para unha pantalla de proxección isto é contraintuitivo. Podes revertir o comportamento."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Pantalla do proxector",
+        "projector_lift": "Elevador do proxector"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Opcións da pantalla do proxector",
+        "data": {
+          "time_open": "Horario aberto",
+          "time_close": "Tempo de peche",
+          "inverted": "Inverter comportamento"
+        },
+        "data_description": {
+          "time_open": "Tempo necesario para abrir a pantalla do proxector",
+          "time_close": "Tempo necesario para pechar a pantalla do proxector",
+          "inverted": "Esta integración segue a Entidade de Cuberta, onde aberto significa que a pantalla está retraída e pechada a pantalla é extraída, do mesmo xeito que funcionan as cortinas e as portas do garaxe. Para unha pantalla de proxección isto é contraintuitivo. Podes revertir o comportamento."
+        }
+      },
+      "projector_lift": {
+        "title": "Opcións de elevación do proxector",
+        "data": {
+          "time_open": "Horario aberto",
+          "time_close": "Tempo de peche",
+          "inverted": "Inverter comportamento"
+        },
+        "data_description": {
+          "time_open": "Tempo necesario para abrir o ascensor do proxector",
+          "time_close": "Tempo necesario para pechar o elevador do proxector",
+          "inverted": "Esta integración segue a Entidade de Cuberta, onde aberto significa que a pantalla está retraída e pechada a pantalla é extraída, do mesmo xeito que funcionan as cortinas e as portas do garaxe. Para unha pantalla de proxección isto é contraintuitivo. Podes revertir o comportamento."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Pantalla do proxector"
+    },
+    "projector_lift": {
+      "name": "Ascensor do proxector"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Pechado",
+          "opening": "Peche",
+          "closing": "Apertura",
+          "closed": "Aberto"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Pechado",
+          "opening": "Peche",
+          "closing": "Apertura",
+          "closed": "Aberto"
+        }
+      }
+    }
+  }
+}

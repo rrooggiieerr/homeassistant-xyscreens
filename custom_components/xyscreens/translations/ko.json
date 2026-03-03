@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "장치가 이미 구성되었습니다."
+    },
+    "error": {
+      "cannot_connect": "연결하지 못했습니다.",
+      "nonexisting_serial_port": "직렬 불량이 존재하지 않습니다.",
+      "invalid_address": "잘못된 주소",
+      "unknown": "예상치 못한 오류"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "직렬 포트",
+          "address": "주소",
+          "device_type": "장치 유형",
+          "time_open": "오픈시간",
+          "time_close": "마감 시간",
+          "inverted": "동작 반전"
+        },
+        "data_description": {
+          "serial_port": "장치가 연결된 직렬 포트입니다.",
+          "address": "장치의 16진수 주소입니다.",
+          "time_open": "장치를 여는 데 필요한 시간입니다.",
+          "time_close": "장치를 닫는 데 필요한 시간입니다.",
+          "inverted": "이 통합은 Cover Entity를 따릅니다. 여기서 열림은 커튼과 차고 문이 작동하는 것과 같은 방식으로 스크린이 접히고 닫혀 스크린이 추출됨을 의미합니다. 프로젝션 스크린의 경우 이는 직관에 어긋납니다. 동작을 되돌릴 수 있습니다."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "프로젝터 스크린",
+        "projector_lift": "프로젝터 리프트"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "프로젝터 화면 옵션",
+        "data": {
+          "time_open": "오픈 시간",
+          "time_close": "마감 시간",
+          "inverted": "동작 반전"
+        },
+        "data_description": {
+          "time_open": "프로젝터 스크린을 여는 데 필요한 시간",
+          "time_close": "프로젝터 화면을 닫는 데 필요한 시간",
+          "inverted": "이 통합은 Cover Entity를 따릅니다. 여기서 열림은 커튼과 차고 문이 작동하는 것과 같은 방식으로 스크린이 접히고 닫혀 스크린이 추출됨을 의미합니다. 프로젝션 스크린의 경우 이는 직관에 어긋납니다. 동작을 되돌릴 수 있습니다."
+        }
+      },
+      "projector_lift": {
+        "title": "프로젝터 리프트 옵션",
+        "data": {
+          "time_open": "오픈시간",
+          "time_close": "마감 시간",
+          "inverted": "동작 반전"
+        },
+        "data_description": {
+          "time_open": "프로젝터 리프트를 여는 데 필요한 시간",
+          "time_close": "프로젝터 리프트를 닫는 데 필요한 시간",
+          "inverted": "이 통합은 Cover Entity를 따릅니다. 여기서 열림은 커튼과 차고 문이 작동하는 것과 같은 방식으로 스크린이 접혀지고 닫혀 스크린이 추출됨을 의미합니다. 프로젝션 스크린의 경우 이는 직관에 어긋납니다. 동작을 되돌릴 수 있습니다."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "프로젝터 스크린"
+    },
+    "projector_lift": {
+      "name": "프로젝터 리프트"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "닫은",
+          "opening": "폐쇄",
+          "closing": "열기",
+          "closed": "열려 있는"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "닫은",
+          "opening": "폐쇄",
+          "closing": "열기",
+          "closed": "열려 있는"
+        }
+      }
+    }
+  }
+}

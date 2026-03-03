@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Thiết bị đã được định cấu hình"
+    },
+    "error": {
+      "cannot_connect": "Không thể kết nối",
+      "nonexisting_serial_port": "Lỗi nối tiếp không tồn tại",
+      "invalid_address": "Địa chỉ không hợp lệ",
+      "unknown": "Lỗi không mong muốn"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Cổng nối tiếp",
+          "address": "Địa chỉ",
+          "device_type": "Loại thiết bị",
+          "time_open": "Thời gian mở cửa",
+          "time_close": "Đóng cửa thời gian",
+          "inverted": "Đảo ngược hành vi"
+        },
+        "data_description": {
+          "serial_port": "Cổng nối tiếp mà thiết bị của bạn được kết nối.",
+          "address": "Địa chỉ thập lục phân của thiết bị.",
+          "time_open": "Thời gian cần thiết để mở thiết bị.",
+          "time_close": "Thời gian cần thiết để đóng thiết bị.",
+          "inverted": "Sự tích hợp này tuân theo Thực thể che phủ, trong đó mở có nghĩa là màn hình được rút lại và đóng màn hình được rút ra, giống như cách hoạt động của rèm và cửa gara. Đối với màn hình chiếu, điều này là phản trực giác. Bạn có thể đảo ngược hành vi."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Màn chiếu",
+        "projector_lift": "Thang máy chiếu"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Tùy chọn màn hình máy chiếu",
+        "data": {
+          "time_open": "Thời gian mở cửa",
+          "time_close": "Đóng cửa thời gian",
+          "inverted": "Đảo ngược hành vi"
+        },
+        "data_description": {
+          "time_open": "Thời gian cần thiết để mở màn hình máy chiếu",
+          "time_close": "Thời gian cần thiết để đóng màn hình máy chiếu",
+          "inverted": "Sự tích hợp này tuân theo Thực thể che phủ, trong đó mở có nghĩa là màn hình được rút lại và đóng màn hình được rút ra, giống như cách hoạt động của rèm và cửa gara. Đối với màn hình chiếu, điều này là phản trực giác. Bạn có thể đảo ngược hành vi."
+        }
+      },
+      "projector_lift": {
+        "title": "Tùy chọn nâng máy chiếu",
+        "data": {
+          "time_open": "Thời gian mở cửa",
+          "time_close": "Đóng cửa thời gian",
+          "inverted": "Đảo ngược hành vi"
+        },
+        "data_description": {
+          "time_open": "Thời gian cần thiết để mở thang máy máy chiếu",
+          "time_close": "Thời gian cần thiết để đóng khung nâng máy chiếu",
+          "inverted": "Sự tích hợp này tuân theo Thực thể che phủ, trong đó mở có nghĩa là màn hình được rút lại và đóng màn hình được rút ra, giống như cách hoạt động của rèm và cửa gara. Đối với màn hình chiếu, điều này là phản trực giác. Bạn có thể đảo ngược hành vi."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Màn chiếu"
+    },
+    "projector_lift": {
+      "name": "Thang máy chiếu"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Đã đóng",
+          "opening": "Đóng cửa",
+          "closing": "Khai mạc",
+          "closed": "Mở"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Đã đóng",
+          "opening": "Đóng cửa",
+          "closing": "Khai mạc",
+          "closed": "Mở"
+        }
+      }
+    }
+  }
+}

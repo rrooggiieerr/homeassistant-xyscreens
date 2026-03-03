@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Gailua dagoeneko konfiguratuta dago"
+    },
+    "error": {
+      "cannot_connect": "Ezin izan da konektatu",
+      "nonexisting_serial_port": "Serial pobrea ez da existitzen",
+      "invalid_address": "Helbide baliogabea",
+      "unknown": "Ustekabeko errorea"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Serie ataka",
+          "address": "Helbidea",
+          "device_type": "Gailu mota",
+          "time_open": "Ordu irekia",
+          "time_close": "Itxi ordua",
+          "inverted": "Alderantzikatu jokabidea"
+        },
+        "data_description": {
+          "serial_port": "Zure gailua konektatuta dagoen serie ataka.",
+          "address": "Gailuaren helbidea hamaseitarra.",
+          "time_open": "Gailua irekitzeko behar den denbora.",
+          "time_close": "Gailua ixteko behar den denbora.",
+          "inverted": "Integrazio honek Estalki Entitateari jarraitzen dio, non irekita pantaila atzeratu eta itxita pantaila ateratzen da, gortinek eta garaje-ateek funtzionatzen duten modu berean. Proiekzio-pantaila baten kasuan, hori ez da intuitiboa. Portaera irauli dezakezu."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Proiektore-pantaila",
+        "projector_lift": "Proiektorearen igogailua"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Proiektore-pantailaren aukerak",
+        "data": {
+          "time_open": "Ordu irekia",
+          "time_close": "Itxi ordua",
+          "inverted": "Alderantzikatu jokabidea"
+        },
+        "data_description": {
+          "time_open": "Proiektagailuaren pantaila irekitzeko behar den denbora",
+          "time_close": "Proiektagailuaren pantaila ixteko behar den denbora",
+          "inverted": "Integrazio honek Estalki Entitateari jarraitzen dio, non irekita pantaila atzeratu eta itxita pantaila ateratzen da, gortinek eta garaje-ateek funtzionatzen duten modu berean. Proiekzio-pantaila baten kasuan, hori ez da intuitiboa. Portaera irauli dezakezu."
+        }
+      },
+      "projector_lift": {
+        "title": "Proiektorea igotzeko aukerak",
+        "data": {
+          "time_open": "Ordu irekia",
+          "time_close": "Itxi ordua",
+          "inverted": "Alderantzikatu jokabidea"
+        },
+        "data_description": {
+          "time_open": "Proiektorearen igogailua irekitzeko behar den denbora",
+          "time_close": "Proiektorearen igogailua ixteko behar den denbora",
+          "inverted": "Integrazio honek Estalki Entitateari jarraitzen dio, non irekita pantaila atzeratu eta itxita pantaila ateratzen da, gortinek eta garaje-ateek funtzionatzen duten modu berean. Proiekzio-pantaila baten kasuan, hori ez da intuitiboa. Portaera irauli dezakezu."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Proiektatzeko pantaila"
+    },
+    "projector_lift": {
+      "name": "Proiektorearen Igogailua"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Itxita",
+          "opening": "Itxiera",
+          "closing": "Irekiera",
+          "closed": "Ireki"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Itxita",
+          "opening": "Itxiera",
+          "closing": "Irekiera",
+          "closed": "Ireki"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "El dispositiu ja està configurat"
+    },
+    "error": {
+      "cannot_connect": "No s'ha pogut connectar",
+      "nonexisting_serial_port": "No existeix el pobre en sèrie",
+      "invalid_address": "Adreça no vàlida",
+      "unknown": "Error inesperat"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Port sèrie",
+          "address": "Adreça",
+          "device_type": "Tipus de dispositiu",
+          "time_open": "Horari obert",
+          "time_close": "Temps de tancament",
+          "inverted": "Invertir el comportament"
+        },
+        "data_description": {
+          "serial_port": "El port sèrie al qual està connectat el vostre dispositiu.",
+          "address": "L'adreça hexadecimal del dispositiu.",
+          "time_open": "Temps necessari per obrir el dispositiu.",
+          "time_close": "Temps necessari per tancar el dispositiu.",
+          "inverted": "Aquesta integració segueix l'Entitat de coberta, on obert significa que la pantalla es retreu i tancada s'extreu la pantalla, de la mateixa manera que funcionen les cortines i les portes de garatge. Per a una pantalla de projecció això és contrari a la intuïtiu. Podeu revertir el comportament."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Pantalla del projector",
+        "projector_lift": "Ascensor del projector"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Opcions de la pantalla del projector",
+        "data": {
+          "time_open": "Horari obert",
+          "time_close": "Temps de tancament",
+          "inverted": "Invertir el comportament"
+        },
+        "data_description": {
+          "time_open": "Temps necessari per obrir la pantalla del projector",
+          "time_close": "Temps necessari per tancar la pantalla del projector",
+          "inverted": "Aquesta integració segueix l'Entitat de coberta, on obert significa que la pantalla es retreu i tancada s'extreu la pantalla, de la mateixa manera que funcionen les cortines i les portes de garatge. Per a una pantalla de projecció això és contrari a la intuïtiu. Podeu revertir el comportament."
+        }
+      },
+      "projector_lift": {
+        "title": "Opcions d'elevació del projector",
+        "data": {
+          "time_open": "Horari obert",
+          "time_close": "Temps de tancament",
+          "inverted": "Invertir el comportament"
+        },
+        "data_description": {
+          "time_open": "Temps necessari per obrir l'elevador del projector",
+          "time_close": "Temps necessari per tancar l'elevador del projector",
+          "inverted": "Aquesta integració segueix l'Entitat de coberta, on obert significa que la pantalla es retreu i tancada s'extreu la pantalla, de la mateixa manera que funcionen les cortines i les portes de garatge. Per a una pantalla de projecció això és contrari a la intuïtiu. Podeu revertir el comportament."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Pantalla del projector"
+    },
+    "projector_lift": {
+      "name": "Ascensor del projector"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Tancat",
+          "opening": "Tancament",
+          "closing": "Obertura",
+          "closed": "Obert"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Tancat",
+          "opening": "Tancament",
+          "closing": "Obertura",
+          "closed": "Obert"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "L'appareil est déjà configuré"
+    },
+    "error": {
+      "cannot_connect": "Échec de la connexion",
+      "nonexisting_serial_port": "Le port de série n'existe pas",
+      "invalid_address": "Adresse invalide",
+      "unknown": "Erreur inattendue"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Port série",
+          "address": "Adresse",
+          "device_type": "Type d'appareil",
+          "time_open": "Temps d'ouverture",
+          "time_close": "Heure de fermeture",
+          "inverted": "Inverser le comportement"
+        },
+        "data_description": {
+          "serial_port": "Le port série auquel votre appareil est connecté.",
+          "address": "L'adresse hexadécimale de l'appareil.",
+          "time_open": "Temps nécessaire pour ouvrir l'appareil.",
+          "time_close": "Temps nécessaire pour fermer l'appareil.",
+          "inverted": "Cette intégration suit l'entité de couverture, où ouvert signifie que l'écran est rétracté et fermé, l'écran est extrait, de la même manière que fonctionnent les rideaux et les portes de garage. Pour un écran de projection, cela est contre-intuitif. Vous pouvez inverser le comportement."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Écran de projection",
+        "projector_lift": "Ascenseur de projecteur"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Options d'écran de projection",
+        "data": {
+          "time_open": "Temps d'ouverture",
+          "time_close": "Heure de fermeture",
+          "inverted": "Inverser le comportement"
+        },
+        "data_description": {
+          "time_open": "Temps nécessaire pour ouvrir l'écran du projecteur",
+          "time_close": "Temps nécessaire pour fermer l'écran du projecteur",
+          "inverted": "Cette intégration suit l'entité de couverture, où ouvert signifie que l'écran est rétracté et fermé, l'écran est extrait, de la même manière que fonctionnent les rideaux et les portes de garage. Pour un écran de projection, cela est contre-intuitif. Vous pouvez inverser le comportement."
+        }
+      },
+      "projector_lift": {
+        "title": "Options de levage du projecteur",
+        "data": {
+          "time_open": "Temps d'ouverture",
+          "time_close": "Heure de fermeture",
+          "inverted": "Inverser le comportement"
+        },
+        "data_description": {
+          "time_open": "Temps nécessaire pour ouvrir l'élévateur du projecteur",
+          "time_close": "Temps nécessaire pour fermer l'élévateur du projecteur",
+          "inverted": "Cette intégration suit l'entité de couverture, où ouvert signifie que l'écran est rétracté et fermé, l'écran est extrait, de la même manière que fonctionnent les rideaux et les portes de garage. Pour un écran de projection, cela est contre-intuitif. Vous pouvez inverser le comportement."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Écran de projection"
+    },
+    "projector_lift": {
+      "name": "Ascenseur de projecteur"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Fermé",
+          "opening": "Clôture",
+          "closing": "Ouverture",
+          "closed": "Ouvrir"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Fermé",
+          "opening": "Clôture",
+          "closing": "Ouverture",
+          "closed": "Ouvrir"
+        }
+      }
+    }
+  }
+}

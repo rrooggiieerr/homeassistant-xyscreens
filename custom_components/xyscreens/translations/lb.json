@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Den Apparat ass scho konfiguréiert"
+    },
+    "error": {
+      "cannot_connect": "Konnt net konnektéieren",
+      "nonexisting_serial_port": "Serial poort existéiert net",
+      "invalid_address": "Invalid Adress",
+      "unknown": "Onerwaarte Feeler"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Serien Hafen",
+          "address": "Adress",
+          "device_type": "Apparat Typ",
+          "time_open": "Open Zäit",
+          "time_close": "Zoumaachen Zäit",
+          "inverted": "Verhalen ëmdréinen"
+        },
+        "data_description": {
+          "serial_port": "De Serien Hafen mat Ärem Apparat ugeschloss ass.",
+          "address": "D'hexadezimal Adress vum Apparat.",
+          "time_open": "Zäit néideg fir den Apparat opzemaachen.",
+          "time_close": "Zäit néideg fir den Apparat zouzemaachen.",
+          "inverted": "Dës Integratioun follegt der Cover Entity, wou oppen heescht datt den Ecran zréckgezunn ass an zou ass den Ecran extrahéiert, déiselwecht wéi Gardinen a Garagendieren funktionnéieren. Fir e Projektiounsscreen ass dëst kontraintuitiv. Dir kënnt d'Verhalen ëmsetzen."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Projektor Écran",
+        "projector_lift": "Projektor Lift"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Projector Écran Optiounen",
+        "data": {
+          "time_open": "Open Zäit",
+          "time_close": "Zoumaachen Zäit",
+          "inverted": "Verhalen ëmdréinen"
+        },
+        "data_description": {
+          "time_open": "Zäit néideg fir de Projektorbildschierm opzemaachen",
+          "time_close": "Zäit néideg fir de Projektorbildschierm zouzemaachen",
+          "inverted": "Dës Integratioun follegt der Cover Entity, wou oppen heescht datt den Ecran zréckgezunn ass an zou ass den Ecran extrahéiert, déiselwecht wéi Gardinen a Garagendieren funktionnéieren. Fir e Projektiounsscreen ass dëst kontraintuitiv. Dir kënnt d'Verhalen ëmsetzen."
+        }
+      },
+      "projector_lift": {
+        "title": "Projector Lift Optiounen",
+        "data": {
+          "time_open": "Open Zäit",
+          "time_close": "Zoumaachen Zäit",
+          "inverted": "Verhalen ëmdréinen"
+        },
+        "data_description": {
+          "time_open": "Zäit néideg fir de Projektor Lift opzemaachen",
+          "time_close": "Zäit néideg fir de Projektor Lift zouzemaachen",
+          "inverted": "Dës Integratioun follegt der Cover Entity, wou oppen heescht datt den Ecran zréckgezunn ass an zou ass den Ecran extrahéiert, déiselwecht wéi Gardinen a Garagendieren funktionnéieren. Fir e Projektiounsscreen ass dëst kontraintuitiv. Dir kënnt d'Verhalen ëmsetzen."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Projektor Écran"
+    },
+    "projector_lift": {
+      "name": "Projektor Lift"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Zougemaach",
+          "opening": "Ofschloss",
+          "closing": "Ouverture",
+          "closed": "Oppen"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Zougemaach",
+          "opening": "Ofschloss",
+          "closing": "Ouverture",
+          "closed": "Oppen"
+        }
+      }
+    }
+  }
+}

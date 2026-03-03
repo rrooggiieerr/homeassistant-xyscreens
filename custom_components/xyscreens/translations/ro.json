@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Dispozitivul este deja configurat"
+    },
+    "error": {
+      "cannot_connect": "Nu s-a putut conecta",
+      "nonexisting_serial_port": "Serial poort nu există",
+      "invalid_address": "Adresă nevalidă",
+      "unknown": "Eroare neașteptată"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Port serial",
+          "address": "Adresa",
+          "device_type": "Tipul dispozitivului",
+          "time_open": "Timp deschis",
+          "time_close": "Ora de aproape",
+          "inverted": "Comportament invers"
+        },
+        "data_description": {
+          "serial_port": "Portul serial la care este conectat dispozitivul dvs.",
+          "address": "Adresa hexazecimală a dispozitivului.",
+          "time_open": "Timpul necesar deschiderii dispozitivului.",
+          "time_close": "Timp necesar pentru a închide dispozitivul.",
+          "inverted": "Această integrare urmează Entitatea de acoperire, unde deschis înseamnă că ecranul este retras și închis, ecranul este extras, la fel cum funcționează perdelele și ușile de garaj. Pentru un ecran de proiecție, acest lucru este contraintuitiv. Puteți inversa comportamentul."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Ecran proiector",
+        "projector_lift": "Ridicator proiector"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Opțiuni pentru ecranul proiectorului",
+        "data": {
+          "time_open": "Timp deschis",
+          "time_close": "Ora de aproape",
+          "inverted": "Comportament invers"
+        },
+        "data_description": {
+          "time_open": "Timp necesar pentru a deschide ecranul proiectorului",
+          "time_close": "Timp necesar pentru a închide ecranul proiectorului",
+          "inverted": "Această integrare urmează Entitatea de acoperire, unde deschis înseamnă că ecranul este retras și închis, ecranul este extras, la fel cum funcționează perdelele și ușile de garaj. Pentru un ecran de proiecție, acest lucru este contraintuitiv. Puteți inversa comportamentul."
+        }
+      },
+      "projector_lift": {
+        "title": "Opțiuni de ridicare a proiectorului",
+        "data": {
+          "time_open": "Timp deschis",
+          "time_close": "Ora de aproape",
+          "inverted": "Comportament invers"
+        },
+        "data_description": {
+          "time_open": "Timp necesar pentru a deschide liftul pentru proiector",
+          "time_close": "Timp necesar pentru a închide liftul pentru proiector",
+          "inverted": "Această integrare urmează Entitatea de acoperire, unde deschis înseamnă că ecranul este retras și închis, ecranul este extras, la fel cum funcționează perdelele și ușile de garaj. Pentru un ecran de proiecție, acest lucru este contraintuitiv. Puteți inversa comportamentul."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Ecran proiector"
+    },
+    "projector_lift": {
+      "name": "Lift pentru proiector"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Închis",
+          "opening": "Închidere",
+          "closing": "Deschidere",
+          "closed": "Deschide"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Închis",
+          "opening": "Închidere",
+          "closing": "Deschidere",
+          "closed": "Deschide"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "O dispositivo já está configurado"
+    },
+    "error": {
+      "cannot_connect": "Falha ao conectar",
+      "nonexisting_serial_port": "Pobret serial não existe",
+      "invalid_address": "Endereço inválido",
+      "unknown": "Erro inesperado"
+    },
+    "step": {
+      "setup_serial": {
+        "data": {
+          "serial_port": "Porta serial",
+          "address": "Endereço",
+          "device_type": "Tipo de dispositivo",
+          "time_open": "Horário aberto",
+          "time_close": "Hora de fechamento",
+          "inverted": "Inverter comportamento"
+        },
+        "data_description": {
+          "serial_port": "A porta serial à qual seu dispositivo está conectado.",
+          "address": "O endereço hexadecimal do dispositivo.",
+          "time_open": "Tempo necessário para abrir o dispositivo.",
+          "time_close": "Tempo necessário para fechar o dispositivo.",
+          "inverted": "Esta integração segue a Entidade Cobertura, onde aberta significa que a tela é retraída e fechada a tela é extraída, da mesma forma que funcionam cortinas e portas de garagem. Para uma tela de projeção, isso é contra-intuitivo. Você pode reverter o comportamento."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "projector_screen": "Tela do projetor",
+        "projector_lift": "Elevador do projetor"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "projector_screen": {
+        "title": "Opções de tela do projetor",
+        "data": {
+          "time_open": "Horário aberto",
+          "time_close": "Hora de fechamento",
+          "inverted": "Inverter comportamento"
+        },
+        "data_description": {
+          "time_open": "Tempo necessário para abrir a tela do projetor",
+          "time_close": "Tempo necessário para fechar a tela do projetor",
+          "inverted": "Esta integração segue a Entidade Cobertura, onde aberta significa que a tela é retraída e fechada a tela é extraída, da mesma forma que funcionam cortinas e portas de garagem. Para uma tela de projeção, isso é contra-intuitivo. Você pode reverter o comportamento."
+        }
+      },
+      "projector_lift": {
+        "title": "Opções de elevação do projetor",
+        "data": {
+          "time_open": "Horário aberto",
+          "time_close": "Hora de fechamento",
+          "inverted": "Inverter comportamento"
+        },
+        "data_description": {
+          "time_open": "Tempo necessário para abrir o elevador do projetor",
+          "time_close": "Tempo necessário para fechar o elevador do projetor",
+          "inverted": "Esta integração segue a Entidade Cobertura, onde aberta significa que a tela é retraída e fechada a tela é extraída, da mesma forma que funcionam cortinas e portas de garagem. Para uma tela de projeção, isso é contra-intuitivo. Você pode reverter o comportamento."
+        }
+      }
+    }
+  },
+  "device": {
+    "projector_screen": {
+      "name": "Tela do projetor"
+    },
+    "projector_lift": {
+      "name": "Elevador do projetor"
+    }
+  },
+  "entity": {
+    "cover": {
+      "projector_screen": {
+        "state": {
+          "open": "Fechado",
+          "opening": "Fechando",
+          "closing": "Abertura",
+          "closed": "Abrir"
+        }
+      },
+      "projector_lift": {
+        "state": {
+          "open": "Fechado",
+          "opening": "Fechando",
+          "closing": "Abertura",
+          "closed": "Abrir"
+        }
+      }
+    }
+  }
+}
