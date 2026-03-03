@@ -13,7 +13,7 @@
   	"xyscreens"
   ],
   "requirements": [
-    "xyscreens==1.0.0"
+    "xyscreens==1.0.1"
   ],
-  "version": "1.0.2"
+  "version": "1.0.3"
 }
