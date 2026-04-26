@@ -14,7 +14,8 @@
 ## Introduction
 
 Home Assistant integration to control XY Screens and See Max projector screens and lifts over the
-serial and RS-485 interface.
+serial and RS-485 interface. Both direct USB-to-RS485 adapters and RS485-to-Ethernet converters
+(TCP connections) are supported.
 
 This Home Assistant integration was first implemented for XY Screens. After I was informed that the
 See Max devices use a very similar protocol support for these devices has been added.
@@ -25,6 +26,7 @@ lifts. Their devices are sold around the world under various brand names.
 ## Features
 
 - Installation/Configuration through Config Flow UI
+- Connect via USB-to-RS485 adapter or RS485-to-Ethernet converter (TCP)
 - Set the up and down duration of your projector screen/lift
 - Position control: move the screen/lift to any position along the way
 - Use multiple devices on the same RS-485 interface
@@ -52,6 +54,24 @@ I use this cheap USB RS-485 controller which you can find on
 ![image](https://raw.githubusercontent.com/rrooggiieerr/homeassistant-xyscreens/main/usb-rs485.png)
 
 See the documentation of your specific projector screen or lift on how to wire yours correctly.
+
+### Network connection (RS485-to-Ethernet converter)
+
+As an alternative to a direct USB connection you can use an RS485-to-Ethernet converter to control
+your projector screen or lift over the network via TCP. This is useful when the screen is not close
+to your Home Assistant server.
+
+Any RS485-to-Ethernet converter that provides a transparent TCP socket to the RS-485 bus should
+work. Configure it for 2400 baud 8N1 to match the device protocol.
+
+An example of such a converter is the [CDEBYTE NA111-E](https://www.cdebyte.com/products/NA111-E/2).
+
+Connect the D+ and D- terminals of the converter to the corresponding RS-485 lines of your
+projector screen or lift. The RS-485 pinout varies between screen models, so refer to the
+documentation of your specific device.
+
+When adding the device in Home Assistant, select **Network** as the connection type and enter the
+IP address and TCP port of your converter.
 
 ## Supported protocol
 
@@ -138,10 +158,13 @@ lifts*
 
 - After restarting go to **Settings** then **Devices & Services**
 - Select **+ Add integration** and type in **XY Screens**
-- Select the serial port or enter the path manually
+- Select the connection type: **Serial Port** (USB-to-RS485 adapter) or **Network**
+  (RS485-to-Ethernet converter)
+- For serial: select the serial port or enter the path manually
+- For network: enter the IP address and TCP port of your converter
 - Select the address of your device or enter the address manually
 - Select the type of device, projector screen or projector lift
-- Set the up and down times of your device.
+- Set the up and down times of your device
 - Select **Submit**
 
 A new XY Screens integration and device will now be added to your Integrations view.
