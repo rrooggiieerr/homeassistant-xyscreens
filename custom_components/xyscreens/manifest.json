@@ -13,7 +13,7 @@
   	"xyscreens"
   ],
   "requirements": [
-    "xyscreens @ git+https://github.com/s256/xyscreens.py.git@tcp-connection"
+    "xyscreens>=1.1.0"
   ],
   "version": "1.1.0"
 }
