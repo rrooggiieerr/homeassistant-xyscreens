@@ -21,9 +21,14 @@ from xyscreens import XYScreens, XYScreensState
 
 from .const import (
     CONF_ADDRESS,
+    CONF_CONNECTION_TYPE,
+    CONF_CONNECTION_TYPE_NETWORK,
+    CONF_CONNECTION_TYPE_SERIAL,
     CONF_DEVICE_TYPE,
     CONF_DEVICE_TYPE_PROJECTOR_LIFT,
+    CONF_HOST,
     CONF_INVERTED,
+    CONF_PORT,
     CONF_SERIAL_PORT,
     CONF_TIME_CLOSE,
     CONF_TIME_OPEN,
@@ -40,11 +45,23 @@ async def async_setup_entry(
     async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Set up the XY Screens cover."""
+    # Build connection string based on connection type
+    connection_type = config_entry.data.get(
+        CONF_CONNECTION_TYPE, CONF_CONNECTION_TYPE_SERIAL
+    )
+
+    if connection_type == CONF_CONNECTION_TYPE_NETWORK:
+        host = config_entry.data.get(CONF_HOST)
+        port = config_entry.data.get(CONF_PORT)
+        connection_string = f"{host}:{int(port)}"
+    else:
+        connection_string = config_entry.data.get(CONF_SERIAL_PORT)
+
     async_add_entities(
         [
             XYScreensCover(
                 config_entry.entry_id,
-                config_entry.data.get(CONF_SERIAL_PORT),
+                connection_string,
                 bytes.fromhex(config_entry.data.get(CONF_ADDRESS, "AAEEEE")),
                 config_entry.data.get(CONF_DEVICE_TYPE),
                 config_entry.options.get(CONF_TIME_OPEN),
@@ -72,7 +89,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     def __init__(
         self,
         config_entry_id: str,
-        serial_port: str,
+        connection_string: str,
         address: bytes,
         device_type: str,
         time_open: int,
@@ -102,7 +119,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             name=None,  # Inherit the device name
         )
 
-        self._screen = XYScreens(serial_port, address, time_open, time_close)
+        self._screen = XYScreens(connection_string, address, time_open, time_close)
 
         self._inverted = inverted
 

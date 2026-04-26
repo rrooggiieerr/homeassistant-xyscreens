@@ -1,5 +1,6 @@
 """The XY Screens integration."""
 
+import asyncio
 import logging
 from pathlib import Path
 from typing import Any
@@ -14,9 +15,14 @@ from homeassistant.helpers import entity_registry as er
 
 from .const import (
     CONF_ADDRESS,
+    CONF_CONNECTION_TYPE,
+    CONF_CONNECTION_TYPE_NETWORK,
+    CONF_CONNECTION_TYPE_SERIAL,
     CONF_DEVICE_TYPE,
     CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
+    CONF_HOST,
     CONF_INVERTED,
+    CONF_PORT,
     CONF_SERIAL_PORT,
     CONF_TIME_CLOSE,
     CONF_TIME_OPEN,
@@ -47,22 +53,51 @@ async def test_serial_port(serial_port):
     _LOGGER.debug("Device %s is available", serial_port)
 
 
+async def test_tcp_connection(host: str, port: int):
+    """Test the working of a TCP connection."""
+    try:
+        reader, writer = await asyncio.wait_for(
+            asyncio.open_connection(host, port), timeout=5.0
+        )
+        writer.close()
+        await writer.wait_closed()
+        _LOGGER.debug("TCP connection to %s:%d is available", host, port)
+    except (asyncio.TimeoutError, OSError, ConnectionError) as ex:
+        _LOGGER.error("Failed to connect to %s:%d: %s", host, port, ex)
+        raise
+
+
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up XY Screens from a config entry."""
     await er.async_migrate_entries(hass, entry.entry_id, async_migrate_entity_entry)
 
-    # Test if the device exists.
-    serial_port = entry.data[CONF_SERIAL_PORT]
-    if not Path(serial_port).exists():
-        raise ConfigEntryNotReady(f"Device {serial_port} does not exists")
+    # Get connection type (default to serial for backward compatibility)
+    connection_type = entry.data.get(CONF_CONNECTION_TYPE, CONF_CONNECTION_TYPE_SERIAL)
 
-    # Test if we can connect to the device.
-    try:
-        await test_serial_port(serial_port)
-    except serial.SerialException as ex:
-        raise ConfigEntryNotReady(
-            f"Unable to connect to device {serial_port}: {ex}"
-        ) from ex
+    if connection_type == CONF_CONNECTION_TYPE_SERIAL:
+        # Test serial connection
+        serial_port = entry.data[CONF_SERIAL_PORT]
+        if not Path(serial_port).exists():
+            raise ConfigEntryNotReady(f"Device {serial_port} does not exist")
+
+        try:
+            await test_serial_port(serial_port)
+        except serial.SerialException as ex:
+            raise ConfigEntryNotReady(
+                f"Unable to connect to device {serial_port}: {ex}"
+            ) from ex
+
+    elif connection_type == CONF_CONNECTION_TYPE_NETWORK:
+        # Test network connection
+        host = entry.data[CONF_HOST]
+        port = entry.data[CONF_PORT]
+
+        try:
+            await test_tcp_connection(host, int(port))
+        except Exception as ex:
+            raise ConfigEntryNotReady(
+                f"Unable to connect to {host}:{port}: {ex}"
+            ) from ex
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 

@@ -2,7 +2,12 @@
 
 DOMAIN = "xyscreens"
 
+CONF_CONNECTION_TYPE = "connection_type"
+CONF_CONNECTION_TYPE_SERIAL = "serial"
+CONF_CONNECTION_TYPE_NETWORK = "network"
 CONF_SERIAL_PORT = "serial_port"
+CONF_HOST = "host"
+CONF_PORT = "port"
 CONF_ADDRESS = "address"
 CONF_DEVICE_TYPE = "device_type"
 CONF_DEVICE_TYPE_PROJECTOR_SCREEN = "projector_screen"

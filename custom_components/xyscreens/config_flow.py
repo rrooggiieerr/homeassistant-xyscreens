@@ -21,15 +21,23 @@ from homeassistant.helpers.selector import (
     SelectOptionDict,
     SelectSelector,
     SelectSelectorConfig,
+    TextSelector,
+    TextSelectorConfig,
+    TextSelectorType,
 )
 
-from . import test_serial_port
+from . import test_serial_port, test_tcp_connection
 from .const import (
     CONF_ADDRESS,
+    CONF_CONNECTION_TYPE,
+    CONF_CONNECTION_TYPE_NETWORK,
+    CONF_CONNECTION_TYPE_SERIAL,
     CONF_DEVICE_TYPE,
     CONF_DEVICE_TYPE_PROJECTOR_LIFT,
     CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
+    CONF_HOST,
     CONF_INVERTED,
+    CONF_PORT,
     CONF_SERIAL_PORT,
     CONF_TIME_CLOSE,
     CONF_TIME_OPEN,
@@ -45,48 +53,137 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
     VERSION = 2
     MINOR_VERSION = 2
 
-    _step_setup_serial_schema: vol.Schema
+    _step_setup_connection_schema: vol.Schema
 
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Handle the initial step."""
-        return await self.async_step_setup_serial(user_input)
+        return await self.async_step_connection_type(user_input)
 
-    async def async_step_setup_serial(
+    async def async_step_connection_type(
         self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
-        """Handle the setup serial step."""
+        """Handle the connection type selection step."""
         errors: dict[str, str] = {}
 
         if user_input is not None:
-            title, data, options = await self.validate_input_setup_serial(
+            connection_type = user_input.get(CONF_CONNECTION_TYPE)
+            if connection_type in (
+                CONF_CONNECTION_TYPE_SERIAL,
+                CONF_CONNECTION_TYPE_NETWORK,
+            ):
+                return await self.async_step_setup_connection(user_input)
+
+        data_schema = vol.Schema(
+            {
+                vol.Required(
+                    CONF_CONNECTION_TYPE, default=CONF_CONNECTION_TYPE_SERIAL
+                ): SelectSelector(
+                    SelectSelectorConfig(
+                        options=[
+                            SelectOptionDict(
+                                value=CONF_CONNECTION_TYPE_SERIAL,
+                                label="Serial Port (RS485 USB adapter)",
+                            ),
+                            SelectOptionDict(
+                                value=CONF_CONNECTION_TYPE_NETWORK,
+                                label="Network (RS485-to-Ethernet converter)",
+                            ),
+                        ],
+                        translation_key=CONF_CONNECTION_TYPE,
+                    )
+                ),
+            }
+        )
+
+        if user_input is not None:
+            data_schema = self.add_suggested_values_to_schema(data_schema, user_input)
+
+        return self.async_show_form(
+            step_id="connection_type",
+            data_schema=data_schema,
+            errors=errors,
+        )
+
+    async def async_step_setup_connection(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
+        """Handle the setup connection step (serial or network)."""
+        errors: dict[str, str] = {}
+
+        # Get connection type from previous step or user input
+        connection_type = CONF_CONNECTION_TYPE_SERIAL
+        if user_input is not None:
+            connection_type = user_input.get(
+                CONF_CONNECTION_TYPE, CONF_CONNECTION_TYPE_SERIAL
+            )
+
+        if user_input is not None and CONF_ADDRESS in user_input:
+            title, data, options = await self.validate_input_setup_connection(
                 user_input, errors
             )
 
             if not errors:
                 return self.async_create_entry(title=title, data=data, options=options)
 
-        ports = await self.hass.async_add_executor_job(serial.tools.list_ports.comports)
-        list_of_ports = {}
-        for port in ports:
-            list_of_ports[port.device] = (
-                f"{port}, s/n: {port.serial_number or 'n/a'}"
-                + (f" - {port.manufacturer}" if port.manufacturer else "")
+        # Build schema based on connection type
+        schema_fields: dict = {}
+
+        if connection_type == CONF_CONNECTION_TYPE_SERIAL:
+            ports = await self.hass.async_add_executor_job(
+                serial.tools.list_ports.comports
+            )
+            list_of_ports = {}
+            for port in ports:
+                list_of_ports[port.device] = (
+                    f"{port}, s/n: {port.serial_number or 'n/a'}"
+                    + (f" - {port.manufacturer}" if port.manufacturer else "")
+                )
+
+            schema_fields[vol.Required(CONF_SERIAL_PORT, default="")] = SelectSelector(
+                SelectSelectorConfig(
+                    options=[
+                        SelectOptionDict(value=k, label=v)
+                        for k, v in list_of_ports.items()
+                    ],
+                    custom_value=True,
+                    sort=True,
+                )
+            )
+        else:
+            schema_fields[vol.Required(CONF_HOST, default="")] = TextSelector(
+                TextSelectorConfig(type=TextSelectorType.TEXT)
+            )
+            schema_fields[vol.Required(CONF_PORT, default=9997)] = NumberSelector(
+                NumberSelectorConfig(
+                    min=1,
+                    max=65535,
+                    mode=NumberSelectorMode.BOX,
+                )
             )
 
-        self._step_setup_serial_schema = vol.Schema(
+        # Add hidden connection type field to preserve selection
+        schema_fields[
+            vol.Required(CONF_CONNECTION_TYPE, default=connection_type)
+        ] = SelectSelector(
+            SelectSelectorConfig(
+                options=[
+                    SelectOptionDict(
+                        value=connection_type,
+                        label=(
+                            "Serial Port"
+                            if connection_type == CONF_CONNECTION_TYPE_SERIAL
+                            else "Network"
+                        ),
+                    ),
+                ],
+            )
+        )
+
+        # Common fields
+        schema_fields.update(
             {
-                vol.Required(CONF_SERIAL_PORT, default=""): SelectSelector(
-                    SelectSelectorConfig(
-                        options=[
-                            SelectOptionDict(value=k, label=v)
-                            for k, v in list_of_ports.items()
-                        ],
-                        custom_value=True,
-                        sort=True,
-                    )
-                ),
                 vol.Required(CONF_ADDRESS, default=""): SelectSelector(
                     SelectSelectorConfig(
                         options=[
@@ -134,45 +231,71 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
             }
         )
 
+        self._step_setup_connection_schema = vol.Schema(schema_fields)
+
         if user_input is not None:
             data_schema = self.add_suggested_values_to_schema(
-                self._step_setup_serial_schema, user_input
+                self._step_setup_connection_schema, user_input
             )
         else:
-            data_schema = self._step_setup_serial_schema
+            data_schema = self._step_setup_connection_schema
 
         return self.async_show_form(
-            step_id="setup_serial",
+            step_id="setup_connection",
             data_schema=data_schema,
             errors=errors,
         )
 
     # pylint: disable=W0613
-    async def validate_input_setup_serial(
+    async def validate_input_setup_connection(
         self, data: dict[str, Any], errors: dict[str, str]
     ) -> tuple[str, dict[str, Any], dict[str, Any]]:
-        """Validate the user input and create data.
+        """Validate the user input and create data."""
+        self._step_setup_connection_schema(data)
 
-        Data has the keys from _step_setup_serial_schema with values provided by the user.
-        """
-        # Validate the data can be used to set up a connection.
-        self._step_setup_serial_schema(data)
+        connection_type = data.get(CONF_CONNECTION_TYPE)
+        connection_string = ""
 
-        serial_port = data.get(CONF_SERIAL_PORT)
+        if connection_type == CONF_CONNECTION_TYPE_SERIAL:
+            serial_port = data.get(CONF_SERIAL_PORT)
 
-        if serial_port is None:
-            raise vol.error.RequiredFieldInvalid("No serial port configured")
+            if serial_port is None:
+                raise vol.error.RequiredFieldInvalid("No serial port configured")
 
-        serial_port = await self.hass.async_add_executor_job(
-            get_serial_by_id, serial_port
-        )
+            serial_port = await self.hass.async_add_executor_job(
+                get_serial_by_id, serial_port
+            )
 
-        # Test if the device exists
-        if not Path(serial_port).exists():
-            errors[CONF_SERIAL_PORT] = "nonexisting_serial_port"
+            if not Path(serial_port).exists():
+                errors[CONF_SERIAL_PORT] = "nonexisting_serial_port"
 
-        address = data.get(CONF_ADDRESS)
+            connection_string = serial_port
+
+            if errors.get(CONF_SERIAL_PORT) is None:
+                try:
+                    await test_serial_port(serial_port)
+                except serial.SerialException:
+                    errors["base"] = "cannot_connect"
+
+        elif connection_type == CONF_CONNECTION_TYPE_NETWORK:
+            host = data.get(CONF_HOST)
+            port = data.get(CONF_PORT)
+
+            if not host:
+                errors[CONF_HOST] = "invalid_host"
+            if not port or port < 1 or port > 65535:
+                errors[CONF_PORT] = "invalid_port"
+
+            connection_string = f"{host}:{int(port)}"
+
+            if not errors.get(CONF_HOST) and not errors.get(CONF_PORT):
+                try:
+                    await test_tcp_connection(host, int(port))
+                except Exception:
+                    errors["base"] = "cannot_connect"
+
         # Validate the address.
+        address = data.get(CONF_ADDRESS)
         try:
             address = bytes.fromhex(address)
             address = address.hex()
@@ -182,25 +305,24 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
         except ValueError:
             errors[CONF_ADDRESS] = "invalid_address"
 
-        # Make sure the serial port and address is not already used.
-        await self.async_set_unique_id(f"{serial_port}-{address}")
+        await self.async_set_unique_id(f"{connection_string}-{address}")
         self._abort_if_unique_id_configured()
 
-        if errors.get(CONF_SERIAL_PORT) is None:
-            # Test if we can connect to the device.
-            try:
-                await test_serial_port(serial_port)
-            except serial.SerialException:
-                errors["base"] = "cannot_connect"
+        entry_data = {
+            CONF_CONNECTION_TYPE: connection_type,
+            CONF_ADDRESS: address,
+            CONF_DEVICE_TYPE: data[CONF_DEVICE_TYPE],
+        }
 
-        # Return title, data and options
+        if connection_type == CONF_CONNECTION_TYPE_SERIAL:
+            entry_data[CONF_SERIAL_PORT] = connection_string
+        else:
+            entry_data[CONF_HOST] = data[CONF_HOST]
+            entry_data[CONF_PORT] = data[CONF_PORT]
+
         return (
-            f"{serial_port} {address.upper()}",
-            {
-                CONF_SERIAL_PORT: serial_port,
-                CONF_ADDRESS: address,
-                CONF_DEVICE_TYPE: data[CONF_DEVICE_TYPE],
-            },
+            f"{connection_string} {address.upper()}",
+            entry_data,
             {
                 CONF_TIME_OPEN: data[CONF_TIME_OPEN],
                 CONF_TIME_CLOSE: data[CONF_TIME_CLOSE],

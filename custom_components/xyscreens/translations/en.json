@@ -5,14 +5,31 @@
     },
     "error": {
       "cannot_connect": "Failed to connect",
-      "nonexisting_serial_port": "Serial poort does not exist",
+      "nonexisting_serial_port": "Serial port does not exist",
       "invalid_address": "Invalid address",
+      "invalid_host": "Invalid host address",
+      "invalid_port": "Invalid port number",
       "unknown": "Unexpected error"
     },
     "step": {
-      "setup_serial": {
+      "connection_type": {
+        "title": "Connection Type",
+        "description": "Choose how to connect to your XY Screens device.",
+        "data": {
+          "connection_type": "Connection Type"
+        },
+        "data_description": {
+          "connection_type": "Select whether to connect via a serial port (RS485 USB adapter) or network (RS485-to-Ethernet converter)."
+        }
+      },
+      "setup_connection": {
+        "title": "Device Setup",
+        "description": "Configure your XY Screens device connection and settings.",
         "data": {
           "serial_port": "Serial port",
+          "host": "Host/IP Address",
+          "port": "Port",
+          "connection_type": "Connection Type",
           "address": "Address",
           "device_type": "Device type",
           "time_open": "Open time",
@@ -20,16 +37,26 @@
           "inverted": "Invert behaviour"
         },
         "data_description": {
-          "serial_port": "The serial port your device is connected to.",
-          "address": "The hexadecimal address of the device.",
-          "time_open": "Time needed to open the device.",
-          "time_close": "Time needed to close the device.",
+          "serial_port": "The serial port your RS485 USB adapter is connected to.",
+          "host": "The IP address of your RS485-to-Ethernet converter.",
+          "port": "The TCP port number of your RS485-to-Ethernet converter.",
+          "connection_type": "The connection method (Serial or Network).",
+          "address": "The hexadecimal address of the device (AAEEEE for XY Screens, EEEEEE for See Max).",
+          "device_type": "The type of device you are connecting.",
+          "time_open": "Time in seconds needed to fully open/retract the device.",
+          "time_close": "Time in seconds needed to fully close/extend the device.",
           "inverted": "This integration follows the Cover Entity, where open means the screen is retracted and closed the screen is extracted, the same way curtains and garage doors work. For a projection screen this is counterintuitive. You can reverse the behavior."
         }
       }
     }
   },
   "selector": {
+    "connection_type": {
+      "options": {
+        "serial": "Serial Port (RS485 USB adapter)",
+        "network": "Network (RS485-to-Ethernet converter)"
+      }
+    },
     "device_type": {
       "options": {
         "projector_screen": "Projector screen",
