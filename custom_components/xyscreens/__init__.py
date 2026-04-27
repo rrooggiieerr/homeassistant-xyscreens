@@ -8,21 +8,18 @@ from typing import Any
 import serial
 import serial_asyncio_fast as serial_asyncio
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import Platform
+from homeassistant.const import CONF_HOST, CONF_PORT, CONF_TYPE, Platform
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers import entity_registry as er
 
 from .const import (
     CONF_ADDRESS,
-    CONF_CONNECTION_TYPE,
     CONF_CONNECTION_TYPE_NETWORK,
     CONF_CONNECTION_TYPE_SERIAL,
     CONF_DEVICE_TYPE,
     CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
-    CONF_HOST,
     CONF_INVERTED,
-    CONF_PORT,
     CONF_SERIAL_PORT,
     CONF_TIME_CLOSE,
     CONF_TIME_OPEN,
@@ -72,7 +69,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     await er.async_migrate_entries(hass, entry.entry_id, async_migrate_entity_entry)
 
     # Get connection type (default to serial for backward compatibility)
-    connection_type = entry.data.get(CONF_CONNECTION_TYPE, CONF_CONNECTION_TYPE_SERIAL)
+    connection_type = entry.data.get(CONF_TYPE, CONF_CONNECTION_TYPE_SERIAL)
 
     if connection_type == CONF_CONNECTION_TYPE_SERIAL:
         # Test serial connection

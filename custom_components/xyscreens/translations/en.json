@@ -16,10 +16,10 @@
         "title": "Connection Type",
         "description": "Choose how to connect to your XY Screens device.",
         "data": {
-          "connection_type": "Connection Type"
+          "type": "Connection Type"
         },
         "data_description": {
-          "connection_type": "Select whether to connect via a serial port (RS485 USB adapter) or network (RS485-to-Ethernet converter)."
+          "type": "Select whether to connect via a serial port (RS485 USB adapter) or network (RS485-to-Ethernet converter)."
         }
       },
       "setup_connection": {
@@ -29,7 +29,7 @@
           "serial_port": "Serial port",
           "host": "Host/IP Address",
           "port": "Port",
-          "connection_type": "Connection Type",
+          "type": "Connection Type",
           "address": "Address",
           "device_type": "Device type",
           "time_open": "Open time",
@@ -40,7 +40,7 @@
           "serial_port": "The serial port your RS485 USB adapter is connected to.",
           "host": "The IP address of your RS485-to-Ethernet converter.",
           "port": "The TCP port number of your RS485-to-Ethernet converter.",
-          "connection_type": "The connection method (Serial or Network).",
+          "type": "The connection method (Serial or Network).",
           "address": "The hexadecimal address of the device (AAEEEE for XY Screens, EEEEEE for See Max).",
           "device_type": "The type of device you are connecting.",
           "time_open": "Time in seconds needed to fully open/retract the device.",
@@ -51,7 +51,7 @@
     }
   },
   "selector": {
-    "connection_type": {
+    "type": {
       "options": {
         "serial": "Serial Port (RS485 USB adapter)",
         "network": "Network (RS485-to-Ethernet converter)"

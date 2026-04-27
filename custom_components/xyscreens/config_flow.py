@@ -10,7 +10,7 @@ from typing import Any
 import serial.tools.list_ports
 import voluptuous as vol
 from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
-from homeassistant.const import UnitOfTime
+from homeassistant.const import CONF_HOST, CONF_PORT, CONF_TYPE, UnitOfTime
 from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.helpers.selector import (
@@ -29,15 +29,12 @@ from homeassistant.helpers.selector import (
 from . import test_serial_port, test_tcp_connection
 from .const import (
     CONF_ADDRESS,
-    CONF_CONNECTION_TYPE,
     CONF_CONNECTION_TYPE_NETWORK,
     CONF_CONNECTION_TYPE_SERIAL,
     CONF_DEVICE_TYPE,
     CONF_DEVICE_TYPE_PROJECTOR_LIFT,
     CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
-    CONF_HOST,
     CONF_INVERTED,
-    CONF_PORT,
     CONF_SERIAL_PORT,
     CONF_TIME_CLOSE,
     CONF_TIME_OPEN,
@@ -68,7 +65,7 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
         errors: dict[str, str] = {}
 
         if user_input is not None:
-            connection_type = user_input.get(CONF_CONNECTION_TYPE)
+            connection_type = user_input.get(CONF_TYPE)
             if connection_type in (
                 CONF_CONNECTION_TYPE_SERIAL,
                 CONF_CONNECTION_TYPE_NETWORK,
@@ -78,7 +75,7 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
         data_schema = vol.Schema(
             {
                 vol.Required(
-                    CONF_CONNECTION_TYPE, default=CONF_CONNECTION_TYPE_SERIAL
+                    CONF_TYPE, default=CONF_CONNECTION_TYPE_SERIAL
                 ): SelectSelector(
                     SelectSelectorConfig(
                         options=[
@@ -91,7 +88,7 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
                                 label="Network (RS485-to-Ethernet converter)",
                             ),
                         ],
-                        translation_key=CONF_CONNECTION_TYPE,
+                        translation_key=CONF_TYPE,
                     )
                 ),
             }
@@ -116,7 +113,7 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
         connection_type = CONF_CONNECTION_TYPE_SERIAL
         if user_input is not None:
             connection_type = user_input.get(
-                CONF_CONNECTION_TYPE, CONF_CONNECTION_TYPE_SERIAL
+                CONF_TYPE, CONF_CONNECTION_TYPE_SERIAL
             )
 
         if user_input is not None and CONF_ADDRESS in user_input:
@@ -165,7 +162,7 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
 
         # Add hidden connection type field to preserve selection
         schema_fields[
-            vol.Required(CONF_CONNECTION_TYPE, default=connection_type)
+            vol.Required(CONF_TYPE, default=connection_type)
         ] = SelectSelector(
             SelectSelectorConfig(
                 options=[
@@ -253,7 +250,7 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
         """Validate the user input and create data."""
         self._step_setup_connection_schema(data)
 
-        connection_type = data.get(CONF_CONNECTION_TYPE)
+        connection_type = data.get(CONF_TYPE)
         connection_string = ""
 
         if connection_type == CONF_CONNECTION_TYPE_SERIAL:
@@ -309,7 +306,7 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
         self._abort_if_unique_id_configured()
 
         entry_data = {
-            CONF_CONNECTION_TYPE: connection_type,
+            CONF_TYPE: connection_type,
             CONF_ADDRESS: address,
             CONF_DEVICE_TYPE: data[CONF_DEVICE_TYPE],
         }

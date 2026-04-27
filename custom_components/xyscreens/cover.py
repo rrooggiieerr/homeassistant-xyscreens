@@ -13,6 +13,7 @@ from homeassistant.components.cover import (
     CoverEntityFeature,
 )
 from homeassistant.config_entries import ConfigEntry
+from homeassistant.const import CONF_HOST, CONF_PORT, CONF_TYPE
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
@@ -21,14 +22,11 @@ from xyscreens import XYScreens, XYScreensState
 
 from .const import (
     CONF_ADDRESS,
-    CONF_CONNECTION_TYPE,
     CONF_CONNECTION_TYPE_NETWORK,
     CONF_CONNECTION_TYPE_SERIAL,
     CONF_DEVICE_TYPE,
     CONF_DEVICE_TYPE_PROJECTOR_LIFT,
-    CONF_HOST,
     CONF_INVERTED,
-    CONF_PORT,
     CONF_SERIAL_PORT,
     CONF_TIME_CLOSE,
     CONF_TIME_OPEN,
@@ -47,7 +45,7 @@ async def async_setup_entry(
     """Set up the XY Screens cover."""
     # Build connection string based on connection type
     connection_type = config_entry.data.get(
-        CONF_CONNECTION_TYPE, CONF_CONNECTION_TYPE_SERIAL
+        CONF_TYPE, CONF_CONNECTION_TYPE_SERIAL
     )
 
     if connection_type == CONF_CONNECTION_TYPE_NETWORK:
