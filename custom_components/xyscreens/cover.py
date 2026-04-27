@@ -18,7 +18,7 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.restore_state import RestoreEntity
-from xyscreens import XYScreens, XYScreensState
+from xyscreens import XYScreens, XYScreensState, XYScreensTCP
 
 from .const import (
     CONF_ADDRESS,
@@ -43,27 +43,27 @@ async def async_setup_entry(
     async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Set up the XY Screens cover."""
-    # Build connection string based on connection type
     connection_type = config_entry.data.get(
         CONF_TYPE, CONF_CONNECTION_TYPE_SERIAL
     )
+    address = bytes.fromhex(config_entry.data.get(CONF_ADDRESS, "AAEEEE"))
+    time_open = config_entry.options.get(CONF_TIME_OPEN)
+    time_close = config_entry.options.get(CONF_TIME_CLOSE)
 
     if connection_type == CONF_CONNECTION_TYPE_NETWORK:
         host = config_entry.data.get(CONF_HOST)
-        port = config_entry.data.get(CONF_PORT)
-        connection_string = f"{host}:{int(port)}"
+        port = int(config_entry.data.get(CONF_PORT))
+        screen = XYScreensTCP(host, port, address, time_open, time_close)
     else:
-        connection_string = config_entry.data.get(CONF_SERIAL_PORT)
+        serial_port = config_entry.data.get(CONF_SERIAL_PORT)
+        screen = XYScreens(serial_port, address, time_open, time_close)
 
     async_add_entities(
         [
             XYScreensCover(
                 config_entry.entry_id,
-                connection_string,
-                bytes.fromhex(config_entry.data.get(CONF_ADDRESS, "AAEEEE")),
+                screen,
                 config_entry.data.get(CONF_DEVICE_TYPE),
-                config_entry.options.get(CONF_TIME_OPEN),
-                config_entry.options.get(CONF_TIME_CLOSE),
                 config_entry.options.get(CONF_INVERTED),
             )
         ]
@@ -87,11 +87,8 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     def __init__(
         self,
         config_entry_id: str,
-        connection_string: str,
-        address: bytes,
+        screen: XYScreens | XYScreensTCP,
         device_type: str,
-        time_open: int,
-        time_close: int,
         inverted: bool,
     ) -> None:
         """Initialize the screen."""
@@ -117,7 +114,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             name=None,  # Inherit the device name
         )
 
-        self._screen = XYScreens(connection_string, address, time_open, time_close)
+        self._screen = screen
 
         self._inverted = inverted
 
