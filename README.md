@@ -170,7 +170,8 @@ page. Click **⭐ Star** on the top right of the GitHub page.
 
 ### Support my work
 
-Please consider supporting my work through one of the following platforms, your contribution is greatly appreciated and keeps me motivated:
+Please consider supporting my work through one of the following platforms, your contribution is
+greatly appreciated and keeps me motivated:
 
 [![GitHub Sponsors][github-shield]][github]
 [![PayPal][paypal-shield]][paypal]
