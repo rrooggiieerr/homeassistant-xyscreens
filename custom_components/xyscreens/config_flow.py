@@ -1,7 +1,5 @@
 """Config flow for XY Screens integration."""
 
-from __future__ import annotations
-
 import logging
 import os
 from pathlib import Path
