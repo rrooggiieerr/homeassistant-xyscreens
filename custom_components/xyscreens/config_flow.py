@@ -1,11 +1,8 @@
 """Config flow for XY Screens integration."""
 
 import logging
-import os
-from pathlib import Path
 from typing import Any
 
-import serial.tools.list_ports
 import voluptuous as vol
 from homeassistant.config_entries import (
     ConfigEntry,
@@ -23,9 +20,10 @@ from homeassistant.helpers.selector import (
     SelectOptionDict,
     SelectSelector,
     SelectSelectorConfig,
+    SerialPortSelector,
 )
+from xyscreens import XYScreens
 
-from . import test_serial_port
 from .const import (
     CONF_ADDRESS,
     CONF_DEVICE_TYPE,
@@ -69,26 +67,9 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
             if not errors:
                 return self.async_create_entry(title=title, data=data, options=options)
 
-        ports = await self.hass.async_add_executor_job(serial.tools.list_ports.comports)
-        list_of_ports = {}
-        for port in ports:
-            list_of_ports[port.device] = (
-                f"{port}, s/n: {port.serial_number or 'n/a'}"
-                + (f" - {port.manufacturer}" if port.manufacturer else "")
-            )
-
         self._step_setup_serial_schema = vol.Schema(
             {
-                vol.Required(CONF_SERIAL_PORT, default=""): SelectSelector(
-                    SelectSelectorConfig(
-                        options=[
-                            SelectOptionDict(value=k, label=v)
-                            for k, v in list_of_ports.items()
-                        ],
-                        custom_value=True,
-                        sort=True,
-                    )
-                ),
+                vol.Required(CONF_SERIAL_PORT, default=""): SerialPortSelector(),
                 vol.Required(CONF_ADDRESS, default=""): SelectSelector(
                     SelectSelectorConfig(
                         options=[
@@ -165,14 +146,6 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
         if serial_port is None:
             raise vol.error.RequiredFieldInvalid("No serial port configured")
 
-        serial_port = await self.hass.async_add_executor_job(
-            get_serial_by_id, serial_port
-        )
-
-        # Test if the device exists
-        if not Path(serial_port).exists():
-            errors[CONF_SERIAL_PORT] = "nonexisting_serial_port"
-
         address = data.get(CONF_ADDRESS)
         # Validate the address.
         try:
@@ -188,12 +161,11 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
         await self.async_set_unique_id(f"{serial_port}-{address}")
         self._abort_if_unique_id_configured()
 
-        if errors.get(CONF_SERIAL_PORT) is None:
-            # Test if we can connect to the device.
-            try:
-                await test_serial_port(serial_port)
-            except serial.SerialException:
-                errors["base"] = "cannot_connect"
+        # Test if we can connect to the device.
+        time_open = data[CONF_TIME_OPEN]
+        screen = XYScreens(serial_port, address, time_open)
+        if not await screen.async_test_connection():
+            errors["base"] = "cannot_connect"
 
         # Return title, data and options
         return (
@@ -288,15 +260,3 @@ class XYScreensOptionsFlowHandler(OptionsFlow):
     ) -> ConfigFlowResult:
         """Manage the options."""
         return await self.async_step_init(user_input)
-
-
-def get_serial_by_id(dev_path: str) -> str:
-    """Return a /dev/serial/by-id match for given device if available."""
-    by_id = "/dev/serial/by-id"
-    if not Path(by_id).is_dir():
-        return dev_path
-
-    for path in (entry.path for entry in os.scandir(by_id) if entry.is_symlink()):
-        if os.path.realpath(path) == dev_path:
-            return path
-    return dev_path

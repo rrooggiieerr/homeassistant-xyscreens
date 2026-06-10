@@ -1,16 +1,14 @@
 """The XY Screens integration."""
 
 import logging
-from pathlib import Path
 from typing import Any
 
-import serial
-import serial_asyncio_fast as serial_asyncio
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers import entity_registry as er
+from xyscreens import XYScreens
 
 from .const import (
     CONF_ADDRESS,
@@ -27,42 +25,17 @@ _LOGGER = logging.getLogger(__name__)
 PLATFORMS: list[Platform] = [Platform.COVER]
 
 
-async def test_serial_port(serial_port):
-    """Test the working of a serial port."""
-
-    # Create the connection instance.
-    _, writer = await serial_asyncio.open_serial_connection(
-        url=serial_port,
-        baudrate=2400,
-        bytesize=serial.EIGHTBITS,
-        parity=serial.PARITY_NONE,
-        stopbits=serial.STOPBITS_ONE,
-        timeout=1,
-    )
-
-    # Close the connection.
-    writer.close()
-    await writer.wait_closed()
-
-    _LOGGER.debug("Device %s is available", serial_port)
-
-
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up XY Screens from a config entry."""
     await er.async_migrate_entries(hass, entry.entry_id, async_migrate_entity_entry)
 
-    # Test if the device exists.
-    serial_port = entry.data[CONF_SERIAL_PORT]
-    if not Path(serial_port).exists():
-        raise ConfigEntryNotReady(f"Device {serial_port} does not exists")
-
     # Test if we can connect to the device.
-    try:
-        await test_serial_port(serial_port)
-    except serial.SerialException as ex:
-        raise ConfigEntryNotReady(
-            f"Unable to connect to device {serial_port}: {ex}"
-        ) from ex
+    serial_port = entry.data[CONF_SERIAL_PORT]
+    address = bytes.fromhex(entry.data.get(CONF_ADDRESS, "AAEEEE"))
+    time_open = entry.options.get(CONF_TIME_OPEN)
+    screen = XYScreens(serial_port, address, time_open)
+    if not await screen.async_test_connection():
+        raise ConfigEntryNotReady(f"Unable to connect to device {serial_port}")
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
