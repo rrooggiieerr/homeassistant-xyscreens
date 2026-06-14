@@ -26,6 +26,8 @@ from xyscreens import XYScreens
 
 from .const import (
     CONF_ADDRESS,
+    CONF_ADDRESS_SEE_MAX,
+    CONF_ADDRESS_XYSCREENS,
     CONF_DEVICE_TYPE,
     CONF_DEVICE_TYPE_PROJECTOR_LIFT,
     CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
@@ -39,147 +41,157 @@ from .const import (
 _LOGGER = logging.getLogger(__name__)
 
 
+DATA_SCHEMA = vol.Schema(
+    {
+        vol.Required(CONF_SERIAL_PORT, default=""): SerialPortSelector(),
+        vol.Required(CONF_ADDRESS, default=""): SelectSelector(
+            SelectSelectorConfig(
+                options=[
+                    SelectOptionDict(
+                        value=CONF_ADDRESS_XYSCREENS,
+                        label=f"{CONF_ADDRESS_XYSCREENS} (XY Screens)",
+                    ),
+                    SelectOptionDict(
+                        value=CONF_ADDRESS_SEE_MAX,
+                        label=f"{CONF_ADDRESS_SEE_MAX} (See Max)",
+                    ),
+                ],
+                custom_value=True,
+                sort=True,
+            )
+        ),
+        vol.Required(
+            CONF_DEVICE_TYPE, default=CONF_DEVICE_TYPE_PROJECTOR_SCREEN
+        ): SelectSelector(
+            SelectSelectorConfig(
+                options=[
+                    SelectOptionDict(
+                        value=CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
+                        label=CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
+                    ),
+                    SelectOptionDict(
+                        value=CONF_DEVICE_TYPE_PROJECTOR_LIFT,
+                        label=CONF_DEVICE_TYPE_PROJECTOR_LIFT,
+                    ),
+                ],
+                translation_key=CONF_DEVICE_TYPE,
+            )
+        ),
+        vol.Required(CONF_TIME_OPEN, default=1): NumberSelector(
+            NumberSelectorConfig(
+                min=1,
+                mode=NumberSelectorMode.BOX,
+                unit_of_measurement=UnitOfTime.SECONDS,
+            )
+        ),
+        vol.Required(CONF_TIME_CLOSE, default=1): NumberSelector(
+            NumberSelectorConfig(
+                min=1,
+                mode=NumberSelectorMode.BOX,
+                unit_of_measurement=UnitOfTime.SECONDS,
+            )
+        ),
+        vol.Required(CONF_INVERTED, default=False): BooleanSelector(),
+    }
+)
+OPTIONS_SCHEMA = vol.Schema(
+    {
+        vol.Required(
+            CONF_TIME_OPEN,
+            default=1,
+        ): NumberSelector(
+            NumberSelectorConfig(
+                min=1,
+                mode=NumberSelectorMode.BOX,
+                unit_of_measurement=UnitOfTime.SECONDS,
+            )
+        ),
+        vol.Required(
+            CONF_TIME_CLOSE,
+            default=1,
+        ): NumberSelector(
+            NumberSelectorConfig(
+                min=1,
+                mode=NumberSelectorMode.BOX,
+                unit_of_measurement=UnitOfTime.SECONDS,
+            )
+        ),
+        vol.Required(
+            CONF_INVERTED,
+            default=False,
+        ): BooleanSelector(),
+    }
+)
+
+
+def validate_address(address) -> bool:
+    """Validates the address."""
+    try:
+        address = bytes.fromhex(address)
+        address = address.hex()
+
+        if len(address) != 6:
+            return False
+    except ValueError:
+        return False
+
+    return True
+
+
 class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
     """Handle the config flow for XY Screens."""
 
     VERSION = 2
     MINOR_VERSION = 2
 
-    _step_setup_serial_schema: vol.Schema
-
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
         """Handle the initial step."""
-        return await self.async_step_setup_serial(user_input)
-
-    async def async_step_setup_serial(
-        self, user_input: dict[str, Any] | None = None
-    ) -> ConfigFlowResult:
-        """Handle the setup serial step."""
         errors: dict[str, str] = {}
 
         if user_input is not None:
-            title, data, options = await self.validate_input_setup_serial(
-                user_input, errors
-            )
+            # Validate user input.
+            DATA_SCHEMA(user_input)
+
+            serial_port = user_input[CONF_SERIAL_PORT]
+            address = user_input[CONF_ADDRESS]
+
+            # Validate the address.
+            if not validate_address(address):
+                errors[CONF_ADDRESS] = "invalid_address"
+
+            # Make sure the serial port and address is not already used.
+            await self.async_set_unique_id(f"{serial_port}-{address}")
+            self._abort_if_unique_id_configured()
+
+            # Test if we can connect to the device.
+            time_open = user_input[CONF_TIME_OPEN]
+            screen = XYScreens(serial_port, address, time_open)
+            if not await screen.async_test_connection():
+                errors[CONF_SERIAL_PORT] = "cannot_connect"
 
             if not errors:
+                title = f"{serial_port} {address.upper()}"
+                data = {
+                    CONF_SERIAL_PORT: serial_port,
+                    CONF_ADDRESS: address,
+                    CONF_DEVICE_TYPE: user_input[CONF_DEVICE_TYPE],
+                }
+                options = {
+                    CONF_TIME_OPEN: user_input[CONF_TIME_OPEN],
+                    CONF_TIME_CLOSE: user_input[CONF_TIME_CLOSE],
+                    CONF_INVERTED: user_input[CONF_INVERTED],
+                }
                 return self.async_create_entry(title=title, data=data, options=options)
 
-        self._step_setup_serial_schema = vol.Schema(
-            {
-                vol.Required(CONF_SERIAL_PORT, default=""): SerialPortSelector(),
-                vol.Required(CONF_ADDRESS, default=""): SelectSelector(
-                    SelectSelectorConfig(
-                        options=[
-                            SelectOptionDict(
-                                value="AAEEEE", label="AAEEEE (XY Screens)"
-                            ),
-                            SelectOptionDict(value="EEEEEE", label="EEEEEE (See Max)"),
-                        ],
-                        custom_value=True,
-                        sort=True,
-                    )
-                ),
-                vol.Required(
-                    CONF_DEVICE_TYPE, default=CONF_DEVICE_TYPE_PROJECTOR_SCREEN
-                ): SelectSelector(
-                    SelectSelectorConfig(
-                        options=[
-                            SelectOptionDict(
-                                value=CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
-                                label=CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
-                            ),
-                            SelectOptionDict(
-                                value=CONF_DEVICE_TYPE_PROJECTOR_LIFT,
-                                label=CONF_DEVICE_TYPE_PROJECTOR_LIFT,
-                            ),
-                        ],
-                        translation_key=CONF_DEVICE_TYPE,
-                    )
-                ),
-                vol.Required(CONF_TIME_OPEN, default=1): NumberSelector(
-                    NumberSelectorConfig(
-                        min=1,
-                        mode=NumberSelectorMode.BOX,
-                        unit_of_measurement=UnitOfTime.SECONDS,
-                    )
-                ),
-                vol.Required(CONF_TIME_CLOSE, default=1): NumberSelector(
-                    NumberSelectorConfig(
-                        min=1,
-                        mode=NumberSelectorMode.BOX,
-                        unit_of_measurement=UnitOfTime.SECONDS,
-                    )
-                ),
-                vol.Required(CONF_INVERTED, default=False): BooleanSelector(),
-            }
-        )
-
-        if user_input is not None:
-            data_schema = self.add_suggested_values_to_schema(
-                self._step_setup_serial_schema, user_input
-            )
-        else:
-            data_schema = self._step_setup_serial_schema
+        # Combine user input with schema.
+        data_schema = self.add_suggested_values_to_schema(DATA_SCHEMA, user_input or {})
 
         return self.async_show_form(
-            step_id="setup_serial",
+            step_id="user",
             data_schema=data_schema,
             errors=errors,
-        )
-
-    # pylint: disable=W0613
-    async def validate_input_setup_serial(
-        self, data: dict[str, Any], errors: dict[str, str]
-    ) -> tuple[str, dict[str, Any], dict[str, Any]]:
-        """Validate the user input and create data.
-
-        Data has the keys from _step_setup_serial_schema with values provided by the user.
-        """
-        # Validate the data can be used to set up a connection.
-        self._step_setup_serial_schema(data)
-
-        serial_port = data.get(CONF_SERIAL_PORT)
-
-        if serial_port is None:
-            raise vol.error.RequiredFieldInvalid("No serial port configured")
-
-        address = data.get(CONF_ADDRESS)
-        # Validate the address.
-        try:
-            address = bytes.fromhex(address)
-            address = address.hex()
-
-            if len(address) != 6:
-                errors[CONF_ADDRESS] = "invalid_address"
-        except ValueError:
-            errors[CONF_ADDRESS] = "invalid_address"
-
-        # Make sure the serial port and address is not already used.
-        await self.async_set_unique_id(f"{serial_port}-{address}")
-        self._abort_if_unique_id_configured()
-
-        # Test if we can connect to the device.
-        time_open = data[CONF_TIME_OPEN]
-        screen = XYScreens(serial_port, address, time_open)
-        if not await screen.async_test_connection():
-            errors["base"] = "cannot_connect"
-
-        # Return title, data and options
-        return (
-            f"{serial_port} {address.upper()}",
-            {
-                CONF_SERIAL_PORT: serial_port,
-                CONF_ADDRESS: address,
-                CONF_DEVICE_TYPE: data[CONF_DEVICE_TYPE],
-            },
-            {
-                CONF_TIME_OPEN: data[CONF_TIME_OPEN],
-                CONF_TIME_CLOSE: data[CONF_TIME_CLOSE],
-                CONF_INVERTED: data[CONF_INVERTED],
-            },
         )
 
     @staticmethod
@@ -194,35 +206,6 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
 class XYScreensOptionsFlowHandler(OptionsFlow):
     """Handle the options flow for XY Screens."""
 
-    _OPTIONS_SCHEMA = vol.Schema(
-        {
-            vol.Required(
-                CONF_TIME_OPEN,
-                default=1,
-            ): NumberSelector(
-                NumberSelectorConfig(
-                    min=1,
-                    mode=NumberSelectorMode.BOX,
-                    unit_of_measurement=UnitOfTime.SECONDS,
-                )
-            ),
-            vol.Required(
-                CONF_TIME_CLOSE,
-                default=1,
-            ): NumberSelector(
-                NumberSelectorConfig(
-                    min=1,
-                    mode=NumberSelectorMode.BOX,
-                    unit_of_measurement=UnitOfTime.SECONDS,
-                )
-            ),
-            vol.Required(
-                CONF_INVERTED,
-                default=False,
-            ): BooleanSelector(),
-        }
-    )
-
     async def async_step_init(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
@@ -230,17 +213,13 @@ class XYScreensOptionsFlowHandler(OptionsFlow):
         errors: dict[str, str] = {}
 
         if user_input is not None:
-            self._OPTIONS_SCHEMA(user_input)
+            OPTIONS_SCHEMA(user_input)
             return self.async_create_entry(title="", data=user_input)
 
-        if user_input is not None:
-            data_schema = self.add_suggested_values_to_schema(
-                self._OPTIONS_SCHEMA, user_input
-            )
-        else:
-            data_schema = self.add_suggested_values_to_schema(
-                self._OPTIONS_SCHEMA, self.config_entry.options
-            )
+        # Combine user input with schema.
+        data_schema = self.add_suggested_values_to_schema(
+            OPTIONS_SCHEMA, user_input or self.config_entry.options
+        )
 
         device_type = self.config_entry.data.get(CONF_DEVICE_TYPE)
         return self.async_show_form(
