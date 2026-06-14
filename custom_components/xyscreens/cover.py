@@ -19,8 +19,10 @@ from xyscreens import XYScreens, XYScreensState
 
 from .const import (
     CONF_ADDRESS,
+    CONF_ADDRESS_XYSCREENS,
     CONF_DEVICE_TYPE,
     CONF_DEVICE_TYPE_PROJECTOR_LIFT,
+    CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
     CONF_INVERTED,
     CONF_SERIAL_PORT,
     CONF_TIME_CLOSE,
@@ -38,16 +40,21 @@ async def async_setup_entry(
     async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Set up the XY Screens cover."""
+    open_time = config_entry.options[CONF_TIME_OPEN]
     async_add_entities(
         [
             XYScreensCover(
                 config_entry.entry_id,
-                config_entry.data.get(CONF_SERIAL_PORT),
-                bytes.fromhex(config_entry.data.get(CONF_ADDRESS, "AAEEEE")),
-                config_entry.data.get(CONF_DEVICE_TYPE),
-                config_entry.options.get(CONF_TIME_OPEN),
-                config_entry.options.get(CONF_TIME_CLOSE),
-                config_entry.options.get(CONF_INVERTED),
+                config_entry.data[CONF_SERIAL_PORT],
+                bytes.fromhex(
+                    config_entry.data.get(CONF_ADDRESS, CONF_ADDRESS_XYSCREENS)
+                ),
+                config_entry.data.get(
+                    CONF_DEVICE_TYPE, CONF_DEVICE_TYPE_PROJECTOR_SCREEN
+                ),
+                open_time,
+                config_entry.options.get(CONF_TIME_CLOSE, open_time),
+                config_entry.options.get(CONF_INVERTED, False),
             )
         ]
     )
@@ -111,7 +118,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             last_state is not None
             and last_state.attributes.get(ATTR_CURRENT_POSITION) is not None
         ):
-            position = last_state.attributes.get(ATTR_CURRENT_POSITION)
+            position = last_state.attributes[ATTR_CURRENT_POSITION]
             _LOGGER.debug("Last screen position: %5.1f %%", position)
             if not self._inverted:
                 self._screen.restore_position(100 - position)
