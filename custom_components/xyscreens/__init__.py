@@ -12,6 +12,7 @@ from xyscreens import XYScreens
 
 from .const import (
     CONF_ADDRESS,
+    CONF_ADDRESS_XYSCREENS,
     CONF_DEVICE_TYPE,
     CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
     CONF_INVERTED,
@@ -31,7 +32,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     # Test if we can connect to the device.
     serial_port = entry.data[CONF_SERIAL_PORT]
-    address = bytes.fromhex(entry.data.get(CONF_ADDRESS, "AAEEEE"))
+    address = bytes.fromhex(entry.data.get(CONF_ADDRESS, CONF_ADDRESS_XYSCREENS))
     time_open = entry.options.get(CONF_TIME_OPEN)
     screen = XYScreens(serial_port, address, time_open)
     if not await screen.async_test_connection():
@@ -81,10 +82,12 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
     if config_entry.version == 2 and config_entry.minor_version < 2:
         _LOGGER.debug("Migrating config entry from 2.1 to 2.2")
         new_unique_id = f"{config_entry.data.get(CONF_SERIAL_PORT)}-aaeeee"
-        new_title = f"{config_entry.data.get(CONF_SERIAL_PORT)} AAEEEE"
+        new_title = (
+            f"{config_entry.data.get(CONF_SERIAL_PORT)} {CONF_ADDRESS_XYSCREENS}"
+        )
         new_data = {
             CONF_SERIAL_PORT: config_entry.data.get(CONF_SERIAL_PORT),
-            CONF_ADDRESS: "aaeeee",
+            CONF_ADDRESS: CONF_ADDRESS_XYSCREENS,
             CONF_DEVICE_TYPE: CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
         }
         new_options = {
