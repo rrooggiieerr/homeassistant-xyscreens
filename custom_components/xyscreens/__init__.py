@@ -65,7 +65,7 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
 
     if config_entry.version == 1:
         _LOGGER.debug("Migrating config entry from 1 to 2")
-        new_title = config_entry.data.get(CONF_SERIAL_PORT)
+        new_title = config_entry.data[CONF_SERIAL_PORT]
 
         new_data = {CONF_SERIAL_PORT: config_entry.data.get(CONF_SERIAL_PORT)}
 
@@ -78,21 +78,20 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
             config_entry, title=new_title, data=new_data, options=new_options, version=2
         )
 
-    if config_entry.version == 2:
-        if config_entry.minor_version < 2:
-            _LOGGER.debug("Migrating config entry from 2.1 to 2.2")
-            new_unique_id = f"{config_entry.data.get(CONF_SERIAL_PORT)}-aaeeee"
-            new_title = f"{config_entry.data.get(CONF_SERIAL_PORT)} AAEEEE"
-            new_data = {
-                CONF_SERIAL_PORT: config_entry.data.get(CONF_SERIAL_PORT),
-                CONF_ADDRESS: "aaeeee",
-                CONF_DEVICE_TYPE: CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
-            }
-            new_options = {
-                CONF_TIME_OPEN: config_entry.options.get(CONF_TIME_OPEN),
-                CONF_TIME_CLOSE: config_entry.options.get(CONF_TIME_CLOSE),
-                CONF_INVERTED: config_entry.options.get(CONF_INVERTED, False),
-            }
+    if config_entry.version == 2 and config_entry.minor_version < 2:
+        _LOGGER.debug("Migrating config entry from 2.1 to 2.2")
+        new_unique_id = f"{config_entry.data.get(CONF_SERIAL_PORT)}-aaeeee"
+        new_title = f"{config_entry.data.get(CONF_SERIAL_PORT)} AAEEEE"
+        new_data = {
+            CONF_SERIAL_PORT: config_entry.data.get(CONF_SERIAL_PORT),
+            CONF_ADDRESS: "aaeeee",
+            CONF_DEVICE_TYPE: CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
+        }
+        new_options = {
+            CONF_TIME_OPEN: config_entry.options.get(CONF_TIME_OPEN),
+            CONF_TIME_CLOSE: config_entry.options.get(CONF_TIME_CLOSE),
+            CONF_INVERTED: config_entry.options.get(CONF_INVERTED, False),
+        }
 
         hass.config_entries.async_update_entry(
             config_entry,
