@@ -1,30 +1,30 @@
 {
   "config": {
     "abort": {
-      "already_configured": "Naprava je že konfigurirana"
+      "already_configured": "Naprava je že nastavljena"
     },
     "error": {
       "cannot_connect": "Povezava ni uspela",
-      "nonexisting_serial_port": "Serial poort ne obstaja",
+      "nonexisting_serial_port": "Serijski revež ne obstaja",
       "invalid_address": "Neveljaven naslov",
       "unknown": "Nepričakovana napaka"
     },
     "step": {
-      "setup_serial": {
+      "user": {
         "data": {
-          "serial_port": "Serijska vrata",
+          "serial_port": "Zaporedna vrata",
           "address": "Naslov",
           "device_type": "Vrsta naprave",
-          "time_open": "Odprti čas",
-          "time_close": "Zaključni čas",
-          "inverted": "Obrni vedenje"
+          "time_open": "Čas odprtja",
+          "time_close": "Zapri čas",
+          "inverted": "Obrni obnašanje"
         },
         "data_description": {
-          "serial_port": "Serijska vrata, na katera je vaša naprava povezana.",
-          "address": "Šestnajstiški naslov naprave.",
-          "time_open": "Čas, potreben za odpiranje naprave.",
-          "time_close": "Čas, potreben za zapiranje naprave.",
-          "inverted": "Ta integracija sledi Cover Entity, kjer odprto pomeni, da se zaslon umakne, zaprt pa zaslon izvleče, enako kot delujejo zavese in garažna vrata. Za projekcijsko platno je to kontraintuitivno. Vedenje lahko obrnete."
+          "serial_port": "Serijska vrata so povezana z napravo.",
+          "address": "Šest znakov šestnajstiški naslov naprave.",
+          "time_open": "Čas je potreben za odpiranje naprave.",
+          "time_close": "Čas je potreben za zaprtje naprave.",
+          "inverted": "Ta integracija sledi Cover Entitute, kjer odprti pomeni, da se zaslon umakne in zapre, tako kot delujejo zavese in garažna vrata. Za projekcijski zaslon je to protiintuitivno. Lahko obrneš obnašanje."
         }
       }
     }
@@ -32,47 +32,47 @@
   "selector": {
     "device_type": {
       "options": {
-        "projector_screen": "Projektorsko platno",
-        "projector_lift": "Dvigalo projektorja"
+        "projector_screen": "Zaslon projekterja",
+        "projector_lift": "Dvigalo projektila"
       }
     }
   },
   "options": {
     "step": {
       "projector_screen": {
-        "title": "Možnosti projektorskega platna",
+        "title": "Možnosti zaslona projekta",
         "data": {
-          "time_open": "Odprti čas",
-          "time_close": "Zaključni čas",
-          "inverted": "Obrni vedenje"
+          "time_open": "Čas odprtja",
+          "time_close": "Zapri čas",
+          "inverted": "Obrni obnašanje"
         },
         "data_description": {
-          "time_open": "Čas, potreben za odpiranje zaslona projektorja.",
-          "time_close": "Čas, potreben za zapiranje zaslona projektorja.",
-          "inverted": "Ta integracija sledi Cover Entity, kjer odprto pomeni, da se zaslon umakne, zaprt pa zaslon izvleče, enako kot delujejo zavese in garažna vrata. Za projekcijsko platno je to kontraintuitivno. Vedenje lahko obrnete."
+          "time_open": "Čas je potreben za odpiranje projektorskega zaslona.",
+          "time_close": "Čas je potreben za zapiranje zaslona projektorja.",
+          "inverted": "Ta integracija sledi Cover Entitute, kjer odprti pomeni, da se zaslon umakne in zapre, tako kot delujejo zavese in garažna vrata. Za projekcijski zaslon je to protiintuitivno. Lahko obrneš obnašanje."
         }
       },
       "projector_lift": {
-        "title": "Možnosti dviga projektorja",
+        "title": "Možnosti za dvig projektila",
         "data": {
-          "time_open": "Odprti čas",
-          "time_close": "Zaključni čas",
-          "inverted": "Obrni vedenje"
+          "time_open": "Čas odprtja",
+          "time_close": "Zapri čas",
+          "inverted": "Obrni obnašanje"
         },
         "data_description": {
-          "time_open": "Čas, potreben za odpiranje dvigala projektorja.",
-          "time_close": "Čas, potreben za zapiranje dvigala projektorja.",
-          "inverted": "Ta integracija sledi Cover Entity, kjer odprto pomeni, da se zaslon umakne, zaprt pa zaslon izvleče, enako kot delujejo zavese in garažna vrata. Za projekcijsko platno je to kontraintuitivno. Vedenje lahko obrnete."
+          "time_open": "Čas je potreben, da se odpre dvigalo za projektor.",
+          "time_close": "Čas je potreben za zaprtje projektorja.",
+          "inverted": "Ta integracija sledi Cover Entitute, kjer odprti pomeni, da se zaslon umakne in zapre, tako kot delujejo zavese in garažna vrata. Za projekcijski zaslon je to protiintuitivno. Lahko obrneš obnašanje."
         }
       }
     }
   },
   "device": {
     "projector_screen": {
-      "name": "Zaslon za projektor"
+      "name": "Zaslon projekta"
     },
     "projector_lift": {
-      "name": "Dvigalo za projektor"
+      "name": "Projektor Lift"
     }
   },
   "entity": {
@@ -81,7 +81,7 @@
         "state": {
           "open": "Zaprto",
           "opening": "Zapiranje",
-          "closing": "Otvoritev",
+          "closing": "Odpiranje",
           "closed": "Odpri"
         }
       },
@@ -89,7 +89,7 @@
         "state": {
           "open": "Zaprto",
           "opening": "Zapiranje",
-          "closing": "Otvoritev",
+          "closing": "Odpiranje",
           "closed": "Odpri"
         }
       }

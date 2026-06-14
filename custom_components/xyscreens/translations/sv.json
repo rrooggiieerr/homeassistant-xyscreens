@@ -1,30 +1,30 @@
 {
   "config": {
     "abort": {
-      "already_configured": "Enheten är redan konfigurerad"
+      "already_configured": "Enhet är redan konfigurerad"
     },
     "error": {
-      "cannot_connect": "Det gick inte att ansluta",
-      "nonexisting_serial_port": "Seriell port finns inte",
-      "invalid_address": "Ogiltig adress",
+      "cannot_connect": "Underlåten att ansluta",
+      "nonexisting_serial_port": "Serial fattiga existerar inte",
+      "invalid_address": "Invalid adress",
       "unknown": "Oväntat fel"
     },
     "step": {
-      "setup_serial": {
+      "user": {
         "data": {
-          "serial_port": "Seriell port",
+          "serial_port": "Serial Port",
           "address": "Adress",
           "device_type": "Enhetstyp",
           "time_open": "Öppen tid",
-          "time_close": "Stängtid",
-          "inverted": "Invertera beteende"
+          "time_close": "Närtid",
+          "inverted": "Invert beteende"
         },
         "data_description": {
-          "serial_port": "Den seriella porten som din enhet är ansluten till.",
-          "address": "Enhetens hexadecimala adress.",
-          "time_open": "Tid som behövs för att öppna enheten.",
-          "time_close": "Tid som behövs för att stänga enheten.",
-          "inverted": "Denna integration följer Cover Entity, där öppen betyder att skärmen dras in och stängs skärmen dras ut, på samma sätt som gardiner och garageportar fungerar. För en projektionsduk är detta kontraintuitivt. Du kan vända beteendet."
+          "serial_port": "Serieporten din enhet är ansluten till.",
+          "address": "6 tecken hexadecimal adress på enheten.",
+          "time_open": "Dags att öppna enheten.",
+          "time_close": "Dags att stänga enheten.",
+          "inverted": "Denna integration följer Cover Entity, där öppen betyder att skärmen återkallas och stängs skärmen extraheras, på samma sätt gardiner och garageportar fungerar. För en projektionsskärm är detta kontraintuitivt. Du kan vända beteendet."
         }
       }
     }
@@ -33,64 +33,64 @@
     "device_type": {
       "options": {
         "projector_screen": "Projektorduk",
-        "projector_lift": "Projektorlyft"
+        "projector_lift": "Projektor lyft"
       }
     }
   },
   "options": {
     "step": {
       "projector_screen": {
-        "title": "Alternativ för projektorskärm",
+        "title": "Projector skärm alternativ",
         "data": {
           "time_open": "Öppen tid",
-          "time_close": "Stängtid",
-          "inverted": "Invertera beteende"
+          "time_close": "Närtid",
+          "inverted": "Invert beteende"
         },
         "data_description": {
-          "time_open": "Tid som behövs för att öppna projektorduken.",
-          "time_close": "Tid som behövs för att stänga projektorduken.",
-          "inverted": "Denna integration följer Cover Entity, där öppen betyder att skärmen dras in och stängs skärmen dras ut, på samma sätt som gardiner och garageportar fungerar. För en projektionsduk är detta kontraintuitivt. Du kan vända beteendet."
+          "time_open": "Dags att öppna projektorskärmen.",
+          "time_close": "Dags att stänga projektorskärmen.",
+          "inverted": "Denna integration följer Cover Entity, där öppen betyder att skärmen återkallas och stängs skärmen extraheras, på samma sätt gardiner och garageportar fungerar. För en projektionsskärm är detta kontraintuitivt. Du kan vända beteendet."
         }
       },
       "projector_lift": {
-        "title": "Alternativ för projektorlyft",
+        "title": "Projektor lyft alternativ",
         "data": {
           "time_open": "Öppen tid",
-          "time_close": "Stängtid",
-          "inverted": "Invertera beteende"
+          "time_close": "Närtid",
+          "inverted": "Invert beteende"
         },
         "data_description": {
-          "time_open": "Tid som behövs för att öppna projektorhissen.",
-          "time_close": "Tid som behövs för att stänga projektorhissen.",
-          "inverted": "Denna integration följer Cover Entity, där öppen betyder att skärmen dras in och stängs skärmen dras ut, på samma sätt som gardiner och garageportar fungerar. För en projektionsduk är detta kontraintuitivt. Du kan vända beteendet."
+          "time_open": "Dags att öppna projektorhissen.",
+          "time_close": "Dags att stänga projektorhissen.",
+          "inverted": "Denna integration följer Cover Entity, där öppen betyder att skärmen återkallas och stängs skärmen extraheras, på samma sätt gardiner och garageportar fungerar. För en projektionsskärm är detta kontraintuitivt. Du kan vända beteendet."
         }
       }
     }
   },
   "device": {
     "projector_screen": {
-      "name": "Projektorduk"
+      "name": "Projektor Screen"
     },
     "projector_lift": {
-      "name": "Projektorlyft"
+      "name": "Projektor Lift"
     }
   },
   "entity": {
     "cover": {
       "projector_screen": {
         "state": {
-          "open": "Stängd",
+          "open": "Stängt",
           "opening": "Stängning",
-          "closing": "Öppning",
-          "closed": "Öppna"
+          "closing": "Öppna",
+          "closed": "Öppet Öppet Öppet"
         }
       },
       "projector_lift": {
         "state": {
-          "open": "Stängd",
+          "open": "Stängt",
           "opening": "Stängning",
-          "closing": "Öppning",
-          "closed": "Öppna"
+          "closing": "Öppna",
+          "closed": "Öppet Öppet Öppet"
         }
       }
     }

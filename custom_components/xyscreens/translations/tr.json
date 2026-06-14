@@ -1,30 +1,30 @@
 {
   "config": {
     "abort": {
-      "already_configured": "Cihaz zaten yapılandırılmış"
+      "already_configured": "Cihaz zaten yapılandırılmıştır"
     },
     "error": {
-      "cannot_connect": "Bağlantı başarısız oldu",
-      "nonexisting_serial_port": "Seri fakir mevcut değil",
+      "cannot_connect": "Bağlanmak için başarısız oldu",
+      "nonexisting_serial_port": "Seri zavallıt mevcut değil",
       "invalid_address": "Geçersiz adres",
       "unknown": "Beklenmeyen hata"
     },
     "step": {
-      "setup_serial": {
+      "user": {
         "data": {
-          "serial_port": "Seri bağlantı noktası",
+          "serial_port": "Seri port",
           "address": "Adres",
           "device_type": "Cihaz türü",
           "time_open": "Açık zaman",
           "time_close": "Kapanış zamanı",
-          "inverted": "Davranışı tersine çevir"
+          "inverted": "Invert behavior"
         },
         "data_description": {
-          "serial_port": "Cihazınızın bağlı olduğu seri port.",
-          "address": "Cihazın onaltılık adresi.",
-          "time_open": "Cihazı açmak için gereken süre.",
-          "time_close": "Cihazı kapatmak için gereken süre.",
-          "inverted": "Bu entegrasyon, perdelerin ve garaj kapılarının çalıştığı gibi, açık ekranın geri çekildiği ve kapalı ekranın çıkarıldığı Kapak Varlığı'nı takip eder. Bir projeksiyon ekranı için bu durum mantığa aykırıdır. Davranışı tersine çevirebilirsiniz."
+          "serial_port": "Seri port your device is connection to.",
+          "address": "Cihazın 6 karakteri hexadecimal adresi.",
+          "time_open": "Cihazı açmak için zaman gerekiyordu.",
+          "time_close": "Cihazı kapatmak için zamana ihtiyaç vardı.",
+          "inverted": "Bu entegrasyon, Kapak Entity'yi takip eder, nerede açık ekran geri çekilir ve ekranı kapatılır, aynı şekilde perdeler ve garaj kapıları çalışır. Bir projeksiyon ekranı için bu karşıt. Davranışı tersine çevirebilirsiniz."
         }
       }
     }
@@ -32,44 +32,44 @@
   "selector": {
     "device_type": {
       "options": {
-        "projector_screen": "Projektör ekranı",
-        "projector_lift": "Projektör asansörü"
+        "projector_screen": "Projector ekran",
+        "projector_lift": "Projector asansör"
       }
     }
   },
   "options": {
     "step": {
       "projector_screen": {
-        "title": "Projektör ekranı seçenekleri",
+        "title": "Projector ekran seçenekleri",
         "data": {
           "time_open": "Açık zaman",
           "time_close": "Kapanış zamanı",
-          "inverted": "Davranışı tersine çevir"
+          "inverted": "Invert behavior"
         },
         "data_description": {
-          "time_open": "Projektör ekranını açmak için gereken süre.",
-          "time_close": "Projektör ekranını kapatmak için gereken süre.",
-          "inverted": "Bu entegrasyon, perdelerin ve garaj kapılarının çalıştığı gibi, açık ekranın geri çekildiği ve kapalı ekranın çıkarıldığı Kapak Varlığı'nı takip eder. Bir projeksiyon ekranı için bu durum mantığa aykırıdır. Davranışı tersine çevirebilirsiniz."
+          "time_open": "Saat projektör ekranını açmak için gerekiyordu.",
+          "time_close": "Saat projektör ekranını kapatmak için gerekliydi.",
+          "inverted": "Bu entegrasyon, Kapak Entity'yi takip eder, nerede açık ekran geri çekilir ve ekranı kapatılır, aynı şekilde perdeler ve garaj kapıları çalışır. Bir projeksiyon ekranı için bu karşıt. Davranışı tersine çevirebilirsiniz."
         }
       },
       "projector_lift": {
-        "title": "Projektör kaldırma seçenekleri",
+        "title": "Projector asansör seçenekleri",
         "data": {
           "time_open": "Açık zaman",
           "time_close": "Kapanış zamanı",
-          "inverted": "Davranışı tersine çevir"
+          "inverted": "Invert behavior"
         },
         "data_description": {
-          "time_open": "Projektör asansörünü açmak için gereken süre.",
-          "time_close": "Projektör asansörünü kapatmak için gereken süre.",
-          "inverted": "Bu entegrasyon, perdelerin ve garaj kapılarının çalıştığı gibi, açık ekranın geri çekildiği ve kapalı ekranın çıkarıldığı Kapak Varlığı'nı takip eder. Bir projeksiyon ekranı için bu durum mantığa aykırıdır. Davranışı tersine çevirebilirsiniz."
+          "time_open": "Saat projektör asansörü açmak için gerekiyordu.",
+          "time_close": "Saat projektör asansörü kapatmak için gerekliydi.",
+          "inverted": "Bu entegrasyon, Kapak Entity'yi takip eder, nerede açık ekran geri çekilir ve ekranı kapatılır, aynı şekilde perdeler ve garaj kapıları çalışır. Bir projeksiyon ekranı için bu karşıt. Davranışı tersine çevirebilirsiniz."
         }
       }
     }
   },
   "device": {
     "projector_screen": {
-      "name": "Projektör Ekranı"
+      "name": "Projector Ekran"
     },
     "projector_lift": {
       "name": "Projektör Asansörü"
@@ -79,18 +79,18 @@
     "cover": {
       "projector_screen": {
         "state": {
-          "open": "Kapalı",
+          "open": "Kapalı Kapalı Kapalı Kapalı Kapalı",
           "opening": "Kapanış",
           "closing": "Açılış",
-          "closed": "Açık"
+          "closed": "Open Open Open Open"
         }
       },
       "projector_lift": {
         "state": {
-          "open": "Kapalı",
+          "open": "Kapalı Kapalı Kapalı Kapalı Kapalı",
           "opening": "Kapanış",
           "closing": "Açılış",
-          "closed": "Açık"
+          "closed": "Open Open Open Open"
         }
       }
     }

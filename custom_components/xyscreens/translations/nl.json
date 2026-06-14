@@ -4,13 +4,13 @@
       "already_configured": "Apparaat is al geconfigureerd"
     },
     "error": {
-      "cannot_connect": "Kan geen verbinding maken",
+      "cannot_connect": "Verbinden mislukt",
       "nonexisting_serial_port": "Seriële poort bestaat niet",
       "invalid_address": "Ongeldig adres",
       "unknown": "Onverwachte fout"
     },
     "step": {
-      "setup_serial": {
+      "user": {
         "data": {
           "serial_port": "Seriële poort",
           "address": "Adres",
@@ -21,7 +21,7 @@
         },
         "data_description": {
           "serial_port": "De seriële poort waarop uw apparaat is aangesloten.",
-          "address": "Het hexadecimale adres van het apparaat.",
+          "address": "Het 6 karakter hexadecimale adres van het apparaat.",
           "time_open": "Benodigde tijd om het apparaat te openen.",
           "time_close": "Benodigde tijd om het apparaat te sluiten.",
           "inverted": "Deze integratie volgt de Cover Entiteit, waarbij open betekent dat het scherm wordt ingetrokken en gesloten het scherm wordt geopend, op dezelfde manier als (rol)gordijnen en garagedeuren werken. Voor een projectiescherm is dit contra-intuïtief. Je kunt het gedrag omkeren."
