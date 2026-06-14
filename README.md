@@ -58,7 +58,7 @@ See the documentation of your specific projector screen or lift on how to wire y
 ### Serial to USB adapter
 
 If your projector screen or lift has a serial port exposed use a Serial to USB adapter to connect
-thes creen.
+the projector screen or lift.
 
 See the documentation of your specific projector screen or lift on how to wire yours correctly.
 
