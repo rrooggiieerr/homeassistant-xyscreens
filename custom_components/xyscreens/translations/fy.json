@@ -10,7 +10,7 @@
       "unknown": "Unferwachte flater"
     },
     "step": {
-      "setup_serial": {
+      "user": {
         "data": {
           "serial_port": "Serial haven",
           "address": "Adres",
@@ -21,7 +21,7 @@
         },
         "data_description": {
           "serial_port": "De seriële poarte wêrmei jo apparaat is ferbûn.",
-          "address": "It heksadesimale adres fan it apparaat.",
+          "address": "It 6 tekens heksadesimale adres fan it apparaat.",
           "time_open": "Tiid nedich om it apparaat te iepenjen.",
           "time_close": "Tiid nedich om it apparaat te sluten.",
           "inverted": "Dizze yntegraasje folget de Cover Entity, wêr't iepen betsjut dat it skerm wurdt ynlutsen en sluten it skerm wurdt útlutsen, deselde manier as gerdinen en garaazjedoarren wurkje. Foar in projeksje skerm is dit kontrayntuïtyf. Jo kinne it gedrach omkeare."

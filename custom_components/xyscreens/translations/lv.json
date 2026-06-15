@@ -4,27 +4,27 @@
       "already_configured": "Ierīce jau ir konfigurēta"
     },
     "error": {
-      "cannot_connect": "Neizdevās izveidot savienojumu",
-      "nonexisting_serial_port": "Seriālā poga nepastāv",
+      "cannot_connect": "Neizdevās pieslēgties",
+      "nonexisting_serial_port": "Seriālā trūcet neeksistē",
       "invalid_address": "Nederīga adrese",
       "unknown": "Negaidīta kļūda"
     },
     "step": {
-      "setup_serial": {
+      "user": {
         "data": {
-          "serial_port": "Seriālais ports",
+          "serial_port": "Seriālā ports",
           "address": "Adrese",
-          "device_type": "Ierīces veids",
-          "time_open": "Atvēršanas laiks",
-          "time_close": "Aizvērt laiks",
-          "inverted": "Invertēt uzvedību"
+          "device_type": "Ierīces tips",
+          "time_open": "Atvērtais laiks",
+          "time_close": "Aizvērt laiku",
+          "inverted": "Invertēšanas uzvedība"
         },
         "data_description": {
-          "serial_port": "Seriālais ports, kuram ir pievienota jūsu ierīce.",
-          "address": "Ierīces heksadecimālā adrese.",
-          "time_open": "Laiks, kas nepieciešams ierīces atvēršanai.",
-          "time_close": "Laiks, kas nepieciešams, lai aizvērtu ierīci.",
-          "inverted": "Šī integrācija seko Cover Entity, kur atvērts nozīmē, ka ekrāns ir ievilkts un aizvērts, ekrāns tiek izvilkts, tāpat kā darbojas aizkari un garāžas durvis. Projekcijas ekrānam tas ir pretrunā. Jūs varat mainīt uzvedību."
+          "serial_port": "Seriāla ports, pie kura ierīce ir pieslēgta.",
+          "address": "Ierīces 6 rakstzīmju heksadecimālā adrese.",
+          "time_open": "Ierīces atvēršanai nepieciešamais laiks.",
+          "time_close": "Ierīces aizvēršanai nepieciešamais laiks.",
+          "inverted": "Šī integrācija seko Vāka vienībai, kur atvērts nozīmē, ka ekrāns tiek ievilkts un aizvērts tiek iegūts ekrāns, tāpat darbojas aizkari un garāžas durvis. Projekcijas ekrāna tas ir pretintuitīvs. Jūs varat mainīt uzvedību."
         }
       }
     }
@@ -33,36 +33,36 @@
     "device_type": {
       "options": {
         "projector_screen": "Projektora ekrāns",
-        "projector_lift": "Projektora pacēlājs"
+        "projector_lift": "Projektora lifts"
       }
     }
   },
   "options": {
     "step": {
       "projector_screen": {
-        "title": "Projektora ekrāna iespējas",
+        "title": "Projektora ekrāna opcijas",
         "data": {
-          "time_open": "Atvēršanas laiks",
-          "time_close": "Aizvērt laiks",
-          "inverted": "Invertēt uzvedību"
+          "time_open": "Atvērtais laiks",
+          "time_close": "Aizvērt laiku",
+          "inverted": "Invertēšanas uzvedība"
         },
         "data_description": {
-          "time_open": "Laiks, kas nepieciešams, lai atvērtu projektora ekrānu.",
-          "time_close": "Laiks, kas nepieciešams, lai aizvērtu projektora ekrānu.",
-          "inverted": "Šī integrācija seko Cover Entity, kur atvērts nozīmē, ka ekrāns ir ievilkts un aizvērts, ekrāns tiek izvilkts, tāpat kā darbojas aizkari un garāžas durvis. Projekcijas ekrānam tas ir pretrunā. Jūs varat mainīt uzvedību."
+          "time_open": "Laiks, kas nepieciešams projektora ekrāna atvēršanai.",
+          "time_close": "Laiks, kas nepieciešams projektora ekrāna aizvēršanai.",
+          "inverted": "Šī integrācija seko Vāka vienībai, kur atvērts nozīmē, ka ekrāns tiek ievilkts un aizvērts tiek iegūts ekrāns, tāpat darbojas aizkari un garāžas durvis. Projekcijas ekrāna tas ir pretintuitīvs. Jūs varat mainīt uzvedību."
         }
       },
       "projector_lift": {
-        "title": "Projektora pacelšanas iespējas",
+        "title": "Projektoru pacelšanas opcijas",
         "data": {
-          "time_open": "Atvēršanas laiks",
-          "time_close": "Aizvērt laiks",
-          "inverted": "Invertēt uzvedību"
+          "time_open": "Atvērtais laiks",
+          "time_close": "Aizvērt laiku",
+          "inverted": "Invertēšanas uzvedība"
         },
         "data_description": {
-          "time_open": "Laiks, kas nepieciešams, lai atvērtu projektora pacēlāju.",
-          "time_close": "Laiks, kas nepieciešams, lai aizvērtu projektora pacēlāju.",
-          "inverted": "Šī integrācija seko Cover Entity, kur atvērts nozīmē, ka ekrāns ir ievilkts un aizvērts, ekrāns tiek izvilkts, tāpat kā darbojas aizkari un garāžas durvis. Projekcijas ekrānam tas ir pretrunā. Jūs varat mainīt uzvedību."
+          "time_open": "Laiks, kas nepieciešams, lai atvērtu projektoru pacelt.",
+          "time_close": "Laiks, kas vajadzīgs projektora pacelšanai.",
+          "inverted": "Šī integrācija seko Vāka vienībai, kur atvērts nozīmē, ka ekrāns tiek ievilkts un aizvērts tiek iegūts ekrāns, tāpat darbojas aizkari un garāžas durvis. Projekcijas ekrāna tas ir pretintuitīvs. Jūs varat mainīt uzvedību."
         }
       }
     }
@@ -72,23 +72,23 @@
       "name": "Projektora ekrāns"
     },
     "projector_lift": {
-      "name": "Projektora pacēlājs"
+      "name": "Projektora pacelšana"
     }
   },
   "entity": {
     "cover": {
       "projector_screen": {
         "state": {
-          "open": "Slēgts",
-          "opening": "Noslēgšana",
+          "open": "Pabeigts",
+          "opening": "Slēgt",
           "closing": "Atvēršana",
           "closed": "Atvērt"
         }
       },
       "projector_lift": {
         "state": {
-          "open": "Slēgts",
-          "opening": "Noslēgšana",
+          "open": "Pabeigts",
+          "opening": "Slēgt",
           "closing": "Atvēršana",
           "closed": "Atvērt"
         }

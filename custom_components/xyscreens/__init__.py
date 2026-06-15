@@ -1,19 +1,18 @@
 """The XY Screens integration."""
 
 import logging
-from pathlib import Path
 from typing import Any
 
-import serial
-import serial_asyncio_fast as serial_asyncio
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers import entity_registry as er
+from xyscreens import XYScreens
 
 from .const import (
     CONF_ADDRESS,
+    CONF_ADDRESS_XYSCREENS,
     CONF_DEVICE_TYPE,
     CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
     CONF_INVERTED,
@@ -27,42 +26,17 @@ _LOGGER = logging.getLogger(__name__)
 PLATFORMS: list[Platform] = [Platform.COVER]
 
 
-async def test_serial_port(serial_port):
-    """Test the working of a serial port."""
-
-    # Create the connection instance.
-    _, writer = await serial_asyncio.open_serial_connection(
-        url=serial_port,
-        baudrate=2400,
-        bytesize=serial.EIGHTBITS,
-        parity=serial.PARITY_NONE,
-        stopbits=serial.STOPBITS_ONE,
-        timeout=1,
-    )
-
-    # Close the connection.
-    writer.close()
-    await writer.wait_closed()
-
-    _LOGGER.debug("Device %s is available", serial_port)
-
-
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up XY Screens from a config entry."""
     await er.async_migrate_entries(hass, entry.entry_id, async_migrate_entity_entry)
 
-    # Test if the device exists.
-    serial_port = entry.data[CONF_SERIAL_PORT]
-    if not Path(serial_port).exists():
-        raise ConfigEntryNotReady(f"Device {serial_port} does not exists")
-
     # Test if we can connect to the device.
-    try:
-        await test_serial_port(serial_port)
-    except serial.SerialException as ex:
-        raise ConfigEntryNotReady(
-            f"Unable to connect to device {serial_port}: {ex}"
-        ) from ex
+    serial_port = entry.data[CONF_SERIAL_PORT]
+    address = bytes.fromhex(entry.data.get(CONF_ADDRESS, CONF_ADDRESS_XYSCREENS))
+    time_open = entry.options.get(CONF_TIME_OPEN)
+    screen = XYScreens(serial_port, address, time_open)
+    if not await screen.async_test_connection():
+        raise ConfigEntryNotReady(f"Unable to connect to device {serial_port}")
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
@@ -92,7 +66,7 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
 
     if config_entry.version == 1:
         _LOGGER.debug("Migrating config entry from 1 to 2")
-        new_title = config_entry.data.get(CONF_SERIAL_PORT)
+        new_title = config_entry.data[CONF_SERIAL_PORT]
 
         new_data = {CONF_SERIAL_PORT: config_entry.data.get(CONF_SERIAL_PORT)}
 
@@ -105,21 +79,22 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
             config_entry, title=new_title, data=new_data, options=new_options, version=2
         )
 
-    if config_entry.version == 2:
-        if config_entry.minor_version < 2:
-            _LOGGER.debug("Migrating config entry from 2.1 to 2.2")
-            new_unique_id = f"{config_entry.data.get(CONF_SERIAL_PORT)}-aaeeee"
-            new_title = f"{config_entry.data.get(CONF_SERIAL_PORT)} AAEEEE"
-            new_data = {
-                CONF_SERIAL_PORT: config_entry.data.get(CONF_SERIAL_PORT),
-                CONF_ADDRESS: "aaeeee",
-                CONF_DEVICE_TYPE: CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
-            }
-            new_options = {
-                CONF_TIME_OPEN: config_entry.options.get(CONF_TIME_OPEN),
-                CONF_TIME_CLOSE: config_entry.options.get(CONF_TIME_CLOSE),
-                CONF_INVERTED: config_entry.options.get(CONF_INVERTED, False),
-            }
+    if config_entry.version == 2 and config_entry.minor_version < 2:
+        _LOGGER.debug("Migrating config entry from 2.1 to 2.2")
+        new_unique_id = f"{config_entry.data.get(CONF_SERIAL_PORT)}-aaeeee"
+        new_title = (
+            f"{config_entry.data.get(CONF_SERIAL_PORT)} {CONF_ADDRESS_XYSCREENS}"
+        )
+        new_data = {
+            CONF_SERIAL_PORT: config_entry.data.get(CONF_SERIAL_PORT),
+            CONF_ADDRESS: CONF_ADDRESS_XYSCREENS,
+            CONF_DEVICE_TYPE: CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
+        }
+        new_options = {
+            CONF_TIME_OPEN: config_entry.options.get(CONF_TIME_OPEN),
+            CONF_TIME_CLOSE: config_entry.options.get(CONF_TIME_CLOSE),
+            CONF_INVERTED: config_entry.options.get(CONF_INVERTED, False),
+        }
 
         hass.config_entries.async_update_entry(
             config_entry,

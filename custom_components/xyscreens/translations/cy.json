@@ -10,7 +10,7 @@
       "unknown": "Gwall annisgwyl"
     },
     "step": {
-      "setup_serial": {
+      "user": {
         "data": {
           "serial_port": "Porth cyfresol",
           "address": "Cyfeiriad",
@@ -21,7 +21,7 @@
         },
         "data_description": {
           "serial_port": "Y porthladd cyfresol y mae eich dyfais wedi'i gysylltu ag ef.",
-          "address": "Cyfeiriad hecsadegol y ddyfais.",
+          "address": "Cyfeiriad hecsadegol 6 nod y ddyfais.",
           "time_open": "Amser sydd ei angen i agor y ddyfais.",
           "time_close": "Amser sydd ei angen i gau'r ddyfais.",
           "inverted": "Mae'r integreiddio hwn yn dilyn yr Endid Cover, lle mae agored yn golygu bod y sgrin yn cael ei thynnu'n ôl a'i chau, mae'r sgrin yn cael ei thynnu, yn yr un modd mae llenni a drysau garej yn gweithio. Ar gyfer sgrin taflunio mae hyn yn wrthreddfol. Gallwch chi wrthdroi'r ymddygiad."
@@ -53,7 +53,7 @@
         }
       },
       "projector_lift": {
-        "title": "Opsiynau taflunydd lifft",
+        "title": "Opsiynau lifft taflunydd",
         "data": {
           "time_open": "Amser agored",
           "time_close": "Amser cau",

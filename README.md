@@ -13,14 +13,13 @@
 
 ## Introduction
 
-Home Assistant integration to control XY Screens and See Max projector screens and lifts over the
-serial and RS-485 interface.
+Home Assistant integration to control [**XY Screens**](https://www.xyscreen.com/) and [**See Max**](https://seemaxscreen.com/) projector screens and lifts over the serial and RS-485 interface.
 
-This Home Assistant integration was first implemented for XY Screens. After I was informed that the
-See Max devices use a very similar protocol support for these devices has been added.
+This Home Assistant integration was first implemented for **XY Screens**. After I was informed that
+the **See Max** devices use a very similar protocol support for these devices has been added.
 
-[XY Screens](https://www.xyscreen.com/) and See Max are OEM manufacturers of projector screens and
-lifts. Their devices are sold around the world under various brand names.
+**XY Screens** and **See Max** are OEM manufacturers of projector screens and lifts. Their devices are sold
+around the world under various brand names.
 
 ## Features
 
@@ -29,10 +28,11 @@ lifts. Their devices are sold around the world under various brand names.
 - Position control: move the screen/lift to any position along the way
 - Use multiple devices on the same RS-485 interface
 - Invert the default Cover Entity behaviour
+- Supports Serial/RS-485 to Ethernet/WiFi bridge and [ESPHome Serial Proxy](https://esphome.io/components/serial_proxy/)
 
 ### About position control
 
-The XY Screens and See Max projector screens and lifts do not provide any positional feedback. The
+The **XY Screens** and **See Max** projector screens and lifts do not provide any positional feedback. The
 state of the screen is thus always an assumed one. The screen position is calculated based on the
 time the cover has moved and the configured up and down durations. This results in a potential
 error margin. Every time the screen reaches its maximum up or down position the position any
@@ -41,7 +41,9 @@ remote control, the screen position and state will no longer represent the actua
 
 ## Hardware
 
-Use a USB to RS-485 converter where position 5 of the RJ25 connector is connected to D+ and position
+### RS-485 to USB adapter
+
+Use a RS-485 to USB adapter where position 5 of the RJ25 connector is connected to D+ and position
 6 to D-.
 
 ![image](https://raw.githubusercontent.com/rrooggiieerr/homeassistant-xyscreens/main/wiring.png)
@@ -52,6 +54,37 @@ I use this cheap USB RS-485 controller which you can find on
 ![image](https://raw.githubusercontent.com/rrooggiieerr/homeassistant-xyscreens/main/usb-rs485.png)
 
 See the documentation of your specific projector screen or lift on how to wire yours correctly.
+
+### Serial to USB adapter
+
+If your projector screen or lift has a serial port exposed use a Serial to USB adapter to connect
+the projector screen or lift.
+
+See the documentation of your specific projector screen or lift on how to wire yours correctly.
+
+### Serial/RS-485 to Ethernet/WiFi bridge
+
+You can also use a Serial/RS-485 to Ethernet/WiFi bridge, this is useful when the projector screen
+or lift is not close to your Home Assistant server. You can build your own bridge using
+[esp-link](https://github.com/jeelabs/esp-link) or buy an off the shelf product like the the
+[CDEBYTE NA111-E](https://www.cdebyte.com/products/NA111-E/2).
+
+Connect the D+ and D- lines of your projector screen or lift to the corresponding terminals of the
+bridge. See the documentation of your specific projector screen or lift on how to wire yours
+correctly.
+
+Configure the bridge for 2400 baud, 8 bytes, no parity and one stopbit to match the projector
+screen or lift protocol.
+
+Use `socket://<ip address>:<port>` or `rfc2217://<ip address>:<port>` as the URL to connect to the
+Serial/RS-485 to Ethernet/WiFi bridge depending on which protocol the bridge supports.
+
+### ESPHome Serial Proxy
+
+You can connect a MAX485 transceiver module to an ESP32 and install
+[ESPHome Serial Proxy](https://esphome.io/components/serial_proxy/) on the ESP.
+
+Use `esphome://<ip address>:<port>/?port_name=<port name>` as the URL to connect to the ESPHome Serial Proxy.
 
 ## Supported protocol
 
@@ -64,8 +97,8 @@ Stop command: `0xFF 0xXX 0xXX 0xXX 0xCC`
 
 Where `0xXX 0xXX 0xXX` is the three byte address of the device.
 
-For XY Screens devices the default address is `0xAA 0xEE 0xEE`, while for See Max devices the
-default address is `0xEE 0xEE 0xEE`.
+For **XY Screens** devices the default address is `0xAA 0xEE 0xEE`, while for **See Max** devices
+the default address is `0xEE 0xEE 0xEE`.
 
 ## Supported projector screens and lifts
 
@@ -76,7 +109,7 @@ The following projector screen is known to work:
 The following projector screens and lifts are not tested but use the same protocol according to the
 documentation:
 
-_XY Screens_:
+**XY Screens**:
 - iVisions Electro L/XL/Pro/HD Series
 - iVisions PL Series projector lift
 - Elite Screens
@@ -84,7 +117,7 @@ _XY Screens_:
 - DELUXX
 - Telon
 
-_See Max_:
+**See Max**:
 - ScreenPro
 - Monoprice
 - Grandview
@@ -93,9 +126,6 @@ _See Max_:
 - Cirrus Screens
 - Lumien
 - Celexon
-
-Please let me know if your projector screen or lift works with this Home Assistant integration so I
-can improve the overview of supported projector screens and lifts.
 
 ## Caution
 
@@ -116,13 +146,11 @@ show correctly, however the voice commands and actions are inverted.
 The recommended way to install this Home Assistant integration is by using [HACS][hacs].
 Click the following button to open the integration directly on the HACS integration page.
 
-[![Install XY Screens from HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=rrooggiieerr&repository=homeassistant-xyscreens&category=integration)
+[![Install **XY Screens** from HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=rrooggiieerr&repository=homeassistant-xyscreens&category=integration)
 
 Or follow these instructions:
 
-- Go to your **HACS** view in Home Assistant and then to **Integrations**
-- Select **+ Explore & download repositories** and search for *XY Screens projector screens and
-lifts*
+- Go to your **HACS** view in Home Assistant and search for *XY Screens*
 - Select **Download**
 - Restart Home Assistant
 
@@ -136,20 +164,22 @@ lifts*
 
 <img src="https://raw.githubusercontent.com/rrooggiieerr/homeassistant-xyscreens/main/screenshot_add_device.png" width="305"/>
 
-- After restarting go to **Settings** then **Devices & Services**
-- Select **+ Add integration** and type in **XY Screens**
-- Select the serial port or enter the path manually
-- Select the address of your device or enter the address manually
-- Select the type of device, projector screen or projector lift
-- Set the up and down times of your device.
-- Select **Submit**
-
-A new XY Screens integration and device will now be added to your Integrations view.
+- Browse to your Home Assistant instance.
+- Go to [**Settings > Devices & services**](https://my.home-assistant.io/redirect/integrations).
+- In the bottom right corner, select the [+ Add Integration](https://my.home-assistant.io/redirect/config_flow_start?domain=my_pv) button.
+- From the list, select **XY Screens**.
+- Follow the instructions on screen to complete the setup.
 
 ## Contribution and appreciation
 
 Do you enjoy using this Home Assistant integration? You can contribute or show your appreciation,
 in the following ways.
+
+### Contribute your projector screen brand and model
+
+Is your projector screen supported by this Home Assistant integration but not listed under
+*Supported projector screens and lifts*? Let me know your projector screen brand and model so I can
+improve the overview of supported projector screens and lifts.
 
 ### Contribute your language
 

@@ -4,27 +4,27 @@
       "already_configured": "Urządzenie jest już skonfigurowane"
     },
     "error": {
-      "cannot_connect": "Nie udało się połączyć",
-      "nonexisting_serial_port": "Port szeregowy nie istnieje",
+      "cannot_connect": "Nie powiodło się połączenie",
+      "nonexisting_serial_port": "Seryjny poort nie istnieje",
       "invalid_address": "Nieprawidłowy adres",
       "unknown": "Nieoczekiwany błąd"
     },
     "step": {
-      "setup_serial": {
+      "user": {
         "data": {
           "serial_port": "Port szeregowy",
           "address": "Adres",
           "device_type": "Typ urządzenia",
-          "time_open": "Czas otwarty",
+          "time_open": "Czas otwarcia",
           "time_close": "Czas zamknięcia",
           "inverted": "Odwróć zachowanie"
         },
         "data_description": {
-          "serial_port": "Port szeregowy, do którego podłączone jest urządzenie.",
-          "address": "Szesnastkowy adres urządzenia.",
+          "serial_port": "Port szeregowy, z którym jest podłączone urządzenie.",
+          "address": "6 znaków szesnastkowych adresu urządzenia.",
           "time_open": "Czas potrzebny na otwarcie urządzenia.",
           "time_close": "Czas potrzebny na zamknięcie urządzenia.",
-          "inverted": "Integracja ta następuje po Jednostce Okładki, gdzie otwarcie oznacza wsunięcie zasłony, a zamknięcie zasłonę wyciągnięcie, w ten sam sposób, w jaki działają zasłony i bramy garażowe. W przypadku ekranu projekcyjnego jest to sprzeczne z intuicją. Możesz odwrócić to zachowanie."
+          "inverted": "Integracja ta następuje po \"Cover Entity\", gdzie otwarte oznacza, że ekran jest zwinięty i zamknięty, tak samo jak zasłony i drzwi garażowe działają. Dla ekranu projekcyjnego jest to sprzeczne z intuicją. Możesz odwrócić zachowanie."
         }
       }
     }
@@ -33,7 +33,7 @@
     "device_type": {
       "options": {
         "projector_screen": "Ekran projektora",
-        "projector_lift": "Winda do projektora"
+        "projector_lift": "Podnośnik projektora"
       }
     }
   },
@@ -42,27 +42,27 @@
       "projector_screen": {
         "title": "Opcje ekranu projektora",
         "data": {
-          "time_open": "Czas otwarty",
+          "time_open": "Czas otwarcia",
           "time_close": "Czas zamknięcia",
           "inverted": "Odwróć zachowanie"
         },
         "data_description": {
-          "time_open": "Czas potrzebny do otwarcia ekranu projektora.",
-          "time_close": "Czas potrzebny do zamknięcia ekranu projektora.",
-          "inverted": "Integracja ta następuje po Jednostce Okładki, gdzie otwarcie oznacza wsunięcie zasłony, a zamknięcie zasłonę wyciągnięcie, w ten sam sposób, w jaki działają zasłony i bramy garażowe. W przypadku ekranu projekcyjnego jest to sprzeczne z intuicją. Możesz odwrócić to zachowanie."
+          "time_open": "Czas potrzebny na otwarcie ekranu projektora.",
+          "time_close": "Czas potrzebny na zamknięcie ekranu projektora.",
+          "inverted": "Integracja ta następuje po \"Cover Entity\", gdzie otwarte oznacza, że ekran jest zwinięty i zamknięty, tak samo jak zasłony i drzwi garażowe działają. Dla ekranu projekcyjnego jest to sprzeczne z intuicją. Możesz odwrócić zachowanie."
         }
       },
       "projector_lift": {
         "title": "Opcje podnoszenia projektora",
         "data": {
-          "time_open": "Czas otwarty",
+          "time_open": "Czas otwarcia",
           "time_close": "Czas zamknięcia",
           "inverted": "Odwróć zachowanie"
         },
         "data_description": {
-          "time_open": "Czas potrzebny na otwarcie windy do projektora.",
-          "time_close": "Czas potrzebny na zamknięcie windy do projektora.",
-          "inverted": "Integracja ta następuje po Jednostce Okładki, gdzie otwarcie oznacza wsunięcie zasłony, a zamknięcie zasłonę wyciągnięcie, w ten sam sposób, w jaki działają zasłony i bramy garażowe. W przypadku ekranu projekcyjnego jest to sprzeczne z intuicją. Możesz odwrócić to zachowanie."
+          "time_open": "Czas potrzebny na otwarcie windy projektora.",
+          "time_close": "Czas potrzebny na zamknięcie windy projektora.",
+          "inverted": "Integracja ta następuje po \"Cover Entity\", gdzie otwarte oznacza, że ekran jest zwinięty i zamknięty, tak samo jak zasłony i drzwi garażowe działają. Dla ekranu projekcyjnego jest to sprzeczne z intuicją. Możesz odwrócić zachowanie."
         }
       }
     }
@@ -72,7 +72,7 @@
       "name": "Ekran projektora"
     },
     "projector_lift": {
-      "name": "Winda do projektora"
+      "name": "Podnośnik projektora"
     }
   },
   "entity": {
@@ -81,16 +81,16 @@
         "state": {
           "open": "Zamknięte",
           "opening": "Zamknięcie",
-          "closing": "Otwór",
-          "closed": "Otwarte"
+          "closing": "Otwarcie",
+          "closed": "Otwórz"
         }
       },
       "projector_lift": {
         "state": {
           "open": "Zamknięte",
           "opening": "Zamknięcie",
-          "closing": "Otwór",
-          "closed": "Otwarte"
+          "closing": "Otwarcie",
+          "closed": "Otwórz"
         }
       }
     }

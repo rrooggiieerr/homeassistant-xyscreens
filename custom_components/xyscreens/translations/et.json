@@ -1,30 +1,30 @@
 {
   "config": {
     "abort": {
-      "already_configured": "Seade on juba konfigureeritud"
+      "already_configured": "Seade on juba seadistatud"
     },
     "error": {
-      "cannot_connect": "Ühenduse loomine ebaõnnestus",
-      "nonexisting_serial_port": "Serial poort ei eksisteeri",
-      "invalid_address": "Kehtetu aadress",
+      "cannot_connect": "Ühendamine nurjus",
+      "nonexisting_serial_port": "Jadavill ei ole olemas",
+      "invalid_address": "Vigane aadress",
       "unknown": "Ootamatu viga"
     },
     "step": {
-      "setup_serial": {
+      "user": {
         "data": {
-          "serial_port": "Jadaport",
+          "serial_port": "Jadasadam",
           "address": "Aadress",
           "device_type": "Seadme tüüp",
-          "time_open": "Avatud aeg",
-          "time_close": "Sule aeg",
-          "inverted": "Pöörake käitumine"
+          "time_open": "Lahtiolekuaeg",
+          "time_close": "Sulgemisaeg",
+          "inverted": "Inverteeri käitumine"
         },
         "data_description": {
           "serial_port": "Jadaport, millega teie seade on ühendatud.",
-          "address": "Seadme kuueteistkümnendsüsteemi aadress.",
-          "time_open": "Seadme avamiseks kuluv aeg.",
-          "time_close": "Seadme sulgemiseks kuluv aeg.",
-          "inverted": "See integratsioon järgib Cover Entity'i, kus avatud tähendab, et ekraan tõmmatakse sisse ja suletud, ekraan tõmmatakse välja, samamoodi nagu kardinad ja garaažiuksed töötavad. Projektsiooniekraani puhul on see intuitiivne. Saate käitumist muuta."
+          "address": "Seadme 6-kohaline kuueteistkümnendsüsteemi aadress.",
+          "time_open": "Seadme avamiseks on vaja aega.",
+          "time_close": "Seadme sulgemiseks on vaja aega.",
+          "inverted": "See integratsioon järgneb Cover Entity'le, kus avatud tähendab, et ekraan tõmmatakse sisse ja suletakse, ekraan eemaldatakse, samamoodi nagu kardinad ja garaažiuksed töötavad. Projektsiooniekraani puhul on see vastupidine. Sa võid käitumise ümber pöörata."
         }
       }
     }
@@ -33,36 +33,36 @@
     "device_type": {
       "options": {
         "projector_screen": "Projektori ekraan",
-        "projector_lift": "Projektori tõstuk"
+        "projector_lift": "Projektortõstuk"
       }
     }
   },
   "options": {
     "step": {
       "projector_screen": {
-        "title": "Projektori ekraani valikud",
+        "title": "Projektori ekraanivalikud",
         "data": {
-          "time_open": "Avatud aeg",
-          "time_close": "Sule aeg",
-          "inverted": "Pöörake käitumine"
+          "time_open": "Lahtiolekuaeg",
+          "time_close": "Sulgemisaeg",
+          "inverted": "Inverteeri käitumine"
         },
         "data_description": {
-          "time_open": "Projektori ekraani avamiseks kuluv aeg.",
-          "time_close": "Projektori ekraani sulgemiseks kuluv aeg.",
-          "inverted": "See integratsioon järgib Cover Entity'i, kus avatud tähendab, et ekraan tõmmatakse sisse ja suletud, ekraan tõmmatakse välja, samamoodi nagu kardinad ja garaažiuksed töötavad. Projektsiooniekraani puhul on see intuitiivne. Saate käitumist muuta."
+          "time_open": "Projektori ekraani avamiseks on vaja aega.",
+          "time_close": "Projektori ekraani sulgemiseks on vaja aega.",
+          "inverted": "See integratsioon järgneb Cover Entity'le, kus avatud tähendab, et ekraan tõmmatakse sisse ja suletakse, ekraan eemaldatakse, samamoodi nagu kardinad ja garaažiuksed töötavad. Projektsiooniekraani puhul on see vastupidine. Sa võid käitumise ümber pöörata."
         }
       },
       "projector_lift": {
-        "title": "Projektori tõstmise võimalused",
+        "title": "Projektori tõstevalikud",
         "data": {
-          "time_open": "Avatud aeg",
-          "time_close": "Sule aeg",
-          "inverted": "Pöörake käitumine"
+          "time_open": "Lahtiolekuaeg",
+          "time_close": "Sulgemisaeg",
+          "inverted": "Inverteeri käitumine"
         },
         "data_description": {
-          "time_open": "Projektori lifti avamiseks kuluv aeg.",
-          "time_close": "Projektori lifti sulgemiseks kuluv aeg.",
-          "inverted": "See integratsioon järgib Cover Entity, kus avatud tähendab, et ekraan tõmmatakse sisse ja suletud, ekraan tõmmatakse välja, samamoodi nagu kardinad ja garaažiuksed töötavad. Projektsiooniekraani puhul on see intuitiivne. Saate käitumist muuta."
+          "time_open": "Projektori lifti avamiseks on vaja aega.",
+          "time_close": "Projektori lifti sulgemiseks on vaja aega.",
+          "inverted": "See integratsioon järgneb Cover Entity'le, kus avatud tähendab, et ekraan tõmmatakse sisse ja suletakse, ekraan eemaldatakse, samamoodi nagu kardinad ja garaažiuksed töötavad. Projektsiooniekraani puhul on see vastupidine. Sa võid käitumise ümber pöörata."
         }
       }
     }
@@ -72,7 +72,7 @@
       "name": "Projektori ekraan"
     },
     "projector_lift": {
-      "name": "Projektori tõstuk"
+      "name": "Projektor Lift"
     }
   },
   "entity": {
@@ -82,7 +82,7 @@
           "open": "Suletud",
           "opening": "Sulgemine",
           "closing": "Avamine",
-          "closed": "Avatud"
+          "closed": "Avage"
         }
       },
       "projector_lift": {
@@ -90,7 +90,7 @@
           "open": "Suletud",
           "opening": "Sulgemine",
           "closing": "Avamine",
-          "closed": "Avatud"
+          "closed": "Avage"
         }
       }
     }

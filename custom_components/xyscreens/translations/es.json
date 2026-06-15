@@ -5,26 +5,26 @@
     },
     "error": {
       "cannot_connect": "No se pudo conectar",
-      "nonexisting_serial_port": "El puerto serial no existe",
-      "invalid_address": "Dirección no válida",
-      "unknown": "error inesperado"
+      "nonexisting_serial_port": "El pobre en serie no existe",
+      "invalid_address": "Dirección inválida",
+      "unknown": "Error inesperado"
     },
     "step": {
-      "setup_serial": {
+      "user": {
         "data": {
-          "serial_port": "Puerto serie",
-          "address": "DIRECCIÓN",
+          "serial_port": "Puerto de serie",
+          "address": "Dirección",
           "device_type": "Tipo de dispositivo",
-          "time_open": "tiempo abierto",
-          "time_close": "hora de cierre",
-          "inverted": "Comportamiento invertido"
+          "time_open": "Tiempo abierto",
+          "time_close": "Hora de cerrar",
+          "inverted": "Invertir el comportamiento"
         },
         "data_description": {
-          "serial_port": "El puerto serie al que está conectado su dispositivo.",
-          "address": "La dirección hexadecimal del dispositivo.",
+          "serial_port": "El puerto de serie al que está conectado tu dispositivo.",
+          "address": "La dirección hexadecimal de 6 caracteres del dispositivo.",
           "time_open": "Tiempo necesario para abrir el dispositivo.",
           "time_close": "Tiempo necesario para cerrar el dispositivo.",
-          "inverted": "Esta integración sigue la Entidad de Cobertura, donde abierta significa que la mampara se retrae y cerrada se extrae, de la misma manera que funcionan las cortinas y puertas de garaje. Para una pantalla de proyección esto es contradictorio. Puedes revertir el comportamiento."
+          "inverted": "Esta integración sigue la Entidad Cubierta, donde la pantalla se retrae y cierra la pantalla se extrae, de la misma manera que funcionan las cortinas y las puertas del garaje. Para una pantalla de proyección esto es contraintuitivo. Puedes revertir el comportamiento."
         }
       }
     }
@@ -32,37 +32,37 @@
   "selector": {
     "device_type": {
       "options": {
-        "projector_screen": "Pantalla de proyección",
-        "projector_lift": "Elevador de proyector"
+        "projector_screen": "Pantalla del proyector",
+        "projector_lift": "Ascensor de proyector"
       }
     }
   },
   "options": {
     "step": {
       "projector_screen": {
-        "title": "Opciones de pantalla de proyección",
+        "title": "Opciones de pantalla del proyector",
         "data": {
-          "time_open": "tiempo abierto",
-          "time_close": "hora de cierre",
-          "inverted": "Comportamiento invertido"
+          "time_open": "Tiempo abierto",
+          "time_close": "Hora de cerrar",
+          "inverted": "Invertir el comportamiento"
         },
         "data_description": {
           "time_open": "Tiempo necesario para abrir la pantalla del proyector.",
           "time_close": "Tiempo necesario para cerrar la pantalla del proyector.",
-          "inverted": "Esta integración sigue la Entidad de Cobertura, donde abierta significa que la mampara se retrae y cerrada se extrae, de la misma manera que funcionan las cortinas y puertas de garaje. Para una pantalla de proyección esto es contradictorio. Puedes revertir el comportamiento."
+          "inverted": "Esta integración sigue la Entidad Cubierta, donde la pantalla se retrae y cierra la pantalla se extrae, de la misma manera que funcionan las cortinas y las puertas del garaje. Para una pantalla de proyección esto es contraintuitivo. Puedes revertir el comportamiento."
         }
       },
       "projector_lift": {
         "title": "Opciones de elevación del proyector",
         "data": {
-          "time_open": "tiempo abierto",
-          "time_close": "hora de cierre",
-          "inverted": "Comportamiento invertido"
+          "time_open": "Tiempo abierto",
+          "time_close": "Hora de cerrar",
+          "inverted": "Invertir el comportamiento"
         },
         "data_description": {
-          "time_open": "Tiempo necesario para abrir el elevador del proyector.",
-          "time_close": "Tiempo necesario para cerrar el elevador de proyectores.",
-          "inverted": "Esta integración sigue la Entidad de Cobertura, donde abierta significa que la mampara se retrae y cerrada se extrae, de la misma manera que funcionan las cortinas y puertas de garaje. Para una pantalla de proyección esto es contradictorio. Puedes revertir el comportamiento."
+          "time_open": "Tiempo necesario para abrir el ascensor del proyector.",
+          "time_close": "Tiempo necesario para cerrar el ascensor del proyector.",
+          "inverted": "Esta integración sigue la Entidad Cubierta, donde la pantalla se retrae y cierra la pantalla se extrae, de la misma manera que funcionan las cortinas y las puertas del garaje. Para una pantalla de proyección esto es contraintuitivo. Puedes revertir el comportamiento."
         }
       }
     }
@@ -72,7 +72,7 @@
       "name": "Pantalla de proyector"
     },
     "projector_lift": {
-      "name": "Elevador de proyector"
+      "name": "Levante del proyector"
     }
   },
   "entity": {
@@ -80,7 +80,7 @@
       "projector_screen": {
         "state": {
           "open": "Cerrado",
-          "opening": "Cierre",
+          "opening": "Clausura",
           "closing": "Apertura",
           "closed": "Abierto"
         }
@@ -88,7 +88,7 @@
       "projector_lift": {
         "state": {
           "open": "Cerrado",
-          "opening": "Cierre",
+          "opening": "Clausura",
           "closing": "Apertura",
           "closed": "Abierto"
         }

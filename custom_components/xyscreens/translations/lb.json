@@ -10,9 +10,9 @@
       "unknown": "Onerwaarte Feeler"
     },
     "step": {
-      "setup_serial": {
+      "user": {
         "data": {
-          "serial_port": "Serien Hafen",
+          "serial_port": "Serial port",
           "address": "Adress",
           "device_type": "Apparat Typ",
           "time_open": "Open Zäit",
@@ -21,7 +21,7 @@
         },
         "data_description": {
           "serial_port": "De Serien Hafen mat Ärem Apparat ugeschloss ass.",
-          "address": "D'hexadezimal Adress vum Apparat.",
+          "address": "Déi 6 Zeechen hexadezimal Adress vum Apparat.",
           "time_open": "Zäit néideg fir den Apparat opzemaachen.",
           "time_close": "Zäit néideg fir den Apparat zouzemaachen.",
           "inverted": "Dës Integratioun follegt der Cover Entity, wou oppen heescht datt den Ecran zréckgezunn ass an zou ass den Ecran extrahéiert, déiselwecht wéi Gardinen a Garagendieren funktionnéieren. Fir e Projektiounsscreen ass dëst kontraintuitiv. Dir kënnt d'Verhalen ëmsetzen."

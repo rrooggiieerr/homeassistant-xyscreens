@@ -10,7 +10,7 @@
       "unknown": "Neočekivana pogreška"
     },
     "step": {
-      "setup_serial": {
+      "user": {
         "data": {
           "serial_port": "Serijski priključak",
           "address": "Adresa",
@@ -21,7 +21,7 @@
         },
         "data_description": {
           "serial_port": "Serijski priključak na koji je vaš uređaj povezan.",
-          "address": "Heksadecimalna adresa uređaja.",
+          "address": "Heksadecimalna adresa uređaja od 6 znakova.",
           "time_open": "Vrijeme potrebno za otvaranje uređaja.",
           "time_close": "Vrijeme potrebno za zatvaranje uređaja.",
           "inverted": "Ova integracija slijedi Cover Entity, gdje otvoreno znači da je zaslon uvučen, a zatvoren zaslon je izvučen, na isti način na koji rade zavjese i garažna vrata. Za projekcijsko platno to je kontraintuitivno. Možete promijeniti ponašanje."

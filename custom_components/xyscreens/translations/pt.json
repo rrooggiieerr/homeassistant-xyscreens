@@ -5,26 +5,26 @@
     },
     "error": {
       "cannot_connect": "Falha ao conectar",
-      "nonexisting_serial_port": "Pobret serial não existe",
+      "nonexisting_serial_port": "O serial pobret não existe",
       "invalid_address": "Endereço inválido",
       "unknown": "Erro inesperado"
     },
     "step": {
-      "setup_serial": {
+      "user": {
         "data": {
-          "serial_port": "Porta serial",
+          "serial_port": "Porta de série",
           "address": "Endereço",
           "device_type": "Tipo de dispositivo",
-          "time_open": "Horário aberto",
-          "time_close": "Hora de fechamento",
-          "inverted": "Inverter comportamento"
+          "time_open": "Tempo aberto",
+          "time_close": "Fechar a hora",
+          "inverted": "Comportamento de inversão"
         },
         "data_description": {
-          "serial_port": "A porta serial à qual seu dispositivo está conectado.",
-          "address": "O endereço hexadecimal do dispositivo.",
+          "serial_port": "A porta serial a que o seu dispositivo está ligado.",
+          "address": "O endereço hexadecimal de 6 caracteres do dispositivo.",
           "time_open": "Tempo necessário para abrir o dispositivo.",
           "time_close": "Tempo necessário para fechar o dispositivo.",
-          "inverted": "Esta integração segue a Entidade Cobertura, onde aberta significa que a tela é retraída e fechada a tela é extraída, da mesma forma que funcionam cortinas e portas de garagem. Para uma tela de projeção, isso é contra-intuitivo. Você pode reverter o comportamento."
+          "inverted": "Esta integração segue a Entidade de Capa, onde aberto significa que a tela é retraída e fechada a tela é extraída, da mesma forma que cortinas e portas de garagem funcionam. Para uma tela de projeção isso é contraintuitivo. Podes reverter o comportamento."
         }
       }
     }
@@ -40,29 +40,29 @@
   "options": {
     "step": {
       "projector_screen": {
-        "title": "Opções de tela do projetor",
+        "title": "Opções do ecrã do projector",
         "data": {
-          "time_open": "Horário aberto",
-          "time_close": "Hora de fechamento",
-          "inverted": "Inverter comportamento"
+          "time_open": "Tempo aberto",
+          "time_close": "Fechar a hora",
+          "inverted": "Comportamento de inversão"
         },
         "data_description": {
           "time_open": "Tempo necessário para abrir a tela do projetor.",
-          "time_close": "Tempo necessário para fechar a tela do projetor.",
-          "inverted": "Esta integração segue a Entidade Cobertura, onde aberta significa que a tela é retraída e fechada a tela é extraída, da mesma forma que funcionam cortinas e portas de garagem. Para uma tela de projeção, isso é contra-intuitivo. Você pode reverter o comportamento."
+          "time_close": "Tempo necessário para fechar o ecrã do projector.",
+          "inverted": "Esta integração segue a Entidade de Capa, onde aberto significa que a tela é retraída e fechada a tela é extraída, da mesma forma que cortinas e portas de garagem funcionam. Para uma tela de projeção isso é contraintuitivo. Podes reverter o comportamento."
         }
       },
       "projector_lift": {
         "title": "Opções de elevação do projetor",
         "data": {
-          "time_open": "Horário aberto",
-          "time_close": "Hora de fechamento",
-          "inverted": "Inverter comportamento"
+          "time_open": "Tempo aberto",
+          "time_close": "Fechar a hora",
+          "inverted": "Comportamento de inversão"
         },
         "data_description": {
           "time_open": "Tempo necessário para abrir o elevador do projetor.",
           "time_close": "Tempo necessário para fechar o elevador do projetor.",
-          "inverted": "Esta integração segue a Entidade Cobertura, onde aberta significa que a tela é retraída e fechada a tela é extraída, da mesma forma que funcionam cortinas e portas de garagem. Para uma tela de projeção, isso é contra-intuitivo. Você pode reverter o comportamento."
+          "inverted": "Esta integração segue a Entidade de Capa, onde aberto significa que a tela é retraída e fechada a tela é extraída, da mesma forma que cortinas e portas de garagem funcionam. Para uma tela de projeção isso é contraintuitivo. Podes reverter o comportamento."
         }
       }
     }

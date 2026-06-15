@@ -10,7 +10,7 @@
       "unknown": "Onverwagte fout"
     },
     "step": {
-      "setup_serial": {
+      "user": {
         "data": {
           "serial_port": "Seriepoort",
           "address": "Adres",
@@ -21,7 +21,7 @@
         },
         "data_description": {
           "serial_port": "Die reekspoort waaraan jou toestel gekoppel is.",
-          "address": "Die heksadesimale adres van die toestel.",
+          "address": "Die 6 karakter heksadesimale adres van die toestel.",
           "time_open": "Tyd benodig om die toestel oop te maak.",
           "time_close": "Tyd benodig om die toestel toe te maak.",
           "inverted": "Hierdie integrasie volg op die Cover Entity, waar oop beteken dat die skerm ingetrek en toe is die skerm uitgetrek word, op dieselfde manier as wat gordyne en motorhuisdeure werk. Vir 'n projeksieskerm is dit teen-intuïtief. Jy kan die gedrag omkeer."
