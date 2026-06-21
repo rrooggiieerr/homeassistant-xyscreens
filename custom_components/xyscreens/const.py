@@ -3,7 +3,6 @@
 DOMAIN = "xyscreens"
 
 CONF_SERIAL_PORT = "serial_port"
-CONF_ADDRESS = "address"
 CONF_ADDRESS_SEE_MAX = "EEEEEE"
 CONF_ADDRESS_XYSCREENS = "AAEEEE"
 CONF_DEVICE_TYPE = "device_type"

@@ -11,6 +11,7 @@ from homeassistant.components.cover import (
     CoverEntityFeature,
 )
 from homeassistant.config_entries import ConfigEntry
+from homeassistant.const import CONF_ADDRESS
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
@@ -18,7 +19,6 @@ from homeassistant.helpers.restore_state import RestoreEntity
 from xyscreens import XYScreens, XYScreensState
 
 from .const import (
-    CONF_ADDRESS,
     CONF_ADDRESS_XYSCREENS,
     CONF_DEVICE_TYPE,
     CONF_DEVICE_TYPE_PROJECTOR_LIFT,

@@ -10,7 +10,7 @@ from homeassistant.config_entries import (
     ConfigFlowResult,
     OptionsFlow,
 )
-from homeassistant.const import UnitOfTime
+from homeassistant.const import CONF_ADDRESS, UnitOfTime
 from homeassistant.core import callback
 from homeassistant.helpers.selector import (
     BooleanSelector,
@@ -25,7 +25,6 @@ from homeassistant.helpers.selector import (
 from xyscreens import XYScreens
 
 from .const import (
-    CONF_ADDRESS,
     CONF_ADDRESS_SEE_MAX,
     CONF_ADDRESS_XYSCREENS,
     CONF_DEVICE_TYPE,
