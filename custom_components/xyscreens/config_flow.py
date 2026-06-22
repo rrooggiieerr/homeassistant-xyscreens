@@ -4,6 +4,8 @@ import logging
 from typing import Any
 
 import voluptuous as vol
+from xyscreens import XYScreens
+
 from homeassistant.config_entries import (
     ConfigEntry,
     ConfigFlow,
@@ -22,7 +24,6 @@ from homeassistant.helpers.selector import (
     SelectSelectorConfig,
     SerialPortSelector,
 )
-from xyscreens import XYScreens
 
 from .const import (
     CONF_ADDRESS_SEE_MAX,

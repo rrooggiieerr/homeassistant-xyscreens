@@ -3,6 +3,8 @@
 import logging
 from typing import Any
 
+from xyscreens import XYScreens, XYScreensState
+
 from homeassistant.components.cover import (
     ATTR_CURRENT_POSITION,
     ATTR_POSITION,
@@ -16,7 +18,6 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.restore_state import RestoreEntity
-from xyscreens import XYScreens, XYScreensState
 
 from .const import (
     CONF_ADDRESS_XYSCREENS,
