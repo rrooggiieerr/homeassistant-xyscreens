@@ -34,7 +34,6 @@ from .const import (
 _LOGGER = logging.getLogger(__name__)
 
 
-# pylint: disable=W0613
 async def async_setup_entry(
     hass: HomeAssistant,
     config_entry: ConfigEntry,
