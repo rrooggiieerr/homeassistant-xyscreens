@@ -33,7 +33,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     # Test if we can connect to the device.
     serial_port = entry.data[CONF_SERIAL_PORT]
     address = bytes.fromhex(entry.data.get(CONF_ADDRESS, CONF_ADDRESS_XYSCREENS))
-    time_open = entry.options.get(CONF_TIME_OPEN)
+    time_open = entry.options[CONF_TIME_OPEN]
     screen = XYScreens(serial_port, address, time_open)
     if not await screen.async_test_connection():
         raise ConfigEntryNotReady(f"Unable to connect to device {serial_port}")
