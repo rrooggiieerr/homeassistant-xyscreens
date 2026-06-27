@@ -1,6 +1,5 @@
 """Config flow for XY Screens integration."""
 
-import logging
 from typing import Any, override
 
 import voluptuous as vol
@@ -37,9 +36,6 @@ from .const import (
     CONF_TIME_OPEN,
     DOMAIN,
 )
-
-_LOGGER = logging.getLogger(__name__)
-
 
 DATA_SCHEMA = vol.Schema(
     {
