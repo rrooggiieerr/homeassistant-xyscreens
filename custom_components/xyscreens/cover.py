@@ -1,7 +1,7 @@
 """The XY Screens cover entity."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 from xyscreens import XYScreens, XYScreensState
 
@@ -113,6 +113,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
 
         self._inverted = inverted
 
+    @override
     async def async_added_to_hass(self) -> None:
         """Called when sensor is added to Home Assistant."""
         last_state = await self.async_get_last_state()
@@ -133,7 +134,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
         self._screen.add_callback(self._callback)
 
     @callback
-    def _callback(self, state: XYScreensState, position: float):
+    def _callback(self, state: XYScreensState, position: float) -> None:
         """Callback to be called by XYScreens library whenever a state changes."""
         if not self._inverted:
             position = 100 - self._screen.position()
@@ -170,6 +171,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     async def _async_close_cover(self, **kwargs: Any) -> None:
         await self._screen.async_down()
 
+    @override
     async def async_open_cover(self, **kwargs: Any) -> None:
         """Open the cover."""
         if not self._inverted:
@@ -177,6 +179,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
         else:
             await self._async_close_cover()
 
+    @override
     async def async_close_cover(self, **kwargs: Any) -> None:
         """Close the cover."""
         if not self._inverted:
@@ -184,10 +187,12 @@ class XYScreensCover(CoverEntity, RestoreEntity):
         else:
             await self._async_open_cover()
 
+    @override
     async def async_stop_cover(self, **kwargs: Any) -> None:
         """Stop the cover."""
         await self._screen.async_stop()
 
+    @override
     async def async_set_cover_position(self, **kwargs: Any) -> None:
         """Move the cover to a specific position."""
         position = kwargs[ATTR_POSITION]

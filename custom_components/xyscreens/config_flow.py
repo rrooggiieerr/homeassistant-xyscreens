@@ -1,7 +1,7 @@
 """Config flow for XY Screens integration."""
 
 import logging
-from typing import Any
+from typing import Any, override
 
 import voluptuous as vol
 from xyscreens import XYScreens
@@ -124,11 +124,10 @@ OPTIONS_SCHEMA = vol.Schema(
 )
 
 
-def validate_address(address) -> bool:
+def validate_address(address: str) -> bool:
     """Validates the address."""
     try:
-        address = bytes.fromhex(address)
-        address = address.hex()
+        address = bytes.fromhex(address).hex()
 
         if len(address) != 6:
             return False
@@ -144,6 +143,7 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
     VERSION = 2
     MINOR_VERSION = 2
 
+    @override
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
@@ -196,6 +196,7 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
 
     @staticmethod
     @callback
+    @override
     def async_get_options_flow(
         config_entry: ConfigEntry,
     ) -> OptionsFlow:
