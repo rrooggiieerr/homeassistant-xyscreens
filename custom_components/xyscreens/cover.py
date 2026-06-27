@@ -1,7 +1,7 @@
 """The XY Screens cover entity."""
 
 import logging
-from typing import Any, override
+from typing import Any, Final, override
 
 from xyscreens import XYScreens, XYScreensState
 
@@ -31,7 +31,7 @@ from .const import (
     DOMAIN,
 )
 
-_LOGGER = logging.getLogger(__name__)
+_LOGGER: Final = logging.getLogger(__name__)
 
 
 async def async_setup_entry(

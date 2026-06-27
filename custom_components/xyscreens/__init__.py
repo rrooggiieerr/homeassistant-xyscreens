@@ -1,7 +1,7 @@
 """The XY Screens integration."""
 
 import logging
-from typing import Any
+from typing import Any, Final
 
 from xyscreens import XYScreens
 
@@ -21,7 +21,7 @@ from .const import (
     CONF_TIME_OPEN,
 )
 
-_LOGGER = logging.getLogger(__name__)
+_LOGGER: Final = logging.getLogger(__name__)
 
 PLATFORMS: list[Platform] = [Platform.COVER]
 
