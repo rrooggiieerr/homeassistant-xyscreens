@@ -3,6 +3,7 @@
   "name": "XY Screens",
   "codeowners": ["@rrooggiieerr"],
   "config_flow": true,
+  "dependencies": ["usb"],
   "documentation": "https://github.com/rrooggiieerr/homeassistant-xyscreens",
   "integration_type": "device",
   "iot_class": "assumed_state",
