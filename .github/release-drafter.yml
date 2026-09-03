@@ -1,5 +1,5 @@
-name-template: 'v$RESOLVED_VERSION'
-tag-template: 'v$RESOLVED_VERSION'
+name-template: '$RESOLVED_VERSION'
+tag-template: '$RESOLVED_VERSION'
 template: |
   ## What’s Changed
 
@@ -74,6 +74,7 @@ version-resolver:
   
 exclude-labels:
   - 'skip-changelog'
+  - 'github_actions'
 
 exclude-contributors:
   - 'dependabot'
