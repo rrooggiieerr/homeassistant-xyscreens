@@ -2,7 +2,7 @@
 
 from typing import Any, override
 
-import voluptuous as vol
+import probatio
 from xyscreens import XYScreens
 
 from homeassistant.config_entries import (
@@ -37,10 +37,10 @@ from .const import (
     DOMAIN,
 )
 
-DATA_SCHEMA = vol.Schema(
+DATA_SCHEMA = probatio.Schema(
     {
-        vol.Required(CONF_SERIAL_PORT, default=""): SerialPortSelector(),
-        vol.Required(CONF_ADDRESS, default=""): SelectSelector(
+        probatio.Required(CONF_SERIAL_PORT, default=""): SerialPortSelector(),
+        probatio.Required(CONF_ADDRESS, default=""): SelectSelector(
             SelectSelectorConfig(
                 options=[
                     SelectOptionDict(
@@ -56,7 +56,7 @@ DATA_SCHEMA = vol.Schema(
                 sort=True,
             )
         ),
-        vol.Required(
+        probatio.Required(
             CONF_DEVICE_TYPE, default=CONF_DEVICE_TYPE_PROJECTOR_SCREEN
         ): SelectSelector(
             SelectSelectorConfig(
@@ -73,26 +73,26 @@ DATA_SCHEMA = vol.Schema(
                 translation_key=CONF_DEVICE_TYPE,
             )
         ),
-        vol.Required(CONF_TIME_OPEN, default=1): NumberSelector(
+        probatio.Required(CONF_TIME_OPEN, default=1): NumberSelector(
             NumberSelectorConfig(
                 min=1,
                 mode=NumberSelectorMode.BOX,
                 unit_of_measurement=UnitOfTime.SECONDS,
             )
         ),
-        vol.Required(CONF_TIME_CLOSE, default=1): NumberSelector(
+        probatio.Required(CONF_TIME_CLOSE, default=1): NumberSelector(
             NumberSelectorConfig(
                 min=1,
                 mode=NumberSelectorMode.BOX,
                 unit_of_measurement=UnitOfTime.SECONDS,
             )
         ),
-        vol.Required(CONF_INVERTED, default=False): BooleanSelector(),
+        probatio.Required(CONF_INVERTED, default=False): BooleanSelector(),
     }
 )
-OPTIONS_SCHEMA = vol.Schema(
+OPTIONS_SCHEMA = probatio.Schema(
     {
-        vol.Required(
+        probatio.Required(
             CONF_TIME_OPEN,
             default=1,
         ): NumberSelector(
@@ -102,7 +102,7 @@ OPTIONS_SCHEMA = vol.Schema(
                 unit_of_measurement=UnitOfTime.SECONDS,
             )
         ),
-        vol.Required(
+        probatio.Required(
             CONF_TIME_CLOSE,
             default=1,
         ): NumberSelector(
@@ -112,7 +112,7 @@ OPTIONS_SCHEMA = vol.Schema(
                 unit_of_measurement=UnitOfTime.SECONDS,
             )
         ),
-        vol.Required(
+        probatio.Required(
             CONF_INVERTED,
             default=False,
         ): BooleanSelector(),
