@@ -147,9 +147,6 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
         errors: dict[str, str] = {}
 
         if user_input is not None:
-            # Validate user input.
-            DATA_SCHEMA(user_input)
-
             serial_port = user_input[CONF_SERIAL_PORT]
             address = user_input[CONF_ADDRESS]
 
@@ -210,7 +207,6 @@ class XYScreensOptionsFlowHandler(OptionsFlow):
         errors: dict[str, str] = {}
 
         if user_input is not None:
-            OPTIONS_SCHEMA(user_input)
             return self.async_create_entry(title="", data=user_input)
 
         # Combine user input with schema.
