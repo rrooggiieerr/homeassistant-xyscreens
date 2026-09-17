@@ -1,9 +1,11 @@
 """The XY Screens cover entity."""
 
+import functools
 import logging
+from collections.abc import Callable, Coroutine
 from typing import Any, Final, override
 
-from xyscreens import XYScreens, XYScreensState
+from xyscreens import XYScreens, XYScreensConnectionError, XYScreensState
 
 from homeassistant.components.cover import (
     ATTR_CURRENT_POSITION,
@@ -15,6 +17,7 @@ from homeassistant.components.cover import (
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_ADDRESS
 from homeassistant.core import HomeAssistant, callback
+from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.restore_state import RestoreEntity
@@ -58,6 +61,22 @@ async def async_setup_entry(
             )
         ]
     )
+
+
+def _xyscreens_error_wrapper[T](
+    func: Callable[..., Coroutine[Any, Any, T]],
+) -> Callable[..., Coroutine[Any, Any, T]]:
+    @functools.wraps(func)
+    async def wrapper(self, *args: Any, **kwargs: Any) -> T:
+        try:
+            return await func(self, *args, **kwargs)
+        except XYScreensConnectionError as exc:
+            raise HomeAssistantError(
+                translation_domain=DOMAIN,
+                translation_key="connection_error",
+            ) from exc
+
+    return wrapper
 
 
 class XYScreensCover(CoverEntity, RestoreEntity):
@@ -165,9 +184,11 @@ class XYScreensCover(CoverEntity, RestoreEntity):
 
         self.async_write_ha_state()
 
+    @_xyscreens_error_wrapper
     async def _async_open_cover(self, **kwargs: Any) -> None:
         await self._screen.async_up()
 
+    @_xyscreens_error_wrapper
     async def _async_close_cover(self, **kwargs: Any) -> None:
         await self._screen.async_down()
 
@@ -188,11 +209,13 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             await self._async_open_cover()
 
     @override
+    @_xyscreens_error_wrapper
     async def async_stop_cover(self, **kwargs: Any) -> None:
         """Stop the cover."""
         await self._screen.async_stop()
 
     @override
+    @_xyscreens_error_wrapper
     async def async_set_cover_position(self, **kwargs: Any) -> None:
         """Move the cover to a specific position."""
         position = kwargs[ATTR_POSITION]
