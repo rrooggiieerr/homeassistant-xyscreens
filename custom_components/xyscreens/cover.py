@@ -71,6 +71,8 @@ def _xyscreens_error_wrapper[T](
         try:
             return await func(self, *args, **kwargs)
         except XYScreensConnectionError as exc:
+            self.hass.config_entries.async_schedule_reload(self._entry_id)
+
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
                 translation_key="connection_error",
@@ -117,6 +119,8 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             manufacturer="XY Screens",
         )
         self._attr_unique_id = config_entry_id
+
+        self._entry_id = config_entry_id
 
         if inverted:
             translation_key += "_inverted"
