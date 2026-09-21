@@ -123,9 +123,7 @@ OPTIONS_SCHEMA = probatio.Schema(
 def validate_address(address: str) -> bool:
     """Validates the address."""
     try:
-        address = bytes.fromhex(address)
-
-        if len(address) != 3:
+        if len(bytes.fromhex(address)) != 3:
             return False
     except ValueError:
         return False
