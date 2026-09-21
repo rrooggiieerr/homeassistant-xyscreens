@@ -154,7 +154,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             if position == 0:
                 self._attr_is_closed = True
 
-        self._screen.add_callback(self._callback)
+        self.async_on_remove(self._screen.add_callback(self._callback))
 
     @callback
     def _callback(self, state: XYScreensState, position: float) -> None:
