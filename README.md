@@ -1,4 +1,4 @@
-# Home Assistant integration for XY Screens projector screens and lifts
+# Home Assistant integration for XY Screens and See Max projector screens and lifts
 
 ![Python][python-shield]
 [![GitHub Release][releases-shield]][releases]
@@ -32,11 +32,11 @@ around the world under various brand names.
 
 ### About position control
 
-The **XY Screens** and **See Max** projector screens and lifts do not provide any positional feedback. The
-state of the screen is thus always an assumed one. The screen position is calculated based on the
-time the cover has moved and the configured up and down durations. This results in a potential
-error margin. Every time the screen reaches its maximum up or down position the position any
-potential error is reset. If the screen is controlled outside the library, for instance with the
+The **XY Screens** and **See Max** projector screens and lifts do not provide any positional
+feedback. The state of the screen is thus always an assumed one. The screen position is calculated
+based on the time the cover has moved and the configured up and down durations. This results in a
+potential error margin. Every time the screen reaches its maximum up or down position any potential
+position error is reset. If the screen is controlled outside the library, for instance with the
 remote control, the screen position and state will no longer represent the actual state.
 
 ## Hardware
@@ -66,14 +66,14 @@ See the documentation of your specific projector screen or lift on how to wire y
 
 You can also use a Serial/RS-485 to Ethernet/WiFi bridge, this is useful when the projector screen
 or lift is not close to your Home Assistant server. You can build your own bridge using
-[esp-link](https://github.com/jeelabs/esp-link) or buy an off the shelf product like the the
+[esp-link](https://github.com/jeelabs/esp-link) or buy an off the shelf product like the
 [CDEBYTE NA111-E](https://www.cdebyte.com/products/NA111-E/2).
 
 Connect the D+ and D- lines of your projector screen or lift to the corresponding terminals of the
 bridge. See the documentation of your specific projector screen or lift on how to wire yours
 correctly.
 
-Configure the bridge for 2400 baud, 8 bytes, no parity and one stopbit to match the projector
+Configure the bridge for 2400 baud, 8 bits, no parity and one stopbit to match the projector
 screen or lift protocol.
 
 Use `socket://<ip address>:<port>` or `rfc2217://<ip address>:<port>` as the URL to connect to the
@@ -131,7 +131,7 @@ documentation:
 
 This integration follows the Cover Entity where open means raising the screen and close lowering
 the screen, like how roller blinds, garage doors and curtains work. For a projector screen this is
-counter intuitive. You can chose to invert this behaviour when adding your screen or lift to Home
+counter intuitive. You can choose to invert this behaviour when adding your screen or lift to Home
 Assistant. The dashboard will then show the screen controls inverted, arrow up will lower the
 screen while arrow down will raise the screen. However the voice commands Open and Close will then
 work as expected.
@@ -166,7 +166,7 @@ Or follow these instructions:
 
 - Browse to your Home Assistant instance.
 - Go to [**Settings > Devices & services**](https://my.home-assistant.io/redirect/integrations).
-- In the bottom right corner, select the [+ Add Integration](https://my.home-assistant.io/redirect/config_flow_start?domain=my_pv) button.
+- In the bottom right corner, select the [+ Add Integration](https://my.home-assistant.io/redirect/config_flow_start?domain=xyscreens) button.
 - From the list, select **XY Screens**.
 - Follow the instructions on screen to complete the setup.
 
@@ -214,7 +214,7 @@ greatly appreciated and keeps me motivated:
 a 1 hour Q&A session I help you solve your Home Assistant related issues.
 
 What can be done in one hour:
-- Home Assistant walktrough, I explain you where is what in the Home Assistant UI
+- Home Assistant walkthrough, I explain you where is what in the Home Assistant UI
 - Install and configure a Home Assistant integration
 - Explain and create scenes
 - Explain and create a simple automations
