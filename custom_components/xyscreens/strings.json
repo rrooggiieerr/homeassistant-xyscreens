@@ -28,34 +28,21 @@
           "time_open": "Time needed to open the device."
         }
       },
-      "reconfigure_projector_screen": {
-        "title": "Reconfigure the projector screen",
+      "reconfigure": {
+        "title": "Reconfigure {title}",
         "data": {
+          "address": "[%key:component::xyscreens::config::step::user::data::address%]",
           "inverted": "[%key:component::xyscreens::config::step::user::data::inverted%]",
           "serial_port": "[%key:component::xyscreens::config::step::user::data::serial_port%]",
           "time_close": "[%key:component::xyscreens::config::step::user::data::time_close%]",
           "time_open": "[%key:component::xyscreens::config::step::user::data::time_open%]"
         },
         "data_description": {
+          "address": "[%key:component::xyscreens::config::step::user::data_description::address%]",
           "inverted": "[%key:component::xyscreens::config::step::user::data_description::inverted%]",
           "serial_port": "[%key:component::xyscreens::config::step::user::data_description::serial_port%]",
           "time_close": "Time needed to close the projector screen.",
           "time_open": "Time needed to open the projector screen."
-        }
-      },
-      "reconfigure_projector_lift": {
-        "title": "Reconfigure the projector lift",
-        "data": {
-          "inverted": "[%key:component::xyscreens::config::step::user::data::inverted%]",
-          "serial_port": "[%key:component::xyscreens::config::step::user::data::serial_port%]",
-          "time_close": "[%key:component::xyscreens::config::step::user::data::time_close%]",
-          "time_open": "[%key:component::xyscreens::config::step::user::data::time_open%]"
-        },
-        "data_description": {
-          "inverted": "[%key:component::xyscreens::config::step::user::data_description::inverted%]",
-          "serial_port": "[%key:component::xyscreens::config::step::user::data_description::serial_port%]",
-          "time_close": "Time needed to close the projector lift.",
-          "time_open": "Time needed to open the projector lift."
         }
       }
     }
