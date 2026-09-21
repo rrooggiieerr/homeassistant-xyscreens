@@ -162,9 +162,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     def _callback(self, state: XYScreensState, position: float) -> None:
         """Callback to be called by XYScreens library whenever a state changes."""
         if not self._inverted:
-            position = 100 - self._screen.position()
-        else:
-            position = self._screen.position()
+            position = 100 - position
         self._attr_current_cover_position = round(position)
 
         if state == XYScreensState.UP:
