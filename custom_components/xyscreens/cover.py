@@ -139,6 +139,8 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     @override
     async def async_added_to_hass(self) -> None:
         """Called when sensor is added to Home Assistant."""
+        await super().async_added_to_hass()
+
         last_state = await self.async_get_last_state()
         if (
             last_state is not None
