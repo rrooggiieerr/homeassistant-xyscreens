@@ -85,8 +85,6 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     """The XY Screens cover."""
 
     _attr_assumed_state = True
-    _attr_has_entity_name = True
-    _attr_name = None
     _attr_supported_features = (
         CoverEntityFeature.OPEN
         | CoverEntityFeature.CLOSE
@@ -108,25 +106,19 @@ class XYScreensCover(CoverEntity, RestoreEntity):
         inverted: bool,
     ) -> None:
         """Initialize the screen."""
-        if device_type == CONF_DEVICE_TYPE_PROJECTOR_LIFT:
-            translation_key = "projector_lift"
-        else:
-            translation_key = "projector_screen"
-
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, config_entry_id)},
-            translation_key=translation_key,
+            translation_key=device_type,
             manufacturer="XY Screens",
         )
         self._attr_unique_id = config_entry_id
 
         self._entry_id = config_entry_id
 
-        if inverted:
-            translation_key += "_inverted"
+        translation_key = f"{device_type}_inverted" if inverted else device_type
 
         self.entity_description = CoverEntityDescription(
-            key="projector_screen",
+            key=device_type,
             has_entity_name=True,
             translation_key=translation_key,
             name=None,  # Inherit the device name
