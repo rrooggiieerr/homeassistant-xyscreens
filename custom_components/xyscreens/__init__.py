@@ -64,6 +64,14 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
         # This means the user has downgraded from a future version
         return False
 
+    if config_entry.version == 3:
+        hass.config_entries.async_update_entry(
+            config_entry,
+            minor_version=2,
+            version=2,
+        )
+        return True
+
     if config_entry.version == 1:
         _LOGGER.debug("Migrating config entry from 1 to 2")
         new_title = config_entry.data[CONF_SERIAL_PORT]
@@ -102,13 +110,6 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
             title=new_title,
             data=new_data,
             options=new_options,
-            minor_version=2,
-            version=2,
-        )
-
-    if config_entry.version == 3:
-        hass.config_entries.async_update_entry(
-            config_entry,
             minor_version=2,
             version=2,
         )
