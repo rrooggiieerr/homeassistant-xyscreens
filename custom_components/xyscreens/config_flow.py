@@ -144,7 +144,7 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
         self,
         user_input: dict[str, Any],
         device_type: str | None = None,
-    ) -> tuple[dict[str, str], str, dict[str, Any], dict[str, Any]]:
+    ) -> tuple[dict[str, str], dict[str, Any], dict[str, Any]]:
         """Validate the input and test the connection."""
         errors: dict[str, str] = {}
         serial_port = user_input[CONF_SERIAL_PORT]
@@ -157,23 +157,26 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
         # Validate the address.
         if not validate_address(address):
             errors[CONF_ADDRESS] = "invalid_address"
+        else:
+            # Test if we can connect to the device.
+            time_open = user_input[CONF_TIME_OPEN]
+            screen = XYScreens(serial_port, bytes.fromhex(address), time_open)
+            if not await screen.async_test_connection():
+                errors[CONF_SERIAL_PORT] = "cannot_connect"
 
-        # Test if we can connect to the device.
-        time_open = user_input[CONF_TIME_OPEN]
-        screen = XYScreens(serial_port, bytes.fromhex(address), time_open)
-        if not await screen.async_test_connection():
-            errors[CONF_SERIAL_PORT] = "cannot_connect"
-
-        data = {
-            CONF_SERIAL_PORT: serial_port,
-            CONF_ADDRESS: address,
-            CONF_DEVICE_TYPE: device_type,
-        }
-        options = {
-            CONF_TIME_OPEN: user_input[CONF_TIME_OPEN],
-            CONF_TIME_CLOSE: user_input[CONF_TIME_CLOSE],
-            CONF_INVERTED: user_input[CONF_INVERTED],
-        }
+        data = None
+        options = None
+        if not errors:
+            data = {
+                CONF_SERIAL_PORT: serial_port,
+                CONF_ADDRESS: bytes.fromhex(address).hex().upper(),
+                CONF_DEVICE_TYPE: device_type,
+            }
+            options = {
+                CONF_TIME_OPEN: user_input[CONF_TIME_OPEN],
+                CONF_TIME_CLOSE: user_input[CONF_TIME_CLOSE],
+                CONF_INVERTED: user_input[CONF_INVERTED],
+            }
 
         return errors, data, options
 
@@ -189,16 +192,17 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
             address = user_input[CONF_ADDRESS]
             device_type = user_input[CONF_DEVICE_TYPE]
 
-            # Make sure the serial port + address combination is not already used.
-            self._async_abort_entries_match(
-                {CONF_SERIAL_PORT: serial_port, CONF_ADDRESS: address}
-            )
-
             errors, data, options = await self._async_validate_and_test(
                 user_input
             )
-            title = f"{DEVICE_TYPE_TITLES[device_type]} {address.upper()}"
+
             if not errors:
+                # Make sure the serial port + address combination is not already used.
+                self._async_abort_entries_match(
+                    {CONF_SERIAL_PORT: serial_port, CONF_ADDRESS: data[CONF_ADDRESS]}
+                )
+
+                title = f"{DEVICE_TYPE_TITLES[device_type]} {data[CONF_ADDRESS]}"
                 return self.async_create_entry(title=title, data=data, options=options)
 
         # Combine user input with schema.
@@ -222,20 +226,20 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
             serial_port = user_input[CONF_SERIAL_PORT]
             address = user_input[CONF_ADDRESS]
 
-            # Make sure the new serial port + address combination is not already used.
-            for entry in self.hass.config_entries.async_entries(DOMAIN):
-                if (
-                    entry.entry_id != reconfigure_entry.entry_id
-                    and entry.data.get(CONF_SERIAL_PORT) == serial_port
-                    and entry.data.get(CONF_ADDRESS) == address
-                ):
-                    return self.async_abort(reason="already_configured")
-
             errors, data, options = await self._async_validate_and_test(
                 user_input, device_type
             )
 
             if not errors:
+                # Make sure the new serial port + address combination is not already used.
+                for entry in self.hass.config_entries.async_entries(DOMAIN):
+                    if (
+                        entry.entry_id != reconfigure_entry.entry_id
+                        and entry.data.get(CONF_SERIAL_PORT) == serial_port
+                        and entry.data.get(CONF_ADDRESS) == data[CONF_ADDRESS]
+                    ):
+                        return self.async_abort(reason="already_configured")
+
                 # Keep the entry's existing title instead of regenerating it, so
                 # a title the user customized isn't overwritten on reconfigure.
                 return self.async_update_reload_and_abort(
