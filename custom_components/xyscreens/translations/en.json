@@ -14,7 +14,7 @@
             "reconfigure": {
                 "data": {
                     "address": "Address",
-                    "inverted": "Invert behaviour",
+                    "inverted": "Invert behavior",
                     "serial_port": "Serial port",
                     "time_close": "Close time",
                     "time_open": "Open time"
@@ -32,7 +32,7 @@
                 "data": {
                     "address": "Address",
                     "device_type": "Device type",
-                    "inverted": "Invert behaviour",
+                    "inverted": "Invert behavior",
                     "serial_port": "Serial port",
                     "time_close": "Close time",
                     "time_open": "Open time"

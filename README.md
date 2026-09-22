@@ -2,7 +2,7 @@
 
 ![Python][python-shield]
 [![GitHub Release][releases-shield]][releases]
-[![Licence][license-shield]][license]
+[![License][license-shield]][license]
 [![Maintainer][maintainer-shield]][maintainer]
 [![Home Assistant][homeassistant-shield]][homeassistant]
 [![HACS][hacs-shield]][hacs]  
@@ -16,7 +16,7 @@
 Home Assistant integration to control [**XY Screens**](https://www.xyscreen.com/) and [**See Max**](https://seemaxscreen.com/) projector screens and lifts over the serial and RS-485 interface.
 
 This Home Assistant integration was first implemented for **XY Screens**. After I was informed that
-the **See Max** devices use a very similar protocol support for these devices has been added.
+the **See Max** devices use a very similar protocol, support for these devices has been added.
 
 **XY Screens** and **See Max** are OEM manufacturers of projector screens and lifts. Their devices are sold
 around the world under various brand names.
@@ -27,7 +27,7 @@ around the world under various brand names.
 - Set the up and down duration of your projector screen/lift
 - Position control: move the screen/lift to any position along the way
 - Use multiple devices on the same RS-485 interface
-- Invert the default Cover Entity behaviour
+- Invert the default Cover Entity behavior
 - Supports Serial/RS-485 to Ethernet/WiFi bridge and [ESPHome Serial Proxy](https://esphome.io/components/serial_proxy/)
 
 ### About position control
@@ -73,7 +73,7 @@ Connect the D+ and D- lines of your projector screen or lift to the correspondin
 bridge. See the documentation of your specific projector screen or lift on how to wire yours
 correctly.
 
-Configure the bridge for 2400 baud, 8 bits, no parity and one stopbit to match the projector
+Configure the bridge for 2400 baud, 8 bits, no parity and one stop bit to match the projector
 screen or lift protocol.
 
 Use `socket://<ip address>:<port>` or `rfc2217://<ip address>:<port>` as the URL to connect to the
@@ -131,7 +131,7 @@ documentation:
 
 This integration follows the Cover Entity where open means raising the screen and close lowering
 the screen, like how roller blinds, garage doors and curtains work. For a projector screen this is
-counter intuitive. You can choose to invert this behaviour when adding your screen or lift to Home
+counterintuitive. You can choose to invert this behavior when adding your screen or lift to Home
 Assistant. The dashboard will then show the screen controls inverted, arrow up will lower the
 screen while arrow down will raise the screen. However the voice commands Open and Close will then
 work as expected.
@@ -214,10 +214,10 @@ greatly appreciated and keeps me motivated:
 a 1 hour Q&A session I help you solve your Home Assistant related issues.
 
 What can be done in one hour:
-- Home Assistant walkthrough, I explain you where is what in the Home Assistant UI
+- Home Assistant walkthrough, I explain to you what's where in the Home Assistant UI
 - Install and configure a Home Assistant integration
 - Explain and create scenes
-- Explain and create a simple automations
+- Explain and create a simple automation
 - Install a ZHA quirk, to make your unsupported Zigbee device work in Home Assistant
 
 What takes more time:

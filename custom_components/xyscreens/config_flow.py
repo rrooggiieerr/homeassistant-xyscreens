@@ -32,8 +32,8 @@ from .const import (
 )
 
 DEVICE_TYPE_TITLES = {
-    CONF_DEVICE_TYPE_PROJECTOR_SCREEN: "Projector Screen",
-    CONF_DEVICE_TYPE_PROJECTOR_LIFT: "Projector Lift",
+    CONF_DEVICE_TYPE_PROJECTOR_SCREEN: "Projector screen",
+    CONF_DEVICE_TYPE_PROJECTOR_LIFT: "Projector lift",
 }
 
 ADDRESS_SELECTOR = SelectSelector(
