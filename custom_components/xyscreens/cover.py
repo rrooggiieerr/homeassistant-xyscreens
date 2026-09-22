@@ -1,8 +1,9 @@
 """The XY Screens cover entity."""
 
+from collections.abc import Callable, Coroutine
+from datetime import timedelta
 import functools
 import logging
-from collections.abc import Callable, Coroutine
 from typing import Any, Final, override
 
 from xyscreens import XYScreens, XYScreensConnectionError, XYScreensState
@@ -20,6 +21,7 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
+from homeassistant.helpers.event import async_track_time_interval
 from homeassistant.helpers.restore_state import RestoreEntity
 
 from .const import (
@@ -35,6 +37,8 @@ from .const import (
 )
 
 _LOGGER: Final = logging.getLogger(__name__)
+
+SCAN_INTERVAL = timedelta(seconds=5)
 
 
 async def async_setup_entry(
@@ -71,7 +75,9 @@ def _xyscreens_error_wrapper[T](
         try:
             return await func(self, *args, **kwargs)
         except XYScreensConnectionError as exc:
-            self.hass.config_entries.async_schedule_reload(self._entry_id)
+            self._attr_available = False
+            self.async_write_ha_state()
+            self._start_updater()
 
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
@@ -94,6 +100,9 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     _attr_should_poll = False
 
     _attr_is_closed = False
+
+    _unsubscribe_updater = None
+    _update_interval = None
 
     def __init__(
         self,
@@ -150,6 +159,15 @@ class XYScreensCover(CoverEntity, RestoreEntity):
 
         self.async_on_remove(self._screen.add_callback(self._callback))
 
+    async def async_update(self) -> None:
+        """Update Home Assistant with current state of entity."""
+        if not self._attr_available and not await self._screen.async_test_connection():
+            return
+
+        self._attr_available = True
+
+        state, position = self._screen.update_status()
+
     @callback
     def _callback(self, state: XYScreensState, position: float) -> None:
         """Callback to be called by XYScreens library whenever a state changes."""
@@ -179,6 +197,29 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             self._attr_is_opening = False
 
         self.async_write_ha_state()
+
+    def _start_updater(self, interval=SCAN_INTERVAL):
+        """Start the updater to update Home Assistant while projector screen/lift is moving."""
+        if self._unsubscribe_updater and self._update_interval != interval:
+            self._stop_updater()
+
+        if self._unsubscribe_updater is None:
+            self._update_interval = interval
+            self._unsubscribe_updater = async_track_time_interval(
+                self.hass, self._updater_hook, interval
+            )
+
+    @callback
+    def _updater_hook(self, now):
+        """Call for the updater."""
+        self.async_schedule_update_ha_state(True)
+
+    def _stop_updater(self):
+        """Stop the updater."""
+        if self._unsubscribe_updater is not None:
+            self._unsubscribe_updater()
+            self._unsubscribe_updater = None
+            self._update_interval = None
 
     @_xyscreens_error_wrapper
     async def _async_open_cover(self, **kwargs: Any) -> None:
