@@ -27,7 +27,6 @@ from homeassistant.helpers.restore_state import RestoreEntity
 from .const import (
     CONF_ADDRESS_XYSCREENS,
     CONF_DEVICE_TYPE,
-    CONF_DEVICE_TYPE_PROJECTOR_LIFT,
     CONF_DEVICE_TYPE_PROJECTOR_SCREEN,
     CONF_INVERTED,
     CONF_SERIAL_PORT,
@@ -91,6 +90,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     """The XY Screens cover."""
 
     _attr_assumed_state = True
+    _attr_has_entity_name = True
     _attr_supported_features = (
         CoverEntityFeature.OPEN
         | CoverEntityFeature.CLOSE
@@ -157,8 +157,6 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             if position == 0:
                 self._attr_is_closed = True
 
-        self.async_on_remove(self._screen.add_callback(self._callback))
-
     async def async_update(self) -> None:
         """Update Home Assistant with current state of entity."""
         if not self._attr_available and not await self._screen.async_test_connection():
@@ -168,9 +166,6 @@ class XYScreensCover(CoverEntity, RestoreEntity):
 
         state, position = self._screen.update_status()
 
-    @callback
-    def _callback(self, state: XYScreensState, position: float) -> None:
-        """Callback to be called by XYScreens library whenever a state changes."""
         if not self._inverted:
             position = 100 - position
         self._attr_current_cover_position = round(position)
@@ -224,10 +219,12 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     @_xyscreens_error_wrapper
     async def _async_open_cover(self, **kwargs: Any) -> None:
         await self._screen.async_up()
+        self._start_updater(timedelta(seconds=1))
 
     @_xyscreens_error_wrapper
     async def _async_close_cover(self, **kwargs: Any) -> None:
         await self._screen.async_down()
+        self._start_updater(timedelta(seconds=1))
 
     @override
     async def async_open_cover(self, **kwargs: Any) -> None:
@@ -250,6 +247,8 @@ class XYScreensCover(CoverEntity, RestoreEntity):
     async def async_stop_cover(self, **kwargs: Any) -> None:
         """Stop the cover."""
         await self._screen.async_stop()
+        self._stop_updater()
+        self.async_schedule_update_ha_state(True)
 
     @override
     @_xyscreens_error_wrapper
@@ -263,3 +262,5 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             await self._screen.async_set_position(100 - position)
         else:
             await self._screen.async_set_position(position)
+
+        self._start_updater(timedelta(seconds=1))
