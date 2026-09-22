@@ -19,6 +19,7 @@ from .const import (
     CONF_SERIAL_PORT,
     CONF_TIME_CLOSE,
     CONF_TIME_OPEN,
+    DOMAIN,
 )
 
 _LOGGER: Final = logging.getLogger(__name__)
@@ -36,7 +37,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     time_open = entry.options[CONF_TIME_OPEN]
     screen = XYScreens(serial_port, address, time_open)
     if not await screen.async_test_connection():
-        raise ConfigEntryNotReady(f"Unable to connect to device {serial_port}")
+        raise ConfigEntryNotReady(
+            translation_domain=DOMAIN, translation_key="connection_error"
+        )
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
