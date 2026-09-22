@@ -164,8 +164,8 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
             if not await screen.async_test_connection():
                 errors[CONF_SERIAL_PORT] = "cannot_connect"
 
-        data = None
-        options = None
+        data = {}
+        options = {}
         if not errors:
             data = {
                 CONF_SERIAL_PORT: serial_port,
@@ -189,12 +189,9 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
 
         if user_input is not None:
             serial_port = user_input[CONF_SERIAL_PORT]
-            address = user_input[CONF_ADDRESS]
             device_type = user_input[CONF_DEVICE_TYPE]
 
-            errors, data, options = await self._async_validate_and_test(
-                user_input
-            )
+            errors, data, options = await self._async_validate_and_test(user_input)
 
             if not errors:
                 # Make sure the serial port + address combination is not already used.
@@ -224,7 +221,6 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
 
         if user_input is not None:
             serial_port = user_input[CONF_SERIAL_PORT]
-            address = user_input[CONF_ADDRESS]
 
             errors, data, options = await self._async_validate_and_test(
                 user_input, device_type

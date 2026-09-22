@@ -3,26 +3,26 @@
     "cover": {
       "projector_lift": {
         "state": {
-          "closed": "mdi:projector",
-          "open": "mdi:projector-off"
-        }
-      },
-      "projector_lift_inverted": {
-        "state": {
           "closed": "mdi:projector-off",
           "open": "mdi:projector"
         }
       },
+      "projector_lift_inverted": {
+        "state": {
+          "closed": "mdi:projector",
+          "open": "mdi:projector-off"
+        }
+      },
       "projector_screen": {
         "state": {
-          "closed": "mdi:projector-screen-variant-outline",
-          "open": "mdi:projector-screen-variant-off-outline"
+          "closed": "mdi:projector-screen-variant-off-outline",
+          "open": "mdi:projector-screen-variant-outline"
         }
       },
       "projector_screen_inverted": {
         "state": {
-          "closed": "mdi:projector-screen-variant-off-outline",
-          "open": "mdi:projector-screen-variant-outline"
+          "closed": "mdi:projector-screen-variant-outline",
+          "open": "mdi:projector-screen-variant-off-outline"
         }
       }
     }

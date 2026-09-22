@@ -1,4 +1,8 @@
 {
+    "common": {
+        "projector_lift": "Projector lift",
+        "projector_screen": "Projector screen"
+    },
     "config": {
         "abort": {
             "already_configured": "Device is already configured",
@@ -7,7 +11,6 @@
         "error": {
             "cannot_connect": "Failed to connect",
             "invalid_address": "Invalid address",
-            "nonexisting_serial_port": "Serial poort does not exist",
             "unknown": "Unexpected error"
         },
         "step": {
@@ -23,8 +26,8 @@
                     "address": "The 6 character hexadecimal address of the device.",
                     "inverted": "This integration follows the Cover Entity, where open means the screen is retracted and closed the screen is extracted, the same way curtains and garage doors work. For a projection screen this is counterintuitive. You can reverse the behavior.",
                     "serial_port": "The serial port your device is connected to.",
-                    "time_close": "Time needed to close the projector lift.",
-                    "time_open": "Time needed to open the projector lift."
+                    "time_close": "Time needed to close the projector screen.",
+                    "time_open": "Time needed to open the projector screen."
                 },
                 "title": "Reconfigure {title}"
             },
@@ -57,7 +60,7 @@
     },
     "entity": {
         "cover": {
-            "projector_lift": {
+            "projector_lift_inverted": {
                 "state": {
                     "closed": "Open",
                     "closing": "Opening",
@@ -65,7 +68,7 @@
                     "opening": "Closing"
                 }
             },
-            "projector_screen": {
+            "projector_screen_inverted": {
                 "state": {
                     "closed": "Open",
                     "closing": "Opening",
