@@ -7,9 +7,7 @@
 [![Home Assistant][homeassistant-shield]][homeassistant]
 [![HACS][hacs-shield]][hacs]  
 [![GitHub Sponsors][github-shield]][github]
-[![PayPal][paypal-shield]][paypal]
 [![BuyMeCoffee][buymecoffee-shield]][buymecoffee]
-[![Patreon][patreon-shield]][patreon]
 
 ## Introduction
 
@@ -170,10 +168,10 @@ Or follow these instructions:
 - From the list, select **XY Screens**.
 - Follow the instructions on screen to complete the setup.
 
-## Contribution and appreciation
+## Contributing and supporting this project
 
-Do you enjoy using this Home Assistant integration? You can contribute or show your appreciation,
-in the following ways.
+Are you enjoying this Home Assistant integration? There are several ways you can contribute to the
+project, help other users, or support my work.
 
 ### Contribute your projector screen brand and model
 
@@ -181,54 +179,54 @@ Is your projector screen supported by this Home Assistant integration but not li
 *Supported projector screens and lifts*? Let me know your projector screen brand and model so I can
 improve the overview of supported projector screens and lifts.
 
-### Contribute your language
+### Contribute a translation
 
-This integration comes with language support for most languages supported by Home Assistant. The
-language files are generated using Google Translate and may contain errors. If you spot a
-translation error you are welcome to suggest improvements.
+Would you like to use this integration in your own language? You can help by adding a translation file
+to the `custom_components/xyscreens/translations` directory and submitting it in a pull request.
 
-You can find the translation files in the `custom_components/xyscreens/translations` directory. Create a
-pull request (preferred) or issue with your improvements.
-
-More on translating custom integrations can be found
-[here](https://developers.home-assistant.io/docs/internationalization/custom_integration/).
+More information about translating Home Assistant custom integrations can be found
+[here](https://contributors.home-assistant.io/core/integrations/translations/).
 
 ### Star this integration
 
-Help other Home Assistant and projector screen users find this integration by starring this GitHub
-page. Click **⭐ Star** on the top right of the GitHub page.
+Help other Home Assistant and XY Screens users discover this integration by starring this GitHub
+repository. Just click **⭐ Star** at the top right of [this page](https://github.com/rrooggiieerr/homeassistant-xyscreens).
 
 ### Support my work
 
-Please consider supporting my work through one of the following platforms, your contribution is
-greatly appreciated and keeps me motivated:
+I’ve put a lot of time and effort into developing and maintaining this integration. If you find it
+useful, please consider supporting its continued development by [sponsoring me on GitHub][github]
+or [buying me a coffee ☕️][buymecoffee].
+
+Your support is greatly appreciated and helps keep me motivated to continue developing and
+maintaining this integration!
 
 [![GitHub Sponsors][github-shield]][github]
-[![PayPal][paypal-shield]][paypal]
 [![BuyMeCoffee][buymecoffee-shield]][buymecoffee]
-[![Patreon][patreon-shield]][patreon]
 
 ### Home Assistant support
 
-[Let me answer your Home Assistant questions](https://buymeacoffee.com/rrooggiieerr/e/447353). During
-a 1 hour Q&A session I help you solve your Home Assistant related issues.
+Need some hands-on help with Home Assistant? [Book a one-hour Q&A session](https://buymeacoffee.com/rrooggiieerr/e/447353)
+and I'll help you solve your Home Assistant-related questions.
 
-What can be done in one hour:
-- Home Assistant walkthrough, I explain to you what's where in the Home Assistant UI
-- Install and configure a Home Assistant integration
-- Explain and create scenes
-- Explain and create a simple automation
-- Install a ZHA quirk, to make your unsupported Zigbee device work in Home Assistant
+Examples of what we can cover in one hour:
+- Home Assistant walkthrough, I'll explain where to find things in the Home Assistant UI
+- Installing and configuring a Home Assistant integration
+- Explaining and creating scenes
+- Explaining and creating a simple automation
+- Install a ZHA quirk to make an unsupported Zigbee device work with Home Assistant
 
-What takes more time:
-- Depending on the severity I might be able to help you with recovering your crashed Home Assistant
-- Support for Home Assistant Integration developers
+For more complex issues, such as recovering a crashed Home Assistant installation or providing
+support for Home Assistant integration developers, I may be able to help as well. These requests
+can require more than one hour and may need to be arranged separately.
 
 ### Hire me
 
-If you would like to have a Home Assistant integration developed for your product or are in need
-of a freelance Python developer for your project please contact me, you can find my email address
-on [my GitHub profile](https://github.com/rrooggiieerr).
+Would you like a Home Assistant integration developed for your product, or do you need an
+experienced Python developer for your project?
+
+I'm available for freelance development work. You can find my contact details on
+[my GitHub profile](https://github.com/rrooggiieerr).
 
 [python-shield]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [releases]: https://github.com/rrooggiieerr/homeassistant-xyscreens/releases
@@ -241,11 +239,7 @@ on [my GitHub profile](https://github.com/rrooggiieerr).
 [homeassistant-shield]: https://img.shields.io/badge/home%20assistant-%2341BDF5.svg?style=for-the-badge&logo=home-assistant&logoColor=white
 [hacs]: https://hacs.xyz/
 [hacs-shield]: https://img.shields.io/badge/HACS-Default-41BDF5.svg?style=for-the-badge
-[paypal]: https://paypal.me/seekingtheedge
-[paypal-shield]: https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white
 [buymecoffee]: https://www.buymeacoffee.com/rrooggiieerr
 [buymecoffee-shield]: https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black
 [github]: https://github.com/sponsors/rrooggiieerr
-[github-shield]: https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA
-[patreon]: https://www.patreon.com/seekingtheedge/creators
-[patreon-shield]: https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white
+[github-shield]: https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=%23EA4AAA
