@@ -29,6 +29,7 @@
                     "time_close": "Time needed to close the projector screen.",
                     "time_open": "Time needed to open the projector screen."
                 },
+                "description": "I’ve put a lot of time and effort into developing and maintaining this integration. If you find it useful, please consider supporting its continued development by [sponsoring me on GitHub]({github_sponsors_url}) or [buying me a coffee ☕️]({buymeacoffee_url}).\n\nYour support is greatly appreciated and helps keep me motivated to continue developing and maintaining this integration!",
                 "title": "Reconfigure {title}"
             },
             "user": {
@@ -46,7 +47,8 @@
                     "serial_port": "The serial port your device is connected to.",
                     "time_close": "Time needed to close the device.",
                     "time_open": "Time needed to open the device."
-                }
+                },
+                "description": "I’ve put a lot of time and effort into developing and maintaining this integration. If you find it useful, please consider supporting its continued development by [sponsoring me on GitHub]({github_sponsors_url}) or [buying me a coffee ☕️]({buymeacoffee_url}).\n\nYour support is greatly appreciated and helps keep me motivated to continue developing and maintaining this integration!"
             }
         }
     },

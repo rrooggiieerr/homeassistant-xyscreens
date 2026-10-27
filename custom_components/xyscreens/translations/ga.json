@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Tá gléas cumraithe cheana féin"
-    },
-    "error": {
-      "cannot_connect": "Failed chun ceangal",
-      "nonexisting_serial_port": "Níl an Tweet seo ar fáil",
-      "invalid_address": "Seoladh luachmhar",
-      "unknown": "Earráid gan choinne"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Port Sraithuimhir",
-          "address": "Seoladh an tSuímh",
-          "device_type": "cineál gléas",
-          "time_open": "Am oscailte",
-          "time_close": "Am gar",
-          "inverted": "Iompar invert"
+    "config": {
+        "abort": {
+            "already_configured": "Tá gléas cumraithe cheana féin"
         },
-        "data_description": {
-          "serial_port": "Tá an calafort sraitheach do gléas ceangailte leis.",
-          "address": "An 6 carachtar seoladh hexadecimal na feiste.",
-          "time_open": "Am ag teastáil chun an gléas a oscailt.",
-          "time_close": "Am ag teastáil chun an gléas a dhúnadh.",
-          "inverted": "Leanann an comhtháthú seo an Aonán Clúdaigh, i gcás ina ciallaíonn oscailte go bhfuil an scáileán retracted agus dúnta an scáileán a bhaintear, ar an mbealach céanna cuirtíní agus doirse gharáiste obair. Le haghaidh scáileán teilgean tá sé seo frithbheartaithe. Is féidir leat an t-iompar a athrú."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "scáileán teilgean",
-        "projector_lift": "ardaitheoir Projector"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Roghanna scáileán Tionscadal",
-        "data": {
-          "time_open": "Am oscailte",
-          "time_close": "Am gar",
-          "inverted": "Iompar invert"
+        "error": {
+            "cannot_connect": "Failed chun ceangal",
+            "invalid_address": "Seoladh luachmhar",
+            "nonexisting_serial_port": "Níl an Tweet seo ar fáil",
+            "unknown": "Earráid gan choinne"
         },
-        "data_description": {
-          "time_open": "Am ag teastáil chun an scáileán teilgeoir a oscailt.",
-          "time_close": "Am ag teastáil chun an scáileán teilgeoir a dhúnadh.",
-          "inverted": "Leanann an comhtháthú seo an Aonán Clúdaigh, i gcás ina ciallaíonn oscailte go bhfuil an scáileán retracted agus dúnta an scáileán a bhaintear, ar an mbealach céanna cuirtíní agus doirse gharáiste obair. Le haghaidh scáileán teilgean tá sé seo frithbheartaithe. Is féidir leat an t-iompar a athrú."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Seoladh an tSuímh",
+                    "device_type": "cineál gléas",
+                    "inverted": "Iompar invert",
+                    "serial_port": "Port Sraithuimhir",
+                    "time_close": "Am gar",
+                    "time_open": "Am oscailte"
+                },
+                "data_description": {
+                    "address": "An 6 carachtar seoladh hexadecimal na feiste.",
+                    "inverted": "Leanann an comhtháthú seo an Aonán Clúdaigh, i gcás ina ciallaíonn oscailte go bhfuil an scáileán retracted agus dúnta an scáileán a bhaintear, ar an mbealach céanna cuirtíní agus doirse gharáiste obair. Le haghaidh scáileán teilgean tá sé seo frithbheartaithe. Is féidir leat an t-iompar a athrú.",
+                    "serial_port": "Tá an calafort sraitheach do gléas ceangailte leis.",
+                    "time_close": "Am ag teastáil chun an gléas a dhúnadh.",
+                    "time_open": "Am ag teastáil chun an gléas a oscailt."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Roghanna ardaitheoir Projector",
-        "data": {
-          "time_open": "Am oscailte",
-          "time_close": "Am gar",
-          "inverted": "Iompar invert"
-        },
-        "data_description": {
-          "time_open": "Am ag teastáil a oscailt an ardaitheoir teilgeoir.",
-          "time_close": "Am ag teastáil chun an ardaitheoir teilgeoir a dhúnadh.",
-          "inverted": "Leanann an comhtháthú seo an Aonán Clúdaigh, i gcás ina ciallaíonn oscailte go bhfuil an scáileán retracted agus dúnta an scáileán a bhaintear, ar an mbealach céanna cuirtíní agus doirse gharáiste obair. Le haghaidh scáileán teilgean tá sé seo frithbheartaithe. Is féidir leat an t-iompar a athrú."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Scáileán an Tionscadail"
     },
-    "projector_lift": {
-      "name": "Ardaitheoir an Tionscadail"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Dúnta",
-          "opening": "Dún na nGall",
-          "closing": "Oscailt an Lae",
-          "closed": "Oscailt Oscailte"
+    "device": {
+        "projector_lift": {
+            "name": "Ardaitheoir an Tionscadail"
+        },
+        "projector_screen": {
+            "name": "Scáileán an Tionscadail"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Dúnta",
-          "opening": "Dún na nGall",
-          "closing": "Oscailt an Lae",
-          "closed": "Oscailt Oscailte"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Oscailt Oscailte",
+                    "closing": "Oscailt an Lae",
+                    "open": "Dúnta",
+                    "opening": "Dún na nGall"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Oscailt Oscailte",
+                    "closing": "Oscailt an Lae",
+                    "open": "Dúnta",
+                    "opening": "Dún na nGall"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Iompar invert",
+                    "time_close": "Am gar",
+                    "time_open": "Am oscailte"
+                },
+                "data_description": {
+                    "inverted": "Leanann an comhtháthú seo an Aonán Clúdaigh, i gcás ina ciallaíonn oscailte go bhfuil an scáileán retracted agus dúnta an scáileán a bhaintear, ar an mbealach céanna cuirtíní agus doirse gharáiste obair. Le haghaidh scáileán teilgean tá sé seo frithbheartaithe. Is féidir leat an t-iompar a athrú.",
+                    "time_close": "Am ag teastáil chun an ardaitheoir teilgeoir a dhúnadh.",
+                    "time_open": "Am ag teastáil a oscailt an ardaitheoir teilgeoir."
+                },
+                "title": "Roghanna ardaitheoir Projector"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Iompar invert",
+                    "time_close": "Am gar",
+                    "time_open": "Am oscailte"
+                },
+                "data_description": {
+                    "inverted": "Leanann an comhtháthú seo an Aonán Clúdaigh, i gcás ina ciallaíonn oscailte go bhfuil an scáileán retracted agus dúnta an scáileán a bhaintear, ar an mbealach céanna cuirtíní agus doirse gharáiste obair. Le haghaidh scáileán teilgean tá sé seo frithbheartaithe. Is féidir leat an t-iompar a athrú.",
+                    "time_close": "Am ag teastáil chun an scáileán teilgeoir a dhúnadh.",
+                    "time_open": "Am ag teastáil chun an scáileán teilgeoir a oscailt."
+                },
+                "title": "Roghanna scáileán Tionscadal"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "ardaitheoir Projector",
+                "projector_screen": "scáileán teilgean"
+            }
+        }
     }
-  }
 }

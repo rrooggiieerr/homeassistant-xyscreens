@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Perangkat telah dikonfigurasi"
-    },
-    "error": {
-      "cannot_connect": "Gagal menyambung",
-      "nonexisting_serial_port": "Poort serial tidak ada",
-      "invalid_address": "Alamat tidak valid",
-      "unknown": "Galat tak diharapkan"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Port serial",
-          "address": "Alamat",
-          "device_type": "Tipe perangkat",
-          "time_open": "Buka waktu",
-          "time_close": "Tutup waktu",
-          "inverted": "Balikkan perilaku"
+    "config": {
+        "abort": {
+            "already_configured": "Perangkat telah dikonfigurasi"
         },
-        "data_description": {
-          "serial_port": "Port serial perangkat Anda terhubung ke.",
-          "address": "Enam karakter heksadesimal alamat perangkat.",
-          "time_open": "Waktu yang dibutuhkan untuk membuka perangkat.",
-          "time_close": "Waktu yang dibutuhkan untuk menutup perangkat.",
-          "inverted": "Integrasi ini mengikuti Cover Entitas, di mana terbuka berarti layar ditarik dan menutup layar diekstrak, cara yang sama tirai dan pintu garasi bekerja. Untuk layar proyeksi ini berlawanan. Kau bisa membalikkan perilakumu."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Layar proyektor",
-        "projector_lift": "Angkat proyektor"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Opsi layar proyektor",
-        "data": {
-          "time_open": "Buka waktu",
-          "time_close": "Tutup waktu",
-          "inverted": "Balikkan perilaku"
+        "error": {
+            "cannot_connect": "Gagal menyambung",
+            "invalid_address": "Alamat tidak valid",
+            "nonexisting_serial_port": "Poort serial tidak ada",
+            "unknown": "Galat tak diharapkan"
         },
-        "data_description": {
-          "time_open": "Waktu yang dibutuhkan untuk membuka layar proyektor.",
-          "time_close": "Waktu yang dibutuhkan untuk menutup layar proyektor.",
-          "inverted": "Integrasi ini mengikuti Cover Entitas, di mana terbuka berarti layar ditarik dan menutup layar diekstrak, cara yang sama tirai dan pintu garasi bekerja. Untuk layar proyeksi ini berlawanan. Kau bisa membalikkan perilakumu."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Alamat",
+                    "device_type": "Tipe perangkat",
+                    "inverted": "Balikkan perilaku",
+                    "serial_port": "Port serial",
+                    "time_close": "Tutup waktu",
+                    "time_open": "Buka waktu"
+                },
+                "data_description": {
+                    "address": "Enam karakter heksadesimal alamat perangkat.",
+                    "inverted": "Integrasi ini mengikuti Cover Entitas, di mana terbuka berarti layar ditarik dan menutup layar diekstrak, cara yang sama tirai dan pintu garasi bekerja. Untuk layar proyeksi ini berlawanan. Kau bisa membalikkan perilakumu.",
+                    "serial_port": "Port serial perangkat Anda terhubung ke.",
+                    "time_close": "Waktu yang dibutuhkan untuk menutup perangkat.",
+                    "time_open": "Waktu yang dibutuhkan untuk membuka perangkat."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Opsi lift proyektor",
-        "data": {
-          "time_open": "Buka waktu",
-          "time_close": "Tutup waktu",
-          "inverted": "Balikkan perilaku"
-        },
-        "data_description": {
-          "time_open": "Waktu yang dibutuhkan untuk membuka lift proyektor.",
-          "time_close": "Waktu yang dibutuhkan untuk menutup lift proyektor.",
-          "inverted": "Integrasi ini mengikuti Cover Entitas, di mana terbuka berarti layar ditarik dan menutup layar diekstrak, cara yang sama tirai dan pintu garasi bekerja. Untuk layar proyeksi ini berlawanan. Kau bisa membalikkan perilakumu."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Layar Proyektor"
     },
-    "projector_lift": {
-      "name": "Lift Proyektor"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Tutup",
-          "opening": "Menutup",
-          "closing": "Membuka",
-          "closed": "Buka"
+    "device": {
+        "projector_lift": {
+            "name": "Lift Proyektor"
+        },
+        "projector_screen": {
+            "name": "Layar Proyektor"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Tutup",
-          "opening": "Menutup",
-          "closing": "Membuka",
-          "closed": "Buka"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Buka",
+                    "closing": "Membuka",
+                    "open": "Tutup",
+                    "opening": "Menutup"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Buka",
+                    "closing": "Membuka",
+                    "open": "Tutup",
+                    "opening": "Menutup"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Balikkan perilaku",
+                    "time_close": "Tutup waktu",
+                    "time_open": "Buka waktu"
+                },
+                "data_description": {
+                    "inverted": "Integrasi ini mengikuti Cover Entitas, di mana terbuka berarti layar ditarik dan menutup layar diekstrak, cara yang sama tirai dan pintu garasi bekerja. Untuk layar proyeksi ini berlawanan. Kau bisa membalikkan perilakumu.",
+                    "time_close": "Waktu yang dibutuhkan untuk menutup lift proyektor.",
+                    "time_open": "Waktu yang dibutuhkan untuk membuka lift proyektor."
+                },
+                "title": "Opsi lift proyektor"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Balikkan perilaku",
+                    "time_close": "Tutup waktu",
+                    "time_open": "Buka waktu"
+                },
+                "data_description": {
+                    "inverted": "Integrasi ini mengikuti Cover Entitas, di mana terbuka berarti layar ditarik dan menutup layar diekstrak, cara yang sama tirai dan pintu garasi bekerja. Untuk layar proyeksi ini berlawanan. Kau bisa membalikkan perilakumu.",
+                    "time_close": "Waktu yang dibutuhkan untuk menutup layar proyektor.",
+                    "time_open": "Waktu yang dibutuhkan untuk membuka layar proyektor."
+                },
+                "title": "Opsi layar proyektor"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Angkat proyektor",
+                "projector_screen": "Layar proyektor"
+            }
+        }
     }
-  }
 }

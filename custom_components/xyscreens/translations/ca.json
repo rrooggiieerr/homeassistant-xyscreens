@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "El dispositiu ja està configurat"
-    },
-    "error": {
-      "cannot_connect": "Ha fallat en connectar",
-      "nonexisting_serial_port": "El pobret sèrie no existeix",
-      "invalid_address": "Adreça no vàlida",
-      "unknown": "Error inesperat"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Port sèrie",
-          "address": "Adreça",
-          "device_type": "Tipus de dispositiu",
-          "time_open": "Hora d' obertura",
-          "time_close": "Tanca l' hora",
-          "inverted": "Inverteix el comportament"
+    "config": {
+        "abort": {
+            "already_configured": "El dispositiu ja està configurat"
         },
-        "data_description": {
-          "serial_port": "El port sèrie al que està connectat el dispositiu.",
-          "address": "L' adreça hexadecimal 6 caràcters del dispositiu.",
-          "time_open": "El temps necessari per obrir el dispositiu.",
-          "time_close": "El temps necessitava tancar el dispositiu.",
-          "inverted": "Aquesta integració segueix l' entitat de cobertura, on la pantalla oberta està retractada i es tanca la pantalla, la mateixa manera que les cortines i les portes del garatge treballen. Per a una pantalla de projecció això és contraflexiu. Pots invertir el comportament."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Pantalla del Projector",
-        "projector_lift": "Projector aixecar"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Opcions de la pantalla del Projector",
-        "data": {
-          "time_open": "Hora d' obertura",
-          "time_close": "Tanca l' hora",
-          "inverted": "Inverteix el comportament"
+        "error": {
+            "cannot_connect": "Ha fallat en connectar",
+            "invalid_address": "Adreça no vàlida",
+            "nonexisting_serial_port": "El pobret sèrie no existeix",
+            "unknown": "Error inesperat"
         },
-        "data_description": {
-          "time_open": "El temps necessari per obrir la pantalla del projector.",
-          "time_close": "El temps necessari per tancar la pantalla del projector.",
-          "inverted": "Aquesta integració segueix l' entitat de cobertura, on la pantalla oberta està retractada i es tanca la pantalla, la mateixa manera que les cortines i les portes del garatge treballen. Per a una pantalla de projecció això és contraflexiu. Pots invertir el comportament."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Adreça",
+                    "device_type": "Tipus de dispositiu",
+                    "inverted": "Inverteix el comportament",
+                    "serial_port": "Port sèrie",
+                    "time_close": "Tanca l' hora",
+                    "time_open": "Hora d' obertura"
+                },
+                "data_description": {
+                    "address": "L' adreça hexadecimal 6 caràcters del dispositiu.",
+                    "inverted": "Aquesta integració segueix l' entitat de cobertura, on la pantalla oberta està retractada i es tanca la pantalla, la mateixa manera que les cortines i les portes del garatge treballen. Per a una pantalla de projecció això és contraflexiu. Pots invertir el comportament.",
+                    "serial_port": "El port sèrie al que està connectat el dispositiu.",
+                    "time_close": "El temps necessitava tancar el dispositiu.",
+                    "time_open": "El temps necessari per obrir el dispositiu."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Opcions del projecteor aixecar",
-        "data": {
-          "time_open": "Hora d' obertura",
-          "time_close": "Tanca l' hora",
-          "inverted": "Inverteix el comportament"
-        },
-        "data_description": {
-          "time_open": "És hora d'obrir el projector.",
-          "time_close": "És hora de tancar el projector.",
-          "inverted": "Aquesta integració segueix l' entitat de cobertura, on la pantalla oberta està retractada i es tanca la pantalla, la mateixa manera que les cortines i les portes del garatge treballen. Per a una pantalla de projecció això és contraflexiu. Pots invertir el comportament."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Pantalla del Projector"
     },
-    "projector_lift": {
-      "name": "Projector Amunt"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Tancat",
-          "opening": "Tancament",
-          "closing": "S' està obrint",
-          "closed": "Obre"
+    "device": {
+        "projector_lift": {
+            "name": "Projector Amunt"
+        },
+        "projector_screen": {
+            "name": "Pantalla del Projector"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Tancat",
-          "opening": "Tancament",
-          "closing": "S' està obrint",
-          "closed": "Obre"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Obre",
+                    "closing": "S' està obrint",
+                    "open": "Tancat",
+                    "opening": "Tancament"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Obre",
+                    "closing": "S' està obrint",
+                    "open": "Tancat",
+                    "opening": "Tancament"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Inverteix el comportament",
+                    "time_close": "Tanca l' hora",
+                    "time_open": "Hora d' obertura"
+                },
+                "data_description": {
+                    "inverted": "Aquesta integració segueix l' entitat de cobertura, on la pantalla oberta està retractada i es tanca la pantalla, la mateixa manera que les cortines i les portes del garatge treballen. Per a una pantalla de projecció això és contraflexiu. Pots invertir el comportament.",
+                    "time_close": "És hora de tancar el projector.",
+                    "time_open": "És hora d'obrir el projector."
+                },
+                "title": "Opcions del projecteor aixecar"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Inverteix el comportament",
+                    "time_close": "Tanca l' hora",
+                    "time_open": "Hora d' obertura"
+                },
+                "data_description": {
+                    "inverted": "Aquesta integració segueix l' entitat de cobertura, on la pantalla oberta està retractada i es tanca la pantalla, la mateixa manera que les cortines i les portes del garatge treballen. Per a una pantalla de projecció això és contraflexiu. Pots invertir el comportament.",
+                    "time_close": "El temps necessari per tancar la pantalla del projector.",
+                    "time_open": "El temps necessari per obrir la pantalla del projector."
+                },
+                "title": "Opcions de la pantalla del Projector"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Projector aixecar",
+                "projector_screen": "Pantalla del Projector"
+            }
+        }
     }
-  }
 }

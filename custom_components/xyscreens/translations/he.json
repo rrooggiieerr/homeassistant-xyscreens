@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "המכשיר כבר מוגדר"
-    },
-    "error": {
-      "cannot_connect": "נכשל להתחבר",
-      "nonexisting_serial_port": "עניים לא קיימים",
-      "invalid_address": "כתובת Invalid",
-      "unknown": "טעות בלתי צפויה"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "נמל",
-          "address": "כתובת",
-          "device_type": "סוג התקן",
-          "time_open": "זמן פתוח",
-          "time_close": "זמן סגור",
-          "inverted": "התנהגות"
+    "config": {
+        "abort": {
+            "already_configured": "המכשיר כבר מוגדר"
         },
-        "data_description": {
-          "serial_port": "הנמל הסידורי שהמכשיר שלך מחובר אליו.",
-          "address": "כתובת ה- 6 של המכשיר.",
-          "time_open": "הזמן צריך לפתוח את המכשיר.",
-          "time_close": "הזמן צריך לסגור את המכשיר.",
-          "inverted": "שילוב זה עוקב אחר ה- Cover Entity, שבו פתוח פירושו שהמסך מאריך וסגור את המסך מופק, אותו האופן בו וילונות ודלתות מוסך עובדים. עבור מסך הקרנה זה נוגד. אתה יכול לשנות את ההתנהגות."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "מסך הפרויקט",
-        "projector_lift": "מעלית"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "אפשרויות מסך",
-        "data": {
-          "time_open": "זמן פתוח",
-          "time_close": "זמן סגור",
-          "inverted": "התנהגות"
+        "error": {
+            "cannot_connect": "נכשל להתחבר",
+            "invalid_address": "כתובת Invalid",
+            "nonexisting_serial_port": "עניים לא קיימים",
+            "unknown": "טעות בלתי צפויה"
         },
-        "data_description": {
-          "time_open": "הזמן צריך לפתוח את מסך המקרן.",
-          "time_close": "הזמן צריך לסגור את מסך המקרן.",
-          "inverted": "שילוב זה עוקב אחר ה- Cover Entity, שבו פתוח פירושו שהמסך מאריך וסגור את המסך מופק, אותו האופן בו וילונות ודלתות מוסך עובדים. עבור מסך הקרנה זה נוגד. אתה יכול לשנות את ההתנהגות."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "כתובת",
+                    "device_type": "סוג התקן",
+                    "inverted": "התנהגות",
+                    "serial_port": "נמל",
+                    "time_close": "זמן סגור",
+                    "time_open": "זמן פתוח"
+                },
+                "data_description": {
+                    "address": "כתובת ה- 6 של המכשיר.",
+                    "inverted": "שילוב זה עוקב אחר ה- Cover Entity, שבו פתוח פירושו שהמסך מאריך וסגור את המסך מופק, אותו האופן בו וילונות ודלתות מוסך עובדים. עבור מסך הקרנה זה נוגד. אתה יכול לשנות את ההתנהגות.",
+                    "serial_port": "הנמל הסידורי שהמכשיר שלך מחובר אליו.",
+                    "time_close": "הזמן צריך לסגור את המכשיר.",
+                    "time_open": "הזמן צריך לפתוח את המכשיר."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "אפשרויות להרים",
-        "data": {
-          "time_open": "זמן פתוח",
-          "time_close": "זמן סגור",
-          "inverted": "התנהגות"
-        },
-        "data_description": {
-          "time_open": "הזמן צריך לפתוח את המעלית המקרן.",
-          "time_close": "הזמן צריך לסגור את המעלית המקרן.",
-          "inverted": "שילוב זה עוקב אחר ה- Cover Entity, שבו פתוח פירושו שהמסך מאריך וסגור את המסך מופק, אותו האופן בו וילונות ודלתות מוסך עובדים. עבור מסך הקרנה זה נוגד. אתה יכול לשנות את ההתנהגות."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "תסריט"
     },
-    "projector_lift": {
-      "name": "מעלית"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "סגור",
-          "opening": "סגרה",
-          "closing": "פתיחה",
-          "closed": "פתוח פתוח"
+    "device": {
+        "projector_lift": {
+            "name": "מעלית"
+        },
+        "projector_screen": {
+            "name": "תסריט"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "סגור",
-          "opening": "סגרה",
-          "closing": "פתיחה",
-          "closed": "פתוח פתוח"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "פתוח פתוח",
+                    "closing": "פתיחה",
+                    "open": "סגור",
+                    "opening": "סגרה"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "פתוח פתוח",
+                    "closing": "פתיחה",
+                    "open": "סגור",
+                    "opening": "סגרה"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "התנהגות",
+                    "time_close": "זמן סגור",
+                    "time_open": "זמן פתוח"
+                },
+                "data_description": {
+                    "inverted": "שילוב זה עוקב אחר ה- Cover Entity, שבו פתוח פירושו שהמסך מאריך וסגור את המסך מופק, אותו האופן בו וילונות ודלתות מוסך עובדים. עבור מסך הקרנה זה נוגד. אתה יכול לשנות את ההתנהגות.",
+                    "time_close": "הזמן צריך לסגור את המעלית המקרן.",
+                    "time_open": "הזמן צריך לפתוח את המעלית המקרן."
+                },
+                "title": "אפשרויות להרים"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "התנהגות",
+                    "time_close": "זמן סגור",
+                    "time_open": "זמן פתוח"
+                },
+                "data_description": {
+                    "inverted": "שילוב זה עוקב אחר ה- Cover Entity, שבו פתוח פירושו שהמסך מאריך וסגור את המסך מופק, אותו האופן בו וילונות ודלתות מוסך עובדים. עבור מסך הקרנה זה נוגד. אתה יכול לשנות את ההתנהגות.",
+                    "time_close": "הזמן צריך לסגור את מסך המקרן.",
+                    "time_open": "הזמן צריך לפתוח את מסך המקרן."
+                },
+                "title": "אפשרויות מסך"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "מעלית",
+                "projector_screen": "מסך הפרויקט"
+            }
+        }
     }
-  }
 }

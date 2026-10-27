@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Įrenginys jau sukonfigūruotas"
-    },
-    "error": {
-      "cannot_connect": "Nepavyko prisijungti",
-      "nonexisting_serial_port": "Serijos poortas neegzistuoja",
-      "invalid_address": "Neteisingas adresas",
-      "unknown": "Netikėta klaida"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Serijinis prievadas",
-          "address": "Adresas",
-          "device_type": "Įrenginio tipas",
-          "time_open": "Atviras laikas",
-          "time_close": "Uždarymo laikas",
-          "inverted": "Invertuota elgsena"
+    "config": {
+        "abort": {
+            "already_configured": "Įrenginys jau sukonfigūruotas"
         },
-        "data_description": {
-          "serial_port": "Serijinis prievadas, prie kurio prijungtas įrenginys.",
-          "address": "6 ženklų šešioliktainis įrenginio adresas.",
-          "time_open": "Įrenginio atidarymo laikas.",
-          "time_close": "Įtaisui uždaryti reikia laiko.",
-          "inverted": "Ši integracija seka viršelio subjektas, kur atviras reiškia, kad ekranas yra traukiamas ir uždarytas ekranas yra ekstrahuojamas, tuo pačiu būdu užuolaidos ir garažo durys dirbti. Projekcijos ekrane tai yra priešinga. Jūs galite pakeisti elgesį."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Prožektoriaus ekranas",
-        "projector_lift": "Prožektoriaus keltuvas"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Projektoriaus ekrano parinktys",
-        "data": {
-          "time_open": "Atviras laikas",
-          "time_close": "Uždarymo laikas",
-          "inverted": "Invertuota elgsena"
+        "error": {
+            "cannot_connect": "Nepavyko prisijungti",
+            "invalid_address": "Neteisingas adresas",
+            "nonexisting_serial_port": "Serijos poortas neegzistuoja",
+            "unknown": "Netikėta klaida"
         },
-        "data_description": {
-          "time_open": "Laikas, reikalingas projektoriaus ekranui atidaryti.",
-          "time_close": "Laikas, reikalingas projektoriaus ekranui uždaryti.",
-          "inverted": "Ši integracija seka viršelio subjektas, kur atviras reiškia, kad ekranas yra traukiamas ir uždarytas ekranas yra ekstrahuojamas, tuo pačiu būdu užuolaidos ir garažo durys dirbti. Projekcijos ekrane tai yra priešinga. Jūs galite pakeisti elgesį."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Adresas",
+                    "device_type": "Įrenginio tipas",
+                    "inverted": "Invertuota elgsena",
+                    "serial_port": "Serijinis prievadas",
+                    "time_close": "Uždarymo laikas",
+                    "time_open": "Atviras laikas"
+                },
+                "data_description": {
+                    "address": "6 ženklų šešioliktainis įrenginio adresas.",
+                    "inverted": "Ši integracija seka viršelio subjektas, kur atviras reiškia, kad ekranas yra traukiamas ir uždarytas ekranas yra ekstrahuojamas, tuo pačiu būdu užuolaidos ir garažo durys dirbti. Projekcijos ekrane tai yra priešinga. Jūs galite pakeisti elgesį.",
+                    "serial_port": "Serijinis prievadas, prie kurio prijungtas įrenginys.",
+                    "time_close": "Įtaisui uždaryti reikia laiko.",
+                    "time_open": "Įrenginio atidarymo laikas."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Projektoriaus keltuvo galimybės",
-        "data": {
-          "time_open": "Atviras laikas",
-          "time_close": "Uždarymo laikas",
-          "inverted": "Invertuota elgsena"
-        },
-        "data_description": {
-          "time_open": "Laikas, reikalingas projektoriui atidaryti.",
-          "time_close": "Laikas, per kurį reikia uždaryti projektoriaus keltuvą.",
-          "inverted": "Ši integracija seka viršelio subjektas, kur atviras reiškia, kad ekranas yra traukiamas ir uždarytas ekranas yra ekstrahuojamas, tuo pačiu būdu užuolaidos ir garažo durys dirbti. Projekcijos ekrane tai yra priešinga. Jūs galite pakeisti elgesį."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Prožektoriaus ekranas"
     },
-    "projector_lift": {
-      "name": "Projektoriaus keltuvas"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Uždarytas",
-          "opening": "Uždarymas",
-          "closing": "Atidaryti",
-          "closed": "Atverti"
+    "device": {
+        "projector_lift": {
+            "name": "Projektoriaus keltuvas"
+        },
+        "projector_screen": {
+            "name": "Prožektoriaus ekranas"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Uždarytas",
-          "opening": "Uždarymas",
-          "closing": "Atidaryti",
-          "closed": "Atverti"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Atverti",
+                    "closing": "Atidaryti",
+                    "open": "Uždarytas",
+                    "opening": "Uždarymas"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Atverti",
+                    "closing": "Atidaryti",
+                    "open": "Uždarytas",
+                    "opening": "Uždarymas"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Invertuota elgsena",
+                    "time_close": "Uždarymo laikas",
+                    "time_open": "Atviras laikas"
+                },
+                "data_description": {
+                    "inverted": "Ši integracija seka viršelio subjektas, kur atviras reiškia, kad ekranas yra traukiamas ir uždarytas ekranas yra ekstrahuojamas, tuo pačiu būdu užuolaidos ir garažo durys dirbti. Projekcijos ekrane tai yra priešinga. Jūs galite pakeisti elgesį.",
+                    "time_close": "Laikas, per kurį reikia uždaryti projektoriaus keltuvą.",
+                    "time_open": "Laikas, reikalingas projektoriui atidaryti."
+                },
+                "title": "Projektoriaus keltuvo galimybės"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Invertuota elgsena",
+                    "time_close": "Uždarymo laikas",
+                    "time_open": "Atviras laikas"
+                },
+                "data_description": {
+                    "inverted": "Ši integracija seka viršelio subjektas, kur atviras reiškia, kad ekranas yra traukiamas ir uždarytas ekranas yra ekstrahuojamas, tuo pačiu būdu užuolaidos ir garažo durys dirbti. Projekcijos ekrane tai yra priešinga. Jūs galite pakeisti elgesį.",
+                    "time_close": "Laikas, reikalingas projektoriaus ekranui uždaryti.",
+                    "time_open": "Laikas, reikalingas projektoriaus ekranui atidaryti."
+                },
+                "title": "Projektoriaus ekrano parinktys"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Prožektoriaus keltuvas",
+                "projector_screen": "Prožektoriaus ekranas"
+            }
+        }
     }
-  }
 }

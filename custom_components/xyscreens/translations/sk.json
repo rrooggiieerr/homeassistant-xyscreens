@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Zariadenie je už nakonfigurované"
-    },
-    "error": {
-      "cannot_connect": "Nepodarilo sa pripojiť",
-      "nonexisting_serial_port": "Sériový chumáč neexistuje",
-      "invalid_address": "Neplatná adresa",
-      "unknown": "Neočakávaná chyba"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Sériový port",
-          "address": "Adresa",
-          "device_type": "Typ zariadenia",
-          "time_open": "Čas otvorených dverí",
-          "time_close": "Čas zatvorenia",
-          "inverted": "Inverzné správanie"
+    "config": {
+        "abort": {
+            "already_configured": "Zariadenie je už nakonfigurované"
         },
-        "data_description": {
-          "serial_port": "Sériový port, ku ktorému je zariadenie pripojené.",
-          "address": "6 znak hexadecimálna adresa zariadenia.",
-          "time_open": "Čas potrebný na otvorenie zariadenia.",
-          "time_close": "Čas potrebný na zatvorenie zariadenia.",
-          "inverted": "Táto integrácia nadväzuje na kryciu jednotku, kde otvorený znamená, že obrazovka je zasunutá a zatvorená. Pre premietaciu obrazovku je to protiintuitívne. Môžete zvrátiť správanie."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Projekčná obrazovka",
-        "projector_lift": "Projektorový výťah"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Možnosti obrazovky projektora",
-        "data": {
-          "time_open": "Čas otvorených dverí",
-          "time_close": "Čas zatvorenia",
-          "inverted": "Inverzné správanie"
+        "error": {
+            "cannot_connect": "Nepodarilo sa pripojiť",
+            "invalid_address": "Neplatná adresa",
+            "nonexisting_serial_port": "Sériový chumáč neexistuje",
+            "unknown": "Neočakávaná chyba"
         },
-        "data_description": {
-          "time_open": "Čas potrebný na otvorenie premietacej obrazovky.",
-          "time_close": "Čas potrebný na zatvorenie premietacej obrazovky.",
-          "inverted": "Táto integrácia nadväzuje na kryciu jednotku, kde otvorený znamená, že obrazovka je zasunutá a zatvorená. Pre premietaciu obrazovku je to protiintuitívne. Môžete zvrátiť správanie."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Adresa",
+                    "device_type": "Typ zariadenia",
+                    "inverted": "Inverzné správanie",
+                    "serial_port": "Sériový port",
+                    "time_close": "Čas zatvorenia",
+                    "time_open": "Čas otvorených dverí"
+                },
+                "data_description": {
+                    "address": "6 znak hexadecimálna adresa zariadenia.",
+                    "inverted": "Táto integrácia nadväzuje na kryciu jednotku, kde otvorený znamená, že obrazovka je zasunutá a zatvorená. Pre premietaciu obrazovku je to protiintuitívne. Môžete zvrátiť správanie.",
+                    "serial_port": "Sériový port, ku ktorému je zariadenie pripojené.",
+                    "time_close": "Čas potrebný na zatvorenie zariadenia.",
+                    "time_open": "Čas potrebný na otvorenie zariadenia."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Možnosti zdvihu projektora",
-        "data": {
-          "time_open": "Čas otvorených dverí",
-          "time_close": "Čas zatvorenia",
-          "inverted": "Inverzné správanie"
-        },
-        "data_description": {
-          "time_open": "Čas potrebný na otvorenie projektorového výťahu.",
-          "time_close": "Potrebný čas na ukončenie projektu.",
-          "inverted": "Táto integrácia nadväzuje na kryciu jednotku, kde otvorený znamená, že obrazovka je zasunutá a zatvorená. Pre premietaciu obrazovku je to protiintuitívne. Môžete zvrátiť správanie."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Obrazovka projektorov"
     },
-    "projector_lift": {
-      "name": "Projektorový výťah"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Uzavreté",
-          "opening": "Ukončenie",
-          "closing": "Otvorenie",
-          "closed": "Otvoriť"
+    "device": {
+        "projector_lift": {
+            "name": "Projektorový výťah"
+        },
+        "projector_screen": {
+            "name": "Obrazovka projektorov"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Uzavreté",
-          "opening": "Ukončenie",
-          "closing": "Otvorenie",
-          "closed": "Otvoriť"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Otvoriť",
+                    "closing": "Otvorenie",
+                    "open": "Uzavreté",
+                    "opening": "Ukončenie"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Otvoriť",
+                    "closing": "Otvorenie",
+                    "open": "Uzavreté",
+                    "opening": "Ukončenie"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Inverzné správanie",
+                    "time_close": "Čas zatvorenia",
+                    "time_open": "Čas otvorených dverí"
+                },
+                "data_description": {
+                    "inverted": "Táto integrácia nadväzuje na kryciu jednotku, kde otvorený znamená, že obrazovka je zasunutá a zatvorená. Pre premietaciu obrazovku je to protiintuitívne. Môžete zvrátiť správanie.",
+                    "time_close": "Potrebný čas na ukončenie projektu.",
+                    "time_open": "Čas potrebný na otvorenie projektorového výťahu."
+                },
+                "title": "Možnosti zdvihu projektora"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Inverzné správanie",
+                    "time_close": "Čas zatvorenia",
+                    "time_open": "Čas otvorených dverí"
+                },
+                "data_description": {
+                    "inverted": "Táto integrácia nadväzuje na kryciu jednotku, kde otvorený znamená, že obrazovka je zasunutá a zatvorená. Pre premietaciu obrazovku je to protiintuitívne. Môžete zvrátiť správanie.",
+                    "time_close": "Čas potrebný na zatvorenie premietacej obrazovky.",
+                    "time_open": "Čas potrebný na otvorenie premietacej obrazovky."
+                },
+                "title": "Možnosti obrazovky projektora"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Projektorový výťah",
+                "projector_screen": "Projekčná obrazovka"
+            }
+        }
     }
-  }
 }

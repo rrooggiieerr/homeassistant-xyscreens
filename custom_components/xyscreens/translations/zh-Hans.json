@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "设备已配置"
-    },
-    "error": {
-      "cannot_connect": "连接失败",
-      "nonexisting_serial_port": "串号不存在",
-      "invalid_address": "无效的地址",
-      "unknown": "意外错误"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "串行端口",
-          "address": "地址",
-          "device_type": "设备类型",
-          "time_open": "开放时间",
-          "time_close": "关闭时间",
-          "inverted": "反向行为"
+    "config": {
+        "abort": {
+            "already_configured": "设备已配置"
         },
-        "data_description": {
-          "serial_port": "您的设备连接的序列端口 。",
-          "address": "设备的6个字符十六进制地址.",
-          "time_open": "打开设备需要时间。",
-          "time_close": "关闭设备需要时间。",
-          "inverted": "这种整合遵循\"封面实体\"(Cover Entertainment),其中打开意味着屏幕被收回并关闭屏幕被提取,与窗帘和车库门一样. 对于投影屏幕来说,这是反直觉的。 你可以扭转行为"
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "投影屏幕",
-        "projector_lift": "投影仪升起"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "放映机屏幕选项",
-        "data": {
-          "time_open": "开放时间",
-          "time_close": "关闭时间",
-          "inverted": "反向行为"
+        "error": {
+            "cannot_connect": "连接失败",
+            "invalid_address": "无效的地址",
+            "nonexisting_serial_port": "串号不存在",
+            "unknown": "意外错误"
         },
-        "data_description": {
-          "time_open": "打开投影仪屏幕需要时间.",
-          "time_close": "关闭投影仪屏幕需要时间.",
-          "inverted": "这种整合遵循\"封面实体\"(Cover Entertainment),其中打开意味着屏幕被收回并关闭屏幕被提取,与窗帘和车库门一样. 对于投影屏幕来说,这是反直觉的。 你可以扭转行为"
+        "step": {
+            "user": {
+                "data": {
+                    "address": "地址",
+                    "device_type": "设备类型",
+                    "inverted": "反向行为",
+                    "serial_port": "串行端口",
+                    "time_close": "关闭时间",
+                    "time_open": "开放时间"
+                },
+                "data_description": {
+                    "address": "设备的6个字符十六进制地址.",
+                    "inverted": "这种整合遵循\"封面实体\"(Cover Entertainment),其中打开意味着屏幕被收回并关闭屏幕被提取,与窗帘和车库门一样. 对于投影屏幕来说,这是反直觉的。 你可以扭转行为",
+                    "serial_port": "您的设备连接的序列端口 。",
+                    "time_close": "关闭设备需要时间。",
+                    "time_open": "打开设备需要时间。"
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "投影机升空选项",
-        "data": {
-          "time_open": "开放时间",
-          "time_close": "关闭时间",
-          "inverted": "反向行为"
-        },
-        "data_description": {
-          "time_open": "打开投影机升降机需要时间.",
-          "time_close": "关闭投影机升降机需要时间.",
-          "inverted": "这种整合遵循\"封面实体\"(Cover Entertainment),其中打开意味着屏幕被收回并关闭屏幕被提取,与窗帘和车库门一样. 对于投影屏幕来说,这是反直觉的。 你可以扭转行为"
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "放映机屏幕"
     },
-    "projector_lift": {
-      "name": "投影仪"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "关闭",
-          "opening": "闭幕",
-          "closing": "开幕",
-          "closed": "打开"
+    "device": {
+        "projector_lift": {
+            "name": "投影仪"
+        },
+        "projector_screen": {
+            "name": "放映机屏幕"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "关闭",
-          "opening": "闭幕",
-          "closing": "开幕",
-          "closed": "打开"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "打开",
+                    "closing": "开幕",
+                    "open": "关闭",
+                    "opening": "闭幕"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "打开",
+                    "closing": "开幕",
+                    "open": "关闭",
+                    "opening": "闭幕"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "反向行为",
+                    "time_close": "关闭时间",
+                    "time_open": "开放时间"
+                },
+                "data_description": {
+                    "inverted": "这种整合遵循\"封面实体\"(Cover Entertainment),其中打开意味着屏幕被收回并关闭屏幕被提取,与窗帘和车库门一样. 对于投影屏幕来说,这是反直觉的。 你可以扭转行为",
+                    "time_close": "关闭投影机升降机需要时间.",
+                    "time_open": "打开投影机升降机需要时间."
+                },
+                "title": "投影机升空选项"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "反向行为",
+                    "time_close": "关闭时间",
+                    "time_open": "开放时间"
+                },
+                "data_description": {
+                    "inverted": "这种整合遵循\"封面实体\"(Cover Entertainment),其中打开意味着屏幕被收回并关闭屏幕被提取,与窗帘和车库门一样. 对于投影屏幕来说,这是反直觉的。 你可以扭转行为",
+                    "time_close": "关闭投影仪屏幕需要时间.",
+                    "time_open": "打开投影仪屏幕需要时间."
+                },
+                "title": "放映机屏幕选项"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "投影仪升起",
+                "projector_screen": "投影屏幕"
+            }
+        }
     }
-  }
 }

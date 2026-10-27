@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Laite on jo määritetty"
-    },
-    "error": {
-      "cannot_connect": "Yhdistäminen epäonnistui",
-      "nonexisting_serial_port": "Sarjapuuta ei ole olemassa",
-      "invalid_address": "Virheellinen osoite",
-      "unknown": "Odottamaton virhe"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Sarjaportti",
-          "address": "Osoite",
-          "device_type": "Laitetyyppi",
-          "time_open": "Avoin aika",
-          "time_close": "Sulje aika",
-          "inverted": "Käänteinen käytös"
+    "config": {
+        "abort": {
+            "already_configured": "Laite on jo määritetty"
         },
-        "data_description": {
-          "serial_port": "Sarjaportti johon laitteesi on kytketty.",
-          "address": "Laitteen 6 merkin heksadesimaalinen osoite.",
-          "time_open": "Laitteen avaamiseen tarvitaan aikaa.",
-          "time_close": "Laite piti sulkea.",
-          "inverted": "Tämä integraatio seuraa Cover Entity, jos avoin tarkoittaa näytön sisään vedetään ja suljetaan näyttö poistetaan, samalla tavalla verhot ja autotallin ovet toimivat. Projektinäytölle tämä on vasta-aiheista. Voit perua käytöksen."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Projektorinäyttö",
-        "projector_lift": "Projektorin nosto"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Projektorinäytön asetukset",
-        "data": {
-          "time_open": "Avoin aika",
-          "time_close": "Sulje aika",
-          "inverted": "Käänteinen käytös"
+        "error": {
+            "cannot_connect": "Yhdistäminen epäonnistui",
+            "invalid_address": "Virheellinen osoite",
+            "nonexisting_serial_port": "Sarjapuuta ei ole olemassa",
+            "unknown": "Odottamaton virhe"
         },
-        "data_description": {
-          "time_open": "Aikaa tarvitaan projektorinäytön avaamiseen.",
-          "time_close": "Aikaa tarvitaan projektorinäytön sulkemiseen.",
-          "inverted": "Tämä integraatio seuraa Cover Entity, jos avoin tarkoittaa näytön sisään vedetään ja suljetaan näyttö poistetaan, samalla tavalla verhot ja autotallin ovet toimivat. Projektinäytölle tämä on vasta-aiheista. Voit perua käytöksen."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Osoite",
+                    "device_type": "Laitetyyppi",
+                    "inverted": "Käänteinen käytös",
+                    "serial_port": "Sarjaportti",
+                    "time_close": "Sulje aika",
+                    "time_open": "Avoin aika"
+                },
+                "data_description": {
+                    "address": "Laitteen 6 merkin heksadesimaalinen osoite.",
+                    "inverted": "Tämä integraatio seuraa Cover Entity, jos avoin tarkoittaa näytön sisään vedetään ja suljetaan näyttö poistetaan, samalla tavalla verhot ja autotallin ovet toimivat. Projektinäytölle tämä on vasta-aiheista. Voit perua käytöksen.",
+                    "serial_port": "Sarjaportti johon laitteesi on kytketty.",
+                    "time_close": "Laite piti sulkea.",
+                    "time_open": "Laitteen avaamiseen tarvitaan aikaa."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Projektorin nostovalinnat",
-        "data": {
-          "time_open": "Avoin aika",
-          "time_close": "Sulje aika",
-          "inverted": "Käänteinen käytös"
-        },
-        "data_description": {
-          "time_open": "Aikaa tarvitaan projektorihissin avaamiseen.",
-          "time_close": "Aikaa tarvitaan projektorihissin sulkemiseen.",
-          "inverted": "Tämä integraatio seuraa Cover Entity, jos avoin tarkoittaa näytön sisään vedetään ja suljetaan näyttö poistetaan, samalla tavalla verhot ja autotallin ovet toimivat. Projektinäytölle tämä on vasta-aiheista. Voit perua käytöksen."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Projektori"
     },
-    "projector_lift": {
-      "name": "Projektorin nosto"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Suljettu",
-          "opening": "Sulkeminen",
-          "closing": "Avaaminen",
-          "closed": "Avaa"
+    "device": {
+        "projector_lift": {
+            "name": "Projektorin nosto"
+        },
+        "projector_screen": {
+            "name": "Projektori"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Suljettu",
-          "opening": "Sulkeminen",
-          "closing": "Avaaminen",
-          "closed": "Avaa"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Avaa",
+                    "closing": "Avaaminen",
+                    "open": "Suljettu",
+                    "opening": "Sulkeminen"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Avaa",
+                    "closing": "Avaaminen",
+                    "open": "Suljettu",
+                    "opening": "Sulkeminen"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Käänteinen käytös",
+                    "time_close": "Sulje aika",
+                    "time_open": "Avoin aika"
+                },
+                "data_description": {
+                    "inverted": "Tämä integraatio seuraa Cover Entity, jos avoin tarkoittaa näytön sisään vedetään ja suljetaan näyttö poistetaan, samalla tavalla verhot ja autotallin ovet toimivat. Projektinäytölle tämä on vasta-aiheista. Voit perua käytöksen.",
+                    "time_close": "Aikaa tarvitaan projektorihissin sulkemiseen.",
+                    "time_open": "Aikaa tarvitaan projektorihissin avaamiseen."
+                },
+                "title": "Projektorin nostovalinnat"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Käänteinen käytös",
+                    "time_close": "Sulje aika",
+                    "time_open": "Avoin aika"
+                },
+                "data_description": {
+                    "inverted": "Tämä integraatio seuraa Cover Entity, jos avoin tarkoittaa näytön sisään vedetään ja suljetaan näyttö poistetaan, samalla tavalla verhot ja autotallin ovet toimivat. Projektinäytölle tämä on vasta-aiheista. Voit perua käytöksen.",
+                    "time_close": "Aikaa tarvitaan projektorinäytön sulkemiseen.",
+                    "time_open": "Aikaa tarvitaan projektorinäytön avaamiseen."
+                },
+                "title": "Projektorinäytön asetukset"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Projektorin nosto",
+                "projector_screen": "Projektorinäyttö"
+            }
+        }
     }
-  }
 }

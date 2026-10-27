@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Das Gerät ist bereits konfiguriert"
-    },
-    "error": {
-      "cannot_connect": "Verbindung fehlgeschlagen",
-      "nonexisting_serial_port": "Serial poort gibt es nicht",
-      "invalid_address": "Ungültige Anschrift",
-      "unknown": "Unerwarteter Fehler"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Serienhafen",
-          "address": "Anschrift",
-          "device_type": "Gerätetyp",
-          "time_open": "Offene Zeit",
-          "time_close": "Schließzeit",
-          "inverted": "Invertiertes Verhalten"
+    "config": {
+        "abort": {
+            "already_configured": "Das Gerät ist bereits konfiguriert"
         },
-        "data_description": {
-          "serial_port": "Der serielle Port, mit dem Ihr Gerät verbunden ist.",
-          "address": "Die 6-stellige hexadezimale Adresse des Geräts.",
-          "time_open": "Zeit zum Öffnen des Geräts.",
-          "time_close": "Zeit zum Schließen des Geräts.",
-          "inverted": "Diese Integration folgt der Cover Entity, wobei offen bedeutet, dass der Bildschirm zurückgezogen und geschlossen wird, der Bildschirm wird extrahiert, genauso wie Vorhänge und Garagentore funktionieren. Für einen Projektionsbildschirm ist dies kontraintuitiv. Sie können das Verhalten umkehren."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Projektorbildschirm",
-        "projector_lift": "Projektorlift"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Projektor-Bildschirmoptionen",
-        "data": {
-          "time_open": "Offene Zeit",
-          "time_close": "Schließzeit",
-          "inverted": "Invertiertes Verhalten"
+        "error": {
+            "cannot_connect": "Verbindung fehlgeschlagen",
+            "invalid_address": "Ungültige Anschrift",
+            "nonexisting_serial_port": "Serial poort gibt es nicht",
+            "unknown": "Unerwarteter Fehler"
         },
-        "data_description": {
-          "time_open": "Zeit zum Öffnen des Projektorbildschirms.",
-          "time_close": "Zeit zum Schließen des Projektorbildschirms.",
-          "inverted": "Diese Integration folgt der Cover Entity, wobei offen bedeutet, dass der Bildschirm zurückgezogen und geschlossen wird, der Bildschirm wird extrahiert, genauso wie Vorhänge und Garagentore funktionieren. Für einen Projektionsbildschirm ist dies kontraintuitiv. Sie können das Verhalten umkehren."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Anschrift",
+                    "device_type": "Gerätetyp",
+                    "inverted": "Invertiertes Verhalten",
+                    "serial_port": "Serienhafen",
+                    "time_close": "Schließzeit",
+                    "time_open": "Offene Zeit"
+                },
+                "data_description": {
+                    "address": "Die 6-stellige hexadezimale Adresse des Geräts.",
+                    "inverted": "Diese Integration folgt der Cover Entity, wobei offen bedeutet, dass der Bildschirm zurückgezogen und geschlossen wird, der Bildschirm wird extrahiert, genauso wie Vorhänge und Garagentore funktionieren. Für einen Projektionsbildschirm ist dies kontraintuitiv. Sie können das Verhalten umkehren.",
+                    "serial_port": "Der serielle Port, mit dem Ihr Gerät verbunden ist.",
+                    "time_close": "Zeit zum Schließen des Geräts.",
+                    "time_open": "Zeit zum Öffnen des Geräts."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Projektorlift-Optionen",
-        "data": {
-          "time_open": "Offene Zeit",
-          "time_close": "Schließzeit",
-          "inverted": "Invertiertes Verhalten"
-        },
-        "data_description": {
-          "time_open": "Zeit zum Öffnen des Projektorlifts.",
-          "time_close": "Zeit zum Schließen des Projektorlifts.",
-          "inverted": "Diese Integration folgt der Cover Entity, wobei offen bedeutet, dass der Bildschirm zurückgezogen und geschlossen wird, der Bildschirm wird extrahiert, genauso wie Vorhänge und Garagentore funktionieren. Für einen Projektionsbildschirm ist dies kontraintuitiv. Sie können das Verhalten umkehren."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Projektor Screen"
     },
-    "projector_lift": {
-      "name": "Projektorlift"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Geschlossen",
-          "opening": "Abschluss",
-          "closing": "Öffnung",
-          "closed": "Offen"
+    "device": {
+        "projector_lift": {
+            "name": "Projektorlift"
+        },
+        "projector_screen": {
+            "name": "Projektor Screen"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Geschlossen",
-          "opening": "Abschluss",
-          "closing": "Öffnung",
-          "closed": "Offen"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Offen",
+                    "closing": "Öffnung",
+                    "open": "Geschlossen",
+                    "opening": "Abschluss"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Offen",
+                    "closing": "Öffnung",
+                    "open": "Geschlossen",
+                    "opening": "Abschluss"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Invertiertes Verhalten",
+                    "time_close": "Schließzeit",
+                    "time_open": "Offene Zeit"
+                },
+                "data_description": {
+                    "inverted": "Diese Integration folgt der Cover Entity, wobei offen bedeutet, dass der Bildschirm zurückgezogen und geschlossen wird, der Bildschirm wird extrahiert, genauso wie Vorhänge und Garagentore funktionieren. Für einen Projektionsbildschirm ist dies kontraintuitiv. Sie können das Verhalten umkehren.",
+                    "time_close": "Zeit zum Schließen des Projektorlifts.",
+                    "time_open": "Zeit zum Öffnen des Projektorlifts."
+                },
+                "title": "Projektorlift-Optionen"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Invertiertes Verhalten",
+                    "time_close": "Schließzeit",
+                    "time_open": "Offene Zeit"
+                },
+                "data_description": {
+                    "inverted": "Diese Integration folgt der Cover Entity, wobei offen bedeutet, dass der Bildschirm zurückgezogen und geschlossen wird, der Bildschirm wird extrahiert, genauso wie Vorhänge und Garagentore funktionieren. Für einen Projektionsbildschirm ist dies kontraintuitiv. Sie können das Verhalten umkehren.",
+                    "time_close": "Zeit zum Schließen des Projektorbildschirms.",
+                    "time_open": "Zeit zum Öffnen des Projektorbildschirms."
+                },
+                "title": "Projektor-Bildschirmoptionen"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Projektorlift",
+                "projector_screen": "Projektorbildschirm"
+            }
+        }
     }
-  }
 }

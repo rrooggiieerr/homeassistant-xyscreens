@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "O dispositivo xa está configurado"
-    },
-    "error": {
-      "cannot_connect": "Non se puido conectar",
-      "nonexisting_serial_port": "Serial Poort non existe",
-      "invalid_address": "Enderezo non válido",
-      "unknown": "Erro inesperado"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Porto Serial",
-          "address": "dirección",
-          "device_type": "Tipo de dispositivo",
-          "time_open": "Tempo aberto",
-          "time_close": "Tempo próximo",
-          "inverted": "Inverter o comportamento"
+    "config": {
+        "abort": {
+            "already_configured": "O dispositivo xa está configurado"
         },
-        "data_description": {
-          "serial_port": "O porto de serie do seu dispositivo está conectado.",
-          "address": "O enderezo hexadecimal de 6 caracteres do dispositivo",
-          "time_open": "Tempo necesario para abrir o dispositivo.",
-          "time_close": "Tempo necesario para pechar o dispositivo.",
-          "inverted": "Esta integración segue a Cover Entity, onde se retrae a pantalla e se pecha a pantalla, do mesmo xeito que as cortinas e as portas de garaxe funcionan. Para unha pantalla de proxección é contraintuitivo. Podemos reverter o comportamento."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Pantalla de proxecto",
-        "projector_lift": "Proxecto de ascensor"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Opcións de pantalla",
-        "data": {
-          "time_open": "Tempo aberto",
-          "time_close": "Tempo próximo",
-          "inverted": "Inverter o comportamento"
+        "error": {
+            "cannot_connect": "Non se puido conectar",
+            "invalid_address": "Enderezo non válido",
+            "nonexisting_serial_port": "Serial Poort non existe",
+            "unknown": "Erro inesperado"
         },
-        "data_description": {
-          "time_open": "Tempo necesario para abrir a pantalla.",
-          "time_close": "Tempo necesario para pechar a pantalla.",
-          "inverted": "Esta integración segue a Cover Entity, onde se retrae a pantalla e se pecha a pantalla, do mesmo xeito que as cortinas e as portas de garaxe funcionan. Para unha pantalla de proxección é contraintuitivo. Podemos reverter o comportamento."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "dirección",
+                    "device_type": "Tipo de dispositivo",
+                    "inverted": "Inverter o comportamento",
+                    "serial_port": "Porto Serial",
+                    "time_close": "Tempo próximo",
+                    "time_open": "Tempo aberto"
+                },
+                "data_description": {
+                    "address": "O enderezo hexadecimal de 6 caracteres do dispositivo",
+                    "inverted": "Esta integración segue a Cover Entity, onde se retrae a pantalla e se pecha a pantalla, do mesmo xeito que as cortinas e as portas de garaxe funcionan. Para unha pantalla de proxección é contraintuitivo. Podemos reverter o comportamento.",
+                    "serial_port": "O porto de serie do seu dispositivo está conectado.",
+                    "time_close": "Tempo necesario para pechar o dispositivo.",
+                    "time_open": "Tempo necesario para abrir o dispositivo."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Opcións de ascensor",
-        "data": {
-          "time_open": "Tempo aberto",
-          "time_close": "Tempo próximo",
-          "inverted": "Inverter o comportamento"
-        },
-        "data_description": {
-          "time_open": "Tempo necesario para abrir o ascensor.",
-          "time_close": "Tempo necesario para pechar o ascensor.",
-          "inverted": "Esta integración segue a Cover Entity, onde se retrae a pantalla e se pecha a pantalla, do mesmo xeito que as cortinas e as portas de garaxe funcionan. Para unha pantalla de proxección é contraintuitivo. Podemos reverter o comportamento."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Screen Projector"
     },
-    "projector_lift": {
-      "name": "Proxecto Lift"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Pechado",
-          "opening": "Clausura",
-          "closing": "Inauguración",
-          "closed": "Aberto"
+    "device": {
+        "projector_lift": {
+            "name": "Proxecto Lift"
+        },
+        "projector_screen": {
+            "name": "Screen Projector"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Pechado",
-          "opening": "Clausura",
-          "closing": "Inauguración",
-          "closed": "Aberto"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Aberto",
+                    "closing": "Inauguración",
+                    "open": "Pechado",
+                    "opening": "Clausura"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Aberto",
+                    "closing": "Inauguración",
+                    "open": "Pechado",
+                    "opening": "Clausura"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Inverter o comportamento",
+                    "time_close": "Tempo próximo",
+                    "time_open": "Tempo aberto"
+                },
+                "data_description": {
+                    "inverted": "Esta integración segue a Cover Entity, onde se retrae a pantalla e se pecha a pantalla, do mesmo xeito que as cortinas e as portas de garaxe funcionan. Para unha pantalla de proxección é contraintuitivo. Podemos reverter o comportamento.",
+                    "time_close": "Tempo necesario para pechar o ascensor.",
+                    "time_open": "Tempo necesario para abrir o ascensor."
+                },
+                "title": "Opcións de ascensor"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Inverter o comportamento",
+                    "time_close": "Tempo próximo",
+                    "time_open": "Tempo aberto"
+                },
+                "data_description": {
+                    "inverted": "Esta integración segue a Cover Entity, onde se retrae a pantalla e se pecha a pantalla, do mesmo xeito que as cortinas e as portas de garaxe funcionan. Para unha pantalla de proxección é contraintuitivo. Podemos reverter o comportamento.",
+                    "time_close": "Tempo necesario para pechar a pantalla.",
+                    "time_open": "Tempo necesario para abrir a pantalla."
+                },
+                "title": "Opcións de pantalla"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Proxecto de ascensor",
+                "projector_screen": "Pantalla de proxecto"
+            }
+        }
     }
-  }
 }

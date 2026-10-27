@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "이미 구성"
-    },
-    "error": {
-      "cannot_connect": "연결 실패",
-      "nonexisting_serial_port": "Serial poort는 존재하지 않습니다.",
-      "invalid_address": "잘못된 주소",
-      "unknown": "잘못된 오류"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "직렬 포트",
-          "address": "이름 *",
-          "device_type": "장치 유형",
-          "time_open": "영업시간",
-          "time_close": "맨 위로",
-          "inverted": "Invert 행동"
+    "config": {
+        "abort": {
+            "already_configured": "이미 구성"
         },
-        "data_description": {
-          "serial_port": "직렬 포트 장치가 연결됩니다.",
-          "address": "장치의 6 문자 hexadecimal 주소.",
-          "time_open": "장치를 여는 데 필요한 시간.",
-          "time_close": "장치를 닫는 데 필요한 시간.",
-          "inverted": "이 통합은 Cover Entity를 따르고, 열려있는 방법은 스크린을 철회하고 닫히고 스크린은 추출되고, 동일한 방법 커튼과 차고 문 일입니다. 투상 화면을 위해 이것은 합리적입니다. 행동을 반전 할 수 있습니다."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "영사기 스크린",
-        "projector_lift": "영사기 상승"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Projector 화면 옵션",
-        "data": {
-          "time_open": "영업시간",
-          "time_close": "맨 위로",
-          "inverted": "Invert 행동"
+        "error": {
+            "cannot_connect": "연결 실패",
+            "invalid_address": "잘못된 주소",
+            "nonexisting_serial_port": "Serial poort는 존재하지 않습니다.",
+            "unknown": "잘못된 오류"
         },
-        "data_description": {
-          "time_open": "영사기 스크린을 여는 데 필요한 시간.",
-          "time_close": "프로젝터 화면 닫기에 필요한 시간.",
-          "inverted": "이 통합은 Cover Entity를 따르고, 열려있는 방법은 스크린을 철회하고 닫히고 스크린은 추출되고, 동일한 방법 커튼과 차고 문 일입니다. 투상 화면을 위해 이것은 합리적입니다. 행동을 반전 할 수 있습니다."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "이름 *",
+                    "device_type": "장치 유형",
+                    "inverted": "Invert 행동",
+                    "serial_port": "직렬 포트",
+                    "time_close": "맨 위로",
+                    "time_open": "영업시간"
+                },
+                "data_description": {
+                    "address": "장치의 6 문자 hexadecimal 주소.",
+                    "inverted": "이 통합은 Cover Entity를 따르고, 열려있는 방법은 스크린을 철회하고 닫히고 스크린은 추출되고, 동일한 방법 커튼과 차고 문 일입니다. 투상 화면을 위해 이것은 합리적입니다. 행동을 반전 할 수 있습니다.",
+                    "serial_port": "직렬 포트 장치가 연결됩니다.",
+                    "time_close": "장치를 닫는 데 필요한 시간.",
+                    "time_open": "장치를 여는 데 필요한 시간."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Projector 리프트 옵션",
-        "data": {
-          "time_open": "영업시간",
-          "time_close": "맨 위로",
-          "inverted": "Invert 행동"
-        },
-        "data_description": {
-          "time_open": "프로젝터 리프트를 여는 데 필요한 시간.",
-          "time_close": "프로젝터 리프트를 닫는 데 필요한 시간.",
-          "inverted": "이 통합은 Cover Entity를 따르고, 열려있는 방법은 스크린을 철회하고 닫히고 스크린은 추출되고, 동일한 방법 커튼과 차고 문 일입니다. 투상 화면을 위해 이것은 합리적입니다. 행동을 반전 할 수 있습니다."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Projector 스크린"
     },
-    "projector_lift": {
-      "name": "영사기 상승"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "【특징】",
-          "opening": "뚱 베어",
-          "closing": "- 연혁",
-          "closed": "기타"
+    "device": {
+        "projector_lift": {
+            "name": "영사기 상승"
+        },
+        "projector_screen": {
+            "name": "Projector 스크린"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "【특징】",
-          "opening": "뚱 베어",
-          "closing": "- 연혁",
-          "closed": "기타"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "기타",
+                    "closing": "- 연혁",
+                    "open": "【특징】",
+                    "opening": "뚱 베어"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "기타",
+                    "closing": "- 연혁",
+                    "open": "【특징】",
+                    "opening": "뚱 베어"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Invert 행동",
+                    "time_close": "맨 위로",
+                    "time_open": "영업시간"
+                },
+                "data_description": {
+                    "inverted": "이 통합은 Cover Entity를 따르고, 열려있는 방법은 스크린을 철회하고 닫히고 스크린은 추출되고, 동일한 방법 커튼과 차고 문 일입니다. 투상 화면을 위해 이것은 합리적입니다. 행동을 반전 할 수 있습니다.",
+                    "time_close": "프로젝터 리프트를 닫는 데 필요한 시간.",
+                    "time_open": "프로젝터 리프트를 여는 데 필요한 시간."
+                },
+                "title": "Projector 리프트 옵션"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Invert 행동",
+                    "time_close": "맨 위로",
+                    "time_open": "영업시간"
+                },
+                "data_description": {
+                    "inverted": "이 통합은 Cover Entity를 따르고, 열려있는 방법은 스크린을 철회하고 닫히고 스크린은 추출되고, 동일한 방법 커튼과 차고 문 일입니다. 투상 화면을 위해 이것은 합리적입니다. 행동을 반전 할 수 있습니다.",
+                    "time_close": "프로젝터 화면 닫기에 필요한 시간.",
+                    "time_open": "영사기 스크린을 여는 데 필요한 시간."
+                },
+                "title": "Projector 화면 옵션"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "영사기 상승",
+                "projector_screen": "영사기 스크린"
+            }
+        }
     }
-  }
 }

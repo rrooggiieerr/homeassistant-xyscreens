@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Mae'r ddyfais eisoes wedi'i ffurfweddu"
-    },
-    "error": {
-      "cannot_connect": "Wedi methu cysylltu",
-      "nonexisting_serial_port": "Nid yw serial poort yn bodoli",
-      "invalid_address": "Cyfeiriad annilys",
-      "unknown": "Gwall annisgwyl"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Porth cyfresol",
-          "address": "Cyfeiriad",
-          "device_type": "Math o ddyfais",
-          "time_open": "Amser agored",
-          "time_close": "Amser cau",
-          "inverted": "Ymddygiad gwrthdro"
+    "config": {
+        "abort": {
+            "already_configured": "Mae'r ddyfais eisoes wedi'i ffurfweddu"
         },
-        "data_description": {
-          "serial_port": "Y porthladd cyfresol y mae eich dyfais wedi'i gysylltu ag ef.",
-          "address": "Cyfeiriad hecsadegol 6 nod y ddyfais.",
-          "time_open": "Amser sydd ei angen i agor y ddyfais.",
-          "time_close": "Amser sydd ei angen i gau'r ddyfais.",
-          "inverted": "Mae'r integreiddio hwn yn dilyn yr Endid Cover, lle mae agored yn golygu bod y sgrin yn cael ei thynnu'n ôl a'i chau, mae'r sgrin yn cael ei thynnu, yn yr un modd mae llenni a drysau garej yn gweithio. Ar gyfer sgrin taflunio mae hyn yn wrthreddfol. Gallwch chi wrthdroi'r ymddygiad."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Sgrin taflunydd",
-        "projector_lift": "Lifft taflunydd"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Opsiynau sgrin taflunydd",
-        "data": {
-          "time_open": "Amser agored",
-          "time_close": "Amser cau",
-          "inverted": "Ymddygiad gwrthdro"
+        "error": {
+            "cannot_connect": "Wedi methu cysylltu",
+            "invalid_address": "Cyfeiriad annilys",
+            "nonexisting_serial_port": "Nid yw serial poort yn bodoli",
+            "unknown": "Gwall annisgwyl"
         },
-        "data_description": {
-          "time_open": "Amser sydd ei angen i agor sgrin y taflunydd.",
-          "time_close": "Amser sydd ei angen i gau sgrin y taflunydd.",
-          "inverted": "Mae'r integreiddio hwn yn dilyn yr Endid Cover, lle mae agored yn golygu bod y sgrin yn cael ei thynnu'n ôl a'i chau, mae'r sgrin yn cael ei thynnu, yn yr un modd mae llenni a drysau garej yn gweithio. Ar gyfer sgrin taflunio mae hyn yn wrthreddfol. Gallwch chi wrthdroi'r ymddygiad."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Cyfeiriad",
+                    "device_type": "Math o ddyfais",
+                    "inverted": "Ymddygiad gwrthdro",
+                    "serial_port": "Porth cyfresol",
+                    "time_close": "Amser cau",
+                    "time_open": "Amser agored"
+                },
+                "data_description": {
+                    "address": "Cyfeiriad hecsadegol 6 nod y ddyfais.",
+                    "inverted": "Mae'r integreiddio hwn yn dilyn yr Endid Cover, lle mae agored yn golygu bod y sgrin yn cael ei thynnu'n ôl a'i chau, mae'r sgrin yn cael ei thynnu, yn yr un modd mae llenni a drysau garej yn gweithio. Ar gyfer sgrin taflunio mae hyn yn wrthreddfol. Gallwch chi wrthdroi'r ymddygiad.",
+                    "serial_port": "Y porthladd cyfresol y mae eich dyfais wedi'i gysylltu ag ef.",
+                    "time_close": "Amser sydd ei angen i gau'r ddyfais.",
+                    "time_open": "Amser sydd ei angen i agor y ddyfais."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Opsiynau lifft taflunydd",
-        "data": {
-          "time_open": "Amser agored",
-          "time_close": "Amser cau",
-          "inverted": "Ymddygiad gwrthdro"
-        },
-        "data_description": {
-          "time_open": "Amser sydd ei angen i agor y lifft taflunydd.",
-          "time_close": "Amser sydd ei angen i gau'r lifft taflunydd.",
-          "inverted": "Mae'r integreiddio hwn yn dilyn yr Endid Cover, lle mae agored yn golygu bod y sgrin yn cael ei thynnu'n ôl a'i chau, mae'r sgrin yn cael ei thynnu, yn yr un modd mae llenni a drysau garej yn gweithio. Ar gyfer sgrin taflunio mae hyn yn wrthreddfol. Gallwch chi wrthdroi'r ymddygiad."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Sgrin Taflunydd"
     },
-    "projector_lift": {
-      "name": "Taflunydd Lifft"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Ar gau",
-          "opening": "Yn cau",
-          "closing": "Agoriad",
-          "closed": "Agor"
+    "device": {
+        "projector_lift": {
+            "name": "Taflunydd Lifft"
+        },
+        "projector_screen": {
+            "name": "Sgrin Taflunydd"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Ar gau",
-          "opening": "Yn cau",
-          "closing": "Agoriad",
-          "closed": "Agor"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Agor",
+                    "closing": "Agoriad",
+                    "open": "Ar gau",
+                    "opening": "Yn cau"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Agor",
+                    "closing": "Agoriad",
+                    "open": "Ar gau",
+                    "opening": "Yn cau"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Ymddygiad gwrthdro",
+                    "time_close": "Amser cau",
+                    "time_open": "Amser agored"
+                },
+                "data_description": {
+                    "inverted": "Mae'r integreiddio hwn yn dilyn yr Endid Cover, lle mae agored yn golygu bod y sgrin yn cael ei thynnu'n ôl a'i chau, mae'r sgrin yn cael ei thynnu, yn yr un modd mae llenni a drysau garej yn gweithio. Ar gyfer sgrin taflunio mae hyn yn wrthreddfol. Gallwch chi wrthdroi'r ymddygiad.",
+                    "time_close": "Amser sydd ei angen i gau'r lifft taflunydd.",
+                    "time_open": "Amser sydd ei angen i agor y lifft taflunydd."
+                },
+                "title": "Opsiynau lifft taflunydd"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Ymddygiad gwrthdro",
+                    "time_close": "Amser cau",
+                    "time_open": "Amser agored"
+                },
+                "data_description": {
+                    "inverted": "Mae'r integreiddio hwn yn dilyn yr Endid Cover, lle mae agored yn golygu bod y sgrin yn cael ei thynnu'n ôl a'i chau, mae'r sgrin yn cael ei thynnu, yn yr un modd mae llenni a drysau garej yn gweithio. Ar gyfer sgrin taflunio mae hyn yn wrthreddfol. Gallwch chi wrthdroi'r ymddygiad.",
+                    "time_close": "Amser sydd ei angen i gau sgrin y taflunydd.",
+                    "time_open": "Amser sydd ei angen i agor sgrin y taflunydd."
+                },
+                "title": "Opsiynau sgrin taflunydd"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Lifft taflunydd",
+                "projector_screen": "Sgrin taflunydd"
+            }
+        }
     }
-  }
 }

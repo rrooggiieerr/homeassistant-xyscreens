@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Az eszköz már be van állítva"
-    },
-    "error": {
-      "cannot_connect": "Nem sikerült csatlakozni",
-      "nonexisting_serial_port": "Sorozatos kanál nem létezik",
-      "invalid_address": "Érvénytelen cím",
-      "unknown": "Váratlan hiba"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Sorozatos kikötő",
-          "address": "Cím",
-          "device_type": "Az eszköz típusa",
-          "time_open": "Nyitvatartás",
-          "time_close": "Közelidő",
-          "inverted": "Megfordítja a viselkedést"
+    "config": {
+        "abort": {
+            "already_configured": "Az eszköz már be van állítva"
         },
-        "data_description": {
-          "serial_port": "A sorozat portja, amihez a készülék kapcsolódik.",
-          "address": "Az eszköz 6 karakteres hexadecimális címe.",
-          "time_open": "Idő kell az eszköz kinyitásához.",
-          "time_close": "Idő kell, hogy bezárjuk az eszközt.",
-          "inverted": "Ez az integráció követi a Cover Entity, ahol a nyitott azt jelenti, hogy a képernyő visszahúzódik, és bezárják a képernyőt eltávolítják, ugyanúgy, mint a függönyök és garázsajtók működik. A vetítővászon ez ellenintuitív. Visszafordíthatod a viselkedést."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "vetítőernyő",
-        "projector_lift": "Kivetítő emelő"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Projector képernyőbeállítások",
-        "data": {
-          "time_open": "Nyitvatartás",
-          "time_close": "Közelidő",
-          "inverted": "Megfordítja a viselkedést"
+        "error": {
+            "cannot_connect": "Nem sikerült csatlakozni",
+            "invalid_address": "Érvénytelen cím",
+            "nonexisting_serial_port": "Sorozatos kanál nem létezik",
+            "unknown": "Váratlan hiba"
         },
-        "data_description": {
-          "time_open": "Idő kell, hogy kinyissuk a vetítő képernyőt.",
-          "time_close": "Idő kell, hogy bezárjuk a vetítő képernyőt.",
-          "inverted": "Ez az integráció követi a Cover Entity, ahol a nyitott azt jelenti, hogy a képernyő visszahúzódik, és bezárják a képernyőt eltávolítják, ugyanúgy, mint a függönyök és garázsajtók működik. A vetítővászon ez ellenintuitív. Visszafordíthatod a viselkedést."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Cím",
+                    "device_type": "Az eszköz típusa",
+                    "inverted": "Megfordítja a viselkedést",
+                    "serial_port": "Sorozatos kikötő",
+                    "time_close": "Közelidő",
+                    "time_open": "Nyitvatartás"
+                },
+                "data_description": {
+                    "address": "Az eszköz 6 karakteres hexadecimális címe.",
+                    "inverted": "Ez az integráció követi a Cover Entity, ahol a nyitott azt jelenti, hogy a képernyő visszahúzódik, és bezárják a képernyőt eltávolítják, ugyanúgy, mint a függönyök és garázsajtók működik. A vetítővászon ez ellenintuitív. Visszafordíthatod a viselkedést.",
+                    "serial_port": "A sorozat portja, amihez a készülék kapcsolódik.",
+                    "time_close": "Idő kell, hogy bezárjuk az eszközt.",
+                    "time_open": "Idő kell az eszköz kinyitásához."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "A kivetítő emelő beállításai",
-        "data": {
-          "time_open": "Nyitvatartás",
-          "time_close": "Közelidő",
-          "inverted": "Megfordítja a viselkedést"
-        },
-        "data_description": {
-          "time_open": "Idő kell, hogy kinyissuk a kivetítő liftet.",
-          "time_close": "Időre van szükség, hogy bezárjuk a kivetítő liftet.",
-          "inverted": "Ez az integráció követi a Cover Entity, ahol a nyitott azt jelenti, hogy a képernyő visszahúzódik, és bezárják a képernyőt eltávolítják, ugyanúgy, mint a függönyök és garázsajtók működik. A vetítővászon ez ellenintuitív. Visszafordíthatod a viselkedést."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Projektor képernyő"
     },
-    "projector_lift": {
-      "name": "Indítóemelő"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Zárva",
-          "opening": "Zárás",
-          "closing": "Megnyitás",
-          "closed": "Megnyitás"
+    "device": {
+        "projector_lift": {
+            "name": "Indítóemelő"
+        },
+        "projector_screen": {
+            "name": "Projektor képernyő"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Zárva",
-          "opening": "Zárás",
-          "closing": "Megnyitás",
-          "closed": "Megnyitás"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Megnyitás",
+                    "closing": "Megnyitás",
+                    "open": "Zárva",
+                    "opening": "Zárás"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Megnyitás",
+                    "closing": "Megnyitás",
+                    "open": "Zárva",
+                    "opening": "Zárás"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Megfordítja a viselkedést",
+                    "time_close": "Közelidő",
+                    "time_open": "Nyitvatartás"
+                },
+                "data_description": {
+                    "inverted": "Ez az integráció követi a Cover Entity, ahol a nyitott azt jelenti, hogy a képernyő visszahúzódik, és bezárják a képernyőt eltávolítják, ugyanúgy, mint a függönyök és garázsajtók működik. A vetítővászon ez ellenintuitív. Visszafordíthatod a viselkedést.",
+                    "time_close": "Időre van szükség, hogy bezárjuk a kivetítő liftet.",
+                    "time_open": "Idő kell, hogy kinyissuk a kivetítő liftet."
+                },
+                "title": "A kivetítő emelő beállításai"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Megfordítja a viselkedést",
+                    "time_close": "Közelidő",
+                    "time_open": "Nyitvatartás"
+                },
+                "data_description": {
+                    "inverted": "Ez az integráció követi a Cover Entity, ahol a nyitott azt jelenti, hogy a képernyő visszahúzódik, és bezárják a képernyőt eltávolítják, ugyanúgy, mint a függönyök és garázsajtók működik. A vetítővászon ez ellenintuitív. Visszafordíthatod a viselkedést.",
+                    "time_close": "Idő kell, hogy bezárjuk a vetítő képernyőt.",
+                    "time_open": "Idő kell, hogy kinyissuk a vetítő képernyőt."
+                },
+                "title": "Projector képernyőbeállítások"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Kivetítő emelő",
+                "projector_screen": "vetítőernyő"
+            }
+        }
     }
-  }
 }

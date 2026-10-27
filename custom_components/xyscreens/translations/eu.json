@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Gailua dagoeneko konfiguratuta dago"
-    },
-    "error": {
-      "cannot_connect": "Huts egin du konektatzean",
-      "nonexisting_serial_port": "Serieko behartsua ez da existitzen",
-      "invalid_address": "Helbide baliogabea",
-      "unknown": "Ustekabeko errorea"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Serieko ataka",
-          "address": "Helbidea",
-          "device_type": "Gailu mota",
-          "time_open": "Ireki ordua",
-          "time_close": "Itxi ordua",
-          "inverted": "Alderantzikatu portaera"
+    "config": {
+        "abort": {
+            "already_configured": "Gailua dagoeneko konfiguratuta dago"
         },
-        "data_description": {
-          "serial_port": "Serieko ataka zure gailua konektatuta dago.",
-          "address": "Gailuaren 6 karaktereko helbide hamaseitarra.",
-          "time_open": "Gailua irekitzeko behar den denbora.",
-          "time_close": "Gailua ixteko behar den denbora.",
-          "inverted": "Integrazio honek Azaleko Entitateari jarraitzen dio, non pantaila atzera bota eta pantaila ixten den, gortinak eta garajeko ateak berdin funtzionatzen duten. Proiekzio-pantaila baterako, hau kontraintuitiboa da. Portaera alda dezakezu."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Proiektorearen pantaila",
-        "projector_lift": "Igogailua"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Pantaila-aukerak",
-        "data": {
-          "time_open": "Ireki ordua",
-          "time_close": "Itxi ordua",
-          "inverted": "Alderantzikatu portaera"
+        "error": {
+            "cannot_connect": "Huts egin du konektatzean",
+            "invalid_address": "Helbide baliogabea",
+            "nonexisting_serial_port": "Serieko behartsua ez da existitzen",
+            "unknown": "Ustekabeko errorea"
         },
-        "data_description": {
-          "time_open": "Denbora behar da proiektorearen pantaila irekitzeko.",
-          "time_close": "Denbora behar da proiektorearen pantaila ixteko.",
-          "inverted": "Integrazio honek Azaleko Entitateari jarraitzen dio, non pantaila atzera bota eta pantaila ixten den, gortinak eta garajeko ateak berdin funtzionatzen duten. Proiekzio-pantaila baterako, hau kontraintuitiboa da. Portaera alda dezakezu."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Helbidea",
+                    "device_type": "Gailu mota",
+                    "inverted": "Alderantzikatu portaera",
+                    "serial_port": "Serieko ataka",
+                    "time_close": "Itxi ordua",
+                    "time_open": "Ireki ordua"
+                },
+                "data_description": {
+                    "address": "Gailuaren 6 karaktereko helbide hamaseitarra.",
+                    "inverted": "Integrazio honek Azaleko Entitateari jarraitzen dio, non pantaila atzera bota eta pantaila ixten den, gortinak eta garajeko ateak berdin funtzionatzen duten. Proiekzio-pantaila baterako, hau kontraintuitiboa da. Portaera alda dezakezu.",
+                    "serial_port": "Serieko ataka zure gailua konektatuta dago.",
+                    "time_close": "Gailua ixteko behar den denbora.",
+                    "time_open": "Gailua irekitzeko behar den denbora."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Igogailuaren aukerak",
-        "data": {
-          "time_open": "Ireki ordua",
-          "time_close": "Itxi ordua",
-          "inverted": "Alderantzikatu portaera"
-        },
-        "data_description": {
-          "time_open": "Denbora behar da proiektorearen igogailua irekitzeko.",
-          "time_close": "Denbora behar da proiektorearen igogailua ixteko.",
-          "inverted": "Integrazio honek Azaleko Entitateari jarraitzen dio, non pantaila atzera bota eta pantaila ixten den, gortinak eta garajeko ateak berdin funtzionatzen duten. Proiekzio-pantaila baterako, hau kontraintuitiboa da. Portaera alda dezakezu."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Pantaila proiektorea"
     },
-    "projector_lift": {
-      "name": "Igogailua"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Itxi",
-          "opening": "Itxi",
-          "closing": "Irekiera",
-          "closed": "Ireki"
+    "device": {
+        "projector_lift": {
+            "name": "Igogailua"
+        },
+        "projector_screen": {
+            "name": "Pantaila proiektorea"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Itxi",
-          "opening": "Itxi",
-          "closing": "Irekiera",
-          "closed": "Ireki"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Ireki",
+                    "closing": "Irekiera",
+                    "open": "Itxi",
+                    "opening": "Itxi"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Ireki",
+                    "closing": "Irekiera",
+                    "open": "Itxi",
+                    "opening": "Itxi"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Alderantzikatu portaera",
+                    "time_close": "Itxi ordua",
+                    "time_open": "Ireki ordua"
+                },
+                "data_description": {
+                    "inverted": "Integrazio honek Azaleko Entitateari jarraitzen dio, non pantaila atzera bota eta pantaila ixten den, gortinak eta garajeko ateak berdin funtzionatzen duten. Proiekzio-pantaila baterako, hau kontraintuitiboa da. Portaera alda dezakezu.",
+                    "time_close": "Denbora behar da proiektorearen igogailua ixteko.",
+                    "time_open": "Denbora behar da proiektorearen igogailua irekitzeko."
+                },
+                "title": "Igogailuaren aukerak"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Alderantzikatu portaera",
+                    "time_close": "Itxi ordua",
+                    "time_open": "Ireki ordua"
+                },
+                "data_description": {
+                    "inverted": "Integrazio honek Azaleko Entitateari jarraitzen dio, non pantaila atzera bota eta pantaila ixten den, gortinak eta garajeko ateak berdin funtzionatzen duten. Proiekzio-pantaila baterako, hau kontraintuitiboa da. Portaera alda dezakezu.",
+                    "time_close": "Denbora behar da proiektorearen pantaila ixteko.",
+                    "time_open": "Denbora behar da proiektorearen pantaila irekitzeko."
+                },
+                "title": "Pantaila-aukerak"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Igogailua",
+                "projector_screen": "Proiektorearen pantaila"
+            }
+        }
     }
-  }
 }

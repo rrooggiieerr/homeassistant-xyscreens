@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Tæki er þegar stillt"
-    },
-    "error": {
-      "cannot_connect": "Tókst ekki að tengjast",
-      "nonexisting_serial_port": "Serial poort er ekki til",
-      "invalid_address": "Ógilt heimilisfang",
-      "unknown": "Óvænt villa"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Raðtengi",
-          "address": "Heimilisfang",
-          "device_type": "Gerð tækis",
-          "time_open": "Opnunartími",
-          "time_close": "Lokatími",
-          "inverted": "Snúa hegðun"
+    "config": {
+        "abort": {
+            "already_configured": "Tæki er þegar stillt"
         },
-        "data_description": {
-          "serial_port": "Raðtengi sem tækið þitt er tengt við.",
-          "address": "Sex stafa sextándanúmer tækisins.",
-          "time_open": "Tími sem þarf til að opna tækið.",
-          "time_close": "Tími sem þarf til að loka tækinu.",
-          "inverted": "Þessi samþætting fylgir Cover Entity, þar sem opinn þýðir að skjárinn er dreginn inn og lokaður og skjárinn er dreginn út, á sama hátt og gluggatjöld og bílskúrshurðir virka. Fyrir skjávarpa er þetta gagnsætt. Þú getur snúið hegðuninni við."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Myndvarpa skjár",
-        "projector_lift": "Myndvarpa lyfta"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Valkostir á skjávarpa",
-        "data": {
-          "time_open": "Opnunartími",
-          "time_close": "Lokatími",
-          "inverted": "Snúa hegðun"
+        "error": {
+            "cannot_connect": "Tókst ekki að tengjast",
+            "invalid_address": "Ógilt heimilisfang",
+            "nonexisting_serial_port": "Serial poort er ekki til",
+            "unknown": "Óvænt villa"
         },
-        "data_description": {
-          "time_open": "Tími sem þarf til að opna skjávarpa skjáinn.",
-          "time_close": "Tími sem þarf til að loka skjávarpaskjánum.",
-          "inverted": "Þessi samþætting fylgir Cover Entity, þar sem opinn þýðir að skjárinn er dreginn inn og lokaður og skjárinn er dreginn út, á sama hátt og gluggatjöld og bílskúrshurðir virka. Fyrir skjávarpa er þetta andsnúið. Þú getur snúið hegðuninni við."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Heimilisfang",
+                    "device_type": "Gerð tækis",
+                    "inverted": "Snúa hegðun",
+                    "serial_port": "Raðtengi",
+                    "time_close": "Lokatími",
+                    "time_open": "Opnunartími"
+                },
+                "data_description": {
+                    "address": "Sex stafa sextándanúmer tækisins.",
+                    "inverted": "Þessi samþætting fylgir Cover Entity, þar sem opinn þýðir að skjárinn er dreginn inn og lokaður og skjárinn er dreginn út, á sama hátt og gluggatjöld og bílskúrshurðir virka. Fyrir skjávarpa er þetta gagnsætt. Þú getur snúið hegðuninni við.",
+                    "serial_port": "Raðtengi sem tækið þitt er tengt við.",
+                    "time_close": "Tími sem þarf til að loka tækinu.",
+                    "time_open": "Tími sem þarf til að opna tækið."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Möguleikar á lyftu skjávarpa",
-        "data": {
-          "time_open": "Opnunartími",
-          "time_close": "Lokatími",
-          "inverted": "Snúa hegðun"
-        },
-        "data_description": {
-          "time_open": "Tími sem þarf til að opna skjávarpa lyftuna.",
-          "time_close": "Tími sem þarf til að loka skjávarpa lyftunni.",
-          "inverted": "Þessi samþætting fylgir Cover Entity, þar sem opinn þýðir að skjárinn er dreginn inn og lokaður og skjárinn er dreginn út, á sama hátt og gluggatjöld og bílskúrshurðir virka. Fyrir skjávarpa er þetta andsnúið. Þú getur snúið hegðuninni við."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Myndvarpa skjár"
     },
-    "projector_lift": {
-      "name": "Myndvarpa lyfta"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Lokað",
-          "opening": "Lokun",
-          "closing": "Opnun",
-          "closed": "Opið"
+    "device": {
+        "projector_lift": {
+            "name": "Myndvarpa lyfta"
+        },
+        "projector_screen": {
+            "name": "Myndvarpa skjár"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Lokað",
-          "opening": "Lokun",
-          "closing": "Opnun",
-          "closed": "Opið"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Opið",
+                    "closing": "Opnun",
+                    "open": "Lokað",
+                    "opening": "Lokun"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Opið",
+                    "closing": "Opnun",
+                    "open": "Lokað",
+                    "opening": "Lokun"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Snúa hegðun",
+                    "time_close": "Lokatími",
+                    "time_open": "Opnunartími"
+                },
+                "data_description": {
+                    "inverted": "Þessi samþætting fylgir Cover Entity, þar sem opinn þýðir að skjárinn er dreginn inn og lokaður og skjárinn er dreginn út, á sama hátt og gluggatjöld og bílskúrshurðir virka. Fyrir skjávarpa er þetta andsnúið. Þú getur snúið hegðuninni við.",
+                    "time_close": "Tími sem þarf til að loka skjávarpa lyftunni.",
+                    "time_open": "Tími sem þarf til að opna skjávarpa lyftuna."
+                },
+                "title": "Möguleikar á lyftu skjávarpa"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Snúa hegðun",
+                    "time_close": "Lokatími",
+                    "time_open": "Opnunartími"
+                },
+                "data_description": {
+                    "inverted": "Þessi samþætting fylgir Cover Entity, þar sem opinn þýðir að skjárinn er dreginn inn og lokaður og skjárinn er dreginn út, á sama hátt og gluggatjöld og bílskúrshurðir virka. Fyrir skjávarpa er þetta andsnúið. Þú getur snúið hegðuninni við.",
+                    "time_close": "Tími sem þarf til að loka skjávarpaskjánum.",
+                    "time_open": "Tími sem þarf til að opna skjávarpa skjáinn."
+                },
+                "title": "Valkostir á skjávarpa"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Myndvarpa lyfta",
+                "projector_screen": "Myndvarpa skjár"
+            }
+        }
     }
-  }
 }

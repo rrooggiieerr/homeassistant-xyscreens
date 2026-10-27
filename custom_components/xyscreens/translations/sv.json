@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Enhet är redan konfigurerad"
-    },
-    "error": {
-      "cannot_connect": "Underlåten att ansluta",
-      "nonexisting_serial_port": "Serial fattiga existerar inte",
-      "invalid_address": "Invalid adress",
-      "unknown": "Oväntat fel"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Serial Port",
-          "address": "Adress",
-          "device_type": "Enhetstyp",
-          "time_open": "Öppen tid",
-          "time_close": "Närtid",
-          "inverted": "Invert beteende"
+    "config": {
+        "abort": {
+            "already_configured": "Enhet är redan konfigurerad"
         },
-        "data_description": {
-          "serial_port": "Serieporten din enhet är ansluten till.",
-          "address": "6 tecken hexadecimal adress på enheten.",
-          "time_open": "Dags att öppna enheten.",
-          "time_close": "Dags att stänga enheten.",
-          "inverted": "Denna integration följer Cover Entity, där öppen betyder att skärmen återkallas och stängs skärmen extraheras, på samma sätt gardiner och garageportar fungerar. För en projektionsskärm är detta kontraintuitivt. Du kan vända beteendet."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Projektorduk",
-        "projector_lift": "Projektor lyft"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Projector skärm alternativ",
-        "data": {
-          "time_open": "Öppen tid",
-          "time_close": "Närtid",
-          "inverted": "Invert beteende"
+        "error": {
+            "cannot_connect": "Underlåten att ansluta",
+            "invalid_address": "Invalid adress",
+            "nonexisting_serial_port": "Serial fattiga existerar inte",
+            "unknown": "Oväntat fel"
         },
-        "data_description": {
-          "time_open": "Dags att öppna projektorskärmen.",
-          "time_close": "Dags att stänga projektorskärmen.",
-          "inverted": "Denna integration följer Cover Entity, där öppen betyder att skärmen återkallas och stängs skärmen extraheras, på samma sätt gardiner och garageportar fungerar. För en projektionsskärm är detta kontraintuitivt. Du kan vända beteendet."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Adress",
+                    "device_type": "Enhetstyp",
+                    "inverted": "Invert beteende",
+                    "serial_port": "Serial Port",
+                    "time_close": "Närtid",
+                    "time_open": "Öppen tid"
+                },
+                "data_description": {
+                    "address": "6 tecken hexadecimal adress på enheten.",
+                    "inverted": "Denna integration följer Cover Entity, där öppen betyder att skärmen återkallas och stängs skärmen extraheras, på samma sätt gardiner och garageportar fungerar. För en projektionsskärm är detta kontraintuitivt. Du kan vända beteendet.",
+                    "serial_port": "Serieporten din enhet är ansluten till.",
+                    "time_close": "Dags att stänga enheten.",
+                    "time_open": "Dags att öppna enheten."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Projektor lyft alternativ",
-        "data": {
-          "time_open": "Öppen tid",
-          "time_close": "Närtid",
-          "inverted": "Invert beteende"
-        },
-        "data_description": {
-          "time_open": "Dags att öppna projektorhissen.",
-          "time_close": "Dags att stänga projektorhissen.",
-          "inverted": "Denna integration följer Cover Entity, där öppen betyder att skärmen återkallas och stängs skärmen extraheras, på samma sätt gardiner och garageportar fungerar. För en projektionsskärm är detta kontraintuitivt. Du kan vända beteendet."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Projektor Screen"
     },
-    "projector_lift": {
-      "name": "Projektor Lift"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Stängt",
-          "opening": "Stängning",
-          "closing": "Öppna",
-          "closed": "Öppet Öppet Öppet"
+    "device": {
+        "projector_lift": {
+            "name": "Projektor Lift"
+        },
+        "projector_screen": {
+            "name": "Projektor Screen"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Stängt",
-          "opening": "Stängning",
-          "closing": "Öppna",
-          "closed": "Öppet Öppet Öppet"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Öppet Öppet Öppet",
+                    "closing": "Öppna",
+                    "open": "Stängt",
+                    "opening": "Stängning"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Öppet Öppet Öppet",
+                    "closing": "Öppna",
+                    "open": "Stängt",
+                    "opening": "Stängning"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Invert beteende",
+                    "time_close": "Närtid",
+                    "time_open": "Öppen tid"
+                },
+                "data_description": {
+                    "inverted": "Denna integration följer Cover Entity, där öppen betyder att skärmen återkallas och stängs skärmen extraheras, på samma sätt gardiner och garageportar fungerar. För en projektionsskärm är detta kontraintuitivt. Du kan vända beteendet.",
+                    "time_close": "Dags att stänga projektorhissen.",
+                    "time_open": "Dags att öppna projektorhissen."
+                },
+                "title": "Projektor lyft alternativ"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Invert beteende",
+                    "time_close": "Närtid",
+                    "time_open": "Öppen tid"
+                },
+                "data_description": {
+                    "inverted": "Denna integration följer Cover Entity, där öppen betyder att skärmen återkallas och stängs skärmen extraheras, på samma sätt gardiner och garageportar fungerar. För en projektionsskärm är detta kontraintuitivt. Du kan vända beteendet.",
+                    "time_close": "Dags att stänga projektorskärmen.",
+                    "time_open": "Dags att öppna projektorskärmen."
+                },
+                "title": "Projector skärm alternativ"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Projektor lyft",
+                "projector_screen": "Projektorduk"
+            }
+        }
     }
-  }
 }

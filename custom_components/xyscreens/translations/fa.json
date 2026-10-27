@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "دستگاه در حال حاضر پیکربندی شده"
-    },
-    "error": {
-      "cannot_connect": "شکست برای اتصال",
-      "nonexisting_serial_port": "دانلود زیرنویس فارسی فیلم Badt There",
-      "invalid_address": "آدرس Invalid",
-      "unknown": "خطای غیرمنتظره"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "پورت های Serial",
-          "address": "آدرس آدرس",
-          "device_type": "نوع دستگاه",
-          "time_open": "زمان باز",
-          "time_close": "زمان نزدیک",
-          "inverted": "رفتار بی طرف"
+    "config": {
+        "abort": {
+            "already_configured": "دستگاه در حال حاضر پیکربندی شده"
         },
-        "data_description": {
-          "serial_port": "پورت سریالی که دستگاه شما به آن متصل است.",
-          "address": "آدرس شش کاراکتر Hexadecimal دستگاه",
-          "time_open": "زمان لازم برای باز کردن دستگاه",
-          "time_close": "زمان لازم برای بستن دستگاه",
-          "inverted": "این ادغام پوشش Entity را دنبال می کند، جایی که باز به این معنی است که صفحه نمایش جمع شده و بسته شده است، همان گونه که پرده ها و درب های پارکینگ کار می کنند. برای یک صفحه نمایش پیش بینی، این خلاف است. شما می توانید رفتار را معکوس کنید."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "صفحه نمایش Projector",
-        "projector_lift": "آسانسور Projector"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "گزینه های Screen",
-        "data": {
-          "time_open": "زمان باز",
-          "time_close": "زمان نزدیک",
-          "inverted": "رفتار بی طرف"
+        "error": {
+            "cannot_connect": "شکست برای اتصال",
+            "invalid_address": "آدرس Invalid",
+            "nonexisting_serial_port": "دانلود زیرنویس فارسی فیلم Badt There",
+            "unknown": "خطای غیرمنتظره"
         },
-        "data_description": {
-          "time_open": "زمان لازم برای باز کردن صفحه نمایش پروژکتور",
-          "time_close": "زمان لازم برای بستن صفحه نمایش پروژکتور",
-          "inverted": "این ادغام پوشش Entity را دنبال می کند، جایی که باز به این معنی است که صفحه نمایش جمع شده و بسته شده است، همان گونه که پرده ها و درب های پارکینگ کار می کنند. برای یک صفحه نمایش پیش بینی، این خلاف است. شما می توانید رفتار را معکوس کنید."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "آدرس آدرس",
+                    "device_type": "نوع دستگاه",
+                    "inverted": "رفتار بی طرف",
+                    "serial_port": "پورت های Serial",
+                    "time_close": "زمان نزدیک",
+                    "time_open": "زمان باز"
+                },
+                "data_description": {
+                    "address": "آدرس شش کاراکتر Hexadecimal دستگاه",
+                    "inverted": "این ادغام پوشش Entity را دنبال می کند، جایی که باز به این معنی است که صفحه نمایش جمع شده و بسته شده است، همان گونه که پرده ها و درب های پارکینگ کار می کنند. برای یک صفحه نمایش پیش بینی، این خلاف است. شما می توانید رفتار را معکوس کنید.",
+                    "serial_port": "پورت سریالی که دستگاه شما به آن متصل است.",
+                    "time_close": "زمان لازم برای بستن دستگاه",
+                    "time_open": "زمان لازم برای باز کردن دستگاه"
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "گزینه های Projector Lift",
-        "data": {
-          "time_open": "زمان باز",
-          "time_close": "زمان نزدیک",
-          "inverted": "رفتار بی طرف"
-        },
-        "data_description": {
-          "time_open": "زمان لازم برای باز کردن آسانسور پروژکتور",
-          "time_close": "زمان لازم برای بستن آسانسور پروژکتور",
-          "inverted": "این ادغام پوشش Entity را دنبال می کند، جایی که باز به این معنی است که صفحه نمایش جمع شده و بسته شده است، همان گونه که پرده ها و درب های پارکینگ کار می کنند. برای یک صفحه نمایش پیش بینی، این خلاف است. شما می توانید رفتار را معکوس کنید."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "صفحه نمایش Projector Screen"
     },
-    "projector_lift": {
-      "name": "پروژه آسانسور"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "بسته بندی شده",
-          "opening": "بستن",
-          "closing": "افتتاح",
-          "closed": "Open Open Open"
+    "device": {
+        "projector_lift": {
+            "name": "پروژه آسانسور"
+        },
+        "projector_screen": {
+            "name": "صفحه نمایش Projector Screen"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "بسته بندی شده",
-          "opening": "بستن",
-          "closing": "افتتاح",
-          "closed": "Open Open Open"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Open Open Open",
+                    "closing": "افتتاح",
+                    "open": "بسته بندی شده",
+                    "opening": "بستن"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Open Open Open",
+                    "closing": "افتتاح",
+                    "open": "بسته بندی شده",
+                    "opening": "بستن"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "رفتار بی طرف",
+                    "time_close": "زمان نزدیک",
+                    "time_open": "زمان باز"
+                },
+                "data_description": {
+                    "inverted": "این ادغام پوشش Entity را دنبال می کند، جایی که باز به این معنی است که صفحه نمایش جمع شده و بسته شده است، همان گونه که پرده ها و درب های پارکینگ کار می کنند. برای یک صفحه نمایش پیش بینی، این خلاف است. شما می توانید رفتار را معکوس کنید.",
+                    "time_close": "زمان لازم برای بستن آسانسور پروژکتور",
+                    "time_open": "زمان لازم برای باز کردن آسانسور پروژکتور"
+                },
+                "title": "گزینه های Projector Lift"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "رفتار بی طرف",
+                    "time_close": "زمان نزدیک",
+                    "time_open": "زمان باز"
+                },
+                "data_description": {
+                    "inverted": "این ادغام پوشش Entity را دنبال می کند، جایی که باز به این معنی است که صفحه نمایش جمع شده و بسته شده است، همان گونه که پرده ها و درب های پارکینگ کار می کنند. برای یک صفحه نمایش پیش بینی، این خلاف است. شما می توانید رفتار را معکوس کنید.",
+                    "time_close": "زمان لازم برای بستن صفحه نمایش پروژکتور",
+                    "time_open": "زمان لازم برای باز کردن صفحه نمایش پروژکتور"
+                },
+                "title": "گزینه های Screen"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "آسانسور Projector",
+                "projector_screen": "صفحه نمایش Projector"
+            }
+        }
     }
-  }
 }

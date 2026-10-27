@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Apparaat is al geconfigureerd"
-    },
-    "error": {
-      "cannot_connect": "Verbinden mislukt",
-      "nonexisting_serial_port": "Seriële poort bestaat niet",
-      "invalid_address": "Ongeldig adres",
-      "unknown": "Onverwachte fout"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Seriële poort",
-          "address": "Adres",
-          "device_type": "Apparaatsoort",
-          "time_open": "Open tijd",
-          "time_close": "Sluit tijd",
-          "inverted": "Gedrag omkeren"
+    "config": {
+        "abort": {
+            "already_configured": "Apparaat is al geconfigureerd"
         },
-        "data_description": {
-          "serial_port": "De seriële poort waarop uw apparaat is aangesloten.",
-          "address": "Het 6 karakter hexadecimale adres van het apparaat.",
-          "time_open": "Benodigde tijd om het apparaat te openen.",
-          "time_close": "Benodigde tijd om het apparaat te sluiten.",
-          "inverted": "Deze integratie volgt de Cover Entiteit, waarbij open betekent dat het scherm wordt ingetrokken en gesloten het scherm wordt geopend, op dezelfde manier als (rol)gordijnen en garagedeuren werken. Voor een projectiescherm is dit contra-intuïtief. Je kunt het gedrag omkeren."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Projectiescherm",
-        "projector_lift": "Projectorlift"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Projectiescherm instellingen",
-        "data": {
-          "time_open": "Open tijd",
-          "time_close": "Sluit tijd",
-          "inverted": "Gedrag omkeren"
+        "error": {
+            "cannot_connect": "Verbinden mislukt",
+            "invalid_address": "Ongeldig adres",
+            "nonexisting_serial_port": "Seriële poort bestaat niet",
+            "unknown": "Onverwachte fout"
         },
-        "data_description": {
-          "time_open": "Benodigde tijd om het projectiescherm te openen.",
-          "time_close": "Benodigde tijd om het projectiescherm te sluiten.",
-          "inverted": "Deze integratie volgt de Cover Entiteit, waarbij open betekent dat het scherm wordt ingetrokken en gesloten het scherm wordt geopend, op dezelfde manier als (rol)gordijnen en garagedeuren werken. Voor een projectiescherm is dit contra-intuïtief. Je kunt het gedrag omkeren."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Adres",
+                    "device_type": "Apparaatsoort",
+                    "inverted": "Gedrag omkeren",
+                    "serial_port": "Seriële poort",
+                    "time_close": "Sluit tijd",
+                    "time_open": "Open tijd"
+                },
+                "data_description": {
+                    "address": "Het 6 karakter hexadecimale adres van het apparaat.",
+                    "inverted": "Deze integratie volgt de Cover Entiteit, waarbij open betekent dat het scherm wordt ingetrokken en gesloten het scherm wordt geopend, op dezelfde manier als (rol)gordijnen en garagedeuren werken. Voor een projectiescherm is dit contra-intuïtief. Je kunt het gedrag omkeren.",
+                    "serial_port": "De seriële poort waarop uw apparaat is aangesloten.",
+                    "time_close": "Benodigde tijd om het apparaat te sluiten.",
+                    "time_open": "Benodigde tijd om het apparaat te openen."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Projectorlift instellingen",
-        "data": {
-          "time_open": "Open tijd",
-          "time_close": "Sluit tijd",
-          "inverted": "Gedrag omkeren"
-        },
-        "data_description": {
-          "time_open": "Benodigde tijd om de projectorlift te openen.",
-          "time_close": "Benodigde tijd om de projectorlift te sluiten.",
-          "inverted": "Deze integratie volgt de Cover Entiteit, waarbij open betekent dat het scherm wordt ingetrokken en gesloten het scherm wordt geopend, op dezelfde manier als (rol)gordijnen en garagedeuren werken. Voor een projectiescherm is dit contra-intuïtief. Je kunt het gedrag omkeren."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Projectiescherm"
     },
-    "projector_lift": {
-      "name": "Projectorlift"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Gesloten",
-          "opening": "Sluiten",
-          "closing": "Openen",
-          "closed": "Open"
+    "device": {
+        "projector_lift": {
+            "name": "Projectorlift"
+        },
+        "projector_screen": {
+            "name": "Projectiescherm"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Gesloten",
-          "opening": "Sluiten",
-          "closing": "Openen",
-          "closed": "Open"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Open",
+                    "closing": "Openen",
+                    "open": "Gesloten",
+                    "opening": "Sluiten"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Open",
+                    "closing": "Openen",
+                    "open": "Gesloten",
+                    "opening": "Sluiten"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Gedrag omkeren",
+                    "time_close": "Sluit tijd",
+                    "time_open": "Open tijd"
+                },
+                "data_description": {
+                    "inverted": "Deze integratie volgt de Cover Entiteit, waarbij open betekent dat het scherm wordt ingetrokken en gesloten het scherm wordt geopend, op dezelfde manier als (rol)gordijnen en garagedeuren werken. Voor een projectiescherm is dit contra-intuïtief. Je kunt het gedrag omkeren.",
+                    "time_close": "Benodigde tijd om de projectorlift te sluiten.",
+                    "time_open": "Benodigde tijd om de projectorlift te openen."
+                },
+                "title": "Projectorlift instellingen"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Gedrag omkeren",
+                    "time_close": "Sluit tijd",
+                    "time_open": "Open tijd"
+                },
+                "data_description": {
+                    "inverted": "Deze integratie volgt de Cover Entiteit, waarbij open betekent dat het scherm wordt ingetrokken en gesloten het scherm wordt geopend, op dezelfde manier als (rol)gordijnen en garagedeuren werken. Voor een projectiescherm is dit contra-intuïtief. Je kunt het gedrag omkeren.",
+                    "time_close": "Benodigde tijd om het projectiescherm te sluiten.",
+                    "time_open": "Benodigde tijd om het projectiescherm te openen."
+                },
+                "title": "Projectiescherm instellingen"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Projectorlift",
+                "projector_screen": "Projectiescherm"
+            }
+        }
     }
-  }
 }

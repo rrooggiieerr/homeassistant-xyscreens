@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Enhed er allerede konfigureret"
-    },
-    "error": {
-      "cannot_connect": "Kunne ikke forbinde",
-      "nonexisting_serial_port": "Seriepoort findes ikke",
-      "invalid_address": "Ugyldig adresse",
-      "unknown": "Uventet fejl"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Seriel port",
-          "address": "Adresse",
-          "device_type": "Enhedstype",
-          "time_open": "Åben tid",
-          "time_close": "Lukketid",
-          "inverted": "Invertér opførsel"
+    "config": {
+        "abort": {
+            "already_configured": "Enhed er allerede konfigureret"
         },
-        "data_description": {
-          "serial_port": "Den serielle port din enhed er forbundet til.",
-          "address": "Den 6 tegn hexadecimal adresse på enheden.",
-          "time_open": "Tid til at åbne enheden.",
-          "time_close": "Tid til at lukke enheden.",
-          "inverted": "Denne integration følger Cover Entity, hvor åben betyder skærmen er trukket tilbage og lukket skærmen er udtrukket, samme måde gardiner og garagedøre arbejde. For en projektionsskærm er dette kontraintuitivt. Du kan vende adfærden."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Projektorskærm",
-        "projector_lift": "Projektionsløft"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Indstillinger for projektorskærm",
-        "data": {
-          "time_open": "Åben tid",
-          "time_close": "Lukketid",
-          "inverted": "Invertér opførsel"
+        "error": {
+            "cannot_connect": "Kunne ikke forbinde",
+            "invalid_address": "Ugyldig adresse",
+            "nonexisting_serial_port": "Seriepoort findes ikke",
+            "unknown": "Uventet fejl"
         },
-        "data_description": {
-          "time_open": "Tid til at åbne projektorskærmen.",
-          "time_close": "Tid til at lukke projektorskærmen.",
-          "inverted": "Denne integration følger Cover Entity, hvor åben betyder skærmen er trukket tilbage og lukket skærmen er udtrukket, samme måde gardiner og garagedøre arbejde. For en projektionsskærm er dette kontraintuitivt. Du kan vende adfærden."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Adresse",
+                    "device_type": "Enhedstype",
+                    "inverted": "Invertér opførsel",
+                    "serial_port": "Seriel port",
+                    "time_close": "Lukketid",
+                    "time_open": "Åben tid"
+                },
+                "data_description": {
+                    "address": "Den 6 tegn hexadecimal adresse på enheden.",
+                    "inverted": "Denne integration følger Cover Entity, hvor åben betyder skærmen er trukket tilbage og lukket skærmen er udtrukket, samme måde gardiner og garagedøre arbejde. For en projektionsskærm er dette kontraintuitivt. Du kan vende adfærden.",
+                    "serial_port": "Den serielle port din enhed er forbundet til.",
+                    "time_close": "Tid til at lukke enheden.",
+                    "time_open": "Tid til at åbne enheden."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Tilvalg for projektorløft",
-        "data": {
-          "time_open": "Åben tid",
-          "time_close": "Lukketid",
-          "inverted": "Invertér opførsel"
-        },
-        "data_description": {
-          "time_open": "Tid til at åbne projektorelevatoren.",
-          "time_close": "Tid til at lukke projektorelevatoren.",
-          "inverted": "Denne integration følger Cover Entity, hvor åben betyder skærmen er trukket tilbage og lukket skærmen er udtrukket, samme måde gardiner og garagedøre arbejde. For en projektionsskærm er dette kontraintuitivt. Du kan vende adfærden."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Projektorskærm"
     },
-    "projector_lift": {
-      "name": "Projektorløfter"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Lukket",
-          "opening": "Afslutning",
-          "closing": "Åbning",
-          "closed": "Åbn"
+    "device": {
+        "projector_lift": {
+            "name": "Projektorløfter"
+        },
+        "projector_screen": {
+            "name": "Projektorskærm"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Lukket",
-          "opening": "Afslutning",
-          "closing": "Åbning",
-          "closed": "Åbn"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Åbn",
+                    "closing": "Åbning",
+                    "open": "Lukket",
+                    "opening": "Afslutning"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Åbn",
+                    "closing": "Åbning",
+                    "open": "Lukket",
+                    "opening": "Afslutning"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Invertér opførsel",
+                    "time_close": "Lukketid",
+                    "time_open": "Åben tid"
+                },
+                "data_description": {
+                    "inverted": "Denne integration følger Cover Entity, hvor åben betyder skærmen er trukket tilbage og lukket skærmen er udtrukket, samme måde gardiner og garagedøre arbejde. For en projektionsskærm er dette kontraintuitivt. Du kan vende adfærden.",
+                    "time_close": "Tid til at lukke projektorelevatoren.",
+                    "time_open": "Tid til at åbne projektorelevatoren."
+                },
+                "title": "Tilvalg for projektorløft"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Invertér opførsel",
+                    "time_close": "Lukketid",
+                    "time_open": "Åben tid"
+                },
+                "data_description": {
+                    "inverted": "Denne integration følger Cover Entity, hvor åben betyder skærmen er trukket tilbage og lukket skærmen er udtrukket, samme måde gardiner og garagedøre arbejde. For en projektionsskærm er dette kontraintuitivt. Du kan vende adfærden.",
+                    "time_close": "Tid til at lukke projektorskærmen.",
+                    "time_open": "Tid til at åbne projektorskærmen."
+                },
+                "title": "Indstillinger for projektorskærm"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Projektionsløft",
+                "projector_screen": "Projektorskærm"
+            }
+        }
     }
-  }
 }

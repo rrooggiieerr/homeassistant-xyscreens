@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Urządzenie jest już skonfigurowane"
-    },
-    "error": {
-      "cannot_connect": "Nie powiodło się połączenie",
-      "nonexisting_serial_port": "Seryjny poort nie istnieje",
-      "invalid_address": "Nieprawidłowy adres",
-      "unknown": "Nieoczekiwany błąd"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Port szeregowy",
-          "address": "Adres",
-          "device_type": "Typ urządzenia",
-          "time_open": "Czas otwarcia",
-          "time_close": "Czas zamknięcia",
-          "inverted": "Odwróć zachowanie"
+    "config": {
+        "abort": {
+            "already_configured": "Urządzenie jest już skonfigurowane"
         },
-        "data_description": {
-          "serial_port": "Port szeregowy, z którym jest podłączone urządzenie.",
-          "address": "6 znaków szesnastkowych adresu urządzenia.",
-          "time_open": "Czas potrzebny na otwarcie urządzenia.",
-          "time_close": "Czas potrzebny na zamknięcie urządzenia.",
-          "inverted": "Integracja ta następuje po \"Cover Entity\", gdzie otwarte oznacza, że ekran jest zwinięty i zamknięty, tak samo jak zasłony i drzwi garażowe działają. Dla ekranu projekcyjnego jest to sprzeczne z intuicją. Możesz odwrócić zachowanie."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Ekran projektora",
-        "projector_lift": "Podnośnik projektora"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Opcje ekranu projektora",
-        "data": {
-          "time_open": "Czas otwarcia",
-          "time_close": "Czas zamknięcia",
-          "inverted": "Odwróć zachowanie"
+        "error": {
+            "cannot_connect": "Nie powiodło się połączenie",
+            "invalid_address": "Nieprawidłowy adres",
+            "nonexisting_serial_port": "Seryjny poort nie istnieje",
+            "unknown": "Nieoczekiwany błąd"
         },
-        "data_description": {
-          "time_open": "Czas potrzebny na otwarcie ekranu projektora.",
-          "time_close": "Czas potrzebny na zamknięcie ekranu projektora.",
-          "inverted": "Integracja ta następuje po \"Cover Entity\", gdzie otwarte oznacza, że ekran jest zwinięty i zamknięty, tak samo jak zasłony i drzwi garażowe działają. Dla ekranu projekcyjnego jest to sprzeczne z intuicją. Możesz odwrócić zachowanie."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Adres",
+                    "device_type": "Typ urządzenia",
+                    "inverted": "Odwróć zachowanie",
+                    "serial_port": "Port szeregowy",
+                    "time_close": "Czas zamknięcia",
+                    "time_open": "Czas otwarcia"
+                },
+                "data_description": {
+                    "address": "6 znaków szesnastkowych adresu urządzenia.",
+                    "inverted": "Integracja ta następuje po \"Cover Entity\", gdzie otwarte oznacza, że ekran jest zwinięty i zamknięty, tak samo jak zasłony i drzwi garażowe działają. Dla ekranu projekcyjnego jest to sprzeczne z intuicją. Możesz odwrócić zachowanie.",
+                    "serial_port": "Port szeregowy, z którym jest podłączone urządzenie.",
+                    "time_close": "Czas potrzebny na zamknięcie urządzenia.",
+                    "time_open": "Czas potrzebny na otwarcie urządzenia."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Opcje podnoszenia projektora",
-        "data": {
-          "time_open": "Czas otwarcia",
-          "time_close": "Czas zamknięcia",
-          "inverted": "Odwróć zachowanie"
-        },
-        "data_description": {
-          "time_open": "Czas potrzebny na otwarcie windy projektora.",
-          "time_close": "Czas potrzebny na zamknięcie windy projektora.",
-          "inverted": "Integracja ta następuje po \"Cover Entity\", gdzie otwarte oznacza, że ekran jest zwinięty i zamknięty, tak samo jak zasłony i drzwi garażowe działają. Dla ekranu projekcyjnego jest to sprzeczne z intuicją. Możesz odwrócić zachowanie."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Ekran projektora"
     },
-    "projector_lift": {
-      "name": "Podnośnik projektora"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Zamknięte",
-          "opening": "Zamknięcie",
-          "closing": "Otwarcie",
-          "closed": "Otwórz"
+    "device": {
+        "projector_lift": {
+            "name": "Podnośnik projektora"
+        },
+        "projector_screen": {
+            "name": "Ekran projektora"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Zamknięte",
-          "opening": "Zamknięcie",
-          "closing": "Otwarcie",
-          "closed": "Otwórz"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Otwórz",
+                    "closing": "Otwarcie",
+                    "open": "Zamknięte",
+                    "opening": "Zamknięcie"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Otwórz",
+                    "closing": "Otwarcie",
+                    "open": "Zamknięte",
+                    "opening": "Zamknięcie"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Odwróć zachowanie",
+                    "time_close": "Czas zamknięcia",
+                    "time_open": "Czas otwarcia"
+                },
+                "data_description": {
+                    "inverted": "Integracja ta następuje po \"Cover Entity\", gdzie otwarte oznacza, że ekran jest zwinięty i zamknięty, tak samo jak zasłony i drzwi garażowe działają. Dla ekranu projekcyjnego jest to sprzeczne z intuicją. Możesz odwrócić zachowanie.",
+                    "time_close": "Czas potrzebny na zamknięcie windy projektora.",
+                    "time_open": "Czas potrzebny na otwarcie windy projektora."
+                },
+                "title": "Opcje podnoszenia projektora"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Odwróć zachowanie",
+                    "time_close": "Czas zamknięcia",
+                    "time_open": "Czas otwarcia"
+                },
+                "data_description": {
+                    "inverted": "Integracja ta następuje po \"Cover Entity\", gdzie otwarte oznacza, że ekran jest zwinięty i zamknięty, tak samo jak zasłony i drzwi garażowe działają. Dla ekranu projekcyjnego jest to sprzeczne z intuicją. Możesz odwrócić zachowanie.",
+                    "time_close": "Czas potrzebny na zamknięcie ekranu projektora.",
+                    "time_open": "Czas potrzebny na otwarcie ekranu projektora."
+                },
+                "title": "Opcje ekranu projektora"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Podnośnik projektora",
+                "projector_screen": "Ekran projektora"
+            }
+        }
     }
-  }
 }

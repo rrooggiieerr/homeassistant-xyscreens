@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Device jam estas formita"
-    },
-    "error": {
-      "cannot_connect": "Malsukcesas ligi",
-      "nonexisting_serial_port": "Serial badt ne ekzistas",
-      "invalid_address": "Invalida adreso",
-      "unknown": "Neatendita eraro"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Seria haveno",
-          "address": "Adreso",
-          "device_type": "Device tipo",
-          "time_open": "Malfermu tempon",
-          "time_close": "Fermu tempon",
-          "inverted": "Inversa konduto"
+    "config": {
+        "abort": {
+            "already_configured": "Device jam estas formita"
         },
-        "data_description": {
-          "serial_port": "La seria haveno via aparato estas ligita al.",
-          "address": "La 6 karaktero heksadecimal adreso de la aparato.",
-          "time_open": "Tempo bezonata por malfermi la aparaton.",
-          "time_close": "Tempo bezonata por fermi la aparaton.",
-          "inverted": "Tiu integriĝo sekvas la Cover Entity, kie malfermaj rimedoj la ekrano estas retirita kaj fermita la ekrano estas eltirita, la saman manieron kurtenoj kaj garaĝpordoj laboras. Por projekcioekrano tio estas kontraŭintuicia. Vi povas inversigi la konduton."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Projekta ekrano",
-        "projector_lift": "Projekciilo"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Projekciilo ekranoj",
-        "data": {
-          "time_open": "Malfermu tempon",
-          "time_close": "Fermu tempon",
-          "inverted": "Inversa konduto"
+        "error": {
+            "cannot_connect": "Malsukcesas ligi",
+            "invalid_address": "Invalida adreso",
+            "nonexisting_serial_port": "Serial badt ne ekzistas",
+            "unknown": "Neatendita eraro"
         },
-        "data_description": {
-          "time_open": "Tempo bezonata por malfermi la projekciilekranon.",
-          "time_close": "Tempo bezonata por fermi la projekciilon.",
-          "inverted": "Tiu integriĝo sekvas la Cover Entity, kie malfermaj rimedoj la ekrano estas retirita kaj fermita la ekrano estas eltirita, la saman manieron kurtenoj kaj garaĝpordoj laboras. Por projekcioekrano tio estas kontraŭintuicia. Vi povas inversigi la konduton."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Adreso",
+                    "device_type": "Device tipo",
+                    "inverted": "Inversa konduto",
+                    "serial_port": "Seria haveno",
+                    "time_close": "Fermu tempon",
+                    "time_open": "Malfermu tempon"
+                },
+                "data_description": {
+                    "address": "La 6 karaktero heksadecimal adreso de la aparato.",
+                    "inverted": "Tiu integriĝo sekvas la Cover Entity, kie malfermaj rimedoj la ekrano estas retirita kaj fermita la ekrano estas eltirita, la saman manieron kurtenoj kaj garaĝpordoj laboras. Por projekcioekrano tio estas kontraŭintuicia. Vi povas inversigi la konduton.",
+                    "serial_port": "La seria haveno via aparato estas ligita al.",
+                    "time_close": "Tempo bezonata por fermi la aparaton.",
+                    "time_open": "Tempo bezonata por malfermi la aparaton."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Projekciilo levas eblojn",
-        "data": {
-          "time_open": "Malfermu tempon",
-          "time_close": "Fermu tempon",
-          "inverted": "Inversa konduto"
-        },
-        "data_description": {
-          "time_open": "La tempo devis malfermi la projekciilon.",
-          "time_close": "La tempo devis fermi la projekciilon.",
-          "inverted": "Tiu integriĝo sekvas la Cover Entity, kie malfermaj rimedoj la ekrano estas retirita kaj fermita la ekrano estas eltirita, la saman manieron kurtenoj kaj garaĝpordoj laboras. Por projekcioekrano tio estas kontraŭintuicia. Vi povas inversigi la konduton."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Projekcia Ekrano"
     },
-    "projector_lift": {
-      "name": "Projekciilo Lifto"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Fermiĝis",
-          "opening": "Vestaĵoj",
-          "closing": "Malfermo",
-          "closed": "malfermita"
+    "device": {
+        "projector_lift": {
+            "name": "Projekciilo Lifto"
+        },
+        "projector_screen": {
+            "name": "Projekcia Ekrano"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Fermiĝis",
-          "opening": "Vestaĵoj",
-          "closing": "Malfermo",
-          "closed": "malfermita"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "malfermita",
+                    "closing": "Malfermo",
+                    "open": "Fermiĝis",
+                    "opening": "Vestaĵoj"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "malfermita",
+                    "closing": "Malfermo",
+                    "open": "Fermiĝis",
+                    "opening": "Vestaĵoj"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Inversa konduto",
+                    "time_close": "Fermu tempon",
+                    "time_open": "Malfermu tempon"
+                },
+                "data_description": {
+                    "inverted": "Tiu integriĝo sekvas la Cover Entity, kie malfermaj rimedoj la ekrano estas retirita kaj fermita la ekrano estas eltirita, la saman manieron kurtenoj kaj garaĝpordoj laboras. Por projekcioekrano tio estas kontraŭintuicia. Vi povas inversigi la konduton.",
+                    "time_close": "La tempo devis fermi la projekciilon.",
+                    "time_open": "La tempo devis malfermi la projekciilon."
+                },
+                "title": "Projekciilo levas eblojn"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Inversa konduto",
+                    "time_close": "Fermu tempon",
+                    "time_open": "Malfermu tempon"
+                },
+                "data_description": {
+                    "inverted": "Tiu integriĝo sekvas la Cover Entity, kie malfermaj rimedoj la ekrano estas retirita kaj fermita la ekrano estas eltirita, la saman manieron kurtenoj kaj garaĝpordoj laboras. Por projekcioekrano tio estas kontraŭintuicia. Vi povas inversigi la konduton.",
+                    "time_close": "Tempo bezonata por fermi la projekciilon.",
+                    "time_open": "Tempo bezonata por malfermi la projekciilekranon."
+                },
+                "title": "Projekciilo ekranoj"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Projekciilo",
+                "projector_screen": "Projekta ekrano"
+            }
+        }
     }
-  }
 }

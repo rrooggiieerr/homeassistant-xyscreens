@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Enheten er allerede konfigurert"
-    },
-    "error": {
-      "cannot_connect": "Kunne ikke koble til",
-      "nonexisting_serial_port": "Seriell fattig eksisterer ikke",
-      "invalid_address": "Ugyldig adresse",
-      "unknown": "Uventet feil"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Serieport",
-          "address": "Adresse",
-          "device_type": "enhetstype",
-          "time_open": "Åpen tid",
-          "time_close": "Lukketid",
-          "inverted": "Inverter oppførsel"
+    "config": {
+        "abort": {
+            "already_configured": "Enheten er allerede konfigurert"
         },
-        "data_description": {
-          "serial_port": "Serieporten enheten din er koblet til.",
-          "address": "Den 6 tegn-heksadesikale adressen til enheten.",
-          "time_open": "Tiden må åpne enheten.",
-          "time_close": "Tiden er nødvendig for å lukke enheten.",
-          "inverted": "Denne integrasjonen følger dekkeenheten, der den åpne betyr at skjermen trekkes ut og lukkes skjermen ekstraheres på samme måte som gardiner og garasjedører fungerer. For en projeksjonsskjerm er dette kontraintuitivt. Du kan snu oppførselen."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Projektorskjerm",
-        "projector_lift": "Prosjektorløfting"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Prosjektor skjermalternativer",
-        "data": {
-          "time_open": "Åpen tid",
-          "time_close": "Lukketid",
-          "inverted": "Inverter oppførsel"
+        "error": {
+            "cannot_connect": "Kunne ikke koble til",
+            "invalid_address": "Ugyldig adresse",
+            "nonexisting_serial_port": "Seriell fattig eksisterer ikke",
+            "unknown": "Uventet feil"
         },
-        "data_description": {
-          "time_open": "Tiden må åpne projektorskjermen.",
-          "time_close": "Tiden var nødvendig for å lukke projektorskjermen.",
-          "inverted": "Denne integrasjonen følger dekkeenheten, der den åpne betyr at skjermen trekkes ut og lukkes skjermen ekstraheres på samme måte som gardiner og garasjedører fungerer. For en projeksjonsskjerm er dette kontraintuitivt. Du kan snu oppførselen."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Adresse",
+                    "device_type": "enhetstype",
+                    "inverted": "Inverter oppførsel",
+                    "serial_port": "Serieport",
+                    "time_close": "Lukketid",
+                    "time_open": "Åpen tid"
+                },
+                "data_description": {
+                    "address": "Den 6 tegn-heksadesikale adressen til enheten.",
+                    "inverted": "Denne integrasjonen følger dekkeenheten, der den åpne betyr at skjermen trekkes ut og lukkes skjermen ekstraheres på samme måte som gardiner og garasjedører fungerer. For en projeksjonsskjerm er dette kontraintuitivt. Du kan snu oppførselen.",
+                    "serial_port": "Serieporten enheten din er koblet til.",
+                    "time_close": "Tiden er nødvendig for å lukke enheten.",
+                    "time_open": "Tiden må åpne enheten."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Prosjektorløftalternativer",
-        "data": {
-          "time_open": "Åpen tid",
-          "time_close": "Lukketid",
-          "inverted": "Inverter oppførsel"
-        },
-        "data_description": {
-          "time_open": "Tid til å åpne projektorliften.",
-          "time_close": "Tid til å lukke projektorløften.",
-          "inverted": "Denne integrasjonen følger dekkeenheten, der den åpne betyr at skjermen trekkes ut og lukkes skjermen ekstraheres på samme måte som gardiner og garasjedører fungerer. For en projeksjonsskjerm er dette kontraintuitivt. Du kan snu oppførselen."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "projektorskjerm"
     },
-    "projector_lift": {
-      "name": "Projektorløft"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Lukket",
-          "opening": "Lukking",
-          "closing": "Åpning",
-          "closed": "Åpne"
+    "device": {
+        "projector_lift": {
+            "name": "Projektorløft"
+        },
+        "projector_screen": {
+            "name": "projektorskjerm"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Lukket",
-          "opening": "Lukking",
-          "closing": "Åpning",
-          "closed": "Åpne"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Åpne",
+                    "closing": "Åpning",
+                    "open": "Lukket",
+                    "opening": "Lukking"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Åpne",
+                    "closing": "Åpning",
+                    "open": "Lukket",
+                    "opening": "Lukking"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Inverter oppførsel",
+                    "time_close": "Lukketid",
+                    "time_open": "Åpen tid"
+                },
+                "data_description": {
+                    "inverted": "Denne integrasjonen følger dekkeenheten, der den åpne betyr at skjermen trekkes ut og lukkes skjermen ekstraheres på samme måte som gardiner og garasjedører fungerer. For en projeksjonsskjerm er dette kontraintuitivt. Du kan snu oppførselen.",
+                    "time_close": "Tid til å lukke projektorløften.",
+                    "time_open": "Tid til å åpne projektorliften."
+                },
+                "title": "Prosjektorløftalternativer"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Inverter oppførsel",
+                    "time_close": "Lukketid",
+                    "time_open": "Åpen tid"
+                },
+                "data_description": {
+                    "inverted": "Denne integrasjonen følger dekkeenheten, der den åpne betyr at skjermen trekkes ut og lukkes skjermen ekstraheres på samme måte som gardiner og garasjedører fungerer. For en projeksjonsskjerm er dette kontraintuitivt. Du kan snu oppførselen.",
+                    "time_close": "Tiden var nødvendig for å lukke projektorskjermen.",
+                    "time_open": "Tiden må åpne projektorskjermen."
+                },
+                "title": "Prosjektor skjermalternativer"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Prosjektorløfting",
+                "projector_screen": "Projektorskjerm"
+            }
+        }
     }
-  }
 }

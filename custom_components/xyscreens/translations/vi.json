@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Thiết bị đã cấu hình"
-    },
-    "error": {
-      "cannot_connect": "Lỗi kết nối",
-      "nonexisting_serial_port": "Lỗi nối tiếp không tồn tại",
-      "invalid_address": "Địa chỉ không hợp lệ",
-      "unknown": "Lỗi bất ngờ"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Cổng nối tiếp",
-          "address": "Địa chỉ",
-          "device_type": "Kiểu thiết bị",
-          "time_open": "Thời gian mở",
-          "time_close": "Đóng",
-          "inverted": "Comment"
+    "config": {
+        "abort": {
+            "already_configured": "Thiết bị đã cấu hình"
         },
-        "data_description": {
-          "serial_port": "Cổng nối tiếp thiết bị của bạn được kết nối.",
-          "address": "6 chữ thập lục phân của thiết bị.",
-          "time_open": "Cần thời gian để mở thiết bị.",
-          "time_close": "Cần thời gian để đóng thiết bị lại.",
-          "inverted": "Sự kết hợp này theo các Entity cover Entity, nơi mở nghĩa là màn hình được rút lại và đóng lại màn hình được chiết xuất, cũng giống như những tấm màn và cửa gara làm việc. Đối với một màn hình phản chiếu đây là phản trực quan. Anh có thể đảo ngược hành vi."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Màn hình Hiển thị",
-        "projector_lift": "Nâng máy chiếu phim"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Tùy chọn màn hình chương trình",
-        "data": {
-          "time_open": "Thời gian mở",
-          "time_close": "Đóng",
-          "inverted": "Comment"
+        "error": {
+            "cannot_connect": "Lỗi kết nối",
+            "invalid_address": "Địa chỉ không hợp lệ",
+            "nonexisting_serial_port": "Lỗi nối tiếp không tồn tại",
+            "unknown": "Lỗi bất ngờ"
         },
-        "data_description": {
-          "time_open": "Cần thời gian để mở màn hình máy chiếu.",
-          "time_close": "Cần thời gian để đóng màn hình máy chiếu.",
-          "inverted": "Sự kết hợp này theo các Entity cover Entity, nơi mở nghĩa là màn hình được rút lại và đóng lại màn hình được chiết xuất, cũng giống như những tấm màn và cửa gara làm việc. Đối với một màn hình phản chiếu đây là phản trực quan. Anh có thể đảo ngược hành vi."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Địa chỉ",
+                    "device_type": "Kiểu thiết bị",
+                    "inverted": "Comment",
+                    "serial_port": "Cổng nối tiếp",
+                    "time_close": "Đóng",
+                    "time_open": "Thời gian mở"
+                },
+                "data_description": {
+                    "address": "6 chữ thập lục phân của thiết bị.",
+                    "inverted": "Sự kết hợp này theo các Entity cover Entity, nơi mở nghĩa là màn hình được rút lại và đóng lại màn hình được chiết xuất, cũng giống như những tấm màn và cửa gara làm việc. Đối với một màn hình phản chiếu đây là phản trực quan. Anh có thể đảo ngược hành vi.",
+                    "serial_port": "Cổng nối tiếp thiết bị của bạn được kết nối.",
+                    "time_close": "Cần thời gian để đóng thiết bị lại.",
+                    "time_open": "Cần thời gian để mở thiết bị."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Tùy chọn nâng màn hình",
-        "data": {
-          "time_open": "Thời gian mở",
-          "time_close": "Đóng",
-          "inverted": "Comment"
-        },
-        "data_description": {
-          "time_open": "Cần thời gian để mở máy chiếu.",
-          "time_close": "Cần thời gian để đóng thang máy.",
-          "inverted": "Sự kết hợp này theo các Entity cover Entity, nơi mở nghĩa là màn hình được rút lại và đóng lại màn hình được chiết xuất, cũng giống như những tấm màn và cửa gara làm việc. Đối với một màn hình phản chiếu đây là phản trực quan. Anh có thể đảo ngược hành vi."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Màn hình Đối chiếu"
     },
-    "projector_lift": {
-      "name": "Nâng màn hình"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Đóng cửa",
-          "opening": "Đóng",
-          "closing": "Mở",
-          "closed": "Mở"
+    "device": {
+        "projector_lift": {
+            "name": "Nâng màn hình"
+        },
+        "projector_screen": {
+            "name": "Màn hình Đối chiếu"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Đóng cửa",
-          "opening": "Đóng",
-          "closing": "Mở",
-          "closed": "Mở"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Mở",
+                    "closing": "Mở",
+                    "open": "Đóng cửa",
+                    "opening": "Đóng"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Mở",
+                    "closing": "Mở",
+                    "open": "Đóng cửa",
+                    "opening": "Đóng"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Comment",
+                    "time_close": "Đóng",
+                    "time_open": "Thời gian mở"
+                },
+                "data_description": {
+                    "inverted": "Sự kết hợp này theo các Entity cover Entity, nơi mở nghĩa là màn hình được rút lại và đóng lại màn hình được chiết xuất, cũng giống như những tấm màn và cửa gara làm việc. Đối với một màn hình phản chiếu đây là phản trực quan. Anh có thể đảo ngược hành vi.",
+                    "time_close": "Cần thời gian để đóng thang máy.",
+                    "time_open": "Cần thời gian để mở máy chiếu."
+                },
+                "title": "Tùy chọn nâng màn hình"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Comment",
+                    "time_close": "Đóng",
+                    "time_open": "Thời gian mở"
+                },
+                "data_description": {
+                    "inverted": "Sự kết hợp này theo các Entity cover Entity, nơi mở nghĩa là màn hình được rút lại và đóng lại màn hình được chiết xuất, cũng giống như những tấm màn và cửa gara làm việc. Đối với một màn hình phản chiếu đây là phản trực quan. Anh có thể đảo ngược hành vi.",
+                    "time_close": "Cần thời gian để đóng màn hình máy chiếu.",
+                    "time_open": "Cần thời gian để mở màn hình máy chiếu."
+                },
+                "title": "Tùy chọn màn hình chương trình"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Nâng máy chiếu phim",
+                "projector_screen": "Màn hình Hiển thị"
+            }
+        }
     }
-  }
 }

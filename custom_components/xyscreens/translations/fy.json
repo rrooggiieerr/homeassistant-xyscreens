@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Apparaat is al konfigurearre"
-    },
-    "error": {
-      "cannot_connect": "Ferbine mislearre",
-      "nonexisting_serial_port": "Serial poarte bestiet net",
-      "invalid_address": "Unjildich adres",
-      "unknown": "Unferwachte flater"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Serial haven",
-          "address": "Adres",
-          "device_type": "Apparaat type",
-          "time_open": "Iepen tiid",
-          "time_close": "Slute tiid",
-          "inverted": "Invert gedrach"
+    "config": {
+        "abort": {
+            "already_configured": "Apparaat is al konfigurearre"
         },
-        "data_description": {
-          "serial_port": "De seriële poarte wêrmei jo apparaat is ferbûn.",
-          "address": "It 6 tekens heksadesimale adres fan it apparaat.",
-          "time_open": "Tiid nedich om it apparaat te iepenjen.",
-          "time_close": "Tiid nedich om it apparaat te sluten.",
-          "inverted": "Dizze yntegraasje folget de Cover Entity, wêr't iepen betsjut dat it skerm wurdt ynlutsen en sluten it skerm wurdt útlutsen, deselde manier as gerdinen en garaazjedoarren wurkje. Foar in projeksje skerm is dit kontrayntuïtyf. Jo kinne it gedrach omkeare."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Projektor skerm",
-        "projector_lift": "Projektor lift"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Projektor skerm opsjes",
-        "data": {
-          "time_open": "Iepen tiid",
-          "time_close": "Slute tiid",
-          "inverted": "Invert gedrach"
+        "error": {
+            "cannot_connect": "Ferbine mislearre",
+            "invalid_address": "Unjildich adres",
+            "nonexisting_serial_port": "Serial poarte bestiet net",
+            "unknown": "Unferwachte flater"
         },
-        "data_description": {
-          "time_open": "Tiid nedich om it projektorskerm te iepenjen.",
-          "time_close": "Tiid nedich om it projektorskerm te sluten.",
-          "inverted": "Dizze yntegraasje folget de Cover Entity, wêr't iepen betsjut dat it skerm wurdt ynlutsen en sluten it skerm wurdt útlutsen, deselde manier as gerdinen en garaazjedoarren wurkje. Foar in projeksje skerm is dit kontrayntuïtyf. Jo kinne it gedrach omkeare."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Adres",
+                    "device_type": "Apparaat type",
+                    "inverted": "Invert gedrach",
+                    "serial_port": "Serial haven",
+                    "time_close": "Slute tiid",
+                    "time_open": "Iepen tiid"
+                },
+                "data_description": {
+                    "address": "It 6 tekens heksadesimale adres fan it apparaat.",
+                    "inverted": "Dizze yntegraasje folget de Cover Entity, wêr't iepen betsjut dat it skerm wurdt ynlutsen en sluten it skerm wurdt útlutsen, deselde manier as gerdinen en garaazjedoarren wurkje. Foar in projeksje skerm is dit kontrayntuïtyf. Jo kinne it gedrach omkeare.",
+                    "serial_port": "De seriële poarte wêrmei jo apparaat is ferbûn.",
+                    "time_close": "Tiid nedich om it apparaat te sluten.",
+                    "time_open": "Tiid nedich om it apparaat te iepenjen."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Projector lift opsjes",
-        "data": {
-          "time_open": "Iepen tiid",
-          "time_close": "Slute tiid",
-          "inverted": "Invert gedrach"
-        },
-        "data_description": {
-          "time_open": "Tiid nedich om de projektorlift te iepenjen.",
-          "time_close": "Tiid nedich om de projektorlift te sluten.",
-          "inverted": "Dizze yntegraasje folget de Cover Entity, wêr't iepen betsjut dat it skerm wurdt ynlutsen en sluten it skerm wurdt útlutsen, deselde manier as gerdinen en garaazjedoarren wurkje. Foar in projeksje skerm is dit kontrayntuïtyf. Jo kinne it gedrach omkeare."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Projektor skerm"
     },
-    "projector_lift": {
-      "name": "Projektor lift"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Sletten",
-          "opening": "Ofsluting",
-          "closing": "Iepening",
-          "closed": "Iepen"
+    "device": {
+        "projector_lift": {
+            "name": "Projektor lift"
+        },
+        "projector_screen": {
+            "name": "Projektor skerm"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Sletten",
-          "opening": "Ofsluting",
-          "closing": "Iepening",
-          "closed": "Iepen"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Iepen",
+                    "closing": "Iepening",
+                    "open": "Sletten",
+                    "opening": "Ofsluting"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Iepen",
+                    "closing": "Iepening",
+                    "open": "Sletten",
+                    "opening": "Ofsluting"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Invert gedrach",
+                    "time_close": "Slute tiid",
+                    "time_open": "Iepen tiid"
+                },
+                "data_description": {
+                    "inverted": "Dizze yntegraasje folget de Cover Entity, wêr't iepen betsjut dat it skerm wurdt ynlutsen en sluten it skerm wurdt útlutsen, deselde manier as gerdinen en garaazjedoarren wurkje. Foar in projeksje skerm is dit kontrayntuïtyf. Jo kinne it gedrach omkeare.",
+                    "time_close": "Tiid nedich om de projektorlift te sluten.",
+                    "time_open": "Tiid nedich om de projektorlift te iepenjen."
+                },
+                "title": "Projector lift opsjes"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Invert gedrach",
+                    "time_close": "Slute tiid",
+                    "time_open": "Iepen tiid"
+                },
+                "data_description": {
+                    "inverted": "Dizze yntegraasje folget de Cover Entity, wêr't iepen betsjut dat it skerm wurdt ynlutsen en sluten it skerm wurdt útlutsen, deselde manier as gerdinen en garaazjedoarren wurkje. Foar in projeksje skerm is dit kontrayntuïtyf. Jo kinne it gedrach omkeare.",
+                    "time_close": "Tiid nedich om it projektorskerm te sluten.",
+                    "time_open": "Tiid nedich om it projektorskerm te iepenjen."
+                },
+                "title": "Projektor skerm opsjes"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Projektor lift",
+                "projector_screen": "Projektor skerm"
+            }
+        }
     }
-  }
 }

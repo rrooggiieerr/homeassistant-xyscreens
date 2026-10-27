@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "ڈیوائس پہلے سے موجود ہے"
-    },
-    "error": {
-      "cannot_connect": "متصل ہونے میں ناکامی",
-      "nonexisting_serial_port": "سیالکوٹ کوئی وجود نہیں رکھتا۔",
-      "invalid_address": "جواب میں",
-      "unknown": "غیر متصل"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "سیری بندرگاہ",
-          "address": "پتہ",
-          "device_type": "ٹائپ قسم",
-          "time_open": "کھولیں",
-          "time_close": "قریبی وقت",
-          "inverted": "تحمل"
+    "config": {
+        "abort": {
+            "already_configured": "ڈیوائس پہلے سے موجود ہے"
         },
-        "data_description": {
-          "serial_port": "سری پور آپ کے اوزار سے متصل ہے.",
-          "address": "اوزار کا 6 حرف ھسیڈیکل پتہ۔",
-          "time_open": "ڈیوائس کھولنے کے لیے وقت درکار تھا۔",
-          "time_close": "ڈیوائس بند کرنے کے لیے وقت درکار تھا۔",
-          "inverted": "اِس کا مطلب ہے کہ پردے کو اُٹھا کر بند کر دیا جاتا ہے ۔ ایک پروجیکٹ سکرین کے لئے یہ ضد ہے. آپ اس رُجحان کو بحال کر سکتے ہیں ۔"
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "پروجیکٹ سکرین",
-        "projector_lift": "منصوبہ بندی"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "منصوبہ بندی کے امور",
-        "data": {
-          "time_open": "کھولیں",
-          "time_close": "قریبی وقت",
-          "inverted": "تحمل"
+        "error": {
+            "cannot_connect": "متصل ہونے میں ناکامی",
+            "invalid_address": "جواب میں",
+            "nonexisting_serial_port": "سیالکوٹ کوئی وجود نہیں رکھتا۔",
+            "unknown": "غیر متصل"
         },
-        "data_description": {
-          "time_open": "پروجیکٹر سکرین کھولنے کے لیے وقت درکار تھا۔",
-          "time_close": "پروجیکٹر سکرین کو بند کرنے کے لیے وقت درکار تھا۔",
-          "inverted": "اِس کا مطلب ہے کہ پردے کو اُٹھا کر بند کر دیا جاتا ہے ۔ ایک پروجیکٹ سکرین کے لئے یہ ضد ہے. آپ اس رُجحان کو بحال کر سکتے ہیں ۔"
+        "step": {
+            "user": {
+                "data": {
+                    "address": "پتہ",
+                    "device_type": "ٹائپ قسم",
+                    "inverted": "تحمل",
+                    "serial_port": "سیری بندرگاہ",
+                    "time_close": "قریبی وقت",
+                    "time_open": "کھولیں"
+                },
+                "data_description": {
+                    "address": "اوزار کا 6 حرف ھسیڈیکل پتہ۔",
+                    "inverted": "اِس کا مطلب ہے کہ پردے کو اُٹھا کر بند کر دیا جاتا ہے ۔ ایک پروجیکٹ سکرین کے لئے یہ ضد ہے. آپ اس رُجحان کو بحال کر سکتے ہیں ۔",
+                    "serial_port": "سری پور آپ کے اوزار سے متصل ہے.",
+                    "time_close": "ڈیوائس بند کرنے کے لیے وقت درکار تھا۔",
+                    "time_open": "ڈیوائس کھولنے کے لیے وقت درکار تھا۔"
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "پروجیکٹر اختیارات اٹھا کر لاتے ہیں۔",
-        "data": {
-          "time_open": "کھولیں",
-          "time_close": "قریبی وقت",
-          "inverted": "تحمل"
-        },
-        "data_description": {
-          "time_open": "پروجیکٹر اپ کھولنے کے لئے وقت درکار تھا۔",
-          "time_close": "پروجیکٹر اپ کو بند کرنے کے لیے وقت درکار تھا۔",
-          "inverted": "اِس کا مطلب ہے کہ پردے کو اُٹھا کر بند کر دیا جاتا ہے ۔ ایک پروجیکٹ سکرین کے لئے یہ ضد ہے. آپ اس رُجحان کو بحال کر سکتے ہیں ۔"
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "پروجیکٹ سکرین"
     },
-    "projector_lift": {
-      "name": "منصوبہ بندی"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "بند",
-          "opening": "رنگ",
-          "closing": "کھولیں",
-          "closed": "کھولیں"
+    "device": {
+        "projector_lift": {
+            "name": "منصوبہ بندی"
+        },
+        "projector_screen": {
+            "name": "پروجیکٹ سکرین"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "بند",
-          "opening": "رنگ",
-          "closing": "کھولیں",
-          "closed": "کھولیں"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "کھولیں",
+                    "closing": "کھولیں",
+                    "open": "بند",
+                    "opening": "رنگ"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "کھولیں",
+                    "closing": "کھولیں",
+                    "open": "بند",
+                    "opening": "رنگ"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "تحمل",
+                    "time_close": "قریبی وقت",
+                    "time_open": "کھولیں"
+                },
+                "data_description": {
+                    "inverted": "اِس کا مطلب ہے کہ پردے کو اُٹھا کر بند کر دیا جاتا ہے ۔ ایک پروجیکٹ سکرین کے لئے یہ ضد ہے. آپ اس رُجحان کو بحال کر سکتے ہیں ۔",
+                    "time_close": "پروجیکٹر اپ کو بند کرنے کے لیے وقت درکار تھا۔",
+                    "time_open": "پروجیکٹر اپ کھولنے کے لئے وقت درکار تھا۔"
+                },
+                "title": "پروجیکٹر اختیارات اٹھا کر لاتے ہیں۔"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "تحمل",
+                    "time_close": "قریبی وقت",
+                    "time_open": "کھولیں"
+                },
+                "data_description": {
+                    "inverted": "اِس کا مطلب ہے کہ پردے کو اُٹھا کر بند کر دیا جاتا ہے ۔ ایک پروجیکٹ سکرین کے لئے یہ ضد ہے. آپ اس رُجحان کو بحال کر سکتے ہیں ۔",
+                    "time_close": "پروجیکٹر سکرین کو بند کرنے کے لیے وقت درکار تھا۔",
+                    "time_open": "پروجیکٹر سکرین کھولنے کے لیے وقت درکار تھا۔"
+                },
+                "title": "منصوبہ بندی کے امور"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "منصوبہ بندی",
+                "projector_screen": "پروجیکٹ سکرین"
+            }
+        }
     }
-  }
 }

@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "裝置已設定"
-    },
-    "error": {
-      "cannot_connect": "連接失敗",
-      "nonexisting_serial_port": "串式劣體不存在",
-      "invalid_address": "不合法的地址",
-      "unknown": "意外錯誤"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "串口",
-          "address": "地址",
-          "device_type": "裝置類型",
-          "time_open": "開啟時間",
-          "time_close": "關閉時間",
-          "inverted": "反轉行為"
+    "config": {
+        "abort": {
+            "already_configured": "裝置已設定"
         },
-        "data_description": {
-          "serial_port": "您的裝置連接的序列端口 。",
-          "address": "裝置的 6 個十六進位地址 。",
-          "time_open": "打開裝置需要時間",
-          "time_close": "關閉裝置需要時間",
-          "inverted": "這項整合遵循了封面實體, 投影屏幕是反直覺的 你可以反轉行為"
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "投影屏",
-        "projector_lift": "投影機升起"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "投影機螢幕選項",
-        "data": {
-          "time_open": "開啟時間",
-          "time_close": "關閉時間",
-          "inverted": "反轉行為"
+        "error": {
+            "cannot_connect": "連接失敗",
+            "invalid_address": "不合法的地址",
+            "nonexisting_serial_port": "串式劣體不存在",
+            "unknown": "意外錯誤"
         },
-        "data_description": {
-          "time_open": "要打開投影機屏幕需要時間 。",
-          "time_close": "關閉投影機屏幕需要時間",
-          "inverted": "這項整合遵循了封面實體, 投影屏幕是反直覺的 你可以反轉行為"
+        "step": {
+            "user": {
+                "data": {
+                    "address": "地址",
+                    "device_type": "裝置類型",
+                    "inverted": "反轉行為",
+                    "serial_port": "串口",
+                    "time_close": "關閉時間",
+                    "time_open": "開啟時間"
+                },
+                "data_description": {
+                    "address": "裝置的 6 個十六進位地址 。",
+                    "inverted": "這項整合遵循了封面實體, 投影屏幕是反直覺的 你可以反轉行為",
+                    "serial_port": "您的裝置連接的序列端口 。",
+                    "time_close": "關閉裝置需要時間",
+                    "time_open": "打開裝置需要時間"
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "投影機升起選項",
-        "data": {
-          "time_open": "開啟時間",
-          "time_close": "關閉時間",
-          "inverted": "反轉行為"
-        },
-        "data_description": {
-          "time_open": "需要時間打開投影機升降機",
-          "time_close": "關閉投影機升降機需要時間",
-          "inverted": "這項整合遵循了封面實體, 投影屏幕是反直覺的 你可以反轉行為"
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "投影屏"
     },
-    "projector_lift": {
-      "name": "投影機升起"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "關閉",
-          "opening": "關閉",
-          "closing": "開啟",
-          "closed": "開啟"
+    "device": {
+        "projector_lift": {
+            "name": "投影機升起"
+        },
+        "projector_screen": {
+            "name": "投影屏"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "關閉",
-          "opening": "關閉",
-          "closing": "開啟",
-          "closed": "開啟"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "開啟",
+                    "closing": "開啟",
+                    "open": "關閉",
+                    "opening": "關閉"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "開啟",
+                    "closing": "開啟",
+                    "open": "關閉",
+                    "opening": "關閉"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "反轉行為",
+                    "time_close": "關閉時間",
+                    "time_open": "開啟時間"
+                },
+                "data_description": {
+                    "inverted": "這項整合遵循了封面實體, 投影屏幕是反直覺的 你可以反轉行為",
+                    "time_close": "關閉投影機升降機需要時間",
+                    "time_open": "需要時間打開投影機升降機"
+                },
+                "title": "投影機升起選項"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "反轉行為",
+                    "time_close": "關閉時間",
+                    "time_open": "開啟時間"
+                },
+                "data_description": {
+                    "inverted": "這項整合遵循了封面實體, 投影屏幕是反直覺的 你可以反轉行為",
+                    "time_close": "關閉投影機屏幕需要時間",
+                    "time_open": "要打開投影機屏幕需要時間 。"
+                },
+                "title": "投影機螢幕選項"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "投影機升起",
+                "projector_screen": "投影屏"
+            }
+        }
     }
-  }
 }

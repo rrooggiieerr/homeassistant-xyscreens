@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "デバイスは既に設定されています"
-    },
-    "error": {
-      "cannot_connect": "接続できない",
-      "nonexisting_serial_port": "シリアル・オバートは存在しません",
-      "invalid_address": "無効なアドレス",
-      "unknown": "予期しないエラー"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "シリアルポート",
-          "address": "郵便番号",
-          "device_type": "デバイスタイプ",
-          "time_open": "営業時間",
-          "time_close": "クローズタイム",
-          "inverted": "行動を変換する"
+    "config": {
+        "abort": {
+            "already_configured": "デバイスは既に設定されています"
         },
-        "data_description": {
-          "serial_port": "デバイスが接続されているシリアルポート。",
-          "address": "デバイスの6文字の16進数アドレス。",
-          "time_open": "デバイスを開くために必要な時間。",
-          "time_close": "デバイスを閉じるために必要な時間。",
-          "inverted": "このインテグレーションは、画面をリトラクトし、画面を閉じるというオープンな手段が、カーテンとガレージドアの動作と同じ方法で抽出されます。 投影画面の場合、これは偽造的です。 動作を逆にすることができます。"
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "プロジェクター画面",
-        "projector_lift": "プロジェクターリフト"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "プロジェクター画面オプション",
-        "data": {
-          "time_open": "営業時間",
-          "time_close": "クローズタイム",
-          "inverted": "行動を変換する"
+        "error": {
+            "cannot_connect": "接続できない",
+            "invalid_address": "無効なアドレス",
+            "nonexisting_serial_port": "シリアル・オバートは存在しません",
+            "unknown": "予期しないエラー"
         },
-        "data_description": {
-          "time_open": "プロジェクター画面を開く時間が必要です。",
-          "time_close": "プロジェクター画面を閉じるために必要な時間。",
-          "inverted": "このインテグレーションは、画面をリトラクトし、画面を閉じるというオープンな手段が、カーテンとガレージドアの動作と同じ方法で抽出されます。 投影画面の場合、これは偽造的です。 動作を逆にすることができます。"
+        "step": {
+            "user": {
+                "data": {
+                    "address": "郵便番号",
+                    "device_type": "デバイスタイプ",
+                    "inverted": "行動を変換する",
+                    "serial_port": "シリアルポート",
+                    "time_close": "クローズタイム",
+                    "time_open": "営業時間"
+                },
+                "data_description": {
+                    "address": "デバイスの6文字の16進数アドレス。",
+                    "inverted": "このインテグレーションは、画面をリトラクトし、画面を閉じるというオープンな手段が、カーテンとガレージドアの動作と同じ方法で抽出されます。 投影画面の場合、これは偽造的です。 動作を逆にすることができます。",
+                    "serial_port": "デバイスが接続されているシリアルポート。",
+                    "time_close": "デバイスを閉じるために必要な時間。",
+                    "time_open": "デバイスを開くために必要な時間。"
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "プロジェクターリフトオプション",
-        "data": {
-          "time_open": "営業時間",
-          "time_close": "クローズタイム",
-          "inverted": "行動を変換する"
-        },
-        "data_description": {
-          "time_open": "プロジェクターリフトの開通に必要な時間。",
-          "time_close": "プロジェクターリフトを閉じるために必要な時間。",
-          "inverted": "このインテグレーションは、画面をリトラクトし、画面を閉じるというオープンな手段が、カーテンとガレージドアの動作と同じ方法で抽出されます。 投影画面の場合、これは偽造的です。 動作を逆にすることができます。"
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "プロジェクター スクリーン"
     },
-    "projector_lift": {
-      "name": "プロジェクターリフト"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "休館日",
-          "opening": "オープニング",
-          "closing": "オープニング",
-          "closed": "オープン"
+    "device": {
+        "projector_lift": {
+            "name": "プロジェクターリフト"
+        },
+        "projector_screen": {
+            "name": "プロジェクター スクリーン"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "休館日",
-          "opening": "オープニング",
-          "closing": "オープニング",
-          "closed": "オープン"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "オープン",
+                    "closing": "オープニング",
+                    "open": "休館日",
+                    "opening": "オープニング"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "オープン",
+                    "closing": "オープニング",
+                    "open": "休館日",
+                    "opening": "オープニング"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "行動を変換する",
+                    "time_close": "クローズタイム",
+                    "time_open": "営業時間"
+                },
+                "data_description": {
+                    "inverted": "このインテグレーションは、画面をリトラクトし、画面を閉じるというオープンな手段が、カーテンとガレージドアの動作と同じ方法で抽出されます。 投影画面の場合、これは偽造的です。 動作を逆にすることができます。",
+                    "time_close": "プロジェクターリフトを閉じるために必要な時間。",
+                    "time_open": "プロジェクターリフトの開通に必要な時間。"
+                },
+                "title": "プロジェクターリフトオプション"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "行動を変換する",
+                    "time_close": "クローズタイム",
+                    "time_open": "営業時間"
+                },
+                "data_description": {
+                    "inverted": "このインテグレーションは、画面をリトラクトし、画面を閉じるというオープンな手段が、カーテンとガレージドアの動作と同じ方法で抽出されます。 投影画面の場合、これは偽造的です。 動作を逆にすることができます。",
+                    "time_close": "プロジェクター画面を閉じるために必要な時間。",
+                    "time_open": "プロジェクター画面を開く時間が必要です。"
+                },
+                "title": "プロジェクター画面オプション"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "プロジェクターリフト",
+                "projector_screen": "プロジェクター画面"
+            }
+        }
     }
-  }
 }

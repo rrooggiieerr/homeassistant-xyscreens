@@ -1,98 +1,98 @@
 {
-  "config": {
-    "abort": {
-      "already_configured": "Dispozitivi është konfiguruar tashmë"
-    },
-    "error": {
-      "cannot_connect": "Lidhja dështoi",
-      "nonexisting_serial_port": "Nuk ekziston i varfëri serial",
-      "invalid_address": "Adresë e pavlefshme",
-      "unknown": "Gabim i papritur"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "serial_port": "Porti serial",
-          "address": "Adresa",
-          "device_type": "Lloji i dispozitivit",
-          "time_open": "Hap kohën",
-          "time_close": "Mbyll",
-          "inverted": "Sjellja"
+    "config": {
+        "abort": {
+            "already_configured": "Dispozitivi është konfiguruar tashmë"
         },
-        "data_description": {
-          "serial_port": "Porti serial me të cilin është i lidhur pajisja juaj.",
-          "address": "Adresa hexadecimal 6 e pajisjes.",
-          "time_open": "Duhet kohë për të hapur pajisjen.",
-          "time_close": "Duhet kohë për të mbyllur pajisjen.",
-          "inverted": "Ky integrim pason Entitetin e Mbulimit, ku e hapur do të thotë se ekrani është i zgjatur dhe mbyllur, e njëjta mënyrë si hiqen perdet dhe dyert e garazhit. Për një ekran projeksioni kjo është kundërintuitive. Ju mund të kthehet sjelljen."
-        }
-      }
-    }
-  },
-  "selector": {
-    "device_type": {
-      "options": {
-        "projector_screen": "Projekti",
-        "projector_lift": "Projekti"
-      }
-    }
-  },
-  "options": {
-    "step": {
-      "projector_screen": {
-        "title": "Mundësitë",
-        "data": {
-          "time_open": "Hap kohën",
-          "time_close": "Mbyll",
-          "inverted": "Sjellja"
+        "error": {
+            "cannot_connect": "Lidhja dështoi",
+            "invalid_address": "Adresë e pavlefshme",
+            "nonexisting_serial_port": "Nuk ekziston i varfëri serial",
+            "unknown": "Gabim i papritur"
         },
-        "data_description": {
-          "time_open": "Duhet kohë për të hapur ekranin e projektorit.",
-          "time_close": "Koha e duhur për të mbyllur ekranin e projektorit.",
-          "inverted": "Ky integrim pason Entitetin e Mbulimit, ku e hapur do të thotë se ekrani është i zgjatur dhe mbyllur, e njëjta mënyrë si hiqen perdet dhe dyert e garazhit. Për një ekran projeksioni kjo është kundërintuitive. Ju mund të kthehet sjelljen."
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Adresa",
+                    "device_type": "Lloji i dispozitivit",
+                    "inverted": "Sjellja",
+                    "serial_port": "Porti serial",
+                    "time_close": "Mbyll",
+                    "time_open": "Hap kohën"
+                },
+                "data_description": {
+                    "address": "Adresa hexadecimal 6 e pajisjes.",
+                    "inverted": "Ky integrim pason Entitetin e Mbulimit, ku e hapur do të thotë se ekrani është i zgjatur dhe mbyllur, e njëjta mënyrë si hiqen perdet dhe dyert e garazhit. Për një ekran projeksioni kjo është kundërintuitive. Ju mund të kthehet sjelljen.",
+                    "serial_port": "Porti serial me të cilin është i lidhur pajisja juaj.",
+                    "time_close": "Duhet kohë për të mbyllur pajisjen.",
+                    "time_open": "Duhet kohë për të hapur pajisjen."
+                }
+            }
         }
-      },
-      "projector_lift": {
-        "title": "Mundësitë",
-        "data": {
-          "time_open": "Hap kohën",
-          "time_close": "Mbyll",
-          "inverted": "Sjellja"
-        },
-        "data_description": {
-          "time_open": "Duhet kohë për të hapur ashensorin projektor.",
-          "time_close": "Duhet kohë për të mbyllur ngritjen e projektorit.",
-          "inverted": "Ky integrim pason Entitetin e Mbulimit, ku e hapur do të thotë se ekrani është i zgjatur dhe mbyllur, e njëjta mënyrë si hiqen perdet dhe dyert e garazhit. Për një ekran projeksioni kjo është kundërintuitive. Ju mund të kthehet sjelljen."
-        }
-      }
-    }
-  },
-  "device": {
-    "projector_screen": {
-      "name": "Projekti"
     },
-    "projector_lift": {
-      "name": "Projekti"
-    }
-  },
-  "entity": {
-    "cover": {
-      "projector_screen": {
-        "state": {
-          "open": "Mbyllur",
-          "opening": "Duke mbyllur",
-          "closing": "Duke hapur",
-          "closed": "Hap"
+    "device": {
+        "projector_lift": {
+            "name": "Projekti"
+        },
+        "projector_screen": {
+            "name": "Projekti"
         }
-      },
-      "projector_lift": {
-        "state": {
-          "open": "Mbyllur",
-          "opening": "Duke mbyllur",
-          "closing": "Duke hapur",
-          "closed": "Hap"
+    },
+    "entity": {
+        "cover": {
+            "projector_lift": {
+                "state": {
+                    "closed": "Hap",
+                    "closing": "Duke hapur",
+                    "open": "Mbyllur",
+                    "opening": "Duke mbyllur"
+                }
+            },
+            "projector_screen": {
+                "state": {
+                    "closed": "Hap",
+                    "closing": "Duke hapur",
+                    "open": "Mbyllur",
+                    "opening": "Duke mbyllur"
+                }
+            }
         }
-      }
+    },
+    "options": {
+        "step": {
+            "projector_lift": {
+                "data": {
+                    "inverted": "Sjellja",
+                    "time_close": "Mbyll",
+                    "time_open": "Hap kohën"
+                },
+                "data_description": {
+                    "inverted": "Ky integrim pason Entitetin e Mbulimit, ku e hapur do të thotë se ekrani është i zgjatur dhe mbyllur, e njëjta mënyrë si hiqen perdet dhe dyert e garazhit. Për një ekran projeksioni kjo është kundërintuitive. Ju mund të kthehet sjelljen.",
+                    "time_close": "Duhet kohë për të mbyllur ngritjen e projektorit.",
+                    "time_open": "Duhet kohë për të hapur ashensorin projektor."
+                },
+                "title": "Mundësitë"
+            },
+            "projector_screen": {
+                "data": {
+                    "inverted": "Sjellja",
+                    "time_close": "Mbyll",
+                    "time_open": "Hap kohën"
+                },
+                "data_description": {
+                    "inverted": "Ky integrim pason Entitetin e Mbulimit, ku e hapur do të thotë se ekrani është i zgjatur dhe mbyllur, e njëjta mënyrë si hiqen perdet dhe dyert e garazhit. Për një ekran projeksioni kjo është kundërintuitive. Ju mund të kthehet sjelljen.",
+                    "time_close": "Koha e duhur për të mbyllur ekranin e projektorit.",
+                    "time_open": "Duhet kohë për të hapur ekranin e projektorit."
+                },
+                "title": "Mundësitë"
+            }
+        }
+    },
+    "selector": {
+        "device_type": {
+            "options": {
+                "projector_lift": "Projekti",
+                "projector_screen": "Projekti"
+            }
+        }
     }
-  }
 }
