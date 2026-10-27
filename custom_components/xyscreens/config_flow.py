@@ -3,7 +3,6 @@
 from typing import Any, override
 
 import probatio
-from xyscreens import XYScreens
 
 from homeassistant.config_entries import ConfigFlow, ConfigFlowResult
 from homeassistant.const import CONF_ADDRESS, UnitOfTime
@@ -17,6 +16,7 @@ from homeassistant.helpers.selector import (
     SelectSelectorConfig,
     SerialPortSelector,
 )
+from xyscreens import XYScreens
 
 from .const import (
     CONF_ADDRESS_SEE_MAX,
@@ -240,10 +240,8 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
                 # a title the user customized isn't overwritten on reconfigure.
                 return self.async_update_reload_and_abort(
                     reconfigure_entry,
-                    title=reconfigure_entry.title,
                     data=data,
                     options=options,
-                    reason="reconfigure_successful",
                 )
 
         # Combine the current entry data with schema.

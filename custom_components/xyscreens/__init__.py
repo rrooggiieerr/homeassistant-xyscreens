@@ -3,13 +3,12 @@
 import logging
 from typing import Any, Final
 
-from xyscreens import XYScreens
-
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_ADDRESS, Platform
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers import entity_registry as er
+from xyscreens import XYScreens
 
 from .const import (
     CONF_ADDRESS_XYSCREENS,

@@ -1,12 +1,10 @@
 """The XY Screens cover entity."""
 
 from collections.abc import Callable, Coroutine
-from datetime import timedelta
+from datetime import datetime as dt, timedelta
 import functools
 import logging
 from typing import Any, Final, override
-
-from xyscreens import XYScreens, XYScreensConnectionError, XYScreensState
 
 from homeassistant.components.cover import (
     ATTR_CURRENT_POSITION,
@@ -23,6 +21,7 @@ from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.event import async_track_time_interval
 from homeassistant.helpers.restore_state import RestoreEntity
+from xyscreens import XYScreens, XYScreensConnectionError, XYScreensState
 
 from .const import (
     CONF_ADDRESS_XYSCREENS,
@@ -70,7 +69,7 @@ def _xyscreens_error_wrapper[T](
     func: Callable[..., Coroutine[Any, Any, T]],
 ) -> Callable[..., Coroutine[Any, Any, T]]:
     @functools.wraps(func)
-    async def wrapper(self, *args: Any, **kwargs: Any) -> T:
+    async def wrapper(self: XYScreensCover, *args: Any, **kwargs: Any) -> T:
         try:
             return await func(self, *args, **kwargs)
         except XYScreensConnectionError as exc:
@@ -101,8 +100,8 @@ class XYScreensCover(CoverEntity, RestoreEntity):
 
     _attr_is_closed = False
 
-    _unsubscribe_updater = None
-    _update_interval = None
+    _unsubscribe_updater: Callable[[], None] | None = None
+    _update_interval: timedelta | None = None
 
     def __init__(
         self,
@@ -193,7 +192,7 @@ class XYScreensCover(CoverEntity, RestoreEntity):
 
         self.async_write_ha_state()
 
-    def _start_updater(self, interval=SCAN_INTERVAL):
+    def _start_updater(self, interval: timedelta = SCAN_INTERVAL) -> None:
         """Start the updater to update Home Assistant while projector screen/lift is moving."""
         if self._unsubscribe_updater and self._update_interval != interval:
             self._stop_updater()
@@ -205,11 +204,11 @@ class XYScreensCover(CoverEntity, RestoreEntity):
             )
 
     @callback
-    def _updater_hook(self, now):
+    def _updater_hook(self, now: dt) -> None:
         """Call for the updater."""
         self.async_schedule_update_ha_state(True)
 
-    def _stop_updater(self):
+    def _stop_updater(self) -> None:
         """Stop the updater."""
         if self._unsubscribe_updater is not None:
             self._unsubscribe_updater()
