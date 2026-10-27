@@ -11,3 +11,8 @@ CONF_DEVICE_TYPE_PROJECTOR_LIFT = "projector_lift"
 CONF_TIME_OPEN = "time_open"
 CONF_TIME_CLOSE = "time_close"
 CONF_INVERTED = "inverted"
+
+SPONSOR_PLACEHOLDERS = {
+    "github_sponsors_url": "https://github.com/sponsors/rrooggiieerr",
+    "buymeacoffee_url": "https://buymeacoffee.com/rrooggiieerr",
+}

@@ -29,6 +29,7 @@ from .const import (
     CONF_TIME_CLOSE,
     CONF_TIME_OPEN,
     DOMAIN,
+    SPONSOR_PLACEHOLDERS,
 )
 
 DEVICE_TYPE_TITLES = {
@@ -207,6 +208,9 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
 
         return self.async_show_form(
             step_id="user",
+            description_placeholders={
+                **SPONSOR_PLACEHOLDERS,
+            },
             data_schema=data_schema,
             errors=errors,
         )
@@ -252,7 +256,10 @@ class XYScreensConfigFlow(ConfigFlow, domain=DOMAIN):
 
         return self.async_show_form(
             step_id="reconfigure",
-            description_placeholders={"title": reconfigure_entry.title},
+            description_placeholders={
+                "title": reconfigure_entry.title,
+                **SPONSOR_PLACEHOLDERS,
+            },
             data_schema=data_schema,
             errors=errors,
         )
