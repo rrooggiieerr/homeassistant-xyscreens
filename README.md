@@ -5,7 +5,7 @@
 [![License][license-shield]][license]
 [![Maintainer][maintainer-shield]][maintainer]
 [![Home Assistant][homeassistant-shield]][homeassistant]
-[![HACS][hacs-shield]][hacs]  
+[![Marketplace][marketplace-shield]][marketplace]  
 [![GitHub Sponsors][github-shield]][github]
 [![BuyMeCoffee][buymecoffee-shield]][buymecoffee]
 
@@ -139,18 +139,17 @@ show correctly, however the voice commands and actions are inverted.
 
 ## Installation
 
-### HACS
+### Marketplace
 
-The recommended way to install this Home Assistant integration is by using [HACS][hacs].
-Click the following button to open the integration directly on the HACS integration page.
+The recommended way to install this Home Assistant integration is by using [Marketplace][marketplace].
+Click the following button to open the integration directly on the Marketplace page.
 
-[![Install **XY Screens** from HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=rrooggiieerr&repository=homeassistant-xyscreens&category=integration)
+[![Install XY Screens from Marketplace.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=rrooggiieerr&repository=homeassistant-xyscreens&category=integration)
 
 Or follow these instructions:
 
-- Go to your **HACS** view in Home Assistant and search for *XY Screens*
-- Select **Download**
-- Restart Home Assistant
+- Go to **Settings > Marketplace** in Home Assistant and search for *XY Screens*
+- Select **Install** and confirm the installation
 
 ### Manually
 
@@ -189,7 +188,7 @@ More information about translating Home Assistant custom integrations can be fou
 
 ### Star this integration
 
-Help other Home Assistant and XY Screens users discover this integration by starring this GitHub
+Help other Home Assistant and XY Screens users discover this integration by starring the GitHub
 repository. Just click **⭐ Star** at the top right of [this page](https://github.com/rrooggiieerr/homeassistant-xyscreens).
 
 ### Support my work
@@ -237,8 +236,8 @@ I'm available for freelance development work. You can find my contact details on
 [maintainer-shield]: https://img.shields.io/badge/MAINTAINER-%40rrooggiieerr-41BDF5?style=for-the-badge
 [homeassistant]: https://www.home-assistant.io/
 [homeassistant-shield]: https://img.shields.io/badge/home%20assistant-%2341BDF5.svg?style=for-the-badge&logo=home-assistant&logoColor=white
-[hacs]: https://hacs.xyz/
-[hacs-shield]: https://img.shields.io/badge/HACS-Default-41BDF5.svg?style=for-the-badge
+[marketplace]: https://www.home-assistant.io/integrations/marketplace/
+[marketplace-shield]: https://img.shields.io/badge/Marketplace-Default-41BDF5.svg?style=for-the-badge
 [buymecoffee]: https://www.buymeacoffee.com/rrooggiieerr
 [buymecoffee-shield]: https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black
 [github]: https://github.com/sponsors/rrooggiieerr
